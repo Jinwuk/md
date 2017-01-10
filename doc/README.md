@@ -16,6 +16,7 @@ Image를 링크 시키기 위해서는 Github에서 해당 이미지의 주소�
 
 ![Iamge](https://raw.githubusercontent.com/Jinwuk/md/9984e93bf184907664be61277644bfe43b151e9c/img/0001.png)
 
+![Girl](https://github.com/Jinwuk/md/blob/master/img/0010320.png?raw=true)
 
 
 
