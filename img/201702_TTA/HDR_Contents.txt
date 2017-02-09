@@ -1,0 +1,52 @@
+일반
+CompleteName                     : D:\Contents\HDR\PQ_ProresHQ(422).mov
+Format                           : MPEG-4
+Format_Profile                   : QuickTime
+CodecID/String                   : qt   0000.00 (qt  )
+FileSize/String                  : 68.3 GiB
+Duration/String                  : 6분 33초
+OverallBitRate_Mode/String       : 변동
+OverallBitRate/String            : 1 490 Mbps
+Encoded_Date                     : UTC 2016-12-20 04:35:14
+Tagged_Date                      : UTC 2016-12-20 05:07:16
+Encoded_Library/String           : Apple QuickTime
+
+비디오
+ID/String                        : 1
+Format                           : ProRes
+Format_Version                   : Version 0
+Format_Profile                   : 422 HQ
+CodecID                          : apch
+Duration/String                  : 6분 33초
+BitRate_Mode/String              : 변동
+BitRate/String                   : 1 490 Mbps
+Width/String                     : 3 840 픽셀
+Height/String                    : 2 160 픽셀
+DisplayAspectRatio/String        : 16:9
+FrameRate_Mode/String            : 고정
+FrameRate/String                 : 59.940 (60000/1001) fps
+ColorSpace                       : YUV
+ChromaSubsampling/String         : 4:2:2
+ScanType/String                  : 프로그레시브
+Bits-(Pixel*Frame)               : 2.997
+StreamSize/String                : 68.3 GiB (100%)
+Title                            : Core Media Video
+Encoded_Library/String           : abm0
+Encoded_Date                     : UTC 2016-12-20 04:35:14
+Tagged_Date                      : UTC 2016-12-20 05:07:16
+colour_primaries                 : BT.2020
+transfer_characteristics         : SMPTE ST 2084
+matrix_coefficients              : BT.2020 non-constant
+matrix_coefficients_Original     : BT.709
+
+기타
+ID/String                        : 2
+Type                             : Time code
+Format                           : QuickTime TC
+Duration/String                  : 6분 33초
+TimeCode_FirstFrame              : 01:00:00:00
+TimeCode_Striped/String          : 예
+Title                            : Core Media Time Code
+인코딩 날짜                           : UTC 2016-12-20 04:35:14
+태깅한 날짜                           : UTC 2016-12-20 05:07:16
+
