@@ -1,0 +1,909 @@
+[13:53:05.450][INFO] ********************************************************************************
+[13:53:05.450][INFO] *                             HEVC Master Encoder                              *
+[13:53:05.450][INFO] *                           ETRI & SEOGWANG SYSTEM                             *
+[13:53:05.450][INFO] ********************************************************************************
+
+[13:53:05.450][INFO] ------- Common Configuration -------
+[13:53:05.450][INFO] input_device_type: 0
+[13:53:05.450][INFO] output_device_type: 1
+[13:53:05.450][INFO] enable_etri_vpp: 0
+[13:53:05.450][INFO] enable_sub_master: 1
+[13:53:05.450][INFO] enable_slice_encode: 1
+[13:53:05.450][INFO] ip_configure_file_name: configure_ip.ini
+[13:53:05.450][INFO] buffering_times: 4
+[13:53:05.450][INFO] my_id: -1
+[13:53:05.450][INFO] my_ip: 129.254.61.213
+[13:53:05.450][INFO] my_port: 10230
+[13:53:05.450][INFO] my_submaster_idx: 0
+[13:53:05.450][INFO] submaster00: 192.168.182.1:10240;172.31.1.1:10250,172.31.2.1:10250,172.31.3.1:10250,172.31.4.1:10250,172.31.5.1:10250,172.31.6.1:10250
+[13:53:05.450][INFO] submaster01: 192.168.182.1:10241;172.31.7.1:10250,172.31.8.1:10250,172.31.9.1:10250,172.31.10.1:10250,172.31.11.1:10250,172.31.12.1:10250
+[13:53:05.450][INFO] submaster02: 192.168.183.1:10240;172.31.1.1:10250,172.31.2.1:10250,172.31.3.1:10250,172.31.4.1:10250,172.31.5.1:10250,172.31.6.1:10250
+[13:53:05.450][INFO] submaster03: 192.168.183.1:10241;172.31.7.1:10250,172.31.8.1:10250,172.31.9.1:10250,172.31.10.1:10250,172.31.11.1:10250,172.31.12.1:10250
+[13:53:05.450][INFO] worker00: 127.0.0.1:10250
+
+[13:53:05.450][INFO] ------- Capture Configuration -------
+[13:53:05.450][INFO] capture_device_index: 0
+[13:53:05.450][INFO] capture_stream_type: 1
+[13:53:05.450][INFO] video_width: 3840
+[13:53:05.450][INFO] video_height: 2160
+[13:53:05.450][INFO] video_bitdepth: 10
+[13:53:05.450][INFO] video_framerate: 5994
+[13:53:05.450][INFO] video_pixel_format: yuv422p10
+[13:53:05.450][INFO] video_pixel_format_index: 74
+[13:53:05.450][INFO] video_frame_size: 33177600
+[13:53:05.450][INFO] audio_samplerate: 0
+[13:53:05.450][INFO] audio_channel: 0
+[13:53:05.450][INFO] audio_bitdepth: 0
+[13:53:05.450][INFO] audio_sample_format: 
+[13:53:05.450][INFO] audio_sample_format_index: -1
+[13:53:05.450][INFO] audio_frame_size: -1
+
+[13:53:05.450][INFO] ------- Content Configuration -------
+[13:53:05.450][INFO] content_file_name: c:\[4228bit]TTA_UHD_TestClip.mp4
+[13:53:05.450][INFO] content_file_type: 3
+[13:53:05.450][INFO] video_width: 0
+[13:53:05.450][INFO] video_height: 0
+[13:53:05.450][INFO] video_bitdepth: 0
+[13:53:05.450][INFO] video_framerate: 0
+[13:53:05.450][INFO] video_pixel_format: 
+[13:53:05.450][INFO] video_pixel_format_index: -1
+[13:53:05.450][INFO] video_frame_size: -1
+[13:53:05.450][INFO] audio_samplerate: 0
+[13:53:05.450][INFO] audio_channel: 0
+[13:53:05.450][INFO] audio_bitdepth: 0
+[13:53:05.450][INFO] audio_sample_format: 
+[13:53:05.450][INFO] audio_sample_format_index: -1
+[13:53:05.450][INFO] audio_frame_size: -1
+
+[13:53:05.450][INFO] ------- Raw data file Configuration -------
+[13:53:05.450][INFO] raw_file_type: 1
+[13:53:05.450][INFO] video_file_name: c:\video_3840x2160_2997fps_yuv420p10.yuv
+[13:53:05.450][INFO] video_width: 3840
+[13:53:05.450][INFO] video_height: 2160
+[13:53:05.450][INFO] video_bitdepth: 10
+[13:53:05.450][INFO] video_framerate: 2997
+[13:53:05.450][INFO] video_pixel_format: yuv420p10
+[13:53:05.450][INFO] video_pixel_format_index: -1
+[13:53:05.450][INFO] video_frame_size: -1
+[13:53:05.450][INFO] audio_file_name: c:\audio_44100kh_2ch_s16.pcm
+[13:53:05.450][INFO] audio_samplerate: 48000
+[13:53:05.450][INFO] audio_channel: 2
+[13:53:05.450][INFO] audio_bitdepth: 16
+[13:53:05.450][INFO] audio_sample_format: s16
+[13:53:05.450][INFO] audio_sample_format_index: -1
+[13:53:05.450][INFO] audio_frame_size: -1
+
+[13:53:05.450][INFO] ------- Encode Configuration -------
+[13:53:05.450][INFO] video_bitrate: 15000000
+[13:53:05.450][INFO] video_width: 3840
+[13:53:05.450][INFO] video_height: 2160
+[13:53:05.450][INFO] video_bitdepth: 10
+[13:53:05.450][INFO] video_framerate: 5994
+[13:53:05.450][INFO] video_pixel_format: yuv420p10
+[13:53:05.450][INFO] video_pixel_format_index: 72
+[13:53:05.450][INFO] video_frame_size: 24883200
+[13:53:05.450][INFO] audio_bitrate: 192000
+[13:53:05.450][INFO] audio_samplerate: 48000
+[13:53:05.450][INFO] audio_channel: 2
+[13:53:05.450][INFO] audio_bitdepth: 16
+[13:53:05.450][INFO] audio_sample_format: s16
+[13:53:05.450][INFO] audio_sample_format_index: 1
+[13:53:05.450][INFO] audio_frame_size: 4096
+
+[13:53:05.450][INFO] ------- Encoder Configuration -------
+[13:53:05.450][INFO] slice_height: 384,384,384,384,384,240
+[13:53:05.450][INFO] config_file_name: ETRI_RA_main10.cfg
+[13:53:05.450][INFO] module_name: TDllEncoder_e265SingleDLL.dll
+[13:53:05.450][INFO] module_name_for_slice_encode: TDllEncoder_e265SingleDLL_Slice.dll
+[13:53:05.450][INFO] module_num: 2
+[13:53:05.450][INFO] intra_period: 32
+[13:53:05.450][INFO] qp: 32
+[13:53:05.450][INFO] num_tile_columns_minus1: 5
+[13:53:05.450][INFO] num_tile_rows_minus1: 4
+[13:53:05.450][INFO] initial_qp: 32
+[13:53:05.450][INFO] color_space_yv12: 0
+[13:53:05.450][INFO] high_quality: 0
+
+[13:53:05.450][INFO] ------- TS Send/Recv Configuration -------
+[13:53:05.450][INFO] ts_file_name: c:\3840x2160_2997fps_yuv420p10_48000kh_2ch_s16.ts
+[13:53:05.450][INFO] udp_server_ip: 192.168.100.12
+[13:53:05.450][INFO] udp_server_port: 7000
+[13:53:05.450][INFO] ------- TsMuxer Configuration -------
+[13:53:05.450][INFO] max_pkt_num: 7
+[13:53:05.450][INFO] mux_bitrate: 20000000
+[13:53:05.450][INFO] transport_stream_id: 1
+[13:53:05.450][INFO] original_network_id: 1
+[13:53:05.450][INFO] provider: ETRI & SEOGWANG SYSTEM Television
+[13:53:05.450][INFO] service_name: ETRI & SEOGWANG SYSTEM TS MUXER
+[13:53:05.450][INFO] pat_retrans_time: 40
+[13:53:05.450][INFO] sdt_retrans_time: 200
+[13:53:05.450][INFO] pcr_retrans_time: 40
+[13:53:05.465][INFO] -- Program Configuration --
+[13:53:05.465][INFO] pmt_pid: 256
+[13:53:05.465][INFO] program_id: 1
+[13:53:05.465][INFO] pcr_pid: 257
+[13:53:05.465][INFO] num_streams: 2
+[13:53:05.465][INFO] audio_pid: 258
+[13:53:05.465][INFO] audio_stream_type: 15
+[13:53:05.465][INFO] audio_stream_id: 192
+[13:53:05.465][INFO] video_pid: 257
+[13:53:05.465][INFO] video_stream_type: 36
+[13:53:05.465][INFO] video_stream_id: 224
+
+[13:53:05.465][INFO] ------- Logger Configuration -------
+[13:53:05.465][INFO] log_file_name: encoder.log
+[13:53:05.465][INFO] log_level: 31
+[13:53:05.465][INFO] log_mode: 3
+
+[13:53:05.465][DEBUG] Video vpp data buffer size: 33177600
+[13:53:05.465][DEBUG] Video raw data buffer size: 24883200
+[13:53:05.465][DEBUG] Video es data buffer size: 8294400
+[13:53:05.497][DEBUG] Video vpp data buffer number: 1024
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1024,	used_count:   0,	temp_count:   0
+********************************************************************************
+[13:53:15.529][DEBUG] Video raw data buffer number: 1024
+[13:53:15.529][DEBUG] Video es data buffer number: 1056
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1056,	used_count:   0,	temp_count:   0
+********************************************************************************
+[13:53:20.561][DEBUG] INIT_SOCK() success!
+[13:53:20.561][DEBUG] INIT_SOCK() success!
+Windows DESKTOP-SC0DPH5 9200 6.2 x86_64
+Windows DESKTOP-SC0DPH5 9200 6.2 x86_64
+Windows DESKTOP-SC0DPH5 9200 6.2 x86_64
+Windows DESKTOP-SC0DPH5 9200 6.2 x86_64
+[13:53:21.576][DEBUG][..\ffmpeg\SWScaler.cpp, SWScaler::VppFunc, 112] Start Video Pre-Processor!
+[13:53:21.623][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 0 ==========
+[13:53:21.920][DEBUG] ========== <COLLECT> F-NUM: 0 ==========
+[13:53:22.186][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 32 ==========
+[13:53:22.733][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 64 ==========
+[13:53:23.233][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 96 ==========
+[13:53:23.780][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 128 ==========
+[13:53:24.327][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 160 ==========
+[13:53:24.467][DEBUG] ========== <COLLECT> F-NUM: 32 ==========
+[13:53:24.936][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 192 ==========
+[13:53:24.999][DEBUG] ========== <COLLECT> F-NUM: 64 ==========
+[13:53:25.452][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 224 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 5480,	used_count: 2118,	temp_count:   0
+[ID:  2] free_count: 1016,	used_count:   6,	temp_count:   0
+[ID:  1] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 165
+********************************************************************************
+[13:53:26.077][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 256 ==========
+[13:53:26.389][DEBUG] ========== <COLLECT> F-NUM: 96 ==========
+[13:53:26.452][DEBUG] ========== <COLLECT> F-NUM: 128 ==========
+[13:53:26.718][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 288 ==========
+[13:53:27.249][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 320 ==========
+[13:53:27.530][DEBUG] ========== <COLLECT> F-NUM: 160 ==========
+[13:53:27.796][DEBUG] ========== <COLLECT> F-NUM: 192 ==========
+[13:53:27.952][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 352 ==========
+[13:53:28.608][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 384 ==========
+[13:53:28.780][DEBUG] ========== <COLLECT> F-NUM: 224 ==========
+[13:53:29.171][DEBUG] ========== <COLLECT> F-NUM: 256 ==========
+[13:53:29.343][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 416 ==========
+[13:53:29.968][DEBUG] ========== <COLLECT> F-NUM: 288 ==========
+[13:53:30.124][DEBUG] ========== <COLLECT> F-NUM: 320 ==========
+[13:53:30.155][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 448 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count:   0,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 968,	used_count:  54,	temp_count:   0
+[ID:  1] free_count: 1018,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 151
+********************************************************************************
+[13:53:30.968][DEBUG] ========== <COLLECT> F-NUM: 352 ==========
+[13:53:30.968][DEBUG] ========== <COLLECT> F-NUM: 384 ==========
+[13:53:30.999][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 480 ==========
+[13:53:31.296][DEBUG] ========== <COLLECT> F-NUM: 416 ==========
+[13:53:31.796][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 512 ==========
+[13:53:32.390][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 544 ==========
+[13:53:32.953][DEBUG] ========== <COLLECT> F-NUM: 448 ==========
+[13:53:33.124][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 576 ==========
+[13:53:33.437][DEBUG] ========== <COLLECT> F-NUM: 480 ==========
+[13:53:33.984][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 608 ==========
+[13:53:34.343][DEBUG] ========== <COLLECT> F-NUM: 512 ==========
+[13:53:34.578][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 640 ==========
+[13:53:34.922][DEBUG] ========== <COLLECT> F-NUM: 544 ==========
+[13:53:35.547][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 672 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count:   0,	used_count:  56,	temp_count:   0
+[ID:  2] free_count: 902,	used_count: 120,	temp_count:   0
+[ID:  1] free_count: 1016,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1054,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 129
+********************************************************************************
+[13:53:36.390][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 704 ==========
+[13:53:37.250][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 736 ==========
+[13:53:38.266][DEBUG] ========== <COLLECT> F-NUM: 576 ==========
+[13:53:38.359][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 768 ==========
+[13:53:39.016][DEBUG] ========== <COLLECT> F-NUM: 608 ==========
+[13:53:39.016][DEBUG] ========== <COLLECT> F-NUM: 640 ==========
+[13:53:39.203][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 800 ==========
+[13:53:39.563][DEBUG] ========== <COLLECT> F-NUM: 672 ==========
+[13:53:40.016][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 832 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count:   0,	used_count:  29,	temp_count:   0
+[ID:  2] free_count: 809,	used_count: 213,	temp_count:   0
+[ID:  1] free_count: 1021,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 191
+********************************************************************************
+[13:53:40.625][DEBUG] ========== <COLLECT> F-NUM: 704 ==========
+[13:53:40.750][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 864 ==========
+[13:53:40.766][DEBUG] ========== <COLLECT> F-NUM: 736 ==========
+[13:53:41.094][DEBUG] ========== <COLLECT> F-NUM: 768 ==========
+[13:53:41.485][DEBUG] ========== <COLLECT> F-NUM: 800 ==========
+[13:53:41.563][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 896 ==========
+[13:53:42.516][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 928 ==========
+[13:53:43.313][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 960 ==========
+[13:53:43.641][DEBUG] ========== <COLLECT> F-NUM: 832 ==========
+[13:53:43.969][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 992 ==========
+[13:53:44.423][DEBUG] ========== <COLLECT> F-NUM: 864 ==========
+[13:53:44.423][DEBUG] ========== <COLLECT> F-NUM: 896 ==========
+[13:53:44.454][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1024 ==========
+[13:53:44.844][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1056 ==========
+[13:53:45.110][DEBUG] ========== <COLLECT> F-NUM: 928 ==========
+[13:53:45.173][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1088 ==========
+[13:53:45.235][DEBUG] ========== <COLLECT> F-NUM: 960 ==========
+[13:53:45.469][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1120 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count:   0,	used_count:  44,	temp_count:   0
+[ID:  2] free_count: 776,	used_count: 247,	temp_count:   0
+[ID:  1] free_count: 971,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1054,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 170
+********************************************************************************
+[13:53:45.876][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1152 ==========
+[13:53:46.235][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1184 ==========
+[13:53:46.501][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1216 ==========
+[13:53:46.860][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1248 ==========
+[13:53:47.188][DEBUG] ========== <COLLECT> F-NUM: 992 ==========
+[13:53:47.188][DEBUG] ========== <COLLECT> F-NUM: 1024 ==========
+[13:53:47.251][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1280 ==========
+[13:53:47.595][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1312 ==========
+[13:53:48.017][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1344 ==========
+[13:53:48.345][DEBUG] ========== <COLLECT> F-NUM: 1056 ==========
+[13:53:48.345][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1376 ==========
+[13:53:48.751][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1408 ==========
+[13:53:49.095][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1440 ==========
+[13:53:49.454][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1472 ==========
+[13:53:49.845][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1504 ==========
+[13:53:49.986][DEBUG] ========== <COLLECT> F-NUM: 1088 ==========
+[13:53:50.189][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1536 ==========
+[13:53:50.283][DEBUG] ========== <COLLECT> F-NUM: 1120 ==========
+[13:53:50.283][DEBUG] ========== <COLLECT> F-NUM: 1152 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 1455,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 913,	used_count: 110,	temp_count:   0
+[ID:  1] free_count: 1016,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+[13:53:50.579][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1568 ==========
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 415
+********************************************************************************
+[13:53:50.892][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1600 ==========
+[13:53:51.189][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1632 ==========
+[13:53:51.408][DEBUG] ========== <COLLECT> F-NUM: 1184 ==========
+[13:53:51.486][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1664 ==========
+[13:53:51.767][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1696 ==========
+[13:53:52.017][DEBUG] ========== <COLLECT> F-NUM: 1216 ==========
+[13:53:52.126][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1728 ==========
+[13:53:52.408][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1760 ==========
+[13:53:52.767][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1792 ==========
+[13:53:52.939][DEBUG] ========== <COLLECT> F-NUM: 1248 ==========
+[13:53:52.939][DEBUG] ========== <COLLECT> F-NUM: 1280 ==========
+[13:53:52.939][DEBUG] ========== <COLLECT> F-NUM: 1312 ==========
+[13:53:53.127][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1824 ==========
+[13:53:53.564][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1856 ==========
+[13:53:54.095][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 1888 ==========
+[13:53:54.345][DEBUG] ========== <COLLECT> F-NUM: 1344 ==========
+[13:53:54.642][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 1920 ==========
+[13:53:55.174][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 1952 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 4764,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1017,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 989,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 633
+********************************************************************************
+[13:53:55.689][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 1984 ==========
+[13:53:56.236][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2016 ==========
+[13:53:56.768][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2048 ==========
+[13:53:56.846][DEBUG] ========== <COLLECT> F-NUM: 1376 ==========
+[13:53:56.846][DEBUG] ========== <COLLECT> F-NUM: 1408 ==========
+[13:53:56.846][DEBUG] ========== <COLLECT> F-NUM: 1440 ==========
+[13:53:57.299][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2080 ==========
+[13:53:57.736][DEBUG] ========== <COLLECT> F-NUM: 1472 ==========
+[13:53:57.736][DEBUG] ========== <COLLECT> F-NUM: 1504 ==========
+[13:53:57.736][DEBUG] ========== <COLLECT> F-NUM: 1536 ==========
+[13:53:57.846][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2112 ==========
+[13:53:58.377][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2144 ==========
+[13:53:58.893][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2176 ==========
+[13:53:59.440][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2208 ==========
+[13:53:59.971][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2240 ==========
+[13:54:00.252][DEBUG] ========== <COLLECT> F-NUM: 1568 ==========
+[13:54:00.502][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2272 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7192,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1019,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 989,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 708
+********************************************************************************
+[13:54:01.049][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2304 ==========
+[13:54:01.377][DEBUG] ========== <COLLECT> F-NUM: 1600 ==========
+[13:54:01.377][DEBUG] ========== <COLLECT> F-NUM: 1632 ==========
+[13:54:01.377][DEBUG] ========== <COLLECT> F-NUM: 1664 ==========
+[13:54:01.377][DEBUG] ========== <COLLECT> F-NUM: 1696 ==========
+[13:54:01.409][DEBUG] ========== <COLLECT> F-NUM: 1728 ==========
+[13:54:01.409][DEBUG] ========== <COLLECT> F-NUM: 1760 ==========
+[13:54:01.581][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2336 ==========
+[13:54:02.112][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2368 ==========
+[13:54:02.643][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2400 ==========
+[13:54:03.049][DEBUG] ========== <COLLECT> F-NUM: 1792 ==========
+[13:54:03.049][DEBUG] ========== <COLLECT> F-NUM: 1824 ==========
+[13:54:03.174][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2432 ==========
+[13:54:03.706][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2464 ==========
+[13:54:04.237][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2496 ==========
+[13:54:04.550][DEBUG] ========== <COLLECT> F-NUM: 1856 ==========
+[13:54:04.612][DEBUG] ========== <COLLECT> F-NUM: 1888 ==========
+[13:54:04.784][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2528 ==========
+[13:54:05.315][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2560 ==========
+[13:54:05.534][DEBUG] ========== <COLLECT> F-NUM: 1920 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 6674,	used_count:   2,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 656
+********************************************************************************
+[13:54:05.815][DEBUG] ========== <COLLECT> F-NUM: 1952 ==========
+[13:54:05.815][DEBUG] ========== <COLLECT> F-NUM: 1984 ==========
+[13:54:05.847][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2592 ==========
+[13:54:06.378][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2624 ==========
+[13:54:06.909][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2656 ==========
+[13:54:07.253][DEBUG] ========== <COLLECT> F-NUM: 2016 ==========
+[13:54:07.253][DEBUG] ========== <COLLECT> F-NUM: 2048 ==========
+[13:54:07.456][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2688 ==========
+[13:54:07.675][DEBUG] ========== <COLLECT> F-NUM: 2080 ==========
+[13:54:07.675][DEBUG] ========== <COLLECT> F-NUM: 2112 ==========
+[13:54:07.988][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2720 ==========
+[13:54:08.316][DEBUG] ========== <COLLECT> F-NUM: 2144 ==========
+[13:54:08.519][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2752 ==========
+[13:54:09.050][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2784 ==========
+[13:54:09.581][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 2816 ==========
+[13:54:09.753][DEBUG] ========== <COLLECT> F-NUM: 2176 ==========
+[13:54:09.753][DEBUG] ========== <COLLECT> F-NUM: 2208 ==========
+[13:54:10.113][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2848 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 6028,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1015,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 668
+********************************************************************************
+[13:54:10.660][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2880 ==========
+[13:54:11.191][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 2912 ==========
+[13:54:11.394][DEBUG] ========== <COLLECT> F-NUM: 2240 ==========
+[13:54:11.722][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 2944 ==========
+[13:54:12.254][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 2976 ==========
+[13:54:12.504][DEBUG] ========== <COLLECT> F-NUM: 2272 ==========
+[13:54:12.785][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3008 ==========
+[13:54:13.316][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3040 ==========
+[13:54:13.394][DEBUG] ========== <COLLECT> F-NUM: 2304 ==========
+[13:54:13.394][DEBUG] ========== <COLLECT> F-NUM: 2336 ==========
+[13:54:13.394][DEBUG] ========== <COLLECT> F-NUM: 2368 ==========
+[13:54:13.847][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3072 ==========
+[13:54:14.379][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3104 ==========
+[13:54:14.910][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3136 ==========
+[13:54:15.457][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3168 ==========
+[13:54:15.457][DEBUG] ========== <COLLECT> F-NUM: 2400 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1017,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 990,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 776
+********************************************************************************
+[13:54:15.988][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3200 ==========
+[13:54:16.520][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3232 ==========
+[13:54:16.520][DEBUG] ========== <COLLECT> F-NUM: 2432 ==========
+[13:54:16.520][DEBUG] ========== <COLLECT> F-NUM: 2464 ==========
+[13:54:16.879][DEBUG] ========== <COLLECT> F-NUM: 2496 ==========
+[13:54:16.879][DEBUG] ========== <COLLECT> F-NUM: 2528 ==========
+[13:54:16.879][DEBUG] ========== <COLLECT> F-NUM: 2560 ==========
+[13:54:17.051][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3264 ==========
+[13:54:17.379][DEBUG] ========== <COLLECT> F-NUM: 2592 ==========
+[13:54:17.598][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3296 ==========
+[13:54:18.114][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3328 ==========
+[13:54:18.661][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3360 ==========
+[13:54:18.957][DEBUG] ========== <COLLECT> F-NUM: 2624 ==========
+[13:54:18.957][DEBUG] ========== <COLLECT> F-NUM: 2656 ==========
+[13:54:19.192][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3392 ==========
+[13:54:19.723][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3424 ==========
+[13:54:20.254][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3456 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 957,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 820
+********************************************************************************
+[13:54:20.661][DEBUG] ========== <COLLECT> F-NUM: 2688 ==========
+[13:54:20.661][DEBUG] ========== <COLLECT> F-NUM: 2720 ==========
+[13:54:20.661][DEBUG] ========== <COLLECT> F-NUM: 2752 ==========
+[13:54:20.661][DEBUG] ========== <COLLECT> F-NUM: 2784 ==========
+[13:54:20.801][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3488 ==========
+[13:54:21.317][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3520 ==========
+[13:54:21.864][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3552 ==========
+[13:54:22.395][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3584 ==========
+[13:54:22.458][DEBUG] ========== <COLLECT> F-NUM: 2816 ==========
+[13:54:22.458][DEBUG] ========== <COLLECT> F-NUM: 2848 ==========
+[13:54:22.458][DEBUG] ========== <COLLECT> F-NUM: 2880 ==========
+[13:54:22.927][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3616 ==========
+[13:54:23.395][DEBUG] ========== <COLLECT> F-NUM: 2912 ==========
+[13:54:23.458][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3648 ==========
+[13:54:24.005][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3680 ==========
+[13:54:24.521][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3712 ==========
+[13:54:25.052][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3744 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1014,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 924,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 863
+********************************************************************************
+[13:54:25.599][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3776 ==========
+[13:54:25.927][DEBUG] ========== <COLLECT> F-NUM: 2944 ==========
+[13:54:25.927][DEBUG] ========== <COLLECT> F-NUM: 2976 ==========
+[13:54:25.927][DEBUG] ========== <COLLECT> F-NUM: 3008 ==========
+[13:54:25.927][DEBUG] ========== <COLLECT> F-NUM: 3040 ==========
+[13:54:25.958][DEBUG] ========== <COLLECT> F-NUM: 3072 ==========
+[13:54:26.130][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3808 ==========
+[13:54:26.661][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 3840 ==========
+[13:54:26.786][DEBUG] ========== <COLLECT> F-NUM: 3104 ==========
+[13:54:26.786][DEBUG] ========== <COLLECT> F-NUM: 3136 ==========
+[13:54:26.786][DEBUG] ========== <COLLECT> F-NUM: 3168 ==========
+[13:54:26.786][DEBUG] ========== <COLLECT> F-NUM: 3200 ==========
+[13:54:27.208][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3872 ==========
+[13:54:27.740][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 3904 ==========
+[13:54:28.052][DEBUG] ========== <COLLECT> F-NUM: 3232 ==========
+[13:54:28.255][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 3936 ==========
+[13:54:28.802][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 3968 ==========
+[13:54:29.334][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4000 ==========
+[13:54:29.865][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4032 ==========
+[13:54:30.412][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4064 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 843
+********************************************************************************
+[13:54:30.756][DEBUG] ========== <COLLECT> F-NUM: 3264 ==========
+[13:54:30.756][DEBUG] ========== <COLLECT> F-NUM: 3296 ==========
+[13:54:30.943][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4096 ==========
+[13:54:31.365][DEBUG] ========== <COLLECT> F-NUM: 3328 ==========
+[13:54:31.474][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4128 ==========
+[13:54:32.006][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4160 ==========
+[13:54:32.193][DEBUG] ========== <COLLECT> F-NUM: 3360 ==========
+[13:54:32.193][DEBUG] ========== <COLLECT> F-NUM: 3392 ==========
+[13:54:32.193][DEBUG] ========== <COLLECT> F-NUM: 3424 ==========
+[13:54:32.537][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4192 ==========
+[13:54:32.678][DEBUG] ========== <COLLECT> F-NUM: 3456 ==========
+[13:54:33.068][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4224 ==========
+[13:54:33.600][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4256 ==========
+[13:54:34.147][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4288 ==========
+[13:54:34.662][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4320 ==========
+[13:54:34.912][DEBUG] ========== <COLLECT> F-NUM: 3488 ==========
+[13:54:35.209][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4352 ==========
+[13:54:35.365][DEBUG] ========== <COLLECT> F-NUM: 3520 ==========
+[13:54:35.365][DEBUG] ========== <COLLECT> F-NUM: 3552 ==========
+[13:54:35.428][DEBUG] ========== <COLLECT> F-NUM: 3584 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1022,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 791
+********************************************************************************
+[13:54:35.740][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4384 ==========
+[13:54:36.272][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4416 ==========
+[13:54:36.819][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4448 ==========
+[13:54:37.350][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4480 ==========
+[13:54:37.881][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4512 ==========
+[13:54:38.209][DEBUG] ========== <COLLECT> F-NUM: 3616 ==========
+[13:54:38.209][DEBUG] ========== <COLLECT> F-NUM: 3648 ==========
+[13:54:38.209][DEBUG] ========== <COLLECT> F-NUM: 3680 ==========
+[13:54:38.209][DEBUG] ========== <COLLECT> F-NUM: 3712 ==========
+[13:54:38.413][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4544 ==========
+[13:54:38.944][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4576 ==========
+[13:54:39.475][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4608 ==========
+[13:54:40.007][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4640 ==========
+[13:54:40.553][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4672 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1021,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 829,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 961
+********************************************************************************
+[13:54:41.085][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4704 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3744 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3776 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3808 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3840 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3872 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3904 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3936 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 3968 ==========
+[13:54:41.194][DEBUG] ========== <COLLECT> F-NUM: 4000 ==========
+[13:54:41.616][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4736 ==========
+[13:54:42.147][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4768 ==========
+[13:54:42.616][DEBUG] ========== <COLLECT> F-NUM: 4032 ==========
+[13:54:42.616][DEBUG] ========== <COLLECT> F-NUM: 4064 ==========
+[13:54:42.679][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4800 ==========
+[13:54:43.210][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4832 ==========
+[13:54:43.757][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 4864 ==========
+[13:54:43.819][DEBUG] ========== <COLLECT> F-NUM: 4096 ==========
+[13:54:44.288][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 4896 ==========
+[13:54:44.335][DEBUG] ========== <COLLECT> F-NUM: 4128 ==========
+[13:54:44.788][DEBUG] ========== <COLLECT> F-NUM: 4160 ==========
+[13:54:44.820][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4928 ==========
+[13:54:45.351][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 4960 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1019,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 814
+********************************************************************************
+[13:54:45.882][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 4992 ==========
+[13:54:46.413][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5024 ==========
+[13:54:46.898][DEBUG] ========== <COLLECT> F-NUM: 4192 ==========
+[13:54:46.898][DEBUG] ========== <COLLECT> F-NUM: 4224 ==========
+[13:54:46.960][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5056 ==========
+[13:54:47.242][DEBUG] ========== <COLLECT> F-NUM: 4256 ==========
+[13:54:47.335][DEBUG] ========== <COLLECT> F-NUM: 4288 ==========
+[13:54:47.492][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5088 ==========
+[13:54:48.023][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5120 ==========
+[13:54:48.132][DEBUG] ========== <COLLECT> F-NUM: 4320 ==========
+[13:54:48.554][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5152 ==========
+[13:54:49.086][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5184 ==========
+[13:54:49.617][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5216 ==========
+[13:54:50.148][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5248 ==========
+[13:54:50.148][DEBUG] ========== <COLLECT> F-NUM: 4352 ==========
+[13:54:50.148][DEBUG] ========== <COLLECT> F-NUM: 4384 ==========
+[13:54:50.148][DEBUG] ========== <COLLECT> F-NUM: 4416 ==========
+[13:54:50.555][DEBUG] ========== <COLLECT> F-NUM: 4448 ==========
+[13:54:50.555][DEBUG] ========== <COLLECT> F-NUM: 4480 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1014,	used_count:   1,	temp_count:   0
+[ID:  5] free_count: 996,	used_count:  56,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 794
+********************************************************************************
+[13:54:50.680][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5280 ==========
+[13:54:50.883][DEBUG] ========== <COLLECT> F-NUM: 4512 ==========
+[13:54:51.226][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5312 ==========
+[13:54:51.258][DEBUG] ========== <COLLECT> F-NUM: 4544 ==========
+[13:54:51.758][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5344 ==========
+[13:54:52.289][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5376 ==========
+[13:54:52.820][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5408 ==========
+[13:54:53.352][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5440 ==========
+[13:54:53.899][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5472 ==========
+[13:54:54.430][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5504 ==========
+[13:54:54.680][DEBUG] ========== <COLLECT> F-NUM: 4576 ==========
+[13:54:54.680][DEBUG] ========== <COLLECT> F-NUM: 4608 ==========
+[13:54:54.680][DEBUG] ========== <COLLECT> F-NUM: 4640 ==========
+[13:54:54.680][DEBUG] ========== <COLLECT> F-NUM: 4672 ==========
+[13:54:54.774][DEBUG] ========== <COLLECT> F-NUM: 4704 ==========
+[13:54:54.961][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5536 ==========
+[13:54:55.493][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5568 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1005,	used_count:   1,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 869
+********************************************************************************
+[13:54:56.039][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5600 ==========
+[13:54:56.196][DEBUG] ========== <COLLECT> F-NUM: 4736 ==========
+[13:54:56.196][DEBUG] ========== <COLLECT> F-NUM: 4768 ==========
+[13:54:56.571][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5632 ==========
+[13:54:56.946][DEBUG] ========== <COLLECT> F-NUM: 4800 ==========
+[13:54:56.946][DEBUG] ========== <COLLECT> F-NUM: 4832 ==========
+[13:54:56.946][DEBUG] ========== <COLLECT> F-NUM: 4864 ==========
+[13:54:57.102][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5664 ==========
+[13:54:57.633][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5696 ==========
+[13:54:58.165][DEBUG] ========== <COLLECT> F-NUM: 4896 ==========
+[13:54:58.165][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5728 ==========
+[13:54:58.696][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5760 ==========
+[13:54:59.227][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5792 ==========
+[13:54:59.774][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5824 ==========
+[13:55:00.165][DEBUG] ========== <COLLECT> F-NUM: 4928 ==========
+[13:55:00.165][DEBUG] ========== <COLLECT> F-NUM: 4960 ==========
+[13:55:00.196][DEBUG] ========== <COLLECT> F-NUM: 4992 ==========
+[13:55:00.196][DEBUG] ========== <COLLECT> F-NUM: 5024 ==========
+[13:55:00.306][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5856 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1021,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 849
+********************************************************************************
+[13:55:00.837][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 5888 ==========
+[13:55:01.368][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 5920 ==========
+[13:55:01.899][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 5952 ==========
+[13:55:02.431][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 5984 ==========
+[13:55:02.978][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6016 ==========
+[13:55:03.509][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6048 ==========
+[13:55:03.665][DEBUG] ========== <COLLECT> F-NUM: 5056 ==========
+[13:55:03.665][DEBUG] ========== <COLLECT> F-NUM: 5088 ==========
+[13:55:03.665][DEBUG] ========== <COLLECT> F-NUM: 5120 ==========
+[13:55:03.665][DEBUG] ========== <COLLECT> F-NUM: 5152 ==========
+[13:55:03.665][DEBUG] ========== <COLLECT> F-NUM: 5184 ==========
+[13:55:04.040][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6080 ==========
+[13:55:04.572][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6112 ==========
+[13:55:04.697][DEBUG] ========== <COLLECT> F-NUM: 5216 ==========
+[13:55:04.853][DEBUG] ========== <COLLECT> F-NUM: 5248 ==========
+[13:55:05.103][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6144 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 925
+********************************************************************************
+[13:55:05.634][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6176 ==========
+[13:55:05.681][DEBUG] ========== <COLLECT> F-NUM: 5280 ==========
+[13:55:06.181][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6208 ==========
+[13:55:06.712][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6240 ==========
+[13:55:07.244][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6272 ==========
+[13:55:07.338][DEBUG] ========== <COLLECT> F-NUM: 5312 ==========
+[13:55:07.338][DEBUG] ========== <COLLECT> F-NUM: 5344 ==========
+[13:55:07.338][DEBUG] ========== <COLLECT> F-NUM: 5376 ==========
+[13:55:07.775][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6304 ==========
+[13:55:08.306][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6336 ==========
+[13:55:08.306][DEBUG] ========== <COLLECT> F-NUM: 5408 ==========
+[13:55:08.838][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6368 ==========
+[13:55:09.228][DEBUG] ========== <COLLECT> F-NUM: 5440 ==========
+[13:55:09.228][DEBUG] ========== <COLLECT> F-NUM: 5472 ==========
+[13:55:09.228][DEBUG] ========== <COLLECT> F-NUM: 5504 ==========
+[13:55:09.369][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6400 ==========
+[13:55:09.900][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6432 ==========
+[13:55:10.432][DEBUG] ========== <COLLECT> F-NUM: 5536 ==========
+[13:55:10.432][DEBUG] ========== <COLLECT> F-NUM: 5568 ==========
+[13:55:10.432][DEBUG] ========== <COLLECT> F-NUM: 5600 ==========
+[13:55:10.447][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6464 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1020,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1053,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 872
+********************************************************************************
+[13:55:10.979][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6496 ==========
+[13:55:11.510][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6528 ==========
+[13:55:11.666][DEBUG] ========== <COLLECT> F-NUM: 5632 ==========
+[13:55:12.041][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6560 ==========
+[13:55:12.588][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6592 ==========
+[13:55:12.869][DEBUG] ========== <COLLECT> F-NUM: 5664 ==========
+[13:55:12.869][DEBUG] ========== <COLLECT> F-NUM: 5696 ==========
+[13:55:12.869][DEBUG] ========== <COLLECT> F-NUM: 5728 ==========
+[13:55:12.869][DEBUG] ========== <COLLECT> F-NUM: 5760 ==========
+[13:55:13.119][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6624 ==========
+[13:55:13.448][DEBUG] ========== <COLLECT> F-NUM: 5792 ==========
+[13:55:13.651][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6656 ==========
+[13:55:14.182][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6688 ==========
+[13:55:14.713][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6720 ==========
+[13:55:15.245][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6752 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1024,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1021,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 989,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 980
+********************************************************************************
+[13:55:15.792][DEBUG] ========== <COLLECT> F-NUM: 5824 ==========
+[13:55:15.792][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 6784 ==========
+[13:55:15.792][DEBUG] ========== <COLLECT> F-NUM: 5856 ==========
+[13:55:15.792][DEBUG] ========== <COLLECT> F-NUM: 5888 ==========
+[13:55:16.307][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6816 ==========
+[13:55:16.839][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6848 ==========
+[13:55:17.104][DEBUG] ========== <COLLECT> F-NUM: 5920 ==========
+[13:55:17.104][DEBUG] ========== <COLLECT> F-NUM: 5952 ==========
+[13:55:17.385][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6880 ==========
+[13:55:17.917][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 6912 ==========
+[13:55:18.401][DEBUG] ========== <COLLECT> F-NUM: 5984 ==========
+[13:55:18.448][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 6944 ==========
+[13:55:18.604][DEBUG] ========== <COLLECT> F-NUM: 6016 ==========
+[13:55:18.604][DEBUG] ========== <COLLECT> F-NUM: 6048 ==========
+[13:55:18.995][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 6976 ==========
+[13:55:19.526][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7008 ==========
+[13:55:20.042][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7040 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 1013,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+[13:55:20.589][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7072 ==========
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 1023
+********************************************************************************
+[13:55:21.230][DEBUG] ========== <COLLECT> F-NUM: 6080 ==========
+[13:55:21.230][DEBUG] ========== <COLLECT> F-NUM: 6112 ==========
+[13:55:21.230][DEBUG] ========== <COLLECT> F-NUM: 6144 ==========
+[13:55:21.245][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7104 ==========
+[13:55:21.652][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7136 ==========
+[13:55:22.198][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7168 ==========
+[13:55:22.870][DEBUG] ========== <COLLECT> F-NUM: 6176 ==========
+[13:55:22.886][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7200 ==========
+[13:55:24.527][DEBUG] ========== <COLLECT> F-NUM: 6208 ==========
+[13:55:24.527][DEBUG] ========== <COLLECT> F-NUM: 6240 ==========
+[13:55:24.527][DEBUG] ========== <COLLECT> F-NUM: 6272 ==========
+[13:55:24.527][DEBUG] ========== <COLLECT> F-NUM: 6304 ==========
+[13:55:24.527][DEBUG] ========== <COLLECT> F-NUM: 6336 ==========
+[13:55:24.542][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7232 ==========
+[13:55:24.542][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7264 ==========
+[13:55:24.542][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7296 ==========
+[13:55:24.871][DEBUG] ========== <COLLECT> F-NUM: 6368 ==========
+[13:55:24.871][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7328 ==========
+[13:55:25.402][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7360 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1023,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 993,	used_count:   0,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 1004
+********************************************************************************
+[13:55:25.933][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7392 ==========
+[13:55:26.324][DEBUG] ========== <COLLECT> F-NUM: 6400 ==========
+[13:55:26.324][DEBUG] ========== <COLLECT> F-NUM: 6432 ==========
+[13:55:26.465][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7424 ==========
+[13:55:26.996][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7456 ==========
+[13:55:27.137][DEBUG] ========== <COLLECT> F-NUM: 6464 ==========
+[13:55:27.527][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7488 ==========
+[13:55:28.668][DEBUG] ========== <COLLECT> F-NUM: 6496 ==========
+[13:55:28.668][DEBUG] ========== <COLLECT> F-NUM: 6528 ==========
+[13:55:28.668][DEBUG] ========== <COLLECT> F-NUM: 6560 ==========
+[13:55:28.668][DEBUG] ========== <COLLECT> F-NUM: 6592 ==========
+[13:55:28.684][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7520 ==========
+[13:55:28.684][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7552 ==========
+[13:55:29.137][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7584 ==========
+[13:55:29.652][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7616 ==========
+********************************************************************************
+*                             Block Buffer Status                              *
+[ID:  8] free_count: 7598,	used_count:   0,	temp_count:   0
+[ID:  2] free_count: 1022,	used_count:   0,	temp_count:   0
+[ID:  1] free_count: 970,	used_count:  53,	temp_count:   0
+[ID:  5] free_count: 1021,	used_count:   0,	temp_count:   0
+********************************************************************************
+********************************************************************************
+*                             Sending Frame Status                              *
+Max Frame Number: 1024, Current Frame Number: 1025
+********************************************************************************
+[13:55:31.278][DEBUG] ========== <COLLECT> F-NUM: 6624 ==========
+[13:55:31.278][DEBUG] ========== <COLLECT> F-NUM: 6656 ==========
+[13:55:31.278][DEBUG] ========== <COLLECT> F-NUM: 6688 ==========
+[13:55:31.278][DEBUG] ========== <COLLECT> F-NUM: 6720 ==========
+[13:55:31.293][DEBUG] ========== <DISTRIBUTE> S-ID: 1196, F-NUM: 7648 ==========
+[13:55:31.293][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7680 ==========
+[13:55:31.293][DEBUG] ========== <DISTRIBUTE> S-ID: 1228, F-NUM: 7712 ==========
+[13:55:31.809][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7744 ==========
+[13:55:31.824][DEBUG] ========== <COLLECT> F-NUM: 6752 ==========
+[13:55:31.887][DEBUG] ========== <COLLECT> F-NUM: 6784 ==========
+[13:55:32.340][DEBUG] ========== <DISTRIBUTE> S-ID: 1220, F-NUM: 7776 ==========
+[13:55:32.871][DEBUG] ========== <DISTRIBUTE> S-ID: 1224, F-NUM: 7808 ==========
