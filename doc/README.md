@@ -18,7 +18,13 @@ Image를 링크 시키기 위해서는 Github에서 해당 이미지의 주소�
 
 ![Girl](https://github.com/Jinwuk/md/blob/master/img/0010320.png?raw=true)
 
-ㅁ
+## 중요링크
+
+https://avmo.pw/ja/search/%E5%A5%B3%E6%95%99%E5%B8%AB
+
+https://avmo.pw/ja/star/9pj
+
+
 
 
 
