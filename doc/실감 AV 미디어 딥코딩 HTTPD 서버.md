@@ -29,9 +29,12 @@ password는 저에게 따로 문의해 주십시요.
 graph LR;
   A[htdocs]-->B[doc];
   A-->D[img];
+  A-->H[git];
   B-->C[User 1];
   B-->E[User 2];
   D-->F[User 1];
-  D-->G[User 2]
+  D-->G[User 2];
+  H-->I[Git Project 1];
+  H-->J[Git Project 2]
 ```
 
