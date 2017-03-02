@@ -122,3 +122,70 @@ $$
 -ihu_t = \frac{h^2}{2m}\Delta u + \frac{e^2}{r}u
 $$
 
+## Diffusion with a source
+다음 방정식을 생각해보자
+$$
+u_t - ku_{xx} = f(x,t) \;\; \forall x \in (-\infty, \infty), t \in (0, \infty) \\
+u(x,0) = \phi(x)
+$$
+
+위 방정식의  Solution은 다음과 같다.
+
+$$
+\begin{align}
+u(x,t) &= \int_{-\infty}^{\infty} S(x-y,t)\phi(y)dy \\ 
+       &+ \int_{0}^t \int_{-\infty}^{\infty} S(x-y, t-s)f(y,s)dy ds
+\end{align}
+$$
+
+### 이해를 위한 ODE
+$$
+\frac{du}{dt} + Au(t)= f(t), \;\; u(0)= \phi \tag{1}
+$$
+방정식 (1)의 Solution은 다음과 같다.
+$$
+u(t)=e^{-tA}\phi + \int_0^t e^{(s-t)A}f(s)ds
+$$
+위 방정식을 유도하기 위해 다음과 같이 풀이한다. 
+먼저 $f(t) = 0$ 의 경우, 즉, Homogeneous 경우를 생각해보자.
+그 경우 
+$$
+u^H (t) = e^{-tA} \phi
+$$
+이다. 
+이때 $S(t) = e^{-tA}$ 라 놓고, t=0인 경우에 대하여 생각해보자. 이 경우, 
+$$
+u(t)|_{t=0} = u^H (0) = e^{tA} \cdot e^{-tA} \phi = S(-t) u^H(t)
+$$
+로 볼 수 있다, 이를 $t$에 대하여 미분하면 ($u^H (t) = S(t) \phi$)
+$$
+\frac{d}{dt}(S(-t)u^H(t))= S(-t) \frac{du^H(t)}{dt} + A S(-t) u^H(t) 
+$$
+에서
+$$
+S(-t) \frac{du(t)}{dt} + S(-t) A u(t) = S(-t)f(t)
+$$
+가 됨을 알 수 있다. 그러므로
+$$
+\frac{d}{dt}(S(-t)u(t)) = S(-t)f(t) \Rightarrow S(-t)u(t) - \phi = \int_0^t S(-s)f(s)ds
+$$
+이고 이를 정리하면
+$$
+u(t)= S(t)\phi + \int_0^t S(t-s)f(s)ds
+$$
+이다. 
+
+### Homogeneous PDE Solution에서 유도
+$f(x,t) = 0$ 인 경우 Homogeneous Solution은 다음과 같다.
+$$
+u(x,t) = \int_{-\infty}^{\infty}S(x-y,t)\phi(y)dy = (\mathcal{L}(t) \phi)(x)
+$$
+이때 $x- y =0$ 즉, $x$ 항의 값이 0이 되는 경우 다음과 같다.
+$$
+u(t) = \mathcal{L}(t)\phi + \int_{0}^{t} \mathcal{L}(t-s)f(s)ds
+$$
+여기서 $x$항을 되살려 내면
+$$
+u(x,t) = \int_{-\infty}^{\infty} S(x-y,t)\phi(y)dy 
+       + \int_{0}^t \int_{-\infty}^{\infty} S(x-y, t-s)f(y,s)dy ds
+$$
