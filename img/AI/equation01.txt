@@ -1,0 +1,25 @@
+\begin{align*} 
+&\frac{\partial }{\partial x} x^T y = y \\
+&\frac{\partial }{\partial x} x^T x = 2x \\
+&\frac{\partial }{\partial x} x^T A y = Ay \\
+&\frac{\partial }{\partial x} x^T A x = (A + A^T)x \\
+&\frac{\partial }{\partial x} a(x)^T Q a(x) = 2 \nabla_x a(x) Q a(x), \;\; Q = Q^T \\
+&\frac{\partial }{\partial x} a^T b(x) = \left( \frac{\partial a^T(x)}{\partial x} \right) b(x) + 
+\left( \frac{\partial b^T(x)}{\partial x} \right) a(x) \\
+&= \nabla_x a^T(x) b(x) + \nabla b^T(x) a(x)
+\end{align}
+
+
+\textit{Under Contraint : } 
+\begin{align*}
+x(k+1) &= x(k) + \Delta t \cdot a(x(k), u(k)) \\
+x(k+1) &\triangleq a(x(k), u(k)) \in \mathbb{R}^n
+\end{align}
+
+J = h(x(N)) + \sum_{k=0}^{N-1} F_D (x(k), u(k))
+
+J_{k}^* = \min_{u(N-k)} \{F_D(k) + J_{k-1}^* (a_D(x(k)), u(k))\} 
+
+where $F_D \triangleq \Delta t \cdot F$ 
+
+\dot{x}(t) = a(x(t), u(t), t)

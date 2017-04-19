@@ -134,7 +134,7 @@ $$
 h(x) = \frac{1}{1+ \exp (- \lambda x)}
 $$
 여기서 $\lambda$는 비례상수, Fermi-Dirac 통계함수에서는 온도의 역수이다. 
-만일, 입력 Vector가 Normalization 되어 있지 않다고 한다면, $
+만일, 입력 Vector가 Normalization 되어 있지 않다고 한다면, $y_k^n$의 비례상수가 변화한다.
 
 ### Example
 Orthonormal 한 경우가 아니더라도 .. 비슷하게 된다.
@@ -183,6 +183,10 @@ x(t+1) &= h(f(x(t)) = \frac{1}{1+ \exp (- \lambda f(x(t)))}
 $$
 where $h(x) : \mathbb{R}^n \rightarrow \mathbb{R}^n(0,1)$
 
+### Orthonormal 가정 조차 없다면?
+만일 Weight Matrix에 Orthonormal 한 가정 조차 없다면, 입력 벡터에 대하여 가장 유사한 벡터를 출력시키는 Associative Memory가 되어야 할 것이다. 이는 일의적으로 결정되지 않을 것이고, Enengy Function 혹은 Object Function을 놓고 이것을 최소화 시키는 방식으로 출력값을 입력으로 다시 Feedback 시키면?... 어떻게 될까?
+
+
 ### Derivation of Energy Function
 만약 $x(0) \in \mathbb{R}^n \{0,1\}$ 이라는 입력 벡터가 인가 되었다고 하자. 
 이 벡터가 Associative Memory에 인가 되었을 때 출력 벡터와 입력 벡터와의 유사도를 Energy $\bar{E}_1$라고 하자.
@@ -191,6 +195,7 @@ $$
 \bar{E}_1(0) = -\frac{1}{2} \langle x(1), x(0) \rangle = -\frac{1}{2} \langle h(0), x(0) \rangle
 $$
 그런데 위 Associative Memory에서 알 수 있는 것은 $ f(x(0)) $ 를 사용하더라도 위 Energy 값의 특성이 변하지 않는다는 것이다. 
+(Fermi-Dirac 통계가 단조 증가 함수이기 때문)
 따라서, 다음과 같이 Energy 함수를 정의하자.
 
 $$
@@ -199,6 +204,9 @@ E(t) &= -\frac{1}{2} \langle f(x(t)), x(t) \rangle = -\frac{1}{2} \sum_j f_j (x(
 &= -\frac{1}{2} \sum_j \sum_i w_{ji} x_i(t) x_j(t) - \sum_j \theta_j x_j(t)
 \end{align}
 $$
+
+- 이렇게 Energy 함수를 정의하고 Feedback이 들어갈 경우, 시간에 대한 Energy 함수의 변화를 분석하여 과연, 올바른 출력을 낼 수 있는지를 알아봐야 한다.
+- Convergence Analysis (Strong Condition), Stability Analysis (Weak Condition)
 
 ### Dynamics of Energy Function
 시간에 따른 Energy 함수의 변화를 생각해보자.
@@ -220,15 +228,15 @@ $$
 이므로 
 
 $$
-\frac{\partial E(x,t)}{\partial t} = \nabla E(x,t) \cdot \dot{x} = - \left\| \nabla E(x(t)) \right\|^2
+\frac{\partial E(x,t)}{\partial t} = \nabla E(x,t) \cdot \dot{x} = - \left\| \nabla E(x(t)) \right\|^2 < 0
 $$
-에서 Lyapunov Stability를 만족한다. 
+에서 **Lyapunov Stability**를 만족한다. 
 
 ### Hopfield Network의 특징 
 #### Weight  Update가 없다
-다시말해 문제가 Fix 되어 있고 문제를 주면 자동적으로 안정 상태 : 문제를 해결하는 상태 : 국소적으로 낮은 에너지로 수렴한다는 특징이 있다.
+다시말해 문제가 Fix 되어 있고 문제를 주면 **자동적으로 안정 상태 : 문제를 해결하는 상태 : 국소적으로 낮은 에너지로 수렴**한다는 특징이 있다.
 
-그러므로 만일, 등식 제한조건 및 부등식 제한 조건이 있는 문제라고 하더라도 자동적으로 국소 해를 찾을 수는 있다.
+그러므로 만일, **등식 제한조건 및 부등식 제한 조건**이 있는 문제라고 하더라도 자동적으로 국소 해를 찾을 수는 있다.
 초기 형태의 Hofield Network은 하나의 등식제한 조건과 부등식 제한 조건을 푸는 문제이다.
 
 예제로 든 **Associative Mempory** 문제는 하나의 다음과 같이 치환해도 동일하다.
@@ -246,6 +254,11 @@ Associative Memory 를 위해서는 상호 Orthogonal한 입력 Vector로 Weight
 $$
 \hat{v}_{n} = v_n - \sum_{k=1}^{n-1} \frac{\langle \hat{v}_k, v_n \rangle}{\langle \hat{v}_k, \hat{v}_k \rangle} \hat{v}_k
 $$
+
+## From Associative Memory to Neural Networks
+
+
+
 
 ### Metropolis Algorithm (MCMC : Markov Chain Monte Carlo)
 
@@ -315,7 +328,7 @@ $$
 ### Stochastic  Gradient Descent
 Consider the following Langevine equation
 $$
-dX_t = - \nabla E(X_t) dt + \sqrt{2T(t)} dW_t, \;\;\;\forall t \geq 0
+dX_t = - \nabla E(X_t) dt + \sqrt{2T(t)} dW_t, \;\;\;\forall t \geq 0    \tag{1}
 $$
 where $T(t) = \frac{T_0}{ln (2+t)}$
 이것의 해는 다음 Probability Density에 비례한다. (Gibbs' Distribution or Boltzmann Distribution)
@@ -323,3 +336,139 @@ $$
 \frac{1}{Z} \exp\left(\frac{-\nabla E(x)}{T(t)} \right) 
 $$ 
 where $Z = \int_{-\infty}^{\infty} \exp (\frac{-\nabla E(x)}{T(t)}) dx $
+
+### Discrete Version of Stochastic  Gradient Descent
+From the equation (1)
+$$
+\int_{X_t}^{X_{t+1}} dX_t = \int_{t}^{t+1} -\nabla E(X_t) dt + \int_{t}^{t+1} \sqrt{2T(t)}dW_t \;\; \forall t \geq 0
+$$
+Assume that there exist a parametrized curve $\alpha(t) \in \mathbb{R}(0,1)$ such that 
+$$
+\begin{align}
+E(x(t+1)) - E (x(t)) &= \langle -\nabla E(x(t)), x(t) \rangle \\ 
+& + \int_0^1 (1-s) \langle \alpha(t) \nabla E(x(t)), \nabla^2 E(x(t) - s \alpha(t) \nabla E(x(t))) \cdot \alpha(t) \nabla E(x(t)) \rangle ds \\
+&= -\langle \nabla E(x(t)), x(t) \rangle\\
+&+ \alpha^2(t) \int_0^1 (1-s) \langle \nabla E(x(t)), \nabla^2 E(x(t) - s \alpha(t) \nabla E(x(t))) \cdot \nabla E(x(t)) \rangle ds < 0
+\end{align}
+$$
+이러한 조건 하에서 for large $t > 0$ such that $\sqrt{2T(t+1)} \approx \sqrt{2T(t)}$
+$$
+X_{t+1} - X_t =  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}(W_{t+1} - W_t) \;\; \forall t \geq 0
+$$
+따라서
+$$
+X_{t+1} = X_t  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}N_{t} \;\; \forall t \geq 0 \;\;\; \tag{2}
+$$
+여기서 $N_t$는 평균 0, 분산 $t$ 인 Gaussion 분포를 따르는 Random Variable 이다. 
+
+#### Note
+에너지 함수 $E(x) \in \mathbb{R}$ 가 만일 Quadratic 한 형태라면 이것의 Lapalacian은 Hessian 이 되고 이 Hessian이 Positive defienite 이고 이것의 Supremum 이 $M \in \mathbb{R}$ 이라 한다면 $\langle x, \nabla^2 E(y)x \rangle < \|x\|^2 \cdot M$ 이므로 
+$$
+E(x(t+1)) - E (x(t)) < -\langle \nabla E(x(t)), x(t) \rangle + \alpha^2(t) \frac{1}{2} \|\nabla E(x(t))\|^2 \cdot M < 0,  \;\; \forall t > 0
+$$
+이를 만족할 수 있는 $\alpha(t)$를 잘 찾아야 한다.
+
+### Generalized Discrete Stochastic Gradient
+##### Including random sequence version
+$$
+X_{t+1} = X_t - \alpha(t) \left( \nabla E(X(t)) + \xi_t \right) + b(t) N_t \;\;\; \tag{3}
+$$
+where $\{\xi_t \in \mathbb{R}^n\}$ is a sequence of random vectors due to noisy or imprecise measurement of the gradient measurement
+
+##### excluding random sequence version
+$$
+X_{t+1} = X_t - \alpha(t) \nabla E(X(t)) + b(t) N_t \;\;\; \tag{4}
+$$
+Typically, for large $t$
+$$
+\alpha(t) = \frac{A}{t+1},\;\;\;b_t^2 = \frac{B}{t \ln \ln t} 
+$$
+여기서, $b_t$ 항은 Iterative Logarithm과 연결된다. 즉, $\lim_{t \rightarrow \infty} \frac{B_t}{\sqrt{t \ln \ln t}} = \pm 1$. 그러므로 적절히 $B$ 값을 선택하여 Simulated Annealing의 효과가 나타날 수 있도록 하여야 한다.
+
+### Stochatic Gradient Descent (SGD) in Machine Learning
+The object or energy function is a sum of **Loss function** $E_i (x)$ for a feasible data set $A$ such that
+$$
+E(x) \triangleq \frac{1}{N} \sum_{i=1}^{N} E_i (x), \;\;\; E_i(x) \triangleq f(x^i) \;\;\; x = \{x^i | x^i \in A \}
+$$
+##### Standard (or Batch) SGD
+$$
+X_{t+1} = X_t - \eta \nabla E(X_t) = X_t - \eta \frac{1}{N} \sum_{i=1}^{N} \nabla E_i(X_t)
+$$
+#### Simple Analysis of SGD
+Let the expectation value of the loss function on the feasible region such that $\mathbb{E}_A E(x)$, then each loss function is factorized as the expextation term and random term such that
+$$
+E_i (x) = \mathbb{E}_A E_i(x) + \xi_i
+$$
+Assume that the random vector $\xi_i \in \mathbb{R}$ is a random process then,
+$$
+\begin{align}
+X_{t+1} &= X_t - \eta \frac{1}{N} \sum_{i=1}^{N} \nabla E_i(X_t) = X_t - \eta \frac{1}{N} \sum_{i=1}^{N} \nabla (\mathbb{E}_A E_i(X_t) + \xi_i) \\
+&= X_t - \eta \frac{1}{N} \sum_{i=1}^{N} (\mathbb{E}_A \nabla E_i(X_t) + \bar{\xi}_i )= X_t - \eta \frac{1}{N} N \cdot \mathbb{E}_A \nabla E_i(X_t) + \eta \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i \\
+&= X_t - \eta \cdot \mathbb{E}_A \nabla E_i(X_t) + \eta \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i 
+\end{align}
+$$
+For sufficiently large $N$, suppose that the random variable $B_t = \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i \in \mathbb{R}^n$ has a zero mean and a variance $\sigma \in \mathbb{R}^{n \times n}$ by the **Strong Law of Large Numbers**, it can be rewritted as 
+$$
+X_{t+1} = X_t - \eta \nabla F(X_t) + \eta B_t
+$$
+It looks like a generalized discrete stochatic gradient excluding random sequence, so that the above algorithm is told as the **stochastic gradient descent**.
+
+##### Convergence Property
+This type of Langevine Equation is not converge to a limit point asymtotically. However, for large $t$, it is converge to a distribution looks like a gaussian distribution. (Weak Converge). Moreover, it is weakly converges to a $\mathbb{E}_A \nabla E_i(X_t)$ with the first moment. (It means that the algorithm converes to an expectation value).
+
+However, the generalized Discrete Stochastic Gradients converges more strongly a distribution in the sense of $l_2$ for $t \uparrow \infty$. 
+
+###### Sketch of Weak Convergence
+- Continuous, 및 Lipschitz Continuos 가정이 feasible 한지 Check 한다. 
+- $\| X_t - E_A X_t \|$ 의 상한선을 유도하기 위해 Chevyshev 부등식, 삼각 부등식, Parallelo 등식을 사용하여 Cauchy Sequence 화 시킨다. (Cuachy Sequence는 될 수 없다.)
+- Cauchy Sequence는 아니므로 Central Limit Theorem을 만족하는지 Check 한다. (증명의 핵심)
+- 위 두가지 방법을 통해 $\| X_t - E_A X_t \|$ 상한선이 유도 되었으면 Large $N$에 대하여 Markov 부등식이나 ChevyShev 부등식을 만족하는지 Check 한다.
+| Markov inequality | Chevyshev inequality (for Probabilty measure) | Central Limit Theorem |
+|---|---|---|
+|$P(X \geq a) \leq \frac{EX}{a}$ |![SGD05](http://jnwhome.iptime.org/img/AI/SGD05.png)  | $\frac{X_1 + X_2 + \cdots + X_n - n \mu}{\sigma \sqrt{n}}$ |
+
+## Convergence
+수렴성 증명은 개발한 알고리즘의 Stability, Consistency, Well-defined, 특성을 보이기 위함이다. 수렴성 증명이 완벽하지 않으면 보통의 경우 최적화 알고리즘은 다운(!) 된다. 수렴성 증명을 통해 수렴 속도 분석도 가능하다. (Linear/exponential)
+### Asymtotically Convergence (For General Sequence)
+$$
+\lim_{n \rightarrow \infty} x_n = c \;\;\textit{iff}\;\;\forall \epsilon > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow |x_n - c | <\epsilon 
+$$
+### Strong Convergence (Convergence almost surely)
+$$
+P(\lim_{n \rightarrow \infty} x_n = X) = 1,\textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; P(\sup_{n \geq n_0} |x_n - X| \geq \epsilon) < \eta, \;\;(\therefore P(\sup_{n \geq n_0} |x_n - X| < \epsilon) > 1 - \eta)
+$$
+### Weak Convergenvce (Convergence in Probability)
+$$
+P(|x_n - X| > \epsilon) \rightarrow 0, \textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow P(|x_n - X | \geq \epsilon ) \leq  \eta, \;\; (\therefore P(|x_n - X | < \epsilon ) > 1 - \eta)
+$$
+### Convergence in Distribution (가장 약한 수렴)
+분포함수열 $F_n(x) \rightarrow F(x)$. 만일, $X_n$이 대응하는 분포함수 $F_n$을 가지고 이것이 $F_n(x) \rightarrow F(x)$를 만족하면 $X_n$ 은 $X$로 분포수렴한다고 한다.
+### Convergence in the r-th mean
+$$
+\lim_{n \rightarrow \infty} \mathbb{E}(|X_n - X |^r ) \rightarrow 0
+$$
+### Example 
+Proof of Convergence for Simple LMS Algorithm such that
+$$
+W_{k+1} = W_k + \frac{1}{k}(X_k -W_k), \;\;\;W_0 = 0
+$$
+for the i.i.d. process $\{X_k\}$ with the **zero mean** and the variance $\sigma$, such as $\mathbb{E}(X_i, X_j) = 0$ for $i \neq j$. Rewrite the above equation 
+$$
+W_{k+1} = \frac{k-1}{k}W_k + \frac{1}{k}X_k \implies k W_{k+1} = (k-1)W_k + X_k
+$$
+We can obtain the following relation
+$$
+W_k = \frac{1}{k} \sum_{i=1}^{k-1} X_i
+$$
+For the Chebyshev inequality, it is necessry to ecaluate the mean and variance of $W_k$ such that
+$$
+\begin{align}
+\mathbb{E}(W_k) &= \mathbb{E}(\frac{1}{k} \sum_{i=1}^{k-1} X_i) = \frac{1}{k} \sum_{i=1}^{k-1} \mathbb{E}(X_i) = 0 \\
+\mathbb{E}(W_k - \mathbb{E}(W_k))^2 &= \frac{1}{(k-1)^2} \mathbb{E}(\sum_{i=1}^{k-1} X_i \sum_{i=j}^{k-1} X_j ) = \frac{(k-1)\sigma^2}{(k-1)^2}
+\end{align}
+$$
+For arbitrary $\varepsilon > 0$, by the Chevyshev inequality,
+$$
+\lim_{k \uparrow \infty} P(|W_k - E(W_k)| \geq \varepsilon) \leq \lim_{k \uparrow \infty} \frac{\sigma^2}{(k-1) \cdot \varepsilon} = 0
+$$
+
