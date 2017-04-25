@@ -32,6 +32,7 @@ p(\theta_t|\mathcal{D}_t) = p(\theta_t|D_t, \mathcal{D}_{t-1}) = p(D_t|\theta_t)
 $$
 - A Priori (the prior) probability $p(\theta_t|\mathcal{D}_{t-1})$, 바로 직전의 데이터 Set ($\mathcal{D}_{t-1}$)으로 학습시킨 신경망 $\theta_t$의 성능 
 - Likelihood $p(D_t | \theta_t)$ : 신경망 $\theta_t$이 데이터 $D_t$를 잘 만들어 낼 수 있는 가에 대한 Likelihood 
+<<<<<<< HEAD
 - Posteriori (the posterior) probability $p(\theta_t | \mathcal{D}_t)$ : 현재까지의 데이터 Set $\mathcal{D}_{t-1}$ 으로 신경망 $\theta_t$ 학습
 
 ## Baysian and Filter Theory
@@ -234,4 +235,11 @@ $$
 $$
 \sigma^2 = \beta^{-1} + \nabla_w y(w,x)^T |_{w=\hat{w}} A^{-1}\nabla_w y(w,x)|_{w=\hat{w}}
 $$
+=======
+- A Posteriori (the posterior) probability $p(\theta_t | \mathcal{D}_t)$ : 현재까지의 데이터 Set $\mathcal{D}_{t-1}$ 으로 신경망 $\theta_t$ 학습
+
+## Baysian and Filter Theory
+제어가 없는 실제 시스템에 대하여 우리가 원하는 특성을 시스템이 나타내게 하기 위해 예전에는, 우측 그림 처럼 PID 제어 혹은 시스템의 Dynamics를 알고 있으면 Pole Placement 제어기를 설계하여 Feedback 제어를 실현 하였다. 그런데 1950년대말, 미,소간 우주개발이 활발해 지면서 Rudolf Kalman의 Kalman Filter 이론이 NASA의 Apollo 계획에 적용되기 시작하면서 다음과 같이 System의 실제 출력을 통해 시스템에 대한 근사 모델의 State를 역으로 유추한 후, 이를 바탕으로 제어를 수행하는 Observer based Control 이론이 확립된다.
+이때, Observer가 하는 일ㅇ
+>>>>>>> 0bf2dc419bed46060879033840f1bb761c66cb44
 
