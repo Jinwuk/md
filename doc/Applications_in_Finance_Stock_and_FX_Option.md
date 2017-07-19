@@ -22,6 +22,7 @@ $$
    - Asian Option
      - $T$에서 평균 옵션 가격 $\bar{S} = \frac{1}{T} \int_0^T S(u) du$ 에 대하여 Average Call pays $X = (\bar{S} - K)^+$, Average Put  $X = (S(T) - K)^+$. Random Strike Option pays $X=(S(T) - \bar{S})^+$ .
 
+<<<<<<< HEAD
 
 ## Finite Market Model
 Stock price at $t$ is $S(t)$, and a risklessinvestment (bond, cash 등 계좌에 있는..) with price $\beta(t)$ at time $t$. If the riskless rate of investment is a constant $r > 1$ then $\beta(t) = r^t \beta(0)$. 그리고 포트폴리오 $(a(t), b(t))$ is the number of shares of stock and bond units held during [t, t-1). 고로, $(a(t), b(t))$ 는 $\mathcal{F}_{t-1}$ measurable.
@@ -90,3 +91,5 @@ d\frac{V(t)}{\beta(t)} &= \frac{1}{\beta(t-)}dV(t) + V(t-) d\left( \frac{1}{\bet
 &= \frac{1}{\beta(t)}dV(t) + V(t-) d\left( \frac{1}{\beta(t)}\right)
 \end{align}
 $$
+=======
+>>>>>>> 1dbd99eefbb00060c4d2fd15f7fd6a0420f558aa
