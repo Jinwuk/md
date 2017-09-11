@@ -87,7 +87,7 @@ where $Z(t) = S(t)/\beta(t)$.
 ##### proof
 $$
 \begin{align}
-d\frac{V(t)}{\beta(t)} &= \frac{1}{\beta(t-)}dV(t) + V(t-) d\left( \frac{1}{\beta(t)}\right) + d \[ V, \frac{1}{\beta} \](t) \\
+d\frac{V(t)}{\beta(t)} &= \frac{1}{\beta(t-)}dV(t) + V(t-) d\left( \frac{1}{\beta(t)}\right) + d \left[ V, \frac{1}{\beta} \right](t) \\
 &= \frac{1}{\beta(t)}dV(t) + V(t-) d\left( \frac{1}{\beta(t)}\right)
 \end{align}
 $$
