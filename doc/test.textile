@@ -1,0 +1,109 @@
+h1(#a-study-of-stochastic-gradient). A Study of Stochastic Gradient
+
+h2(#gradient-identity). Gradient Identity
+
+h3(#lemma-1). Lemma 1
+
+<span class="math">
+\nabla_{\mu_i} \mathcal{N}(\xi | \mu, C) = - \nabla_{\xi_i} \mathcal{N}(\xi | \mu, C)
+</math> #### proof of Lemma <span class="math">
+\begin{align}
+\nabla_{\mu} \mathcal{N}(\xi | \mu, C) &amp;= \frac{\partial}{\partial \mu} \frac{1}{\sqrt{2 \pi C}} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} \frac{\partial}{\partial \mu}  \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} \frac{(\xi - \mu)}{C} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+\end{align}
+</math> <span class="math">
+\begin{align}
+\nabla_{\xi} \mathcal{N}(\xi | \mu, C) &amp;= \frac{\partial}{\partial \xi} \frac{1}{\sqrt{2 \pi C}} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} \frac{\partial}{\partial \xi} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} -\frac{(\xi - \mu)}{C} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) 
+\end{align}
+</math> Thus, <span class="math">
+\nabla_{\mu_i} \mathcal{N}(\xi | \mu, C) = - \nabla_{\xi_i} \mathcal{N}(\xi | \mu, C)
+</math> Q.E.D.
+
+h3(#bonnets-theorem). Bonnet's Theorem
+
+Let <span class="math">f(\xi) : \mathbb{R}^d \rightarrow \mathbb{R}</math> be a integrable and twice differentiable function. The gradient of the expectation of <span class="math">f(\xi)</math> under a Gaussian distribution <span class="math">\mathcal{N}(\xi | \mu, C)</math> with respect to the mean <span class="math">\mu</math> can be expressed as the expectation of the gradient of <span class="math">f(\xi)</math>. <span class="math">
+\nabla_{\mu_i} \mathbb{E}_{\mathcal{N}(\mu, C)} [f(\xi)] = \mathbb{E}_{\mathcal{N}(\mu, C)}[\nabla_{\xi_i} f(\xi)]
+</math>
+
+h4(#proof). proof
+
+<span class="math">
+\begin{align}
+\nabla_{\mu_i} \mathbb{E}_{\mathcal{N}(\mu, C)} [f(\xi)] &amp;= \int \nabla_{\mu_i} \mathcal{N}(\xi | \mu, C) f(\xi) d\xi \\
+&amp;= - \int \nabla_{\xi_i} \mathcal{N}(\xi | \mu, C) f(\xi) d\xi  \;\;\;\;\;\;\text{by Lemma 1 } \\
+&amp;= [\int \mathcal{N}(\xi | \mu, C) f(\xi) d\xi]_{\xi = -\infty}^{\xi = \infty} + \int \mathcal{N}(\xi | \mu, C) \nabla_{\xi_i} f(\xi) d\xi \\
+&amp;= \int \mathcal{N}(\xi | \mu, C) \nabla_{\xi_i} f(\xi) d\xi \\
+&amp;= \mathbb{E}_{ \mathcal{N}(\mu, C)} [\nabla_{\xi_i} f(\xi)]
+\end{align}
+</math>
+
+h3(#lemma-2). Lemma 2
+
+<span class="math">
+\nabla_{C} \mathcal{N}(\xi | \mu, C) = \frac{1}{2} \frac{\partial^2 }{\partial \xi^2} \mathcal{N}(\xi | \mu, C)
+</math> #### proof of Lemma <span class="math">
+\begin{align}
+\nabla_{C} \mathcal{N}(\xi | \mu, C) &amp;= \frac{\partial }{\partial C} \frac{1}{\sqrt{2 \pi C}} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} \cdot -\frac{1}{2} \cdot C^{-1} \cdot \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) + \frac{1}{\sqrt{2 \pi C}} \cdot (\xi - \mu)^2 \cdot \frac{1}{2} \cdot C^{-2} \cdot \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) 
+\end{align}
+</math> From Lemma 1 <span class="math">
+\begin{align}
+\frac{\partial^2 }{\partial \xi^2} \mathcal{N}(\xi | \mu, C) &amp;= \frac{\partial }{\partial \xi} \frac{\partial }{\partial \xi} \mathcal{N}(\xi | \mu, C) \\
+&amp;= \frac{\partial }{\partial \xi} \frac{1}{\sqrt{2 \pi C}} -\frac{(\xi - \mu)}{C} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) \\
+&amp;= \frac{1}{\sqrt{2 \pi C}} \cdot -C^{-1} \cdot \exp \left(- \frac{(\xi -\mu)^2}{2C} \right) + \frac{1}{\sqrt{2 \pi C}} \cdot (\xi - \mu)^2 \cdot C^{-2} \exp \left(- \frac{(\xi -\mu)^2}{2C} \right)
+\end{align}
+</math> Thus, <span class="math">
+\nabla_{C} \mathcal{N}(\xi | \mu, C) = \frac{1}{2} \frac{\partial^2 }{\partial \xi^2} \mathcal{N}(\xi | \mu, C)
+</math>
+
+Q.E.D.
+
+h3(#prices-theorem). Price's Theorem
+
+Under the same condition as the theorem of Bonnet, the gradient of the expectation of <span class="math">f(\xi)</math> under a Gaussian distribution <span class="math">\mathcal{N}(\xi| 0, C)</math> with respect to the covariance <span class="math">C</math> can be expressed in terms of the expectaion of the Hessian of <span class="math">f(\xi)</math> as <span class="math">
+\nabla_{C_{i, j}} \mathbb{E}_{\mathcal{N}(0,C)} [f(\xi)] = \frac{1}{2} \mathbb{E}_{\mathcal{N}(0,C)} [\nabla_{\xi_i, \xi_j} f(\xi)]
+</math>
+
+h4(#proof-1). proof
+
+<span class="math">
+\begin{align}
+\nabla_{C_{i, j}} \mathbb{E}_{\mathcal{N}(0,C)} [f(\xi)] &amp;= \int \nabla_{C_{i, j}} \mathcal{N}(\xi | 0,C) f(\xi) d\xi \\
+&amp;= \frac{1}{2} \int \nabla_{\xi_i, \xi_j} \mathcal{N}(\xi | 0,C) f(\xi) d\xi \;\;\;\;\;\;\text{From Lemma 2} \\
+&amp;= \frac{1}{2} \int \mathcal{N}(\xi | 0,C) \nabla_{\xi_i, \xi_j} f(\xi) d\xi \;\;\;\;\;\;\text{부분 적분 2번 적용} \\
+&amp;= \frac{1}{2} \mathbb{E}_{\mathcal{N}(0,C)} [\nabla_{\xi_i, \xi_j} f(\xi)]
+\end{align}
+</math>
+
+h3(#theorem-3). Theorem 3
+
+<span class="math">
+\nabla_{\theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] = \mathbb{E}_{\mathcal{N}(\mu,C)} \left[ (\nabla_{\theta} f(\theta) )^T \frac{\partial \mu}{\partial \theta} + \frac{1}{2} Tr \left( H \frac{\partial C}{\partial \theta} \right) \right]
+</math>
+
+h4(#proof-2). proof
+
+<span class="math">
+\begin{align}
+\nabla_{\theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] &amp;= \frac{\partial}{\partial \theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] \\
+&amp;= \frac{\partial }{\partial \mu} \frac{\partial \mu}{\partial \theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] + \frac{\partial }{\partial C} \frac{\partial C}{\partial \theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] \\
+&amp;= \frac{\partial }{\partial \mu} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] \cdot \frac{\partial \mu}{\partial \theta} + \frac{\partial }{\partial C}  \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] \cdot \frac{\partial C}{\partial \theta} \\
+&amp;= \mathbb{E}_{\mathcal{N}(\mu,C)} [\nabla_{\theta} f(\theta)] \cdot \frac{\partial \mu}{\partial \theta} + \frac{1}{2} \mathbb{E}_{\mathcal{N}(\mu,C)} Tr(\mathbb{E}_{\mathcal{N}(\mu,C)}[H(f(\theta))]\cdot \frac{\partial C}{\partial \theta} \\
+&amp;= \mathbb{E}_{\mathcal{N}(\mu,C)} \left[ (\nabla_{\theta} f(\theta))^T \frac{\partial \mu}{\partial \theta} + \frac{1}{2} Tr(H(f(\theta) \cdot \frac{\partial C}{\partial \theta} ) \right]
+\end{align}
+</math>
+
+h2(#my-idea). My Idea
+
+<span class="math">
+\nabla_{\theta} [f(\theta)] = \nabla_{\theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] + \nabla_{w_t} f(\theta)
+</math> 이면 Ito Differential 에 의해 앞 항과 뒤 항을 각각 유도하여 증명할 수 있을 것으로 생각된다. 즉, <span class="math">
+z_t = \mu(z_t) + \sigma(z_t) w_t  
+</math> 라 하면.. <span class="math">
+dz_t = \frac{\partial \mu}{\partial z_t} dt + \frac{\partial \sigma}{\partial z_t} dw_t
+</math> 이므로 Ito Calculus에 의해 $$
+
+$$
