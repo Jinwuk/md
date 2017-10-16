@@ -68,6 +68,37 @@ $$
 $$
 **KL Divergence**는 **평균 차이의 제곱 더하기 분산의  차이에 비례하는 어떤 값**이다.
 
+### Example : Vector valued Two Gaussian 
+다음과 같이 Gaussian 분포가 정의되어 있다고 가정하자.
+$$
+p(x) = \frac{1}{Z} \exp \left( -\frac{1}{2} (x - \mu)^T C^{-1} (x - \mu) \right) = \frac{1}{(2\pi)^{n/2} (\det C)^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T C^{-1} (x - \mu) \right)
+$$
+여기서, $p(x) \in \mathbb{R}^n, \;\; C \in \mathbb{R}^{n \times n}$ 그리고 $p_1(x), \; p_2(x)$ 라 놓고 구해보면 
+(마찬가지로 중간단계를 생략하고 전개한다.)
+
+$$
+\begin{align}
+\mathbb{KL}(p_1(x)||p_2(x)) &= \frac{1}{2}\int_{-\infty}^{\infty} p_1(x) \left( (x - \mu_1)^T C_1^{-1} (x - \mu_1) - (x - \mu_2)^T C_2^{-1} (x - \mu_2) + 2(\log Z_2 - \log Z_1)   \right) dx \\
+&= \frac{1}{2}\int_{-\infty}^{\infty} p_1(x) \left( (x - \mu_2)^T C_2^{-1} (x - \mu_2) - (x - \mu_1)^T C_1^{-1} (x - \mu_1) + 2(\log \frac{Z_2}{Z_1})   \right) dx \\
+&= \frac{1}{2}\int_{-\infty}^{\infty} p_1(x) \left( tr (C_2^{-1}(x - \mu_2)(x - \mu_2)^T) - tr (C_1^{-1}(x - \mu_1)(x - \mu_1)^T) + (\log \frac{\det C_2}{\det C_1})  \right) dx \\
+&= \frac{1}{2}\int_{-\infty}^{\infty} p_1(x) \left( tr (C_2^{-1}(x - \mu_2)(x - \mu_2)^T) - tr (C_1^{-1}(x - \mu_1)(x - \mu_1)^T) + (\log \frac{\det C_2}{\det C_1})  \right) dx \\
+&= \frac{1}{2} \left[ \int_{-\infty}^{\infty} p_1(x) \left(tr (C_2^{-1}(x - \mu_2)(x - \mu_2)^T) + \log \frac{\det C_2}{\det C_1} \right) dx -  \int_{-\infty}^{\infty} p_1(x) tr (C_1^{-1}(x - \mu_1)(x - \mu_1)^T) dx \right] \\
+&= \frac{1}{2} \left[ \int_{-\infty}^{\infty} p_1(x) \left(tr (C_2^{-1}(xx^T - 2 \mu_2 x^T + \mu_2\mu_2^T) + \log \frac{\det C_2}{\det C_1} \right) dx -  tr (C_1^{-1} C_1) \right] \\
+&= \frac{1}{2} \left[ \int_{-\infty}^{\infty} p_1(x) \left(tr (C_2^{-1}(C_1 - xx^T + 2\mu_1 x^T - \mu_1 \mu_1^T + xx^T - 2 \mu_2 x^T + \mu_2\mu_2^T) + \log \frac{\det C_2}{\det C_1} \right) dx -  n \right] \\
+&= \frac{1}{2} \left[ \int_{-\infty}^{\infty} p_1(x) \left(tr (C_2^{-1}(C_1 + 2(\mu_1 - \mu_2)x^T + \mu_2\mu_2^T - \mu_1 \mu_1^T) + \log \frac{\det C_2}{\det C_1} \right) dx - n \right] \\
+&= \frac{1}{2} \left[ tr (C_2^{-1}C_1) + tr (C_2^{-1}(\mu_1 \mu_1^T - 2 \mu_1 \mu_2^T + \mu_2\mu_2^T) + \log \frac{\det C_2}{\det C_1} - n \right] \\
+&= \frac{1}{2} \left[ tr (C_2^{-1}C_1) + tr (C_2^{-1}(\mu_1 - \mu_2)(\mu_1 - \mu_2)^T) + \log \frac{\det C_2}{\det C_1} - n \right] \\
+&= \frac{1}{2} \left[ tr (C_2^{-1}C_1) +(\mu_1 - \mu_2)^T C_2^{-1}(\mu_1 - \mu_2)) + \log \frac{\det C_2}{\det C_1} - n \right] 
+\end{align}
+$$
+
+### Example : Vector valued Two Gaussian - 2
+$p_1 = \mathcal{N}(\mu, \mathbf{C}), \; p_2 = \mathcal{N}(0, \mathbf{I}), \;\; p_1, p_2 \in \mathbb{R}^n$ 인 경우를 생각하자. 그 경우 위에서 유도한 바와 같이 KL Divergence가 유도 되므로
+$$
+\mathbb{KL}(\mathcal{N}(\mu, \mathbf{C})||\mathcal{N}(0, \mathbf{I})) = \frac{1}{2} \left[ tr \mathbf{C} + \mu_1^T \mu_1 - \log (\det \mathbf{C}) - n \right]
+$$
+이떄 $\det \mathbf{C} > 0$ 이라 생각한다. 아닐 경우에는 $\det |\mathbf{C}|$ 이어야 한다.
+
 
 ## Correspondence to Radon-Nykodym Derivation
 Remind the equation (1), where $\frac{dP}{dQ}$ is the **Radon=Nikodym derivative** of $P$ with $Q$, and the equation (1) can be rewritten as
