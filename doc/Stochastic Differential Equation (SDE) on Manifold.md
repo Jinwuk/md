@@ -59,7 +59,7 @@ Euclidean Brownian Motion $dM_t = \sigma(X_t)dB_t$ 로 주어졌을 때, Manifol
 $$
 dX_t^i = \sigma_j^i(X_t) dB_t^i - \frac{1}{2} g^{lk}(X_t) \Gamma_{kl}^i(X_t)dt, \;\;\; g^{ij} = \sum_{k=1}^d e_k^i e_k^j
 $$
-이를 사용하여 Operator를 만들던가 혹은 Girsanov Theorem등을 사용하여 Wiener Process와 Martingale을 분리하여 SDE를 성리시켜야 한다.
+이를 사용하여 Operator를 만들던가 혹은 Girsanov Theorem등을 사용하여 Wiener Process와 Martingale을 분리하여 SDE를 성립시켜야 한다.
 
 Local Coordinater에서 Generator는 다음과 같다. 
 $$
@@ -73,7 +73,7 @@ $$
 #### Note
 즉,
 $$
-b^i = \frac{1}{\sqrt{G}} \frac{\partial (\sqrt{G} g^{ij})}{\partial x^j} = \frac{\partial g^{ij}}{\partial x^j} = \frac{\partial }{\partial x^j} \sum_{k=1}^d e_k^i e_k^j = \nabla_{X_j} \sum_{k=1}^d e_k^i e_k^j 
+b^i = \frac{1}{\sqrt{G}} \frac{\partial (\sqrt{G} g^{ij})}{\partial x^j} = \frac{\partial g^{ij}}{\partial x^j} = \frac{\partial }{\partial x^j} \sum_{k=1}^d e_k^i e_k^j = \nabla_{X_j} \sum_{k=1}^d e_k^i e_k^j
 $$
 
 그러므로 Let $X_k = e_k^i$ or $X_k = e_k^j$ 이면

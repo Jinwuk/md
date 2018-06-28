@@ -86,7 +86,7 @@ $$
 ### Diffusion
 Diffusion 방정식의 유도 
 $$
-M(t) = \int_{x_0}^{x_1} u(x,t) dx \Rightarrow \frac{dM}{dt} \int_{x_0}^{x_1} u_t(x,t) dx 
+M(t) = \int_{x_0}^{x_1} u(x,t) dx \Rightarrow \frac{dM}{dt} = \int_{x_0}^{x_1} u_t(x,t) dx 
 $$
 그리고 Fick's Law 에 따라 
 $$

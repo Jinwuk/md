@@ -1,7 +1,11 @@
 A Study of Stochastic Gradient
 =====================
+<<<<<<< HEAD
 본 문서는 구글에서 발표된 기계학습을 위한 Stochastic Gradient에 대한 연구[1]에 본인의 아이디어를 추가하여 구글 팀에서 제시된 Stochastic Gradient Rule을 보다 쉽게 구할 수 있는 방법론에 대한 연구이다. 
 아울러, 본 알고리즘을 사용하여 변경된 기존 기계학습을 위한 목적함수와의 비교를 통해 실제, Stochastic Gradient가 적용될 경우 Wiener Process에 의해 어떠한 변화가 발생할 수 있는지를 고찰한다. 
+=======
+
+>>>>>>> 880d98a0633278e465530a6961aead1238d8ec5c
 ## Gradient Identity
 
 ### Lemma 1
@@ -104,8 +108,13 @@ $$
 \end{align}
 $$
 
+<<<<<<< HEAD
 ## Analysis of Stochastic Differential Equation
 ### SDE Analysis
+=======
+## My Idea
+
+>>>>>>> 880d98a0633278e465530a6961aead1238d8ec5c
 $$
 \nabla_{\theta} [f(\theta)] = \nabla_{\theta} \mathbb{E}_{\mathcal{N}(\mu,C)} [f(\theta)] + \nabla_{w_t} f(\theta)
 $$
@@ -118,11 +127,16 @@ $$
 $$
 dz_t = \frac{\partial \mu}{\partial z_t} dt + \frac{\partial \sigma}{\partial z_t} dw_t
 $$
+<<<<<<< HEAD
 이므로 Ito Calculus에 의해 $\theta_t = z_t$ 로 놓고 해석하면
+=======
+이므로 Ito Calculus에 의해
+>>>>>>> 880d98a0633278e465530a6961aead1238d8ec5c
 $$
 \begin{align}
 df(\theta_t) &= (\nabla_{\theta_t} f(\theta_t))^T d\theta_t + \frac{1}{2} Tr \left( H(f(\theta_t)) d\theta_t^2 \right)\\
 &= (\nabla_{\theta_t} f(\theta_t) )^T \left(\frac{\partial \mu}{\partial \theta_t} dt + \frac{\partial \sigma}{\partial \theta_t} dw_t \right) + \frac{1}{2} Tr \left (H(f(\theta_t)) \left(\frac{\partial \sigma}{\partial \theta_t} \right) \left( \frac{\partial \sigma}{\partial \theta_t} \right)^T \right) dt \\
+<<<<<<< HEAD
 &= \left[ (\nabla_{\theta_t} f(\theta_t) )^T \frac{\partial \mu}{\partial \theta_t} +  \frac{1}{2} Tr \left( H(f(\theta_t)) \frac{\partial C}{\partial \theta} \right) \right] dt + (\nabla_{\theta_t} f(\theta_t) )^T \frac{\partial \sigma}{\partial \theta_t} dw_t
 \end{align}
 $$
@@ -346,3 +360,12 @@ $$
 
 
 [1] Danilo J. Rezende, Shakir Mohamed, Daan Wierstra, "Stochastic Backpropagation and Approximate Inference in Deep Generative Models", Proc. ICML, 2014. : arXiv:1401.4082v3.
+=======
+&= \left[ (\nabla_{\theta_t} f(\theta_t) )^T \frac{\partial \sigma}{\partial \theta_t} +  \frac{1}{2} Tr \left( H(f(\theta_t)) \frac{\partial C}{\partial \theta} \right) \right] dt + (\nabla_{\theta_t} f(\theta_t) )^T \frac{\partial \sigma}{\partial \theta_t} dw_t
+
+
+
+\end{align}
+$$
+
+>>>>>>> 880d98a0633278e465530a6961aead1238d8ec5c
