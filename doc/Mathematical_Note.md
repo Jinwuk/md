@@ -122,5 +122,169 @@ $$
    - 살펴보면 2차 편미분 (Hessian) $Q$ 만 존재하면 나머지는 Gradient $g_i$로 만들 수 있다. 
 
 
+## 로젠브록 함수
+
+
+로젠브록 함수(Rosenbrock function)는 수학적 최적화에서 최적화 알고리듬을 시험해볼 용도로 사용하는 비볼록함수이다. 하워드 해리 로젠브록이 1960년에 도입했다.[1] 로젠브록의 골짜기(Rosenbrock's valley) 또는 로젠브록 바나나 함수(Rosenbrock's banana function)라고도 한다. 함수식은 다음과 같다.
+$$
+f ( x , y ) = ( a − x )^2   + b ( y − x^2   )^2     
+$$
+
+그래프를 그려 보면, 길고 좁은 포물선 모양의 골짜기가 드러난다. 골짜기를 찾는 것 자체는 자명하다. 그러나 전역최솟값으로 수렴하는 것은 어렵다. 전역최솟값은 $f ( x = a , y = a^2   ) = 0$   이다. 일반적으로 $a = 1 , b = 100$  을 대입해 사용한다.
+$$
+f ( x , y ) = ( 1 − x )^2   + 100 ( y − x^2   )^2     
+$$
+
+## Baysian Probablity에서 LMS Algorithm 유도
+$Y$ 는 Noise Observation of $X$ 이떄 LMS Estimator는 Expected suared Error를 최소화 시키면서 Conditional Mean을 다음과 같이 추정한다.
+$$
+\begin{align}
+\hat{x}(y) &= \mathbb{E}_{X|Y}(X|Y = y) \\
+&= \int x P_{X|Y}(x|y) dx = \int x \frac{P_{X,Y}(x,y)}{P_Y(y)} dx
+\end{align}
+$$
+
+여기서 $P_Y(y)$ 는
+
+$$
+P_Y(y) = \int P_{X,Y}(x,y) dx = \int P_{Y|X}(y|x)P_X (x) dx
+\tag{N0}
+$$
+
+### Nonparametric Empirical Bayes Least Squares Estimator (NEBLS)
+Gaussian case의 경우 매우 간단하다.
+
+$$
+P_{Y|X}(y,x) = \frac{1}{\sqrt{2 \pi} \sigma} \exp ( - \frac{(y - x)^2}{2 \sigma^2} )
+\tag{N1}
+$$
+
+식 (N1)을 식 (N0)에 대입하면, 
+
+$$
+P_Y(y) = \int \frac{1}{\sqrt{2 \pi} \sigma} \exp ( - \frac{(y - x)^2}{2 \sigma^2} ) P_X (x) dx
+\tag{N2}
+$$
+
+식 (N2)를 $y$에 대하여 미분하고 $\sigma^2$ 을 곱하면
+$$
+\begin{align}
+\sigma^2 \frac{\partial P_Y(y)}{\partial y} &= \int (x - y) \frac{1}{\sqrt{2 \pi} \sigma} \exp ( - \frac{(y - x)^2}{2 \sigma^2} ) P_X (x) dx \\
+&= \int (x - y) P_{X, Y} (x, y) dx  = \int x P_{X, Y} (x, y) dx - \int y P_{X, Y} (x, y) dx = \int x P_{X, Y} (x, y) dx - y \int P_{X, Y} (x, y) dx \\
+&= \int x P_{X, Y} (x, y) dx - y P_Y (y) \\
+&= \hat{x} P_Y(y) - y P_y(y) 
+\end{align}
+$$
+
+따라서
+
+$$
+\begin{align}
+\hat{x}(y) &= y + \sigma^2 \frac{P'_Y(y)}{P_Y (y)} \\
+&= y + \sigma^2 \frac{d}{dy} \log P_Y(y)
+\end{align}
+$$
+
+
+## Whitenning 
+원본 데이터를 White Noise Data로 만드는 방법
+결론은 결국 이것이다.
+
+**This concludes the proof of how the linear transform given by matrix pre-multiplication by $\Lambda^{−0.5} \Phi^T$ produces whitened data. **
+
+왜냐하면 이렇게 되기 때문
+
+$$
+\mathbf W = \mathbf{\Lambda}^{-\frac{1}{2}} \mathbf Y = \mathbf{\Lambda}^{-\frac{1}{2}}\mathbf{\Phi}^T\mathbf X
+$$
+
+다음 Link에 잘 정리되어 있다.
+https://www.projectrhea.org/rhea/index.php/ECE662_Whitening_and_Coloring_Transforms_S14_MH
+
+### Whitenning Transform 요약
+다음과 같은 경우를 가정한다.
+Random variable $X \in \mathbf{R}^d$ and there exists the pdf of $X$ $f_X : \mathbf{R}^d \rightarrow \mathbf{R}$ such that 
+$$
+f_{\mathbf X} (\mathbf x) = \frac{1}{(2\pi)^{\frac{d}{2}}|\mathbf{\Sigma}|^{\frac{1}{2}}}\mbox{exp}\left[{-\frac{1}{2}(\mathbf x - \mu)^T\mathbf{\Sigma}^{-1}(\mathbf x - \mu)}\right]
+$$
+여기서, Variance matrix $\Sigma = U U^T$dml 의 특성이 있다. $X$가 다음과 같을 때
+$$
+\mu = E[X] = 0 \Rightarrow \Sigma = E[XX] =
+$$
+이때, Covariance Matrix를 다음과 같이 쓸 수 있다.
+$$
+\Sigma = \Phi \Lambda \Phi^{-1} = \Phi \Lambda^{\frac{1}{2}} \Lambda^{\frac{1}{2}} \Phi^{-1} =\Phi \Lambda^{\frac{1}{2}} \Lambda^{\frac{1}{2}} \Phi^{T}
+$$
+이때, 
+$$
+Y = \Phi^T X
+$$
+그리고 
+$$
+W = \Lambda^{-\frac{1}{2}}Y = \Lambda^{-\frac{1}{2}} \Phi^T X
+$$
+라 놓자. 
+**이것이 Whitenning Tramsform** 이다. 
+- 임의의 데이터로 부터 White noise data $W$를 유도해 내었다.
+- Eigenvalue $\Lambda^{-\frac{1}{2}}$는 **Wgitenning Space의 Principle axes**위의 Scaling 이다.
+- Eigenvector matrix $\Phi^{-1}=\Phi^T$ 는 **Wgitenning Space로의 Transform**이다.
+- 즉, 임의의 데이터에 대하여 White noise Space로 Transform을 가하고 White noise space의 Principle axes를 따라 Scaling을 하는 것이다.
+
+각각의 Covariance를 계산해 보면 
+$$
+E YY^T = E \Phi^T X X^T \Phi = \Phi^T E X X^T \Phi = \Phi^T \Phi \Lambda \Phi^T \Phi = \Lambda
+$$
+$$
+\begin{align}
+E WW^T = E \Lambda^{-\frac{1}{2}} \Phi^T X X^T \phi \Lambda^{-\frac{1}{2}} &=  \Lambda^{-\frac{1}{2}} \Phi^T E X X^T \Phi \Lambda^{-\frac{1}{2}}  \\
+&= \Lambda^{-\frac{1}{2}} \Phi^T  \Phi \Lambda^{\frac{1}{2}} \Lambda^{\frac{1}{2}}  \Phi^T \Phi \Lambda^{-\frac{1}{2}} \\
+&= I
+\end{align}
+$$
+
+### Coloring Transform
+- Whitenning Transform의 역 변환이다.
+- 원하는 Variance 정보를 가지고 이것을 사용하여 Whitenning Data를 원하는 Coloring Data로 만드는 것이다.
+
+Let $S = [W_1, \cdots W_n] \in \mathbf{R}^{n \times n}$
+For given $\Sigma$ 
+$$
+\Sigma = \Phi \Lambda \Phi^T = \Phi \Lambda^{\frac{1}{2}} \Lambda^{\frac{1}{2}} \Phi^T
+$$
+
+1. 먼저 $S$에 대하여 along the principal axes를 따라 given Variance를 따르는 중간 변환을 수행한다. (Scaling)
+	$$
+    Y = \Lambda^{\frac{1}{2}} S
+    $$
+2. Scaling 된 $W$ 즉, $Y$에 대하여 COloring Space로의 변환$\Phi$을 수행한다.
+	$$
+    X = \Phi Y = \Phi \Lambda^{\frac{1}{2}} S
+    $$
+
+![fig01](http://jnwhome.iptime.org/img/research/2018/stochastic/Fig3_summ_mh.png)
+
+## Gaussian 함수의 Entropy
+Let $X$ ba a Gaussian with mean and variance $\sigma$. The pdf of $X$ is such that
+$$
+f_X(x) = \frac{1}{\sqrt {2 \pi} \sigma} e^{-\frac{x^2}{2 \sigma^2}}.
+$$
+The entropy of the $f_X (X)$ is 
+$$
+\begin{aligned}
+h(x) &= -\int f_X(x) \log_2 f_X (x) dx\\
+&= \int f_X (x) \frac{\frac{x^2}{2 \sigma^2} + \ln \sqrt{2 \pi } \sigma}{\ln 2} dx \\
+&= \frac{1}{\ln 2} \frac{1}{2 \sigma^2} \int f_X (x) x^2 dx + \frac{\ln \sqrt{2 \pi } \sigma}{\ln 2} \int f_X (x) dx
+= \frac{1}{\ln 2} \frac{1}{2 \sigma^2} \sigma^2 + \frac{\ln \sqrt{2 \pi } \sigma}{\ln 2} \\
+&= \frac{1}{2} \log_2 2 \pi \sigma^2
+\end{aligned}
+$$
+
+- 여기서 알 수 있듯, Gaussian 분포의 **Variance가 Entropy 의 Main Parameter**이다. 
+- 모수가 2차인 분포의 경우는 결국 같다.
+
+### Whitenning Kalman Filter
+사실, Kalman Filter를 살펴보면, 최적이라는 것은 결국, 데이터의 분포가 Well - Whitenned 되어 있을 떄라는 의미이다. 
+EKF의 성능이 안 나오는 경우 UKF는 추가적인 Sigma point를 두어 Whitenning을 수행한다.
+그렇다면,  $P_{k|K}$의 Eigen vector를 보고 이것이, Whitennning이 아니라면, 그렇게 만드는 Filtering을 수행한다면?
 
 
