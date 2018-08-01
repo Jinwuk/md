@@ -10,10 +10,10 @@ Convex 조건은, Domain이 만일 Convex 일 경우 함수 $f$가 contimuity �
 따라서 이러한 경우, Convexity 변수를 $s \in \mathbb[0,1]$ 대신 $\varepsilon \in \mathbb{R}$로 놓아야 한다. 이때 Convexity Check를 위해 다음과 같이 놓아보자.
 
 $$
-\lim_{\varepsilon \rightarrow 0} \frac{\varepsilon}{1 + \varepsilon} = 0, \;\;\; \lim_{\varepsilon \rightarrow \infty} \frac{\varepsilon}{1 + \varepsilon} = 1 
+\lim_{\varepsilon \rightarrow 0} \frac{\varepsilon}{1 + \varepsilon} = 0, \;\;\; \lim_{\varepsilon \rightarrow \infty} \frac{\varepsilon}{1 + \varepsilon} = 1
 $$
 
-그러므로 어떤 확률 변수 $z$가 1과 z에서 변한다고 가정해 보자. 즉 Deterministic 한 경우에
+그러므로 어떤 확률 변수 $z​$가 1과 z에서 변한다고 가정해 보자. 즉 Deterministic 한 경우에
 $$
 h = x + s(y - x), \;\;\; s \in \mathbb{R}[0,1]
 $$
@@ -33,11 +33,11 @@ $$
 $$
 \min f(x) : f(x) = \frac{1}{2} \langle x, Qx \rangle - b^T x \;\;\;\;\;\text{ minimizer } x^* = Q^{-1}b \\
 \nabla f(x) = Qx -b = g(x)
-$$ 
+$$
 
 ### Steepest Descent
 $$
-x_{i+1} = x_i - \alpha_i g_i \;\;\;\;\; \alpha_i = \underset{\lambda \geq 0}{\arg}  \min f(x_i - \lambda g_i) 
+x_{i+1} = x_i - \alpha_i g_i \;\;\;\;\; \alpha_i = \underset{\lambda \geq 0}{\arg}  \min f(x_i - \lambda g_i)
 $$
 
 식(1)에서 최적 $\lambda$ 는 $\frac{\partial f}{\partial \lambda} = 0$을 만족한다. 즉, ($x = x_{i+1}$ 이라 생각하면, 그리고 $\alpha$ 대신 $\lambda$로 놓고 생각하면)
@@ -253,13 +253,15 @@ $$
 $$
 
 1. 먼저 $S$에 대하여 along the principal axes를 따라 given Variance를 따르는 중간 변환을 수행한다. (Scaling)
-	$$
-    Y = \Lambda^{\frac{1}{2}} S
-    $$
+$$
+   Y = \Lambda^{\frac{1}{2}} S
+$$
+
 2. Scaling 된 $W$ 즉, $Y$에 대하여 COloring Space로의 변환$\Phi$을 수행한다.
-	$$
-    X = \Phi Y = \Phi \Lambda^{\frac{1}{2}} S
-    $$
+$$
+   X = \Phi Y = \Phi \Lambda^{\frac{1}{2}} S
+$$
+
 
 ![fig01](http://jnwhome.iptime.org/img/research/2018/stochastic/Fig3_summ_mh.png)
 
@@ -287,4 +289,50 @@ $$
 EKF의 성능이 안 나오는 경우 UKF는 추가적인 Sigma point를 두어 Whitenning을 수행한다.
 그렇다면,  $P_{k|K}$의 Eigen vector를 보고 이것이, Whitennning이 아니라면, 그렇게 만드는 Filtering을 수행한다면?
 
+### Test of mermaid Gantt 차트
 
+* 2018-08-01
+
+```mermaid
+        gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+```
+
+
+
+### Mutiple QP 기반 ENcoding/Decoding
+
+* 2018-08-01
+
+```mermaid
+graph LR
+A[DCT] --> B(Q qp1)
+A --> C(Q qp2)
+B --> D(IQ)
+D --> E(IDCT)
+B --> F( x2 )
+C -->| +| G( +/- )
+F --> | - |G
+G --> H[e=Qqp2 - Qqp1] 
+H --> I(e')
+F --> J( + )
+I --> J
+J --> K( Q' qp2)
+K --> L(IQ)
+L --> M(IDCT)
+```
