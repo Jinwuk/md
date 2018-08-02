@@ -94,7 +94,7 @@ $\phi'(0) = - \left\| \nabla f(x) \right\|^2 |_{x=0}$
 $f$ is twice continuously differentiable and
 $$
 \left\| H(x) \right\| \triangleq \max \{ \left\| H(x)y \right\| | \left\| y \right\| = 1 \} \leq M < \infty, \;\; \forall x \in \mathbb{R}^n
-$$ 
+$$
 where $H(x) = \frac{\partial^2 f(x)}{\partial x^2}$.
 
 ### Theorem AG-1
@@ -185,7 +185,7 @@ $$
 $\{ f(x_i)\}_{i=0}^{\infty}$ is a monotone decreasing sequence, then if there exists two accumulation points $x^*, x^{**}$, $f(x^*) = f(x^{**})$
 (이미 Uniqueness 증명에서 증명된 것임)
 
-** Q.E.D. of Theorem GA-1 **
+**Q.E.D. of Theorem GA-1**
 
 #### Exercise 1
 Let $f(x)=e^{-\left\|x \right\|^2}$ with $x \in \mathbb{R}^n$ shows that, for this function, the Armijo gradient descent algorithm method construct  the sequence $\{ x_i \}_{i=0}^{\infty}$ such that

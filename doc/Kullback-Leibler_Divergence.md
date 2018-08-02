@@ -3,8 +3,9 @@ Kullback-Leibler Divergence
 KL Divergence를 최소화 하는 문제는 결국 Maximum Likelihood를 최대화 하는 문제로 귀결됨을 보인다. (뭐 당연하지만..)
 Assume that two probability distribution $p$ and $q$.
 
-##Definition KL Divergence
+##  Definition KL Divergence
 ### Discrete Version
+
 $$
 \begin{align}
 \mathbb{KL}(p||q) &\triangleq \sum_{k=1}^K p_k \log \frac{p_k}{q_k} = \sum_{k=1}^K p_k \log p_k - \sum_{k=1}^K p_k \log q_k \\
@@ -52,7 +53,6 @@ $$
 위 문제와 같이 두 개의 Gaussian p.d.f 이다. 그런데, Variance가 다르다. 이를 반영하여 다음과 같이 p.d.f를 쓴다.
 $$
 p(x)= \frac{1}{Z_1} \exp \left( \frac{-(x - m_p)^2}{2 \sigma_1^2} \right), \;\; q(x)= \frac{1}{Z_2} \exp \left( \frac{-(x - m_q)^2}{2 \sigma_2^2} \right)
-
 $$
 중간단계를 생략하며 전개하면
 $$

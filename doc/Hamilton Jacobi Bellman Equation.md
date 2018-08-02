@@ -1,4 +1,5 @@
-#Hamilton Jacobi Bellman Equation 
+Hamilton Jacobi Bellman Equation
+====
 
 1. The state equation
 $$
@@ -50,4 +51,4 @@ $$
 The HJB equation is defined as follows from (2), (3)
 $$
 0 = \frac{\partial J^*}{\partial t} + H(t, x, u^*(x(t), \frac{\partial J^*}{\partial x}), \frac{\partial J^*}{\partial x})
-$$ 
+$$

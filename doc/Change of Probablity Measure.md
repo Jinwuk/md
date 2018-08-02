@@ -26,7 +26,7 @@ $$
 가 성립한다. 이때, $f$를 $\mathbb{P}$ 에 대한 $\mathbb{Q}$ 의 밀도함수로 생각하여 이를 **Radon-Nykodym Derivative** 라고 부르며 
 $$
 f = \frac{d\mathbb{Q}}{d\mathbb{P}}
-$$  
+$$
 이다. 
 
 #### Notice 
@@ -38,7 +38,7 @@ $$
 2. 다음이 성립한다.
 $$
 \frac{d\mathbb{Q}}{d\mathbb{P}} = \left(\frac{d\mathbb{P}}{d\mathbb{Q}} \right)^{-1}
-$$  
+$$
 3. 옵션 가격 이론에서 주가가 실제로 가지는 확률분포를 $\mathbb{P}$ 라고 하면 이것과 동등한 확률분포 $\mathbb{Q}$ 를 사용하여 옵션의 기대값을 구한다.
    - 이는 다른 분야에 얼마든지 적용할 수 있다. 예를 들어 데이터의 분포를 $\mathbb{P}$ 라 할때 이것에 대한떠 어떤 Transform 에 대한 분포를 구하는 방식이다.
 
@@ -47,7 +47,7 @@ $$
 $\Omega$ 위의 $\sigma$-algebra $\{\mathcal{F}_t\}_{t \in A}$ 가 if $ s \leq t$ 인 $s,t \in A$ 에 대하여 
 $$
 \mathcal{F}_s \subset \mathcal{F}_t \subset \mathcal{F}
-$$ 
+$$
 이면 $\{\mathcal{F}_t\}_{t \in A}$ 는 **Filtration** 이다.
 
 ### Martingale
@@ -62,7 +62,7 @@ Stochastic Process $\{\xi_t \}_{r \in A}$ 가 아래의 조건을 만족하면
 따라서 만일 $(\Omega, \mathbb{P}, \mathcal{F}_t)$ 에 대하여 $\{ F_t\}_{0 \leq t \leq T}$ 와 $\mathcal{F}_T$ 가측인 확률변수 $X$가 주어졌을 떄
 $$
 M_t = \mathbb{E}(X|\mathcal{F}_t)
-$$ 
+$$
 이면 $\{M_t\}_{0 \leq t \leq T}$는 Martingale 이다.
 
 ## Girsanov Theorem
@@ -193,8 +193,9 @@ $$
 L_t(w) = \rho_t (W_t(w)) = \exp(-\theta W_t - \frac{1}{2} \theta^2 t)
 $$
 
-##Research of Girsanov Theorem
-###1. Expecatation
+## Research of Girsanov Theorem
+
+### 1. Expectation
 Girsanove Theorem은 결국 Radon-Nykodym Derivative가 다음과 같을 때
 $$
 L_t = \frac{d\mathbb{Q}}{d\mathbb{P}} =  \exp(-\theta W_t - \frac{1}{2} \theta^2 t)
@@ -210,10 +211,12 @@ $$
 \mathbb{E}^{\mathbb{Q}}(X_t) = \mathbb{E}^{\mathbb{P}}(L_t W_t)
 $$
 
-###2. Exponential Random Process
+### 2. Exponential Random Process
+
 앞에서 $X_t = W_t + \theta t $ 인데, 이를 다시 생각해 보면 $X_t$ 는 $W_t$ 를 $\theta t $ 만큼 이동 시킨 후 이를 다시 $W_t$의 Probablity 로 평균값을 구한다는 의미이다. 이것은  $L_t$라는 Normalized Exponrntial Stochastic Process에 $W_t$의 측도를 곱한 것이 된다는 의미이다. 결국 최종적으로 생각해 보면, $x = W_t$ 에서 $-\frac{x^2}{2t}$ 때문에 Normalized Exponential Process가 유도되는 원리이다.
 
-###3.Martingale Property
+### 3.Martingale Property
+
 $L_t = \exp(-\theta W_t - \frac{1}{2} \theta^2 t)$ 일때  확률측도 $\mathbb{Q}$를 다음과 같이 정의한다.
 $$
 \frac{d\mathbb{Q}}{d\mathbb{P}}|_{\mathcal{F}_t} = L_t
@@ -223,7 +226,7 @@ $$
 $\phi_t$ 가 $\mathcal{F}_t$ 가측 함수 일때 다음이 성립한다.
 $$
 E^{\mathbb{Q}}[\phi_t | \mathcal{F}_s] = E^{\mathbb{P}}[\phi_t \frac{L_t}{L_s}|\mathcal{F}_s]
-$$ 
+$$
 
 #### Corollary 
 1. $s=0$ 이면 당연하지만 (그리고 1.Expectation에서 나온 결과와 동일하다.)
@@ -322,7 +325,7 @@ $$
 $$
 이다. 이는 간단히 증명된다. (Since $Q$하에서 $N(\mu_2, \sigma_2)$ 이기 위해서는 $\frac{1}{\sqrt{2\pi} \sigma_2 }e^{-\frac{(x-\mu_2)^2}{2\sigma^2_2}}$ 이어야 하므로 $P$ 의 분포가 역수로 들어가게 된다. 어차피 exp를 미분해도 exp 함수는 남는다.)
 
-## PreDefinition
+## Pre-Definition
 ### Theorem : General Bayes Formula
 Let $\mathcal{G}$ be a sub-$\sigma$-field of $\mathcal{F}$ on which two probablity measure $Q$ and $P$ are defined. If $Q << P$ with $dQ = \Lambda dP$ and $X$ is $Q$-integrable, then $\Lambda X%$ is $P$-integrable and $Q$-a.s.
 $$
@@ -360,14 +363,17 @@ $$
   $$
   W(t) = B(t) + \mu t
   $$
+
 - Define the measure $Q$ by
   $$
   \Lambda = \frac{dQ}{dP}(B_{[0, T]})= \exp (-\mu B(T) - \frac{1}{2} \mu^2 T)
   $$
-where $B_{[0, T]}$ denotes a path of Brownian motion on $[0,T]$. Then $Q$ is equivalent to $P$ , and **$W(t)$ is a $Q$- Brownian motion.**
+  where $B_{[0, T]}$ denotes a path of Brownian motion on $[0,T]$. Then $Q$ is equivalent to $P$ , and **$W(t)$ is a $Q$- Brownian motion.**
   $$
   \Lambda = \frac{dP}{dQ}(W_{[0, T]})= \exp (\mu W(T) - \frac{1}{2} \mu^2 T)
   $$
+
+
 
 ### Theorem : Girsanov Theorem for Removal of Drift
 Brownian Motion의 경우 Girsanov Theorem은 이미 앞에서 살펴보았다.
@@ -375,7 +381,7 @@ Brownian Motion의 경우 Girsanov Theorem은 이미 앞에서 살펴보았다.
 Let $B(t)$ be a $P$-Brownian motion, and $H(t)$ is such that 
 $$
 X(t)=-\int_0^t H(s)dB(s) \;\;\textit{or}\;\; dX_t = H(t)dB_t
-$$ 
+$$
 Moreover $\mathcal{E}(X)$ is a martingale. Define an equivalent measure $Q$ by
 $$
 \Lambda = \frac{dQ}{dP}(B) = \exp (-\int^T_0 H(s) dB(s) - \frac{1}{2}\int H^2(s)ds) = \mathcal{E}(X)(T).
@@ -502,7 +508,7 @@ White Noise는 $P$-Measurable 이라고 하고 (혹은 Null Hypothesis), 다른 
 
 |$H_0$ | Noise          | $dX_t = dB_t$ |
 |------|:------|:------|
-|$H_1$ | Noise + Signal | $dX_t = h(t)dt + dB_t$| 
+|$H_1$ | Noise + Signal | $dX_t = h(t)dt + dB_t$|
 
 이 경우, $\mu_1(x,t)=0, \mu_2(x,t)=h(t), \sigma(x,t)=1$ 이다. 이를 위의 Diffusion에서의 Likelihood에 대입하면
 $$

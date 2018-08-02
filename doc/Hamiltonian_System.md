@@ -66,7 +66,7 @@ $$
 \frac{\partial S}{\partial \alpha} = \int_{t_1}^{t_2} \left( \frac{\partial \mathcal{L}}{\partial x}\eta  \right ) dt - \int_{t_1}^{t_2} \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{x}} \right) \eta dt = 0
 $$
 
-** Q.E.D. **
+**Q.E.D.**
 
 ## Largrange 운동 방정식
 전체 운동 에너지를  $\mathcal{L}$ 라고 하고 일반화된 좌표계 위에서의 힘을 $Q_0$ 라고 하면
@@ -228,7 +228,7 @@ $$
 $$
 \dot{x} = \frac{\partial H}{\partial \lambda}
 $$
- 
+
 2. 공상태 방정식 조건
 $$
 \dot{\lambda} = - \frac{\partial H}{\partial x}
@@ -268,4 +268,4 @@ $$
 그러므로 Pontryagins's minimum (maximum) Principle 에 의해 최소(최대)화 시키는 제어는 반드시 그렇지 않은 제어값보다 작거나(크거나) 해야 하는 것이다.
 
 ==================================================
-[^1]:Donald E. Kirk, 'Optimal Control Theory : An Introduction', Prentice Hall, pp185 - 188
+[^1]: Donald E. Kirk, 'Optimal Control Theory : An Introduction', Prentice Hall, pp185 - 188

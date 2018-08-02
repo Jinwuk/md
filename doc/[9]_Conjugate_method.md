@@ -5,7 +5,7 @@ Conjugate Method
 $$
 \min f(x) : f(x) = \frac{1}{2} \langle x, Qx \rangle - b^T x \;\;\;\;\;\text{ minimizer } x^* = Q^{-1}b \\
 \nabla f(x) = Qx -b = g(x)
-$$ 
+$$
 
 ### Steepest Descent
 $$
@@ -187,7 +187,7 @@ $$
 $$
 \langle g_i, h_k \rangle = \langle \nabla f(x_i), h_k \rangle = 0 \;\;\;\;\; \text{for } k=1, \cdots i-1
 $$
-** Q.E.D **
+**Q.E.D**
 
 ## Conjugate Method
 $$
@@ -251,7 +251,7 @@ $$
 따라서
 $$
 r_i = - \frac{\langle  Hh_i, g_{i+1} \rangle}{\langle Hh_i, h_i \rangle}
-$$ 
+$$
 
 - 먼저, 다음의 가정을 놓는다. 
 
@@ -358,7 +358,7 @@ $$
 \end{align}
 $$
 따라서 $h$- conjugate가 증명
-** Q.E.D **
+**Q.E.D **
 
 ## General Case
 $\min_{\mathbb{R}^n} f(x)$에 대하여 다음의 아이디어를 적용한다.
@@ -389,7 +389,7 @@ $$
 r_i = - \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\| g_i \|^2}
 $$
 
-- ** Fletcher-Reeves Formula **
+- **Fletcher-Reeves Formula **
    - Since for the quadratic case, $\langle g_{i+1}, g_{i} \rangle = 0$, that results can be extended.
 $$
 r_i = - \frac{\| g_{i+1} \|^2}{\| g_i \|^2}
@@ -406,7 +406,7 @@ $$
 | Step 2 | update, Set |
 |        | $x_{i+1} = x_i - \lambda_i h_i$ |
 |        | Set $r_i^{PR}$, $r_i^{FR}$  |
-|        | $h_{i+1} = \nabla f(x_{i+1}) + r_i^{PR} h_i$ or $h_{i+1} = \nabla f(x_{i+1}) + r_i^{FR} h_i$ 
+|                  | $h_{i+1} = \nabla f(x_{i+1}) + r_i^{PR} h_i$ or $h_{i+1} = \nabla f(x_{i+1}) + r_i^{FR} h_i$|
 | Step 3 | Replace $i $ by $i+1$ and goto Step 1 |
 
 where $r_i^{PR}$, $r_i^{FR}$ is defined as
