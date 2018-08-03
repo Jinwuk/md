@@ -150,7 +150,7 @@ $$
 \begin{align}
 -\dot{P}(t) &= \left(A(t) - B_1(t) R_1^{-1}(t) B_1^T(t) P(t)\right)^T P_1(t) + P_1(t)\left(A(t) - B_1(t) R_1^{-1}(t) B_1^T(t) P(t)\right) \\
 &+ P_1(t)B_2(t)R_2^{-1}(t)B_2^T(t)P_1(t) + Q(t) + P(t)B_1(t)R_1^{-1}(t)B_1(t)P(t) \\
-P_1(T) &= Q_f   \label{eq_14_3_8}\tag{5}
+P_1(T) &= Q_f   \label{eq_14_3_8} \tag{5}
 \end{align}
 $$
 그리고 with same way, we can obtain the following control for $(P_2)$:

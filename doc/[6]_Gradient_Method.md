@@ -65,7 +65,7 @@ $$
 
 Thus $\left\| f(x_{i+1}) - f(x_i) \right\| > \frac{\delta}{2}$ implies that $f(x_i) \rightarrow \infty$ 이는 가정에 모순.
 
-** Q.E.D of Theorem G.2 **
+**Q.E.D of Theorem G.2 **
 
 ## Armijo Gradient Algorithm
 | Procesdure | Processing|

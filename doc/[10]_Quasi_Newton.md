@@ -205,7 +205,7 @@ $$
 \beta^* = \beta - \frac{\beta ab^T \beta}{1 + b^T \beta a}
 $$
 
-** Note : $ab^T$ 의 성질**
+**Note : $ab^T$ 의 성질**
 - $ab^T$ 의 Range space : $a$ 에 의해 Span 된다 $b^T x$ 는 Scalar 이므로 즉
 
 $$
@@ -215,7 +215,7 @@ $$
 - $ab^T$ 의 Null space : $b$가 $x$의 Orthogonal Space 
 
 $$
-a(b^T x) = 0 
+a(b^T x) = 0
 $$
 
 #### proof
@@ -268,7 +268,7 @@ $$
 $$
 \beta^* = \beta + \Delta \beta = \beta + \beta aC^T = \beta - \frac{\beta ab^T \beta }{1 + b^T \beta a}
 $$
-** Q.E.D **
+**Q.E.D**
 
 ### Compute $\beta_{i+1}$
 Let $\beta_0 = I$ using a update value $\beta_{i+1} = \beta_i + \alpha_i z_i z_i^T$ (이것을 **rank-1 Property** 라고 한다)for $i=0, 1, 2, \cdots$ with $\beta_{i+1}$ required to satisfy. $\beta_{i+1} \Delta g_k = \Delta x_k$, $k=0, 1, \cdots, i$
@@ -408,7 +408,7 @@ $$
 Pick 
 $$
 \beta_i = \frac{1}{\langle \Delta x_i, \Delta g_i \rangle}, \;\;\; \gamma_i = \frac{-1}{\langle \beta_i \Delta g_i, \Delta g_i \rangle}
-$$ 
+$$
 
 여기서 $\langle \beta_i \Delta g_i, \Delta g_i \rangle$ 은 0이 되지 않는다. ($\Delta g_i = 0$이면 최적점 이다.)
 그리고 $\langle \Delta x_i, \Delta g_i \rangle$ 은 0이 될 가능성이 극히 작다. ($\Delta x_i$ 와 $\Delta g_i$가 Orthogonal 한 경우? )
@@ -419,7 +419,7 @@ $$
 | Procesdure | Processing|
 |---|---|
 | Data | $x_o \in \mathbb{R}^n$ |
-|| $B_0$: a Symmetric positive definite matrix $n \times n$ ex) $I$ |    
+|| $B_0$: a Symmetric positive definite matrix $n \times n$ ex) $I$ |
 | Step 0 | Set $i=0$ |
 | Step 1 | If $g_i = 0$ stop else continue |
 |        | Step Size Rule :  |
@@ -428,8 +428,8 @@ $$
 |        | $x_{i+1} = x_i - \lambda_i \beta_i g_i$       |
 |        | $\Delta x_i = x_{i+1} - x_i $ |
 |        | $\Delta g_i = g_{i+1} - g_i $ |
-|        | $\beta_{i+1} = \beta_i + \frac{1}{\langle \Delta x_i , g_i \rangle} \Delta x_i \Delta x_i^T - \frac{(\beta_i \Delta g_i)(\beta_i \Delta g_i)^T}{\langle \Delta g_i, \beta_i \Delta g_i \rangle }$ 
-| Step 3 | Set i=i+1 and goto step 1 |
+|        | $\beta_{i+1} = \beta_i + \frac{1}{\langle \Delta x_i , g_i \rangle} \Delta x_i \Delta x_i^T - \frac{(\beta_i \Delta g_i)(\beta_i \Delta g_i)^T}{\langle \Delta g_i, \beta_i \Delta g_i \rangle }$|
+| Step 3 | Set $i=i+1$ and goto step 1 |
 
 #### Results
 Suppose that $f(x) = \frac{1}{2} \langle x, Hx \rangle + \langle d, x \rangle $ with $H$ a symmetric positive definite $n \times n$ matrix.
@@ -463,7 +463,7 @@ $$
 H_{i+1} = H_i + \frac{\Delta g_i \Delta g_i^T}{\langle \Delta g_i, \Delta x_i \rangle} - \frac{(H_i \Delta x_i)(H_i \Delta x_i)^T}{\langle x_i , H_i \Delta x_i \rangle}
 $$
 
-** Duality **
+**Duality **
 $$
 \beta_i \rightarrow H_i \;\;\; \Delta g_i \rightarrow \Delta x_i \;\;\; \Delta x_i \rightarrow \Delta g_i
 $$
