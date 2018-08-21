@@ -107,7 +107,7 @@ $$
 
 따라서, $\nabla f(x)$ is **an outward normal**.
 
-** Q.E.D. of Property U-1**
+**Q.E.D. of Property U-1**
 
 ### Corollary U-1 : descent direction
 If $x \in \mathbb{R}^n$ is such that $\nabla f(x) \neq 0$, then any vector $h \in \mathbb{R}^n$ such that $\langle \nabla f(x), h \rangle < 0$ is a **descent direction** for $f(\cdot)$ at $x$.
@@ -117,7 +117,7 @@ $$
 $$
 
 #### Note
-** Differentiable Convex ** 의 정의에 따르면 
+**Differentiable Convex** 의 정의에 따르면 
 $$
 f(y) - f(x) \geq \langle \nabla f(x), (y-x) \rangle
 $$
@@ -127,7 +127,7 @@ f(x+\hat{\lambda} h) - f(x) = \hat{\lambda} \langle \nabla f(x+s_{\lambda} \bar{
 $$
 가 된다.
 
-** 증명은 생략한다. **
+**증명은 생략한다. **
 
 ## Directional Derivative
 Directional Derivative at $x$ along the vector $h$  is defined by

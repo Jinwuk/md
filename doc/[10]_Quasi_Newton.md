@@ -100,7 +100,7 @@ $$
 \beta_{i+1} \Delta g_k = \Delta x_k, \;\;\; k=0, 1, \cdots, i
 $$
 
-** Example **
+**Example **
 $$
 \beta_0 = I = 
 \begin{bmatrix}
@@ -363,7 +363,7 @@ $$
 $$
 **Q.E.D**
 
-** Rank-1 test method requires that $\langle \Delta g_k, \Delta x_k - \beta_k \Delta g_k \rangle \neq 0 $**
+**Rank-1 test method requires that $\langle \Delta g_k, \Delta x_k - \beta_k \Delta g_k \rangle \neq 0 $**
 이러한 단점을 보완하기 위하여 Rank-2 test model이 개발 되었다.
 
 #### Note
@@ -410,8 +410,8 @@ $$
 \beta_i = \frac{1}{\langle \Delta x_i, \Delta g_i \rangle}, \;\;\; \gamma_i = \frac{-1}{\langle \beta_i \Delta g_i, \Delta g_i \rangle}
 $$
 
-여기서 $\langle \beta_i \Delta g_i, \Delta g_i \rangle$ 은 0이 되지 않는다. ($\Delta g_i = 0$이면 최적점 이다.)
-그리고 $\langle \Delta x_i, \Delta g_i \rangle$ 은 0이 될 가능성이 극히 작다. ($\Delta x_i$ 와 $\Delta g_i$가 Orthogonal 한 경우? )
+여기서 $\langle \beta_i \Delta g_i, \Delta g_i \rangle​$ 은 0이 되지 않는다. ($\Delta g_i = 0​$이면 최적점 이다.)
+그리고 $\langle \Delta x_i, \Delta g_i \rangle​$ 은 0이 될 가능성이 극히 작다. ($\Delta x_i​$ 와 $\Delta g_i​$가 Orthogonal 한 경우? )
 
 ### DFP : Variable Metric Algorithm
 

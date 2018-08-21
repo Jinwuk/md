@@ -9,6 +9,7 @@ Newton's Method
    $$
    \exists L < \infty \;\;\textit{such that}\;\; \forall x', x \in S,\;\;  \|f(x') - f(x) \| \leq L \cdot \|x' - x\|
    $$
+
 - $\exists 0 < m \leq M < \infty$ such that $\forall y \in \mathbb{R}^n$ .
 $$
 m \|y\|^2 < \langle y, H(\hat{x}) y \rangle \leq M \|y\|^2
@@ -56,6 +57,7 @@ $$
    $$
    \exists L < \infty, \;\; \|H(x') - H(x'') \| \leq L \cdot \| x' - x'' \|, \;\; \forall x' x'', \in S
    $$
+
 - $\exists 0 < m \leq M < \infty$ such that
 $$
  m \| y \|^2 \leq \langle y, H(\hat{x}) y \rangle \leq M \|y\|^2 \;\; \forall y \in \mathbb{R}^n
@@ -177,7 +179,7 @@ $$
 0 &= f(x^{**}) - f(x^*) = \langle \nabla f(x^{**}), x^{**} - x^{*} \rangle + \int_0^1 (1-s) \langle x^{**} - x^{*}, H(x^* + s(x^{**} - x^*))(X^** - x^*) \rangle ds \\
 &= \frac{1}{2} m \| x^{**} - x^* \|^2 \leq 0 
 \end{align}
-$$ 
+$$
 
 위 식이 만족하려면 $x^{**} = x^*$ .
 
@@ -216,10 +218,11 @@ It needs to prove that
 1. $x_i \rightarrow \hat{x}$  as $i \rightarrow \infty$ 
 2. Converge quadratically
 
-** proof of 1 **
+**proof of 1**
 먼저 **Convergence를 증명**한다.
 By the proposition, the level set is compact.
 Consider $L_0 = \{ x \in \mathbb{R}^n | f(x) \leq f(x_0) \}$ 이때
+
 - Strictly Convex 때문에 다음이 만족되며 
 
 $$
@@ -314,7 +317,7 @@ $$
 h_i &= -H^{-1}(x_i) \nabla f(x_i) \\
 x_{i+1} &= x_i + \lambda_i h_i
 \end{align}
-$$ 
+$$
 
 두 알고리즘의 경우 $\lambda = 1$ 이면 같다.
 
@@ -396,9 +399,9 @@ $$
 f(x_{i+1}) = f(x_i) + \langle \nabla f(x_i), x_{i+1} - x_i \rangle + O(|x_{i+1} - x_i|^2) \\
 \Rightarrow  f(x_{i+1}) - f(x_i) = \langle g_i -\alpha_i M_i g_i \rangle + O(|x_{i+1} - x_i|^2) < 0 
 $$
-위 식이 성립하기 위한 조건은 $M_i$ 가 ** positive definite** 이어야 한다.
+위 식이 성립하기 위한 조건은 $M_i$ 가 **positive definite** 이어야 한다.
 
-Let $M_i = I$ then $x_{i+1} = x_i - \alpha_i g_i$ is **converged linearly**.
+Let $M_i = I$ then $x_{i+1} = x_i - \alpha_i g_i​$ is **converged linearly**.
 이것을 Armijo-Newton에 결합시키면 
 Let 
 $$
