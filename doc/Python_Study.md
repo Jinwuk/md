@@ -62,3 +62,83 @@ Param = (lambda x: x == True)(condition)
 False
 ~~~
 
+## VSCode 에서의 Debugging 
+
+MS VSCode 가 Pycharm 보다 시각적으로 더 좋은 것 같아. 이것을 사용하고 있다.
+그런데 디버깅의 경우 환경 맞추기가 쉽지 않다.
+다행스럽게도 환경을 맞추는 방법을 알아내었다.
+
+다음과 같이 수행한다.
+
+![](https://drive.google.com/uc?id=1_LyZFLDLUvBN6oZ__2PT-NEQNAoOp4rz)
+
+이 그림에서, 먼저 디버그 방식을 **Python:Current File**로 맞추고 다음 옆의 **기어** 표시를 클릭하여  **launch.json** 가 나오도록 한다.
+
+VScode에서의 Debugging 환경 세팅은 **launch.json** 를 적절히 수정하여  Setting 하는 것을 의미한다.
+
+**launch.json**를 open 하면 
+
+~~~
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+        },
+        {
+            "name": "Python: Attach",
+            "type": "python",
+            "request": "attach",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "${workspaceFolder}",
+            "port": 3000,
+~~~
+
+와 같이 파일이 나온다. 여기에서 첫번째  brace로 둘러쌓인 부분이 **Python: Current File**의 Setting이다. 여기에 다음과 같이 Argument를 추가한다.  예를 들어 Debugging을 위한 파라키터 인자 값이   -a 4 -s 2 -df 1 -q 100 라 하면 
+
+~~~
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+            "args": [ "-a", "4",  "-s", "2", "-df", "1", "-q", "100"]
+~~~
+
+앞에서는 없었던 **args** 라는 Parameter를 넣고 위의 그림처럼 인자를 넘겨주면 된다. 그러면 해당 인자 값을 받은 Python 에 대한 Debugging이 수행된다. 이는 Vscode의 Terminal을 통해서도 확인할 수 있다.
+
+~~~
+d:\Document\Github\python01\nlp_class01.py -a 4 -s 2 -df 1 -q 100 
+~~~
+
+## Markdown Web Drive에서 Image 삽입
+### Drop box
+원래 공유를 하면 다음과 같은 링크가 주어진다
+~~~html
+    https://www.dropbox.com/s/randomrandom/image.png?dl=0
+~~~
+여기서 https 를 http로, www를 dl로 변경하고 ?dl=0 을 제거한다
+~~~html
+    http://dl.dropbox.com/s/randomrandom/image.png
+~~~
+위 링크를 사용하면 마크다운에서 Dropbox 공유 이미지를 불러올 수 있다
+
+### Google drive
+
+그림에 대한 Shareable Link를 받으면 다음과 같다.
+~~~html
+https://drive.google.com/open?id=1_LyZFLDLUvBN6oZ__2PT-NEQNAoOp4rz
+~~~
+여기에서 **open**을 **uc** 로 바꾸어 준다.
+
+~~~html
+https://drive.google.com/uc?id=1_LyZFLDLUvBN6oZ__2PT-NEQNAoOp4rz
+~~~
+
+
+
+
