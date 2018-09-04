@@ -244,15 +244,18 @@ Python Code는 다음과 같다.
 ### Next Step
 - Qunatization 자체가 Annealing Effect 
 - 따라서, Annealing을 적용한다면 Stop Condition Check 부분에서 가능성이 있을 듯
-	- Quasi Newton의 경우는 매 Iteration에서 적용되어도 무관함
-	- 왜냐하면 $\arg_{\lambda_t \mathbf{R}} \min_{x} f(x_t - \lambda_t h_t) $ 이므로 최적 값을 어쩄든 찾아가기 떄문
-	- 그러나, Armijo Rule 적용 알고리즘은 Stop Condition에서 적용하여야 함
+  - Quasi Newton의 경우는 매 Iteration에서 적용되어도 무관함
+  - 왜냐하면 $\arg_{\lambda_t \mathbf{R}} \min_{x} f(x_t - \lambda_t h_t) $ 이므로 최적 값을 어쩄든 찾아가기 떄문
+  - 그러나, Armijo Rule 적용 알고리즘은 Stop Condition에서 적용하여야 함
 
 - 양자화 알고리즘의 패턴은 
-	- Whitenning을 기본으로 생각해보자.
-	- Whitenning 이라면 Error $E = Q_1 - 2 Q_2$가 Plain하게 나타날 것이다.
-		- 사실상 예측 불가 이므로 
-	- 따라서, Whitenning을 방해하는 정보만 보내는 것으로 생각해 보자.   
+  - Whitenning을 기본으로 생각해보자.
+  - Whitenning 이라면 Error $e = Q_1 - 2 Q_2$가 Plain하게 나타날 것이다.
+    - 사실상 예측 불가 이므로 
+    - Decoder 입장에서는 $Ee = 0$ 으로 생각해야 한다. 완전한 Whitenning인 경우
+  - 따라서, Whitenning을 방해하는 정보만 보내는 것으로 생각해 보자.   
+  - Pure Whitennning이 $I \in \mathbf{R}^{n \times n}$ 이라면 **Rank-2 Approximation**으로 Whitenning Matrix를 만들 수 있다. 
+  	- 그러므로 Approximation Vector $a, b$ 를 만드는 것이고 그것을 특징으로 한다.  
 
 
 
