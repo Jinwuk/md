@@ -128,3 +128,4 @@ post.html 파일에 Debug Code를 넣고 테스트 해보면 된다.
 
 [Jekyll 애드센스 승인받기 ](http://leechoong.com/posts/2018/jekyll_adsense/)\
 [Google Analytics & AdSense for Jekyll Blogs](https://flipdazed.github.io/blog/website/google-adsense-and-google-analytics)
+

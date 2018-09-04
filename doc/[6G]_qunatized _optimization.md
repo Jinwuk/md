@@ -255,7 +255,11 @@ Python Code는 다음과 같다.
     - Decoder 입장에서는 $Ee = 0$ 으로 생각해야 한다. 완전한 Whitenning인 경우
   - 따라서, Whitenning을 방해하는 정보만 보내는 것으로 생각해 보자.   
   - Pure Whitennning이 $I \in \mathbf{R}^{n \times n}$ 이라면 **Rank-2 Approximation**으로 Whitenning Matrix를 만들 수 있다. 
-  	- 그러므로 Approximation Vector $a, b$ 를 만드는 것이고 그것을 특징으로 한다.  
+    - 그러므로 Approximation Vector $a, b$ 를 만드는 것이고 그것을 특징으로 한다.  
+
+
+
+
 
 
 
