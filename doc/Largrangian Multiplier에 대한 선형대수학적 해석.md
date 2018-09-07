@@ -1,5 +1,5 @@
-#Largrangian Multiplier에 대한 선형대수학적 해석
-
+Largrangian Multiplier에 대한 선형대수학적 해석
+====
 다음과 같은 일반적인 등식 제한 조건을 가진 최적화 문제를 생각해 보면
 
 $$
@@ -71,7 +71,7 @@ $$
 is linearly independent where
 $$
 J(x^*) = \{ j: 1 \leq j \leq p, g_j(x^*) = 0 \}
-$$ 
+$$
 
 다시말해, $\nabla g_j(x^*)=0$ 들이 Linearly Independent 이고 이것이 $p$개의 등식 제한 조건에 대하여 Linearly Independent 이므로 P-Dimensional Normal Space가 존재한다는 것이 된다. 따라서, 이에 대한 Lagrangian Multipliier가 존재하면 $N-p$ Dimension의 Lagrangian Multipliier $\lambda$ 들로 Span 되는 Tangent Space 혹은 Kernel Space가 존재하는 것이 된다.
 만일 1 Dimension 이라면 $\lambda$로 Span 되는 공간은 없으므로 $\lambda$는 그냥 하나의 값이 된다.
@@ -80,7 +80,7 @@ $$
 
 ## 일반이론
 
-** Definition of Program**
+**Definition of Program**
 $$
 (P)
 \left\{\begin{matrix}

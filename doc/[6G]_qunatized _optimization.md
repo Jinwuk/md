@@ -238,15 +238,15 @@ Python Code는 다음과 같다.
 - 위 예제에서, $g(k) = 2^k$ 으로 하였으며 $2^{-1}$ 부터 적용되도록 하였다.
 
 #### Additional Structure
-위 알고리즘을 사용하였을 때 Quantization Algorithm이 정상적으로 동작하였으나, Qunatization Level이 높은 경우 다시말해, 고정 소숫점의 해상도를 낮게 하는 경우 전역  최적점을 잘 찾아내지 못하거나, 최적화 알고리즘이 잘 작동하지 않는 문제점이 발생하였다.
+위 알고리즘을 사용하였을 때 Quantization Algorithm이 정상적으로 동작하였으나, Quantization Level이 높은 경우 다시말해, 고정 소숫점의 해상도를 낮게 하는 경우 전역  최적점을 잘 찾아내지 못하거나, 최적화 알고리즘이 잘 작동하지 않는 문제점이 발생하였다.
 
 
 ### Next Step
-- Qunatization 자체가 Annealing Effect 
+- Quantization 자체가 Annealing Effect 
 - 따라서, Annealing을 적용한다면 Stop Condition Check 부분에서 가능성이 있을 듯
   - Quasi Newton의 경우는 매 Iteration에서 적용되어도 무관함
   - 왜냐하면 $\arg_{\lambda_t \mathbf{R}} \min_{x} f(x_t - \lambda_t h_t) $ 이므로 최적 값을 어쩄든 찾아가기 떄문
-  - 그러나, Armijo Rule 적용 알고리즘은 Stop Condition에서 적용하여야 함
+  - 그러나, **Armijo Rule 적용 알고리즘은 Stop Condition에서 적용**하여야 함
 
 - 양자화 알고리즘의 패턴은 
   - Whitenning을 기본으로 생각해보자.

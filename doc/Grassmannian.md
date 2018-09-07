@@ -8,6 +8,7 @@ Linear Optimal Control로 살펴본 Grassmannian 개요
     $$
     \dot{x} = Ax + bu
     $$
+
 -  Object function
     $$
     J = \frac{1}{2} \int \left( x^T Q x + u^T R u \right) dt = \int \mathcal{L}(x, u) dt
@@ -18,7 +19,7 @@ Linear Optimal Control로 살펴본 Grassmannian 개요
     $$
     \mathcal{H} = \min_{u} \left( \mathcal{L} + p^T (Ax +bu) \right)
     $$
-	- Hamiltonian 해석 방정식들은 다음과 같다.
+    - Hamiltonian 해석 방정식들은 다음과 같다.
         $$
         \begin{aligned}
         \frac{\partial \mathcal{H}}{\partial u} &= 0 &\text{Optimal control condition}\\
@@ -26,7 +27,8 @@ Linear Optimal Control로 살펴본 Grassmannian 개요
         -\dot{p}^T &= \frac{\partial \mathcal{H}}{\partial x} &\text{Co-state equation}
         \end{aligned}
         $$
-	- 이를 Hamiltonian에 적용하면
+
+    - 이를 Hamiltonian에 적용하면
 $$
 \begin{aligned}
 0 = \frac{\partial \mathcal{H}}{\partial u} = \frac{\partial}{\partial u}(u^T R u) + \frac{\partial}{\partial u} (p^T b u) = R u + b^T p \\
@@ -55,10 +57,11 @@ $$
     x \\ p
     \end{bmatrix}
     $$
-	- 간략히 보기위해 $\begin{bmatrix} x \\ p  \end{bmatrix} = v$라 놓으면 위 방정식은 
+    - 간략히 보기위해 $\begin{bmatrix} x \\ p  \end{bmatrix} = v$라 놓으면 위 방정식은 
         $$
         \dot{v} = H v
         $$
+
 - **두개의 변수가 결합된 미분방정식을 해석 하기 위해 다음과 같은 변환을 생각해보자**
     $$
     \begin{bmatrix}
@@ -83,12 +86,13 @@ $$
     \xi \\ \eta
     \end{bmatrix}
     $$
-	- 위 방정식을 다음과 같이 간략하게 표현한다.
+    - 위 방정식을 다음과 같이 간략하게 표현한다.
         $$
         \gamma = \tilde{\mathbf{P}} v, \;\;\; v = \mathbf{P} \gamma
         $$
-	- 여기에서 $\gamma = \begin{bmatrix} \xi \\ \eta \end{bmatrix}$ 이고, $\tilde{\mathbf{P}} = \begin{bmatrix} I & 0 \\ -P & I \end{bmatrix}$, $\mathbf{P} = \begin{bmatrix} I & 0 \\ P & I \end{bmatrix}$. 
-	- 따라서, $\xi, \eta, x, p$ 간의 관계는 다음과 같다. 
+
+    - 여기에서 $\gamma = \begin{bmatrix} \xi \\ \eta \end{bmatrix}$ 이고, $\tilde{\mathbf{P}} = \begin{bmatrix} I & 0 \\ -P & I \end{bmatrix}$, $\mathbf{P} = \begin{bmatrix} I & 0 \\ P & I \end{bmatrix}$. 
+    - 따라서, $\xi, \eta, x, p$ 간의 관계는 다음과 같다. 
         $$
         \begin{aligned}
         \xi  &= x \\
@@ -145,7 +149,7 @@ $$
     $$
     -\dot{P} = PA + A^T P - P b R^{-1} b^T P + Q 
     $$
-    
+  
     - 그리고 $\eta = \tilde{\mathbf{P}}x + p$ 에서 $\eta = 0$ 이므로 $0 = -Px + p$ 그러므로
         $$
         p(t_0) = P(t_0) x(t_0)

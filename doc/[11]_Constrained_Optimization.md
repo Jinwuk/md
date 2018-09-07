@@ -254,7 +254,7 @@ $$
 
 ![Fig_10_04](http://jnwhome.iptime.org/img/Nonlinear_Optimization/10_05.png "Title" "width:50%;height:50%")
 
-위 그림에서 $x \in S$를 하나 잡자, 그러면 $x - x^*$는 $x^*$ 에서 $S$ 안쪽으로 들어가는 벡터가 된다. 이를 ** Entering Vector ** 라고 하자.
+위 그림에서 $x \in S$를 하나 잡자, 그러면 $x - x^*$는 $x^*$ 에서 $S$ 안쪽으로 들어가는 벡터가 된다. 이를 **Entering Vector** 라고 하자.
 그러면
 $$
 \langle n_i, x - x^* \rangle \geq 0, \;\;\;\text{or}\;\;\; \langle \nabla g_i(x^*), x- x^* \rangle \leq 0\;\;\; \forall i \in I, \; x \in S
@@ -330,11 +330,11 @@ $$
 
 
 ## Hamiltononian Method
-위에서 논한 제한조건이 있는 최적화 문제를 해결하기 위해여 ** Largrangian **을 shgrh ** Largrangian Multiplier**를 제한 조건에 곱한 후, Khun-Tucker Condition에 의해 최적화 문제를 해결하는 것을 보았다.
+위에서 논한 제한조건이 있는 최적화 문제를 해결하기 위하여 **Largrangian**을 놓고  **Largrangian Multiplier**를 제한 조건에 곱한 후, Khun-Tucker Condition에 의해 최적화 문제를 해결하는 것을 보았다.
 
 그런데 많은 최적화 문제의 경우 Dynamic System을 최적하게 제어하기 위한 문제가 일반적이다.
 Dynamic System의 경우 제한 조건은 Dynamic System의 동역학 그 자체가 제한 조건이 되는데 보통의 경우 시간 $t$에 대한 미분 방정식으로 주어진다.
-이때 ** 시간에 따라 가변하는 시스템을 최적하게 제어/운용** 하기 위한 방법론이 Hamiltonoan Method 이다. 
+이때 **시간에 따라 가변하는 시스템을 최적하게 제어/운용** 하기 위한 방법론이 Hamiltonian Method 이다. 
 
 
 ## The Least Action Principle - 최소작용 원리
@@ -402,7 +402,7 @@ $$
 \frac{\partial S}{\partial \alpha} = \int_{t_1}^{t_2} \left( \frac{\partial \mathcal{L}}{\partial x}\eta  \right ) dt - \int_{t_1}^{t_2} \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{x}} \right) \eta dt = 0
 $$
 
-** Q.E.D. **
+**Q.E.D.**
 
 ## Largrange 운동 방정식
 전체 운동 에너지를  $\mathcal{L}$ 라고 하고 일반화된 좌표계 위에서의 힘을 $Q_0$ 라고 하면
@@ -496,7 +496,7 @@ $$
 $$
 \frac{\partial H}{\partial x} = - \dot{\lambda}
 $$
-이를 ** 공상태 방정식** 이라 한다.
+이를 **공상태 방정식** 이라 한다.
 
 
 ### Hamiltonian과 Lagrangian 의 차이
@@ -564,7 +564,7 @@ $$
 $$
 \dot{x} = \frac{\partial H}{\partial \lambda}
 $$
- 
+
 2. 공상태 방정식 조건
 $$
 \dot{\lambda} = - \frac{\partial H}{\partial x}
