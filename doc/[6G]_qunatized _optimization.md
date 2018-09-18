@@ -240,22 +240,85 @@ Python Code는 다음과 같다.
 #### Additional Structure
 위 알고리즘을 사용하였을 때 Quantization Algorithm이 정상적으로 동작하였으나, Quantization Level이 높은 경우 다시말해, 고정 소숫점의 해상도를 낮게 하는 경우 전역  최적점을 잘 찾아내지 못하거나, 최적화 알고리즘이 잘 작동하지 않는 문제점이 발생하였다.
 
+- 이러한 문제점에 대응하기 위해 추가적으로 Update Derivation $h_t$에서 특정 Component를 0으로 두는 방법론을 생각해 보자.  즉,  $h^Q_c (k) = [h^Q_c (k)_x, h^Q_c (k)_y]^T$ 이면,  다음 2개의 Vector를 Serarch Point로 추가하는 것이다. 
+$$
+h^Q_c(k)^{1} = [0, h^Q_c (k)_y]^T \;\;\;\;h^Q_c(k)^{1} = [h^Q_c (k)_x, 0]^T
+$$
+이를 그림으로 도시하면 다음과 같으며 
+![](https://drive.google.com/uc?id=1tJ_d1XuARtQohF_5TFIvWux8e-NYlrrM)
+일반적으로는 다음과 같다.
+$$
+h^Q_c(k)^{k} = [h^Q_c (k)_1, \cdots h^Q_c (k)_{k-1}, 0, h^Q_c (k)_{k+1}, \cdots h^Q_c (k)_n]
+$$
+
+- 다음 그림은 최적 Step Size를 찾는 과정을 본 알고리즘이 결합 되었을 때를 도시한 것이다.
+![](https://drive.google.com/uc?id=1Uskm1NdSHPCTLN2yRsPcHABqOaJCiyZq)
+
+따라서, 이를 적용한 경우 Q-Compensation 알고리즘은 다음과 같다.
+
+~~~python
+    def Q_Compensation(self, x, h, _cost, function, bdebug_info):
+        xn = x
+        epsilon = prev_cost - self.inference(Xn)
+        if self.bQuantization and epsilon <= 0:
+            fbest = _cost
+            sh    = np.sign(h)/self.iQuantparameter
+            hmin  = np.min(np.abs(h))
+            normh = np.linalg.norm(h)
+
+            k = -1
+            while True : 
+                g_k   = pow(2, k)
+                gQ_c  = np.abs(g_k * h / hmin) + 0.5/self.iQuantparameter
+                hQ_ck = self.Qunatization(gQ_c * sh)
+
+                for i in range(3):
+                    hq_i = self.qc_param[i] * hQ_ck
+                    xcc    = x - hq_i 
+                    fnew  = function(xcc)
+                    if fnew < fbest or i==2:
+                        xc = xcc
+                        break
+
+                # Stop Condition    
+                if fnew < fbest or np.linalg.norm(hQ_ck) > normh or k > self.k_limit:
+                    if fnew < fbest:
+                        xn = xc
+                    break
+                else:
+                    k = k + 1
+
+        return xn
+~~~
+
+#### Quasi Newton에서의 실험 결과
+Quasi Newton에서 Local 에 빠지거나 혹은 발산하는 경우에 본 알고리즘을 적용할 경우 Local에 빠지거나 발산하지 않고 Global Optimal Point를 정확히 찾아내었다.
+
+- **초기 위치 $( -1.2209 -1.22)$ 의 경우 : 발산**
+   - Quasi Newton의 경우 : 발산하여 엉뚱한 Point에 머무르게 됨을 알 수 있다.
+![](https://drive.google.com/uc?id=19_sQJThVUeRnXXFR7VLwa4Atu96iKL12)
+
+   - 제안한 알고리즘의 경우 : 발산 Point에서도 정상적으로 Global Optimum으로 다시 수렴해 들어간다. (Qunatrization Level 100에서 까지 정상적으로 수렴) 
+![](https://drive.google.com/uc?id=1HrRxHqLM799v9XAB5Jr4Hq0tyJeM59c1)
+
+- 초기위치 $(0.46, -0.47)$ 의 경우 : Local Converge 
+   - Quasi Newton의 경우 Local Converge 되어 $(-1.104, 1.2269)​$에 Local Converge됨 
+   ![](https://drive.google.com/uc?id=1antz-TELzs6sXBVGX_gNdS5Ae1u0z3rK)
+
+   - 제안한 알고리즘의 경우 : 발산 Point에서도 정상적으로 Global Optimum으로 다시 수렴해 들어간다. 
+   ![](https://drive.google.com/uc?id=11vpXjFIvY2ZB2Ia1FbxDnX_OqMcdsFYY)
+
+#### Constant Learning rate에서의 실험결과
+Constant Learning rate 에서 Local에서 정지되는 위 결과에 대하여 다음과 같이 Global에 가까운 결과를 얻을 수 있었다.  (시작점 $(-1.232, 1.22)$, 도착점 $(1.17, 1.12)$) 
+![](https://drive.google.com/uc?id=1s2YIC9mhoo9arcm-Y3pJCqW8B1tuRTvt)
 
 ### Next Step
+
 - Quantization 자체가 Annealing Effect 
 - 따라서, Annealing을 적용한다면 Stop Condition Check 부분에서 가능성이 있을 듯
   - Quasi Newton의 경우는 매 Iteration에서 적용되어도 무관함
   - 왜냐하면 $\arg_{\lambda_t \mathbf{R}} \min_{x} f(x_t - \lambda_t h_t) $ 이므로 최적 값을 어쩄든 찾아가기 떄문
-  - 그러나, **Armijo Rule 적용 알고리즘은 Stop Condition에서 적용**하여야 함
-
-- 양자화 알고리즘의 패턴은 
-  - Whitenning을 기본으로 생각해보자.
-  - Whitenning 이라면 Error $e = Q_1 - 2 Q_2$가 Plain하게 나타날 것이다.
-    - 사실상 예측 불가 이므로 
-    - Decoder 입장에서는 $Ee = 0$ 으로 생각해야 한다. 완전한 Whitenning인 경우
-  - 따라서, Whitenning을 방해하는 정보만 보내는 것으로 생각해 보자.   
-  - Pure Whitennning이 $I \in \mathbf{R}^{n \times n}$ 이라면 **Rank-2 Approximation**으로 Whitenning Matrix를 만들 수 있다. 
-  	- 그러므로 Approximation Vector $a, b$ 를 만드는 것이고 그것을 특징으로 한다.  
+  - 그러나, **Armijo Rule 적용 알고리즘은 Stop Condition에서 적용**하여야 한다.
 
 
 
