@@ -336,3 +336,19 @@ J --> K( Q' qp2)
 K --> L(IQ)
 L --> M(IDCT)
 ```
+
+
+
+### 고체물리에서의 기본 벡터들의 의미
+예를 들어
+$$
+\bar{b} = \frac{b \times c}{a \cdot b \times c}
+$$
+
+일 떄, $a = w$, $w = b \times c$ 이면 
+$$
+x \cdot \bar{b} = \frac{x \cdot w}{w \cdot w}
+$$
+가 되어 일반적인 형태의 Projection이 된다.  이러한 접근 방법도 기억해 두자.
+
+

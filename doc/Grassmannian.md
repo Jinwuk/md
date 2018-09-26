@@ -38,7 +38,7 @@ u = - R b^T p \\
 \end{aligned}
 $$
 
-- 여기서, Largrangian Multiplier $p$의 시간에 대한 변화율은 $x$와 $p$의 결합으로 되어 있어 이에 대한 해석이 어렵다.
+- 여기서, Lagrangian Multiplier $p$의 시간에 대한 변화율은 $x$와 $p$의 결합으로 되어 있어 이에 대한 해석이 어렵다.
 - Largrangian Multiplier $p$를 해석하기 위한 Matrix 방정식을 놓으면
     $$
     \frac{d}{dt} 
@@ -103,7 +103,7 @@ $$
 - Hamiltonian 해석을 위해 $\gamma$의 시간에 대한 미분을 계산해 보면 
 
 $$
-\dot{\gamma} = \frac{\partial }{\partial t}(\tilde{\mathbf{P}} v) = \frac{\partial \tilde{\mathbf{P}}}{\partial t} v + \tilde{\mathbf{P}} \dot{v} = \frac{\partial \tilde{\mathbf{P}}}{\partial t} \mathbf{P} \gamma + \tilde{\mathbf{P}} H v = \left( \frac{\partial \tilde{\mathbf{P}}}{\partial t} + \tilde{\mathbf{P}} H \right) \mathbf{P} \gamma 
+\dot{\gamma} = \frac{\partial }{\partial t}(\tilde{\mathbf{P}} v) = \frac{\partial \tilde{\mathbf{P}}}{\partial t} v + \tilde{\mathbf{P}} \dot{v} = \frac{\partial \tilde{\mathbf{P}}}{\partial t} \mathbf{P} \gamma + \tilde{\mathbf{P}} H v = \left( \frac{\partial \tilde{\mathbf{P}}}{\partial t} + \tilde{\mathbf{P}} H \right) \mathbf{P} \gamma
 $$
 
 - 따라서 다음과 같다.
@@ -156,8 +156,8 @@ $$
         $$
 
 - 위 방정식이 의미하는 바는, Largrange Multiplier $p(t)$ 는 state $x(t)$를 어떤 n-dimensional 다양체위의 curve로 Mapping 한다는 것이다. 
-- 최적화 문제를 풀기 위한 방법론에서 Largrangian Multiplier를 해석하기 위하여 나온 방법 (by Grassmann) 
-	- parameter set으로 형성된 space상의 curve (state)와 parameter space상에 유도된 curve (Largrangian Multiplier)간의 Realtion의 연구에서 비롯 
-	- 여기서 $x(t)$는 어떤 parameter를 가진 curce 이고, Riccati 방정식으로 부터 유도된 Transformation에 의해, Largrangian Multiplier와 연결된다.
+- 최적화 문제를 풀기 위한 방법론에서 Lagrangian Multiplier를 해석하기 위하여 나온 방법 (by Grassmann) 
+	- parameter set으로 형성된 space상의 curve (state)와 parameter space상에 유도된 curve (Largrangian Multiplier)간의 Relation의 연구에서 비롯 
+	- 여기서 $x(t)$는 어떤 parameter를 가진 curce 이고, Riccati 방정식으로 부터 유도된 Transformation에 의해, Lagrangian Multiplier와 연결된다.
 
 ## The Grassmanian $G^p(V)$
