@@ -315,5 +315,54 @@ $$
 
 이 된다. 
 
+## Inverse Quantization
 
+Inverse Qunatization은 기본적으로 다음과 같이 간단히 Quantization Step $q^s \in \mathbf{R}$을 곱하는 것으로 완료된다..
+$$
+Q^{-1}(q, X^Q) = X^Q \cdot q^s 
+\tag{9}
+$$
 
+하지만,  Quantization Step 은 실수이므로 부호화 및 복호화에서는 이를 정수로 바꾸어야 하며 이를 위한  정수화 Scale 변수로 $2^6$ 을 사용한다. 이를 앞에서 유도한 Quantization Step 식 (2)를 사용하여 식 (9)를 다시 나타내면 
+
+$$
+\begin{aligned}
+Q^{-1}(q, X^Q) &= X^Q \cdot 0.625 \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot (q \mod 6)} \cdot 2^6 \\
+
+&= X^Q \cdot \frac{5}{8} \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot (q \mod 6)} \cdot 2^3 \cdot 2^3 \\
+
+&= X^Q \cdot 40 \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot (q \mod 6)} 
+\end{aligned}
+
+\tag{10}
+$$
+
+$m = q \mod 6$ 이고, 위에서 구한 각 $m$에 대한 $k$을 통해 $40 \cdot 2^{km}$ 을 HEVC 에서는 **Level Scale** 이라 한다. HEVC 표준에 구현된 값과 다음의 Python Code를 통해 구한 값을 비교하면 다음 표와 같다.
+
+~~~python
+>>> npA = np.array([ 0.625,  0.703,  0.797,  0.891,  1.   ,  1.125])
+>>> npQA = npA[1:6]
+>>> npK = np.log2(npQA/0.625) * 1/np.array(list(range(1, 6)))
+>>> npm = list(range(1, 6))
+>>> LS = 40 * np.power(2, npk * npm)
+~~~
+
+|m      | 0   | 1   | 2   | 3   | 4   | 5   |
+|---    |---  |---  |---  |---  |---  |---  |
+| Eval  |40.0 |44.99|51.01|57.02|64.0 |71.99|
+| HEVC  |40   |45   |51   |57   |64   |72   |
+
+HEVC 표준에서는 식 (10)에 추가적으로 양자화 변환계수의 Scale 값을 추가하게 되는데 이 스케일 값은 $2^4$ 이다. 또한, 입력데이터의 비트심도와 변환 부호화의 크기에 따른 부호화 스케일 값을 위해 위의 값은 $2^{shift}$ 값으로 나누어 져야 하며, 여기에 Shift 값으로 나누어지기 때문에 반올림에 의한 정수값을 만들기 위한 항을 추가해야 한다. 이를 추가하게 되면 식 (10)은 다음과 같이 다시 쓸 수 있다.
+
+$$
+\begin{aligned}
+Q^{-1}(q, X^Q) 
+
+&= \left [X^Q \cdot 40 \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot m + 4} \right] \gg shift \\
+
+&= \left \lfloor X^Q \cdot 40 \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot m + 4} + 2^{shift -1}\right \rfloor \gg shift 
+
+\end{aligned}
+
+\tag{11}
+$$
