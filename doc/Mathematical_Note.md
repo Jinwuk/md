@@ -1,9 +1,9 @@
 Mathematical Note
-======
+====
 
 ## $\frac{\varepsilon}{1 + \varepsilon}$을 사용한 확률 공간에서의 Convexity
 
-Convex 조건은, Domain이 만일 Convex 일 경우 함수 $f$가 contimuity 이면 (최소 Lipschitz Continuous 이면), Compact 조건을 만족 시킬 수 있기 떄문에 알고리즘의 수렴성 증명에 있어 매우 중요한 조건이다.
+Convex 조건은, Domain이 만일 Convex 일 경우 함수 $f​$가 contimuity 이면 (최소 Lipschitz Continuous 이면), Compact 조건을 만족 시킬 수 있기 떄문에 알고리즘의 수렴성 증명에 있어 매우 중요한 조건이다.
 
 그러나 일반적인 Convex 조건에 의한 해석은 Euclidean Space $\mathbb{R}^n$ 이나, Manifold $M^n$ 에서 유효하다.
 따라서 확률 변수의 경우에는 적분이 무한대 적분으로 나타내야 하는 경우가 많으므로 Convexity를 체크하기 위한 변수가 무한대에서 잡을 수 있도록 해야 한다.
@@ -277,7 +277,7 @@ h(x) &= -\int f_X(x) \log_2 f_X (x) dx\\
 &= \int f_X (x) \frac{\frac{x^2}{2 \sigma^2} + \ln \sqrt{2 \pi } \sigma}{\ln 2} dx \\
 &= \frac{1}{\ln 2} \frac{1}{2 \sigma^2} \int f_X (x) x^2 dx + \frac{\ln \sqrt{2 \pi } \sigma}{\ln 2} \int f_X (x) dx
 = \frac{1}{\ln 2} \frac{1}{2 \sigma^2} \sigma^2 + \frac{\ln \sqrt{2 \pi } \sigma}{\ln 2} \\
-&= \frac{1}{2} \log_2 2 \pi \sigma^2
+&= \frac{1}{2} \log_2  e \cdot 2 \pi \sigma^2
 \end{aligned}
 $$
 
