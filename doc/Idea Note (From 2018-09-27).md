@@ -44,3 +44,13 @@ $$
 
 
 그런데, 이것이 Fermi-Dirac Function의 형태가 되기 위해서는 
+
+## Quantization Adapted Preprocessing 
+
+$q_1 = q_2 - 6$ 이라고 놓았을 때, QP를 생각하여, $Q_{q_2} = 2Q_{q_1}$ 이 0이 되도록 Image Processing Prediction이 되도록 만든다면, 쉽게 PSNR을 올릴 수 있을 것으로 보인다.  정말? 
+
+- 이 개념을 잘 생각해보면... 즉, 화질 문제상, 꼭 이렇게 되지는 않을 것이다. 
+- 그런데, 만일, 이를 고려하게 되면 쉽게 Object Function을 생각할 수 있을 것이다.
+   - 이미 고려되어 있는 것인가? 단순히 $\| \Delta Q \|^2$ 에서? 
+
+
