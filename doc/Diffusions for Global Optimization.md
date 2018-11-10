@@ -41,7 +41,6 @@ As $T \rightarrow 0$, $\pi_{T}$는 the global minima of $U$에 수렴한다.  �
 
 본 논문에서 제공하는 것은$x_t$의 $U$의 global minima로의 Weak convergence에 대한  $U$와 $T(t)$ sufficient condition이다.  보다 정확히 말하면,
 $U:[0,1]^n \rightarrow \mathbf{R}$이 **unique global minimum** at $x = \xi$이기 위해서는 $T(t) = c/\log(2+t)$ 임을 sufficiently smooth $U$에 대하여 밝히는 것이며 이떄 다음과 같이 수렴하는 것이다.
-
 $$
 P(| x_t - \xi | < \varepsilon) \rightarrow 1
 $$
@@ -88,6 +87,6 @@ where $w_t$ is Standard Brownian motion
   year = 1953
 }
 ~~~
- 
+
 
 
