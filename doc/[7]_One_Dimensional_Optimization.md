@@ -67,7 +67,7 @@ $$
 $$
 \begin{align}
 l_{i+1} &= F l_i \;\;\; F \in (0,1) \\
-l_{i+1} - (1 _F) l_i &= (1 - F) l_{i+1}
+l_{i+1} - (1 - F) l_i &= (1 - F) l_{i+1}
 \end{align}
 $$
 
