@@ -61,8 +61,11 @@ and an annealing schedulr $T(t) \downarrow 0$, we define a diffusion $x_t$
 $$
 dx_t = -\nabla U(x_t) dt + \sqrt{2T(t)} dw_t
 $$
-where $w_t$ is Standard Brownian motion
+where 
+- $w_t \in \mathbf{R}^n$ is Standard Brownian motion. 
+- $x \in [0, 1]^n$ 
 
+이때 본 논문에서 제시하는 Theorem은 $T(t)$ and $U$ 에 대한 조건을 제시하는데, 이 조건은 $U$의 global minima를 *Weak Sense*로 $x_t$가 수렴할 조건을 제시한다. 
 
 
 ## References
