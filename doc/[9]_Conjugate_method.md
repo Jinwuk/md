@@ -1,6 +1,6 @@
 Conjugate Method
 =========
-
+[TOC]
 ## Quadratic Problem
 $$
 \min f(x) : f(x) = \frac{1}{2} \langle x, Qx \rangle - b^T x \;\;\;\;\;\text{ minimizer } x^* = Q^{-1}b \\
@@ -213,16 +213,16 @@ r_i = -\frac{\langle Hh_i, g_{i+1} \rangle }{\langle h_i , Hh_i \rangle}
 $$
 
 ### Theorem 1
-Suppose that $H$ is an $n \times n$ ** positive semi-definite symmetric matrix** and $d \in \mathbb{R}^n$ arbitrary, then the conjugate gradient method solves the problem 
+Suppose that $H$ is an $n \times n$ **positive semi-definite symmetric matrix** and $d \in \mathbb{R}^n$ arbitrary, then the conjugate gradient method solves the problem 
 $$
 \min_{x \in \mathbb{R}^n} \frac{1}{2} \langle x, Hx \rangle + \langle d, x \rangle
 $$
 in **at most $n$ iterations **
 
 #### proof
-이 증명은 조금 문제가 있으므로 추가 검토가 필요하다.
+위 알고리즘에서 $\{ h_i \}_0^n$ 이 H-Conjugate 임을 증명하면 된다. 그것으로 $\langle \nabla f(\hat{x}), h_i \rangle = 0$ 임이 증명되기 때문이다.
 
-- We need to prove that $\langle h_i Hh_j \rangle = 0$ for $i \neq j$
+- We need to prove that $\langle h_i, Hh_j \rangle = 0$ for $i \neq j$
 By induction, since $h_0 = g_0$
 $$
 \begin{align}
@@ -303,7 +303,7 @@ $$
 $$
 그러므로
 $$
-\langle g_i, g_{i+1} \rangle = \langle g_i, g_i \rangle - \frac{\langle g_i, h_i \rangle \cdot \langle g_i, Hh_i \rangle}{\langle  h_i, Hh_i \rangle} = 0
+\langle g_i, g_{i+1} \rangle = \langle g_i, g_i \rangle - \frac{\langle g_i, g_i \rangle \cdot \langle g_i, Hh_i \rangle}{\langle  h_i, Hh_i \rangle} = 0
 $$
 따라서
 $$
@@ -317,7 +317,11 @@ $$
 \langle g_{k+1}, g_i \rangle = \langle g_k - \lambda_k H h_k, g_i \rangle = \langle g_k, g_i \rangle - \lambda_k \langle H h_k, g_i \rangle
 $$
 가정 $\langle g_i, g_j \rangle = 0$ for $ 0 \leq i, j \leq k < n$ with $i \neq j$ 에서
-- 위 가정 보다는 만일 $i = k-1$ 이면 위 식은 Index 1 차이가 나므로 $\langle g_k, g_i \rangle = 0$, 이것을 확대 시켜나가는 방식으로 증명하는 것이 더 낫다.
+
+- 수학적 귀납법에 의해서 다음과 같이 추론한다. 
+   - 지금까지 $\langle g_k, g_{k+1} \rangle = 0$ 임 이 증명되었다. 즉, 1 차이 나는 경우가 증명되었다.
+   - $\langle g_k, g_{i} \rangle = 0$ 라 가정하자.  $i- k$ 만큼 차이 나는 경우가 참이라 하자.
+   - $\langle g_{k+1}, g_{i} \rangle = 0$ 임을 증명한다. $i - (k+1)$ 차이 나는 경우를 증명한다. 
 
 $$
 \langle g_k, g_i \rangle = 0 
@@ -335,7 +339,7 @@ $$
 \langle g_{k+1}, g_i \rangle = 0
 $$
 
-마지막으로 $i=0$에 대하ㅣ여 살펴보면
+마지막으로 $i=0$에 대하여 살펴보면
 $$
 \begin{align}
 \langle g_{k+1}, g_0 \rangle &= \langle g_k - \lambda_k H h_k, g_0 \rangle & \\
@@ -344,7 +348,7 @@ $$
 &= 0
 \end{align}
 $$
-그러므로 $\{g_i \}$는 모두 Orthogonal, 즉, Orthogonal BAsis $g_i$를 찾은 것이다.
+그러므로 $\{g_i \}$는 모두 Orthogonal, 즉, Orthogonal Basis $g_i$를 찾은 것이다.
 
 마지막으로, $\langle h_{k+1}, Hh_k \rangle = 0$ 이므로 (첫번째 증명에서)
 for $i=0, \cdots k-1$
@@ -353,7 +357,7 @@ $$
 \langle h_{k+1}, Hh_i \rangle &= \langle g_{k+1} + r_k h_k, Hh_i \rangle &\\
 &= \langle g_{k+1}, Hh_i \rangle + r_k \langle h_k, Hh_i \rangle  & \because \langle h_k, H h_i \rangle = 0 \text{ by (6)} \\
 &= \langle H x_{i+1} + d, Hh_i \rangle &\because g_{i+1} = g_i - \lambda_i H h_i \\
-&= \langle g_i - \lambda_i H h_i, H h_i \rangle &\because \frac{1}{\lambda_i}(g_{i+1} - g_i) = Hh_i \\
+&= \langle g_i - \lambda_i H h_i, H h_i \rangle &\because \frac{1}{\lambda_i}(g_{i+1} - g_i) = -Hh_i \\
 &= \langle g_{k+1},  \frac{1}{\lambda_i}(g_{i+1} - g_i) \rangle = 0
 \end{align}
 $$
@@ -372,7 +376,7 @@ g_{i+1} = g_i - \lambda_i H h_i \Leftrightarrow Hh_i = \frac{1}{\lambda}(g_i - g
 $$
 그러므로
 $$
-r_i = -\frac{\langle \frac{1}{\lambda}(g_i - g_{i+1}), g_{i+1} \rangle}{\langle h_i, \frac{1}{\lambda}(g_i - g_{i+1})  \rangle} = - \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\langle h_i, g_i \rangle}
+r_i = -\frac{\langle \frac{1}{\lambda}(g_i - g_{i+1}), g_{i+1} \rangle}{\langle h_i, \frac{1}{\lambda}(g_i - g_{i+1})  \rangle} = \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\langle h_i, g_i \rangle}
 $$
 Since $h_i = g_i + r_{i-1} h_{i-1}$ 
 $$
@@ -393,6 +397,12 @@ $$
    - Since for the quadratic case, $\langle g_{i+1}, g_{i} \rangle = 0$, that results can be extended.
 $$
 r_i = - \frac{\| g_{i+1} \|^2}{\| g_i \|^2}
+$$
+
+### Remind
+H- Conjugate 의 특성을 사용하면 Hessian $H$를 다음과 같이 Gradient의 차이로 표시할 수 있다.
+$$
+g_{i+1} = g_i - \lambda_i H h_i \Leftrightarrow Hh_i = \frac{1}{\lambda}(g_i - g_{i+1})
 $$
 
 ## General Conjugate Gradient Algorithm
@@ -426,25 +436,27 @@ Polak-Riebler algorithm is applied to solve $\min f(x)$ producing a sequence $\{
 - $\exists \rho \in (0,1) \;\;\; \text{such that} \;\;\; \langle \nabla f(x_i), h_i \rangle \geq \rho \|\nabla f(x_i) \| \| h_i \|$
 - The sequence $\{ x_i \}_{i=0}^{\infty}$ converges to $\hat{x}$, the unique minimizer of $f(\cdot)$.
 
-(위의 것을 만족하면 아래 명제도 만족됨)
+위의 것을 만족하면 아래 명제도 만족됨, 왜냐하면 $\forall k  \in \mathbf{Z}^{+}, \;\; \langle \nabla f(\hat{x}), h_k\rangle = 0$ 이므로, 위 부등식을 만족하려면 $\rho > 0$, $h_i$ >  0 이므로 $\nabla f(\hat{x}) = 0$ 이어야 함
 
 #### proof of 1.
 let $ g_i = \nabla f(x_i) $, then
 $$
 \begin{align}
-g_{i+1} &= \nabla f (x_{i+1}) = \nabla f( x_i - \nabla_i h_i) \\
+g_{i+1} &= \nabla f (x_{i+1}) = \nabla f( x_i - \lambda_i h_i) \\
 &= \nabla f(x_i) + \int_0^1 H(x_i - s \lambda_i h_i )(-\lambda_i h_i) ds \\
 &= g_i - \lambda_i \int_0^1 H(x_i - s \lambda_i h_i ) h_i ds
 \end{align}
 $$
 Now, $\langle g_{i+1}, h_i \rangle = 0$ by construction (because of $h$- conjugate)
 It means that $\langle g_{i} - \lambda_i H_i h_i, h_i \rangle = 0$. Thus,
+$$
+\lambda_i = \frac{\langle g_i, h_i \rangle}{\langle Hh_i, h_i \rangle} 
+$$
+
+in algorithm, $h_i = g_i + r_{i-1}^{PR} h_{i-1}$. Thereby,
 
 $$
-\begin{align}
-\lambda_i &= \frac{\langle g_i, h_i \rangle}{\langle Hh_i, h_i} &\text{in algorithm} h_i = g_i + r_{i-1}^{PR} h_{i-1}
-&= \frac{\langle g_i, g_i + r_{i-1}^{PR} h_{i-1} \rangle}{\langle Hh_{i-1}, h_i \rangle} = \frac{\|g_i\|^2}{\langle Hh_{i-1}, h_i \rangle}
-\end{align}
+\lambda_i = \frac{\langle g_i, g_i + r_{i-1}^{PR} h_{i-1} \rangle}{\langle Hh_{i}, h_{i} \rangle} = \frac{\|g_i\|^2}{\langle Hh_{i}, h_{i} \rangle}
 $$
 
 and
@@ -460,7 +472,7 @@ $$
 $$
 그리고
 $$
-\| h_{i+1} \| \leq \| g_{i+1} \| + \frac{M}{m} \frac{\| g_{i+1} \|}{\| h_i \|} \cdot \|h_i \| = (1 + \frac{M}{m}) \| g_i \|
+\| h_{i+1} \| \leq \| g_{i+1} \| + \frac{M}{m} \frac{\| g_{i+1} \|}{\| h_i \|} \cdot \|h_i \| = (1 + \frac{M}{m}) \| g_{i+1} \|
 $$
 
 마지막으로, Since $\langle g_{i+1}, h_i \rangle = 0$
