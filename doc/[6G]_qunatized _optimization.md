@@ -45,6 +45,224 @@ $$
 f(x_{t+1} ) < f(x_t)
 $$
 
+### Lipschitz Continuous
+
+다음과 같은 Lipschitz Continuous를 1차 미분항에 대하여 동일하게 표현할 수 있음을 증명한다.
+Hessian 의 경우는 비선형 최적화에서 이미 증명되어 있다.
+
+#### 기본 삼각 부등식을 사용한 Difference 부등식
+
+삼각 부등식을 다음과 같이 변경한다. Let $a = c - b$
+$$
+\begin{aligned}
+&\| a + b \| \leq \| a \| + \| b \| \\
+&\Rightarrow \| a + b \| - \| b \|  \leq \| a \| \\
+&\Rightarrow \| c \| - \| b \| \leq \| c - b \| \;\; \because a = c - b
+\end{aligned}
+$$
+
+#### Lemma 1.
+다음을 만족하는 양수 $k > 0$ 가 존재한다.
+
+$$
+\begin{aligned}
+& k \cdot \| a + b \| \geq \| a \| + k \cdot \| b \| \\
+&\Rightarrow k \cdot (\| a + b \| - \| b \| ) \geq \| a \| \\
+&\Rightarrow k \cdot (\| c \| - \| b \| ) \geq \| c - b \| \\
+&\Rightarrow \| c \| - \| b \| \geq \frac{1}{k} \| c - b \| 
+\end{aligned}
+$$
+
+#### proof of Lemma 1
+Suppose the lemma is false i.e. $\forall k > 0$
+$$
+k \cdot \| a + b \| < \| a \| + k \cdot \| b \| 
+$$
+
+then 
+$$
+\begin{aligned}
+k^2 \cdot (a^2 + b^2) < (\| a \|  + k \cdot \| b \|)^2 \\
+k^2 \cdot (a^2 + b^2) < a^2  + 2 k \cdot \|a \|\|b\| + k^2 b^2 \\
+(k^2 - 1) a^2 < 2 k \cdot \|a \|\|b\| \\
+k^2 - 1 < 2 K \cdot \frac{\| b \|}{\| a \|} \\
+k^2 - 2 K \cdot \frac{\| b \|}{\| a \|} - 1 < 0 \\
+(k - \frac{\| b \|}{\| a \|})^2 - \frac{b^2}{a^2} - 1 < 0 \\
+(k - \frac{\| b \|}{\| a \|})^2 < \frac{b^2}{a^2} + 1 \\
+\frac{\| b \|}{\| a \|} - \sqrt{\frac{b^2}{a^2} + 1} < k < \frac{\| b \|}{\| a \|} - \sqrt{\frac{b^2}{a^2} + 1} \\
+\frac{\| b \| - \sqrt{b^2 + a^2}}{\| a \|} < k < \frac{\| b \| + \sqrt{b^2 + a^2}}{\| a \|}
+\end{aligned}
+$$
+
+Consequently, since $\frac{\| b \| - \sqrt{b^2 + a^2}}{\| a \|} < 0 $, there exists $k \geq \frac{\| b \| + \sqrt{b^2 + a^2}}{\| a \|}$. It contradicts to the assumption.
+
+###  Lipschitz Continuous for the first order differential 
+
+다음과 같이 Lipschitz Continuous 가 만족되고 
+$$
+\| f(y) - f(x) \| \leq L \cdot \| y - x \|
+$$
+$f(x)$ 가 Twice differential 이며 $f(y) > f(x)$ 인 경우 
+
+다음이 만족된다.
+$$
+\| \nabla f(y) - \nabla f(x) \| \leq L \cdot \| y - x \|
+$$
+
+#### proof
+
+$$
+f(y) - f(x) = f(y) - f(\bar{x}) + f(\bar{x}) - f(x) = -(f(\bar{x}) - f(y)) + (f(\bar{x}) - f(x))
+\tag{1}
+\label{eq:Lip01}
+$$
+
+식 ($\ref{eq:Lip01}$) 에서 각 부분을 뗴어서 정리하면 Twice differential 에서
+
+$$
+\begin{aligned}
+f(\bar{x}) - f(x) 
+&=    \langle \nabla f(x), \bar{x} - x \rangle + \int_0^1 (1-s) \langle \bar{x} - x, H(x+s(\bar{x} - y)(\bar{x} - x) \rangle ds \\
+&\leq \| \nabla f(x) \| \cdot \rho + M \cdot \rho \cdot\int_0^1 (1-s) ds \\
+&= \rho \cdot \| \nabla f(x) \| + \frac{1}{2} M \cdot \rho 
+\end{aligned}
+\label{eq:Lip02}
+\tag{2}
+$$
+
+$$
+\begin{aligned}
+-f(\bar{x}) + f(y) 
+&=  - \langle \nabla f(y), \bar{x} - y \rangle - \int_0^1 (1-s) \langle \bar{x} - y, H(y+s(\bar{x} - y)(\bar{x} - y) \rangle ds \\
+&\geq - \| \nabla f(x) \| \cdot \rho - M \cdot \rho \cdot\int_0^1 (1-s) ds \\
+&= - \rho \cdot \| \nabla f(x) \| - \frac{1}{2} M \cdot \rho 
+\end{aligned}
+\label{eq:Lip03}
+\tag{3}
+$$
+
+식 ($\ref{eq:Lip02}$)는 $f(\bar{x}) - f(x)$ 의 Upper Bound 이고 식 ($\ref{eq:Lip03}$) 은 $-f(\bar{x}) + f(y)$ 의 Lower Bound 이다. 
+그러므로 식 ($\ref{eq:Lip02}$) 와 식 ($\ref{eq:Lip03}$) 합은 각각 큰 값 $-f(\bar{x}) + f(y)$ 의 최소값과 작은 값 $f(\bar{x}) - f(x)$의 최대 값이므로 
+$$
+\begin{aligned}
+f(y) - f(\bar{x}) + f(\bar{x}) - f(x) &= f(y) - f(x) \\
+& \geq \rho \cdot \| \nabla f(x) \| + \frac{1}{2} M \cdot \rho - \rho \cdot \| \nabla f(x) \| - \frac{1}{2} M \cdot \rho \\
+& \geq \rho \cdot (\| \nabla f(x) \| - \| \nabla f(x) \|) 
+\end{aligned}
+\tag{4}
+$$
+
+Lemma 1에서 $\exists k > 0$ 이므로,
+$$
+\begin{aligned}
+f(y) - f(x) 
+&\geq \frac{1}{k}\rho \cdot (\| \nabla f(x) - \nabla f(y) \|) \\
+& = \frac{1}{k}\rho \cdot (\| \nabla f(y) - \nabla f(x) \|)
+\end{aligned}
+\tag{5}
+$$
+
+따라서 
+$$
+\begin{aligned}
+\frac{1}{k}\rho \cdot (\| \nabla f(y) - \nabla f(x) \|) \leq \| f(y) - f(x) \| \leq L \cdot \| y - x \| \\
+\| \nabla f(y) - \nabla f(x) \| \leq \frac{k L}{\rho} \| y - x \|
+\end{aligned}
+$$
+
+### Properties of Constant Step Size
+
+Suppose that the object function $f(x) \in C^2, \; f:\mathbf{R}^n \rightarrow \mathbf{R}$  is continuosly twice differentiable for all $x, y \in \mathbf{R}^n$, i.e.
+$$
+\begin{aligned}
+f(y) - f(x) 
+&= \langle \nabla f(x), y-x \rangle \\
+&+ \int_0^1 (1 - s) \langle y-x, H(x + s(y - x))(y-x) \rangle ds
+\end{aligned}
+\tag{6}
+$$
+where $H(x) \in \mathbf{R}^{n \times n}$ is the Hessian Matrix of $f(x)$ such that $H(x) \triangleq \frac{\partial^2 f}{\partial x^2}(x)$, and the symbol $\langle \cdot, \cdot \rangle$ is an inner product for two vectors in $\mathbf{R}^n$.
+
+In addition, suppose that there exists a positive value $0 < m < M <\infty$ for the object function $f(x)$ such that
+$$
+m \| v \|^2 \leq \langle v, \frac{\partial^2 f}{\partial x^2}(x) v \rangle \leq M \|v\|^2
+\tag{7}
+$$
+, and there exists a positive value $L > 0$, so that the object function satisfies the locally Lipschitz continous condition in the sense of the first order differential for $y \in B(x, \rho) \triangleq \{ x | \| y - x \| < \rho, \; \rho > 0 \}$ such that
+$$
+\| \nabla f(y) - \nabla f(x) \| < L \cdot \| y - x \|
+\tag{8}
+$$
+, where $L$ is a positive value such as $ 0 < L < \infty$.
+
+Let the search equation based on the gradient of the object-function $\nabla f(x)$ including a constant learning rate as follows:
+$$
+x_{t+1} = x_t - \lambda \cdot \nabla f(x_t)
+\tag{9}
+$$
+, where $\lambda \in \mathbf{R}(0, 1)$ is a constant learning rate, and  we regard $\hat{x} \in \mathbf{R}^n$ is the optimal point such that
+$$
+\hat{x} = \arg_{x \in \mathbf{R}^n} \min f(x), \;\;\; \nabla f(\hat{x}) = 0.
+$$
+
+Suppose that, after $k$ Iterations, the parameter $x_t$ which is generated by the search algorithm defined by (4) converges to the optimal point $\hat{x}$, we can obtain 
+$$
+\begin{aligned}
+x_t - \hat{x} &= x_t - x_{t+k} \\  
+&= x_t - x_{t+1} + x_{t+1} - x_{t+2} \cdots + x_{t+k-1} - x_{t+k} \\
+&= \lambda \cdot \nabla f(x_t) + \lambda \cdot \nabla f(x_{t+1}) \cdots +  \lambda \cdot \nabla f(x_{t+k-1}) \\
+&= \lambda \cdot \sum_{l=0}^{k-1} \nabla f(x_{t+l}) \\
+&= \lambda \cdot \sum_{l=0}^{k-1} \left( \nabla f(x_{t+l}) - \nabla f(\hat{x}) \right) 
+\;\;\; \because \nabla f(\hat{x}) = 0\\
+\end{aligned}
+\tag{9}
+$$
+
+By the locally Lipschitz continuous (4), setting the norm to both terms in (5), we obtain the following inequality:
+$$
+\begin{aligned}
+\| x_t - \hat{x} \| 
+&= \| \lambda \cdot \sum_{l=0}^{k-1} \left( \nabla f(x_{t+l}) - \nabla f(\hat{x}) \right)  \| \\
+&\leq \lambda \cdot \sum_{l=0}^{k-1} \| \nabla f(x_{t+l}) - \nabla f(\hat{x}) \| \\
+& \leq \lambda \cdot \sum_{l=0}^{k-1} L \cdot \| x - \hat{x} \| \\
+& \leq \lambda \cdot k \cdot L \cdot \rho. 
+\end{aligned}
+\tag{10}
+$$
+
+Since the twice differentiable condition is hold, and $\nabla f(\hat{x}) = 0$ by the assumption, the equation (1) is replaced with the following:
+$$
+f(x_t) - f(\hat{x}) = \int_0^1 (1 - s) \langle x_t - \hat{x}, H(\hat{x} + s(x_t - \hat{x}))(x_t - \hat{x}) \rangle ds. 
+$$
+
+Thereby, from the condition of bounbed twice differentiable condition (2) and the equation (6), the norm of each term is evaluated as follows:
+$$
+\begin{aligned}
+\| f(x_t) - f(\hat{x}) \| 
+&= \| \int_0^1 (1 - s) \langle x_t - \hat{x}, H(\hat{x} + s(x_t - \hat{x}))(x_t - \hat{x}) \rangle ds.\| \\
+&\leq \int_0^1 (1 - s) M \cdot \| x_t - \hat{x} \|^2 ds  \\
+&\leq  k \cdot \lambda \cdot M  \cdot L \cdot \rho \int_0^1 (1 - s) ds \\
+&=  k \cdot \lambda \cdot \frac{ M L}{2}  
+\end{aligned}
+\tag{11}
+$$
+
+The equation (7) illustrates that  since the learning rate $\lambda$ , the Lipschitz contsant $L$ and $M$ are constant values, the norm of $\| f(x_t) - f(\hat{x}) \|$ is increased as k is increased. It contradicts the assumption that the $x_t$ converges to $\hat{x}$ after k iterations. 
+
+
+
+However, since there is not a general the time schedule of a decreased step size which has a detailed analysis of an internal dynamics to the optimization algorithm, in most cases, a heuristic or empirical time decayed step size is employed.
+
+
+
+In the equation (1), when we let the step size $\lambda$ be an inverse function of t, the difference of 
+
+
+
+
+
+
+
 
 ## Fundamental Property of Quantized Parameter
 ### Definition 
@@ -209,7 +427,6 @@ $$
 $$
 h^Q_c(k) = g^Q_c(k) \otimes sgn(h_t)
 $$
-
 Python Code는 다음과 같다.
 
 ~~~python

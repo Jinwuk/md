@@ -384,19 +384,19 @@ $$
 $$
 따라서
 $$
-r_i = - \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\| g_i \|^2}
+r_i = \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\| g_i \|^2}
 $$
 따라서 다음의 두 가지 방법이 유도 된다.
 - **Polak - Riebel Formula**
 
 $$
-r_i = - \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\| g_i \|^2}
+r_i = \frac{\langle g_{i+1}, g_{i+1} \rangle - \langle g_i, g_{i+1} \rangle}{\| g_i \|^2}
 $$
 
 - **Fletcher-Reeves Formula **
    - Since for the quadratic case, $\langle g_{i+1}, g_{i} \rangle = 0$, that results can be extended.
 $$
-r_i = - \frac{\| g_{i+1} \|^2}{\| g_i \|^2}
+r_i = \frac{\| g_{i+1} \|^2}{\| g_i \|^2}
 $$
 
 ### Remind
@@ -422,8 +422,8 @@ $$
 where $r_i^{PR}$, $r_i^{FR}$ is defined as
 $$
 \begin{align}
-r_i^{PR} &= -\frac{\langle \nabla f(x_{i+1}) - \nabla f(x_i), \nabla f(x_{i+1}) \rangle }{\| \nabla f(x_{i}) \|^2} \\
-r_i^{FR} &= -\frac{\|\nabla f(x_{i+1}) \|^2 }{\| \nabla f(x_{i}) \|^2}
+r_i^{PR} &= \frac{\langle \nabla f(x_{i+1}) - \nabla f(x_i), \nabla f(x_{i+1}) \rangle }{\| \nabla f(x_{i}) \|^2} \\
+r_i^{FR} &= \frac{\|\nabla f(x_{i+1}) \|^2 }{\| \nabla f(x_{i}) \|^2}
 \end{align}
 $$
 
@@ -436,7 +436,7 @@ Polak-Riebler algorithm is applied to solve $\min f(x)$ producing a sequence $\{
 - $\exists \rho \in (0,1) \;\;\; \text{such that} \;\;\; \langle \nabla f(x_i), h_i \rangle \geq \rho \|\nabla f(x_i) \| \| h_i \|$
 - The sequence $\{ x_i \}_{i=0}^{\infty}$ converges to $\hat{x}$, the unique minimizer of $f(\cdot)$.
 
-위의 것을 만족하면 아래 명제도 만족됨, 왜냐하면 $\forall k  \in \mathbf{Z}^{+}, \;\; \langle \nabla f(\hat{x}), h_k\rangle = 0$ 이므로, 위 부등식을 만족하려면 $\rho > 0$, $h_i$ >  0 이므로 $\nabla f(\hat{x}) = 0$ 이어야 함
+위의 것을 만족하면 아래 명제도 만족됨, 왜냐하면 $\forall k  \in \mathbf{Z}^{+}, \;\; \langle \nabla f(\hat{x}), h_k\rangle = 0$ 이므로, 위 부등식을 만족하려면 $\rho > 0$, $h_i$ >  0 이므로 $\nabla f(\hat{x}) = 0​$ 이어야 함
 
 #### proof of 1.
 let $ g_i = \nabla f(x_i) $, then
@@ -450,7 +450,7 @@ $$
 Now, $\langle g_{i+1}, h_i \rangle = 0$ by construction (because of $h$- conjugate)
 It means that $\langle g_{i} - \lambda_i H_i h_i, h_i \rangle = 0$. Thus,
 $$
-\lambda_i = \frac{\langle g_i, h_i \rangle}{\langle Hh_i, h_i \rangle} 
+\lambda_i = \frac{\langle g_i, h_i \rangle}{\langle Hh_i, h_i \rangle}
 $$
 
 in algorithm, $h_i = g_i + r_{i-1}^{PR} h_{i-1}$. Thereby,
