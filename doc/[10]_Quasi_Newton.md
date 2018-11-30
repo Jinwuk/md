@@ -2,7 +2,7 @@ Quasi Newton
 ======
 다음과 같은 Quadratic Problem을 생각해 보면
 $$
-\min_{x \in \mathbb{R}^n} f(x) \Rightarrow f(x) = \frac{1}{2} \langle x, Hx \rangle + \langle d, x \rangle 
+\min_{x \in \mathbb{R}^n} f(x) \Rightarrow f(x) = \frac{1}{2} \langle x, Hx \rangle + \langle d, x \rangle
 $$
 
 #### Newton Method
@@ -149,7 +149,7 @@ $$
 \end{bmatrix}
 \;\;\;
 \Delta \beta = 
-\beta_1 =
+\beta_1 - \beta_0=
 \begin{bmatrix}
 -\frac{1}{2}  & 0  & 0 \\
 \frac{1}{2}  & 0  & 0 \\
@@ -206,6 +206,7 @@ $$
 $$
 
 **Note : $ab^T$ 의 성질**
+
 - $ab^T$ 의 Range space : $a$ 에 의해 Span 된다 $b^T x$ 는 Scalar 이므로 즉
 
 $$

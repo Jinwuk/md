@@ -215,7 +215,7 @@ x_t - \hat{x} &= x_t - x_{t+k} \\
 &= \lambda \cdot \sum_{l=0}^{k-1} \left( \nabla f(x_{t+l}) - \nabla f(\hat{x}) \right) 
 \;\;\; \because \nabla f(\hat{x}) = 0\\
 \end{aligned}
-\tag{9}
+\tag{10}
 $$
 
 By the locally Lipschitz continuous (4), setting the norm to both terms in (5), we obtain the following inequality:
@@ -227,12 +227,12 @@ $$
 & \leq \lambda \cdot \sum_{l=0}^{k-1} L \cdot \| x - \hat{x} \| \\
 & \leq \lambda \cdot k \cdot L \cdot \rho. 
 \end{aligned}
-\tag{10}
+\tag{11}
 $$
 
 Since the twice differentiable condition is hold, and $\nabla f(\hat{x}) = 0$ by the assumption, the equation (1) is replaced with the following:
 $$
-f(x_t) - f(\hat{x}) = \int_0^1 (1 - s) \langle x_t - \hat{x}, H(\hat{x} + s(x_t - \hat{x}))(x_t - \hat{x}) \rangle ds. 
+f(x_t) - f(\hat{x}) = \int_0^1 (1 - s) \langle x_t - \hat{x}, H(\hat{x} + s(x_t - \hat{x}))(x_t - \hat{x}) \rangle ds.
 $$
 
 Thereby, from the condition of bounbed twice differentiable condition (2) and the equation (6), the norm of each term is evaluated as follows:
@@ -244,7 +244,7 @@ $$
 &\leq  k \cdot \lambda \cdot M  \cdot L \cdot \rho \int_0^1 (1 - s) ds \\
 &=  k \cdot \lambda \cdot \frac{ M L}{2}  
 \end{aligned}
-\tag{11}
+\tag{12}
 $$
 
 The equation (7) illustrates that  since the learning rate $\lambda$ , the Lipschitz contsant $L$ and $M$ are constant values, the norm of $\| f(x_t) - f(\hat{x}) \|$ is increased as k is increased. It contradicts the assumption that the $x_t$ converges to $\hat{x}$ after k iterations. 
@@ -507,6 +507,43 @@ $$
 
         return xn
 ~~~
+
+#### Wiener Process로서의 Qunatization 
+$$
+\begin{aligned}
+E x^R 
+&\triangleq \lim_{N \rightarrow \infty} \frac{1}{N} \sum_{k=0}^{N-1} x^R = \lim_{N \rightarrow \infty} \frac{1}{N} \sum_{k=0}^{N-1} (x - \varepsilon_k) \\
+&= \lim_{N \rightarrow \infty} \frac{N}{N} x - E \varepsilon = x.
+\end{aligned}
+\label{eq06:sec_03}
+\tag{12}
+$$
+Furthermore, under assumptions of high resolution and smooth densities, we regard the quantization error to be a random noise with a very small correlation with the signal and having approximately a flat spectrum which is typical characteristics of white noise \cite{Gray:2006}. In the viewpoint of the quantization error is a random process, the average distortion depending on quantization interval is regarded as the variance of the random variable \cite{kloeden2011numerical} \cite{Gray:2006}, such that
+$$
+\sigma^2 = Var(\bar{\varepsilon}) = \frac{1}{12}{\bar{\varepsilon}^2} = \frac{1}{12}{\frac{\varepsilon^2}{Q_p^2}}   
+\label{eq07:sec_03}
+\tag{13}
+$$
+
+
+
+$$
+x_{t+1}^Q = x_t^Q - \lambda^Q \bar{h}_t^Q \triangleq  x_t^Q - \lambda^Q (h_t^Q(k) \oplus_{m=1}^n h^Q_t(k)^{m})
+\label{eq04:sec_04}
+\tag{14}
+$$
+where $a \oplus_k^n b^i$ denotes a iteration-wise sum which, at first iteration, the function $a$ is applied, and at other iterations, the function $b^k$ is applied until $n​$.
+
+
+If the resolution of quantized space yielded from the quantization parameter is sufficiently high, the quantized gradient term evaluated as ($\ref{eq04:sec_04}$) is a Martinglae process generating the Filtration $\mathcal{F}_t$ defined on $( \Omega, \mathcal{F}, P )$, such that 
+$$
+\mathbb{E}[W_t | \mathcal{F_s}] = W_s,\;\; \forall s, t \in T     
+$$
+where $W_t \triangleq \frac{\lambda^Q}{g(k)}\bar{h}_t^Q$. Moreover, the definition of the quantized gradient the expectation and variance of $W_t$ is $\eqref{eq06:sec_03}$ and $\eqref{eq07:sec_03}$, respectively.
+
+
+
+
 
 #### Quasi Newton에서의 실험 결과
 Quasi Newton에서 Local 에 빠지거나 혹은 발산하는 경우에 본 알고리즘을 적용할 경우 Local에 빠지거나 발산하지 않고 Global Optimal Point를 정확히 찾아내었다.
