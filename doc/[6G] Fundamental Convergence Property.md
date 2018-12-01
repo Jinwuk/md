@@ -261,14 +261,12 @@ Grownwall's Lemma에 의하면 다음과 같이 된다.
 $$
 \begin{aligned}
 \alpha(t+n) 
-&\leq \exp \left( L \cdot \sum_{k=0}^{n-1} \lambda_{t+k} \right) \\
-&= \prod_{k=0}^{n-1} \exp \left( L \cdot  \lambda_{t+k} \right) \\
-&= \prod_{k=0}^{n-1} \exp \left( L \cdot  \gamma_{t+k}^{-1} \right) \\
+&\leq L \cdot \sum_{k=0}^{n-1} \lambda_{t+k} \exp \left( \sum_{j=k}^{n-1} \lambda_{t+k} \right) + 1 \\
 \end{aligned}
 $$
 
-\| x_{t+n} - \hat{x} \| &\leq \varepsilon \exp \left( L \cdot \sum_{k=0}^{n-1} \lambda_{t+k} \right)
+여기서 Grownwall's Lemma에 의한 증명은 조금 어렵다고 보아진다. 
+
+추후에 더 생각해본다.
 
 
-
-## Stochastic Analysis
