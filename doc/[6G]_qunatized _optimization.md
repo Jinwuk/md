@@ -537,7 +537,7 @@ where $a \oplus_k^n b^i$ denotes a iteration-wise sum which, at first iteration,
 
 If the resolution of quantized space yielded from the quantization parameter is sufficiently high, the quantized gradient term evaluated as ($\ref{eq04:sec_04}$) is a Martinglae process generating the Filtration $\mathcal{F}_t$ defined on $( \Omega, \mathcal{F}, P )$, such that 
 $$
-\mathbb{E}[W_t | \mathcal{F_s}] = W_s,\;\; \forall s, t \in T     
+\mathbb{E}[W_t | \mathcal{F_s}] = W_s,\;\; \forall s, t \in T
 $$
 where $W_t \triangleq \frac{\lambda^Q}{g(k)}\bar{h}_t^Q$. Moreover, the definition of the quantized gradient the expectation and variance of $W_t$ is $\eqref{eq06:sec_03}$ and $\eqref{eq07:sec_03}$, respectively.
 
