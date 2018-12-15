@@ -138,7 +138,7 @@ $$
 
 ### Concept of Girsanov Theorem
 Simple 이지만 거의 완벽하게 Girsanov Theorem을 설명할 수 있다.
-Let $\{W_t \}_{t \geq 0}$ be a $\mathbb{P}$-Brownian Motion. For a constant value $\theta$, consider the new stochastic Process $X_t​$ such that
+Let $\{W_t \}_{t \geq 0}$ be a $\mathbb{P}$-Brownian Motion. For a constant value $\theta$, consider the new stochastic Process $X_t$ such that
 $$
 X_t = W_t + \theta t 
 $$

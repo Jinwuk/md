@@ -8,7 +8,6 @@ Convex 조건은, Domain이 만일 Convex 일 경우 함수 $f​$가 contimuity
 그러나 일반적인 Convex 조건에 의한 해석은 Euclidean Space $\mathbb{R}^n$ 이나, Manifold $M^n$ 에서 유효하다.
 따라서 확률 변수의 경우에는 적분이 무한대 적분으로 나타내야 하는 경우가 많으므로 Convexity를 체크하기 위한 변수가 무한대에서 잡을 수 있도록 해야 한다.
 따라서 이러한 경우, Convexity 변수를 $s \in \mathbb[0,1]$ 대신 $\varepsilon \in \mathbb{R}$로 놓아야 한다. 이때 Convexity Check를 위해 다음과 같이 놓아보자.
-
 $$
 \lim_{\varepsilon \rightarrow 0} \frac{\varepsilon}{1 + \varepsilon} = 0, \;\;\; \lim_{\varepsilon \rightarrow \infty} \frac{\varepsilon}{1 + \varepsilon} = 1
 $$
@@ -170,7 +169,9 @@ $$
 $$
 \begin{align}
 \sigma^2 \frac{\partial P_Y(y)}{\partial y} &= \int (x - y) \frac{1}{\sqrt{2 \pi} \sigma} \exp ( - \frac{(y - x)^2}{2 \sigma^2} ) P_X (x) dx \\
-&= \int (x - y) P_{X, Y} (x, y) dx  = \int x P_{X, Y} (x, y) dx - \int y P_{X, Y} (x, y) dx = \int x P_{X, Y} (x, y) dx - y \int P_{X, Y} (x, y) dx \\
+&= \int (x - y) P_{X, Y} (x, y) dx  \\
+&= \int x P_{X, Y} (x, y) dx - \int y P_{X, Y} (x, y) dx \\
+&= \int x P_{X, Y} (x, y) dx - y \int P_{X, Y} (x, y) dx \\
 &= \int x P_{X, Y} (x, y) dx - y P_Y (y) \\
 &= \hat{x} P_Y(y) - y P_y(y) 
 \end{align}
@@ -350,5 +351,40 @@ $$
 x \cdot \bar{b} = \frac{x \cdot w}{w \cdot w}
 $$
 가 되어 일반적인 형태의 Projection이 된다.  이러한 접근 방법도 기억해 두자.
+
+
+## Vector Differntiation
+
+$$
+\forall x, y \in \mathbb{R}^n
+$$
+
+1. 미분은 Transpose 된 동일한 Parameter에 행해지고 나머지 항은 그대로 나온다.
+	- 미분의 결과가 그대로 Vector가 되기를 원하기 때문
+3. Transpose 않은 동일한 Parameter에 행해진 미분은 나머지 항이 Transpose 되어야 한다.
+
+$$
+\frac{\partial }{\partial x}(x^T y) = y
+$$
+
+$$
+\frac{\partial }{\partial x}(x^T x) = 2x
+$$
+
+$$
+\frac{\partial }{\partial x}(x^T Ay) = Ay
+$$
+
+$$
+\frac{\partial }{\partial x}(y^T Ax) = \left(y^T A \right)^T = A^T y
+$$
+
+$$
+\frac{\partial }{\partial x}(x^T Ax) = (A + A^T)x
+$$
+
+$$
+\frac{\partial }{\partial x}(a^T(x) Qa(x)) = 2(\nabla_x a^T(x))Q a(x)
+$$
 
 

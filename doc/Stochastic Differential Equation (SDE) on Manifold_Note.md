@@ -38,13 +38,13 @@ $$
 ## Chebyshev 부등식의 간단한 증명 (by Wikipedia)
 
 $$
-\begin{align}
+\begin{aligned}
 \mathbf{P}(|X - \mathbb{E}(X)| \geq k \sigma) &= \mathbb{E}(I_{|X - \mathbb{E}(X)| \geq k \sigma} ) \\
 &= \mathbb{E} \left( I_{ \left( \frac{X - \mathbb{E}(X)}{k \sigma} \right) \geq 1} \right) \\
 &\leq \mathbb{E} \left( \left( \frac{X - \mathbb{E}(X)}{k \sigma} \right)^2 \right) \\
 & = \frac{1}{k^2} \frac{\mathbb{E}(X - \mathbb{E}(X))^2}{\sigma^2} \\
 & = \frac{1}{k^2}
-\end{align}
+\end{aligned}
 $$
 
 
