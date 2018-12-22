@@ -387,4 +387,23 @@ $$
 \frac{\partial }{\partial x}(a^T(x) Qa(x)) = 2(\nabla_x a^T(x))Q a(x)
 $$
 
+## Simple Twice integration
 
+다음과 같은 경우 적분 값을 생각해보자.
+
+$$
+\int_{t_0}^t \int_{t_0}^{\tau_1} d\tau_1 d\tau_2 = \frac{1}{2} \left( t - t_0\right)^2
+$$
+
+얼핏 쉬어 보이지만 착각이 있을 수 있으므로 확실하게 증명하도록 한다.
+
+$$
+\begin{aligned}
+\int_{t_0}^t \int_{t_0}^{\tau_1} d\tau_1 d\tau_2 
+&= \int_{t_0}^t \tau_1 - t_0 d\tau_1 \\
+&= \frac{1}{2} \tau_1^2 \biggr\rvert_{t_0}^t - t_0 (t - t_0) \\
+&= \frac{1}{2} t^2 - \frac{1}{2} {t_0}^2  - t_0 (t - t_0) \\
+&= \frac{1}{2} \left( t^2 - 2t_0 t + {t_0}^2 \right) \\
+&= \frac{1}{2} (t - t_0)^2
+\end{aligned}
+$$
