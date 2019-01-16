@@ -32,7 +32,7 @@ q^s = 0.625 \cdot 2^{\left \lfloor \frac{q}{6} \right \rfloor + k \cdot (q \mod 
 \tag{2}
 $$
 
-이떄, 비례상수 $k$를 알아보기 위해 위 식을 정리하면 다음과 같은 방정식이 유도된다.  만일 $m = (q \mod 6)$ 이라 하고 $m$ 값일 때의 Quantization Step을 $q_m^s$ 라 하면 
+이떄, 비례상수 $k​$를 알아보기 위해 위 식을 정리하면 다음과 같은 방정식이 유도된다.  만일 $m = (q \mod 6)​$ 이라 하고 $m​$ 값일 때의 Quantization Step을 $q_m^s​$ 라 하면 
 
 $$
 \begin{aligned}
@@ -123,19 +123,19 @@ Q(\mathcal{X}, q) &\approx \left[ \frac{1}{q_m^s} \cdot 2^{qbits + \left \lfloor
 \end{aligned}
 $$
 
-일반적인 반 올림이 되기 위해서는 $f$ 의 값이 다음과 같아야 한다. 
-- 외부에서 수행되는 나눗셈 때문에 $2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}$ 이 곱해져야 한다.
+일반적인 반 올림이 되기 위해서는 $f​$ 의 값이 다음과 같아야 한다. 
+- 외부에서 수행되는 나눗셈 때문에 $2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}​$ 이 곱해져야 한다.
 
 $$
 f = \frac{1}{2} q_m^s \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}
 $$
-따라서,  Scale Factor $2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}$ 를 생각하지 않는다면 $f$ 는 다음의 범위를 가지는 것이 정상이다. 
+따라서,  Scale Factor $2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}​$ 를 생각하지 않는다면 $f​$ 는 다음의 범위를 가지는 것이 정상이다. 
 
 $$
 0.3125 \leq \frac{1}{2} q_m^s \leq 0.5625
 $$
 
-HEVC에서 $f$의 값은 Intra의 경우 $f = \frac{1}{3} \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}$ Inter의 경우 $f = \frac{1}{6} \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}$ 이다. 그러므로 HEVC에서의 반올림 팩터는  Intra에서 $\frac{1}{3} = 0.3333 \cdots$,  Inter에서는 $\frac{1}{6} = 0.16666 \cdots$ 이다. 특히 Inter의 경우에는 지나치게 낮아서 제대로 반올림이 되기에는 낮은 값이다. 이는 상당히 높은 값을 가져야만 반올림되어 값이 수정됨을 의미한다.  이런 경우 다음과 같은 경우가 발생할 수 있다.
+HEVC에서 $f​$의 값은 Intra의 경우 $f = \frac{1}{3} \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}​$ Inter의 경우 $f = \frac{1}{6} \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}​$ 이다. 그러므로 HEVC에서의 반올림 팩터는  Intra에서 $\frac{1}{3} = 0.3333 \cdots​$,  Inter에서는 $\frac{1}{6} = 0.16666 \cdots​$ 이다. 특히 Inter의 경우에는 지나치게 낮아서 제대로 반올림이 되기에는 낮은 값이다. 이는 상당히 높은 값을 가져야만 반올림되어 값이 수정됨을 의미한다.  이런 경우 다음과 같은 경우가 발생할 수 있다.
 
 - $q_2 = q_1 + 6$ 이고  $f_{q} = f_0  \cdot 2^{qbits + \left \lfloor \frac{q}{6} \right \rfloor + 5}$ 이라 하면 
 $$
@@ -176,7 +176,7 @@ $$
 \tag{5}
 $$
 
-정수 $L(q) = qbits - \left \lfloor \frac{q}{6} \right \rfloor+ 4 = 18 - \left \lfloor \frac{q}{6} \right \rfloor \in \mathbf{Z}$  를 정의하자. 
+정수 $L(q) = qbits - \left \lfloor \frac{q}{6} \right \rfloor+ 4 = 18 - \left \lfloor \frac{q}{6} \right \rfloor \in \mathbf{Z}​$  를 정의하자. 
 
 이 경우 방정식 (5)는 다음과 같다.
 
@@ -219,7 +219,6 @@ $$
 
 $q_2 = q_1 + 6$ 이고, $q_1^s = \frac{1}{2} q_2^s$ 일때, 
 Let $\mathcal{X} = q_1 \cdot k + m$ where $0 \leq m < q_1$, then 
-
 $$
 \left[ \frac{1}{q_1} \mathcal{X} \right] = \left[ k + \frac{1}{q_1} m \right] = \left \lfloor k + \frac{1}{q_1} m + \frac{1}{2} \frac{1}{q_1} q_1 \right \rfloor.
 $$
@@ -252,26 +251,31 @@ $$
 It means that the $k$ is odd number, $\left[ \frac{1}{q_2} \mathcal{X} \right]$ is $\bar{k}+1$ in spite of which value the remainder $m$ has. 
 
 - When $k$ is **odd** value and $m < \frac{1}{2} q_1$
+
 $$
 \left[ \frac{1}{q_1} \mathcal{X} \right] = 2 \bar{k} + 1, \;\;\; \left[ \frac{1}{q_1} \mathcal{X} \right] = \bar{k} + 1 
 $$
 
 Therefore,
+
 $$
 Q_1 - 2 Q_2 = 2 \bar{k} + 1 - 2 (\bar{k} + 1) = -1
 $$
 
 - When $k$ is **odd** value and $ \frac{1}{2} q_1 \leq m  < q_1$
+
 $$
 \left[ \frac{1}{q_1} \mathcal{X} \right] = (2 \bar{k} + 1) + 1, \;\;\; \left[ \frac{1}{q_1} \mathcal{X} \right] = \bar{k} + 1
 $$
 
 Therefore,
+
 $$
 Q_1 - 2 Q_2 = 2 \bar{k} + 2 - 2 (\bar{k} + 1) = 0
 $$
 
-- When $k$ is **even** value and $m < \frac{1}{2} q_1$
+- When $k$ is **even** value and $m < \frac{1}{2} q_1​$
+
 $$
 \left[ \frac{1}{q_1} \mathcal{X} \right] = 2 \bar{k}, \;\;\; \left[ \frac{1}{q_1} \mathcal{X} \right] = \bar{k} 
 $$
@@ -282,6 +286,7 @@ Q_1 - 2 Q_2 = 2 \bar{k} - 2 \bar{k} = 0
 $$
 
 - When $k$ is **even** value and $ \frac{1}{2} q_1 \leq m  < q_1$
+
 $$
 \left[ \frac{1}{q_1} \mathcal{X} \right] = 2 \bar{k} + 1, \;\;\; \left[ \frac{1}{q_1} \mathcal{X} \right] = \bar{k} 
 $$

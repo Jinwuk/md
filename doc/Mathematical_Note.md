@@ -407,3 +407,109 @@ $$
 &= \frac{1}{2} (t - t_0)^2
 \end{aligned}
 $$
+
+즉, Convolution 연산이 우리가 원하는 형태의 결론을 가져다 준다. 
+
+## SIMD 연산과 행렬 연산
+
+SIMD 연산을 기본적으로 생각해보면 
+
+$$
+X_{kj} = \sum_i x_{ki} e_{ij}
+$$
+의 연산이다.  이것의 첨자를 다음과 같이 바꾸어 보자
+
+$$
+X_j^k = \sum_i x_i^k e_j^i
+$$
+
+다시말해, $x_0^k, x_1^k, \cdots, x_{n-1}^k$  와 $e_j^0, e_j^1,  \cdots, e_j^{n-1}$ 의 Summation 이다. 
+
+**Summation** 은 언제나 **세로 방향**으로 이루어진다고 생각하자. 그래야 **SIMD 연산의 효과를 그대로 반영** 한다.
+
+이렇게 생각하면 다음과 같은 것이다.
+
+$$
+X_j^k = 
+\begin{bmatrix}
+x_0^k, x_1^k, \cdots, x_{n-1}^k 
+\end{bmatrix}
+\begin{bmatrix}
+e_j^0 \\
+e_j^1 \\
+\cdots \\
+e_j^{n-1}
+\end{bmatrix}
+$$
+
+그렇다면 Row Vector $\{X^k\}^T$ 를 생각해보면
+
+$$
+\begin{aligned}
+\{X^k\}^T &= 
+\begin{bmatrix}
+x_0^k, x_1^k, \cdots, x_{n-1}^k 
+\end{bmatrix}
+\begin{bmatrix}
+e_0^0& e_1^0& \cdots &e_{n-1}^0 \\
+e_0^1& e_1^1& \cdots &e_{n-1}^1 \\
+\cdots& \cdots& \cdots &\cdots \\
+e_0^{n-1}& e_1^{n-1}& \cdots &e_{n-1}^{n-1}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+x_0^k \cdot e_0^0        & x_0^k \cdot e_1^0        &\cdot &x_0^k \cdot e_{n-1}^0 \\
+x_1^k \cdot e_0^1        & x_1^k \cdot e_1^1        &\cdot &x_0^k \cdot e_{n-1}^1 \\
+      \cdots             &           \cdots         &\cdot &\cdots \\
+x_{n-1}^k \cdot e_0^{n-1}& x_{n-1}^k \cdot e_1^{n-1}&\cdot &x_0^k \cdot e_{n-1}^{n-1}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+x_0^k \cdot e_0^0    &x_1^k \cdot e_1^0    &\cdot &x_{n-1}^k \cdot e_{n-1}^0 \\
+x_0^k \cdot e_0^1    &x_1^k \cdot e_1^1    &\cdot &x_{n-1}^k \cdot e_{n-1}^1 \\
+      \cdots         &      \cdots         &\cdot &\cdots \\
+x_0^k \cdot e_0^{n-1}&x_1^k \cdot e_1^{n-1}&\cdot &x_{n-1}^k \cdot e_{n-1}^{n-1}
+\end{bmatrix}^T \\
+&=
+\begin{bmatrix}
+X_0^k, X_1^k, \cdots, X_{n-1}^k 
+\end{bmatrix}
+\end{aligned}
+$$
+
+다시말해, SIMD 연산은 가로 기준의 Tranpose된 Vector와 Matrix로 생각하면 정확하다.
+
+- 위 식의 3번째 식, Transpose 된 Matrix를 보면 $x_i^k$ 는 가로로 정렬되어 있다.
+- $e_j^i$는 Tranpose 되어 있다. 
+- **Summation은 세로 방향**으로 수행되어진다.
+
+다시말해 다음 Matrix 연산은 
+$$
+[X] = [e][x]
+$$
+
+SIMD 측면에서 보면 
+
+$$
+[X]^T = \left([e][x]\right)^T = [x]^T [e]^T
+$$
+인 것이다. SIMD 및 메모리 Alignment와 행렬식이 동일할 경우 언제나 참이다.
+
+그러므로 SIMD 연산에서 Tranpose를 생각한다면 항상 SIMD 자체가 Tranpose 이므로 행렬의 Index와 동일하게 Memory가 Aligne 되려면 어떻게 Transpose를 가져가야 하는지를 생각하면 된다.
+
+- Vector라면 1 Row 방향 정렬이 되어 있어야 하므로 자동 Transpose임을 생각하며 쉽다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
