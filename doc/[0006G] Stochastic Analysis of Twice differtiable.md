@@ -66,7 +66,7 @@ dZ_t(s) = -\lambda_t h_t ds + \Sigma \Delta W_t ds
 \tag{4}
 $$
 
-Consider the final term, i.e. $\Delta W_t ds$. The integration of $dZ_t(s)$ to $s$ is as follows: 
+Consider the final term, i.e. $\Delta W_t ds​$. The integration of $dZ_t(s)​$ to $s​$ is as follows: 
 
 $$
 \int_0^s dZ_t(s) = Z_t (s) - Z_t(0) = - s \lambda_s h_t \int_0^s ds + \Sigma \int_0^s \Delta W_t ds.
@@ -140,7 +140,7 @@ $$
 
 where $$H(x) \in \mathbf{R}^{n \times n}$$ is a Hessian of $$f(x)$$ . 
 
-For evaluation of the stochastic version, we let  a function $$g(s) = f(Z_t(s))$$.  The first order differentiation to $$s$$ is 
+For evaluation of the stochastic version, we let  a function $$g(s) = f(Z_t(s))​$$.  The first order differentiation to $$s​$$ is 
 
 $$
 \begin{aligned} 
@@ -155,7 +155,7 @@ $$
 \tag{11}
 $$
 
-Substituting $$\eqref{04:model}$$ and $$\eqref{eq10:model}$$ to the $$\eqref{eq01:deduct}$$, we can obtain
+Substituting $$\eqref{04:model}​$$ and $$\eqref{eq10:model}​$$ to the $$\eqref{eq01:deduct}​$$, we can obtain
 
 $$
 \begin{aligned} 
