@@ -17,7 +17,7 @@ The stochastic analysis for an optimization algorithm follows the same procedure
 Consider the following stochastic model
 
 #### Model
-Consider the random process $X_t \in \mathbf{R}^n$ with a Wiener process $W_t \in \mathbf{R}^n$  with a constant variance $\Sigma \in \mathbf{R}^{n \times n}$  which is symmetric matrix, such that
+Consider the random process $X_t \in \mathbf{R}^n​$ with a Wiener process $W_t \in \mathbf{R}^n​$  with a constant variance $\Sigma \in \mathbf{R}^{n \times n}​$  which is symmetric matrix, such that
 
 $$
 X_t = x_t^Q + \Sigma W_t
@@ -40,14 +40,14 @@ $$
 \begin{aligned}
 Z_t (s) 
 &= X_t + s(Y_t - X_t) \\
-&= x_t^Q + \Sigma W_t + s(-\lambda_t h_t) + s \Sigma (W_{t+1} - W_t) 
+&= x_t^Q + \Sigma W_t + s(-\lambda_t h_t)^Q + s \Sigma (W_{t+1} - W_t) 
 \end{aligned}
 $$
 
-Let $$\Delta W_t = W_{t+1} - W_t$$, then 
+Let $\Delta W_t = W_{t+1} - W_t$, then 
 
 $$
-Z_t (s) = x_t^Q - s(\lambda_t h_t) + \Sigma (W_t + s \Delta W_t) 
+Z_t (s) = x_t^Q - s(\lambda_t h_t)^Q + \Sigma (W_t + s \Delta W_t) 
 \label{eq03:model}
 \tag{3}
 $$
@@ -74,7 +74,7 @@ $$
 \tag{5}
 $$
 
-Since the integration of $dZ_t(s)$  should be equal to $$\eqref{eq03:model}$$,  the integration of final term to $\Delta W_t$ is evaluated as follows.
+Since the integration of $dZ_t(s)​$  should be equal to $\eqref{eq03:model}​$,  the integration of final term to $\Delta W_t​$ is evaluated as follows.
 
 $$
 \int_0^s \Delta W_t ds = s(W_{t+1} - W_t) = \int_t^{t+1} s dW_{\tau}
@@ -82,7 +82,7 @@ $$
 \tag{6}
 $$
 
-Thereby, when $$s =0$$, $$\tau = t$$, and $$s=1$$, $$\tau = t+1$$, we obtain the following differential equation in the sense of $$\eqref{eq03:model}$$
+Thereby, when $s =0$, $\tau = t​$, and $s=1​$, $\tau = t+1​$, we obtain the following differential equation in the sense of $\eqref{eq03:model}​$
 
 $$
 \Delta W_t ds = s dW_{\tau}
@@ -96,7 +96,7 @@ dZ_t(s) = -\lambda_t h_t ds + s \cdot\Sigma dW_{\tau} \in \mathbf{R}^n
 \tag{7}
 $$
 
-In $$\eqref{eq07:model}$$,  by the product rule of the stochastic differential, the dot product of the vector differential $$dZ_t(s)$$ is evaluated as 
+In $\eqref{eq07:model}$,  by the product rule of the stochastic differential, the dot product of the vector differential $dZ_t(s)$ is evaluated as 
 
 $$
 {dZ_t(s)}^2 = {dZ_t(s)}^T dZ_t(s) = s^2 dW_{\tau} \Sigma^T \Sigma dW_{\tau} = s^2 Tr({\Sigma \Sigma^T}) d{\tau} \in \mathbf{R}
@@ -104,10 +104,10 @@ $$
 \tag{8}
 $$
 
-In $$\eqref{eq08:model}$$, while $$d\tau$$ and $$ds$$ contain the same domain, the scale of both are differnet. Since when $$s$$ is increased from 0 to s, the $$\tau$$ is increased from 0 to 1.  If let $\bar{s} = \max s, \; \forall s \in \mathbf{R}[0,1]$ in the analysis, then 
+In $\eqref{eq08:model}​$, while $d\tau​$ and $ds​$ contain the same domain, the scale of both are differnet. Since when $s​$ is increased from 0 to s, the $\tau$ is increased from 0 to 1.  If let $\bar{s} = \max s, \; \forall s \in \mathbf{R}[0,1]​$ in the analysis, then 
 
 $$
-\tau = t + \frac{s}{\bar{s}}, \;\; \text{for} \tau = 
+\tau = t + \frac{s}{\bar{s}}, \;\; \text{for } \tau = 
 \begin{cases}
 t + 1 & s=\bar{s} \\
 t     & s=0 
@@ -122,7 +122,7 @@ d\tau = \frac{1}{\bar{s}} ds
 \tag{9}
 $$
 
-Therefore, from $$\eqref{eq08:model}$$, we obtain the dot product of the vector differential $$dZ_t(s)$$ is using $$\eqref{eq09:model}$$ when $$s=\bar{s}$$,
+Therefore, from $\eqref{eq08:model}$, we obtain the dot product of the vector differential $dZ_t(s)$ is using $\eqref{eq09:model}$ when $s=\bar{s}$,
 
 $$
 {dZ_t(s)}^2 = \frac{s^2}{\bar{s}} Tr({\Sigma \Sigma^T}) d{s} = s \cdot Tr({\Sigma \Sigma^T}) d{s} 
@@ -132,15 +132,15 @@ $$
 
 ### Deduction of an exact form of the Taylor expansion with the twice differentiable form
 
-The deterministic version of the exact Taylor expansion with the twice differentiable form for a objective function $$f(x) : \mathbf{R}^n \rightarrow \mathbf{R}$$ is 
+The deterministic version of the exact Taylor expansion with the twice differentiable form for a objective function $f(x) : \mathbf{R}^n \rightarrow \mathbf{R}​$ is 
 
 $$
 f(y) - f(x) = \langle \nabla f(x), y-x \rangle + \int_0^1 (1-s)\langle y-x, H(x+s(y-x))(y-x) \rangle ds
 $$
 
-where $$H(x) \in \mathbf{R}^{n \times n}$$ is a Hessian of $$f(x)$$ . 
+where $H(x) \in \mathbf{R}^{n \times n}$ is a Hessian of $f(x)$ . 
 
-For evaluation of the stochastic version, we let  a function $$g(s) = f(Z_t(s))​$$.  The first order differentiation to $$s​$$ is 
+For evaluation of the stochastic version, we let  a function $g(s) = f(Z_t(s))​$.  The first order differentiation to $s​$ is 
 
 $$
 \begin{aligned} 
@@ -155,7 +155,7 @@ $$
 \tag{11}
 $$
 
-Substituting $$\eqref{04:model}​$$ and $$\eqref{eq10:model}​$$ to the $$\eqref{eq01:deduct}​$$, we can obtain
+Substituting $\eqref{04:model}​$ and $\eqref{eq10:model}​$ to the $\eqref{eq01:deduct}​$, we can obtain
 
 $$
 \begin{aligned} 
@@ -169,7 +169,7 @@ $$
 \tag{12}
 $$
 
-For the second order diiferetiation of $$g(s)$$,  let $$y(Z_t(s)) = \frac{dg(s)}{ds}$$. Then
+For the second order diiferetiation of $g(s)$,  let $y(Z_t(s)) = \frac{dg(s)}{ds}​$. Then
 
 $$
 \frac{d^2 g(s)}{ds^2} = \frac{dy}{ds} = \left( \frac{\partial y(Z_t(s))} {\partial Z_t(s)} \cdot \frac{d Z_t(s)}{ds} + \frac{1}{2} s \cdot Tr\left( \Sigma \frac{\partial^2 y(Z_t(s))}{\partial Z_t(s)^2} \Sigma^T \right)\right)
@@ -177,7 +177,7 @@ $$
 \tag{13}
 $$
 
-For the first term of $$\eqref{eq03:deduct}$$, we span it to the differtial of $$f(X)$$ such that
+For the first term of $\eqref{eq03:deduct}$, we span it to the differtial of $f(X)$ such that
 
 $$
 \begin{aligned} 
@@ -189,7 +189,7 @@ $$
 \tag{14}
 $$
 
-Subsequently,  by the definition of vedtor valued differetiation, the first term of $$\eqref{eq04:deduct}$$ is 
+Subsequently,  by the definition of vedtor valued differetiation, the first term of $\eqref{eq04:deduct}$ is 
 
 $$
 \frac{\partial^2 f(Z_t(s))}{\partial {Z_t(s)}^2} \cdot \left(\frac{d Z_t(s)}{ds} \right)^2 
@@ -209,7 +209,7 @@ $$
 \frac{\partial }{\partial s} \frac{\partial Z_t(s)} {\partial Z_t(s)} = 0.
 $$
 
-Therefore, the first term of $$\eqref{eq04:deduct}$$ is 
+Therefore, the first term of $\eqref{eq04:deduct}$ is 
 
 $$
 \frac{\partial y(Z_t(s))} {\partial Z_t(s)} \cdot \frac{d Z_t(s)}{ds} 
@@ -218,7 +218,7 @@ $$
 \tag{15}
 $$
 
-For the second term of $$\eqref{eq03:deduct}$$, we differentiate twice $$y(Z_t(s))$$ with respect to $$Z_t(s)$$ as follows.
+For the second term of $\eqref{eq03:deduct}$, we differentiate twice $y(Z_t(s))$ with respect to $Z_t(s)$ as follows.
 
 $$
 \begin{aligned}
@@ -233,7 +233,7 @@ $$
 \tag{16}
 $$
 
-In $$\eqref{eq06:deduct}$$, the first term of is evaluated as 
+In $\eqref{eq06:deduct}$, the first term of is evaluated as 
 
 $$
 \begin{aligned} 
@@ -253,7 +253,7 @@ $$
 \tag{18}
 $$
 
-where $$\frac{\partial^4 } {\partial Z_t^4(s)} f(Z_t(s))$$ is a rank-4 tensor such that
+where $\frac{\partial^4 } {\partial Z_t^4(s)} f(Z_t(s))​$ is a rank-4 tensor such that
 
 $$
 \Sigma \frac{\partial^4 } {\partial Z_t^4(s)} f(Z_t(s)) \Sigma^T \in \mathbf{R}^{n \times n}
@@ -267,7 +267,7 @@ f(Y_t) - f(X_t) = g(1) - g(0) = \frac{dg}{ds}(0) + \int_0^1 (1-s) \frac{d^2g}{ds
 \tag{19}
 $$
 
-from $$\eqref{eq01:deduct}$$ to $$\eqref{eq08:deduct}$$, we obtain the following exact expansion of the twice differentiable form.
+from $\eqref{eq01:deduct}​$ to $\eqref{eq08:deduct}​$, we obtain the following exact expansion of the twice differentiable form.
 
 $$
 \begin{aligned}
