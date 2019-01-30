@@ -1,0 +1,128 @@
+h1. Lipschitz Continuous in Gradient
+
+다음과 같은 Lipschitz Continuous를 1차 미분항에 대하여 동일하게 표현할 수 있음을 증명한다.
+Hessian 의 경우는 비선형 최적화에서 이미 증명되어 있다.
+
+h2. Lemma : 삼각 부등식
+
+h3. 기본 삼각 부등식을 사용한 Difference 부등식
+
+삼각 부등식을 다음과 같이 변경한다. Let $a = c - b$
+$$
+\begin{aligned}
+&\| a + b \| \leq \| a \| + \| b \| \\
+&\Rightarrow \| a + b \| - \| b \|  \leq \| a \| \\
+&\Rightarrow \| c \| - \| b \| \leq \| c - b \| \;\; \because a = c - b
+\end{aligned}
+$$
+
+h3. Lemma 1.
+
+다음을 만족하는 양수 $k > 0$ 가 존재한다.
+
+$$
+\begin{aligned}
+& k \cdot \| a + b \| \geq \| a \| + k \cdot \| b \| \\
+&\Rightarrow k \cdot (\| a + b \| - \| b \| ) \geq \| a \| \\
+&\Rightarrow k \cdot (\| c \| - \| b \| ) \geq \| c - b \| \\
+&\Rightarrow \| c \| - \| b \| \geq \frac{1}{k} \| c - b \| 
+\end{aligned}
+$$
+
+h4. proof of Lemma 1
+
+Suppose the lemma is false i.e. $\forall k > 0$
+$$
+k \cdot \| a + b \| < \| a \| + k \cdot \| b \| 
+$$
+
+then 
+$$
+\begin{aligned}
+k^2 \cdot (a^2 + b^2) < (\| a \|  + k \cdot \| b \|)^2 \\
+k^2 \cdot (a^2 + b^2) < a^2  + 2 k \cdot \|a \|\|b\| + k^2 b^2 \\
+(k^2 - 1) a^2 < 2 k \cdot \|a \|\|b\| \\
+k^2 - 1 < 2 K \cdot \frac{\| b \|}{\| a \|} \\
+k^2 - 2 K \cdot \frac{\| b \|}{\| a \|} - 1 < 0 \\
+(k - \frac{\| b \|}{\| a \|})^2 - \frac{b^2}{a^2} - 1 < 0 \\
+(k - \frac{\| b \|}{\| a \|})^2 < \frac{b^2}{a^2} + 1 \\
+\frac{\| b \|}{\| a \|} - \sqrt{\frac{b^2}{a^2} + 1} < k < \frac{\| b \|}{\| a \|} - \sqrt{\frac{b^2}{a^2} + 1} \\
+\frac{\| b \| - \sqrt{b^2 + a^2}}{\| a \|} < k < \frac{\| b \| + \sqrt{b^2 + a^2}}{\| a \|}
+\end{aligned}
+$$
+
+Consequently, since $\frac{\| b \| - \sqrt{b^2 + a^2}}{\| a \|} < 0 $, there exists $k \geq \frac{\| b \| + \sqrt{b^2 + a^2}}{\| a \|}$. It contradicts to the assumption.
+
+h2. Lipschitz Continuous for the first order differential 
+
+다음과 같이 Lipschitz Continuous 가 만족되고 
+$$
+\| f(y) - f(x) \| \leq L \cdot \| y - x \|
+$$
+$f(x)$ 가 Twice differential 이며 $f(y) > f(x)$ 인 경우 
+
+다음이 만족된다.
+$$
+\| \nabla f(y) - \nabla f(x) \| \leq L \cdot \| y - x \|
+$$
+
+h3. proof
+
+$$
+f(y) - f(x) = f(y) - f(\bar{x}) + f(\bar{x}) - f(x) = -(f(\bar{x}) - f(y)) + (f(\bar{x}) - f(x))
+\label{eq01}
+\tag{1}
+$$
+
+식 ($\ref{eq01}$) 에서 각 부분을 뗴어서 정리하면 Twice differential 에서
+
+$$
+\begin{aligned}
+f(\bar{x}) - f(x) 
+&=    \langle \nabla f(x), \bar{x} - x \rangle + \int_0^1 (1-s) \langle \bar{x} - x, H(x+s(\bar{x} - y)(\bar{x} - x) \rangle ds \\
+&\leq \| \nabla f(x) \| \cdot \rho + M \cdot \rho \cdot\int_0^1 (1-s) ds \\
+&= \rho \cdot \| \nabla f(x) \| + \frac{1}{2} M \cdot \rho 
+\end{aligned}
+\label{eq02}
+\tag{2}
+$$
+
+$$
+\begin{aligned}
+-f(\bar{x}) + f(y) 
+&=  - \langle \nabla f(y), \bar{x} - y \rangle - \int_0^1 (1-s) \langle \bar{x} - y, H(y+s(\bar{x} - y)(\bar{x} - y) \rangle ds \\
+&\geq - \| \nabla f(y) \| \cdot \rho - M \cdot \rho \cdot\int_0^1 (1-s) ds \\
+&= - \rho \cdot \| \nabla f(y) \| - \frac{1}{2} M \cdot \rho 
+\end{aligned}
+\label{eq03}
+\tag{3}
+$$
+
+식 ($\ref{eq02}$)는 $f(\bar{x}) - f(x)$ 의 Upper Bound 이고 식 ($\ref{eq03}$) 은 $-f(\bar{x}) + f(y)$ 의 Lower Bound 이다. 
+그러므로 식 ($\ref{eq02}) 와 식 ($\ref{eq03}) 합은 각각 큰 값 $-f(\bar{x}) + f(y)$ 의 최소값과 작은 값 $f(\bar{x}) - f(x)$의 최대 값이므로 
+
+$$
+\begin{aligned}
+f(y) - f(\bar{x}) + f(\bar{x}) - f(x) &= f(y) - f(x) \\
+& \geq \rho \cdot \| \nabla f(y) \| + \frac{1}{2} M \cdot \rho - \rho \cdot \| \nabla f(x) \| - \frac{1}{2} M \cdot \rho \\
+& \geq \rho \cdot (\| \nabla f(y) \| - \| \nabla f(x) \|) 
+\end{aligned}
+\label{eq04}
+\tag{4}
+$$
+
+Lemma 1에서 $\exists k > 0$ 이므로,
+$$
+f(y) - f(x) 
+\geq \frac{1}{k}\rho \cdot (\| \nabla f(y) - \nabla f(x) \|) 
+\label{eq05}
+\tag{5}
+$$
+
+따라서 
+$$
+\begin{aligned}
+\frac{1}{k}\rho \cdot (\| \nabla f(y) - \nabla f(x) \|) \leq \| f(y) - f(x) \| \leq L \cdot \| y - x \| \\
+\| \nabla f(y) - \nabla f(x) \| \leq \frac{k L}{\rho} \| y - x \|
+\end{aligned}
+$$

@@ -1,16 +1,28 @@
 #  LaTex, EPS, Markdown and Others
 
-## Draw.io 에서 EPS 만들기
+## Making EPS in Draw.io 
 
 Draw.io 는 매우 가볍게 만들어진 훌륭한 SW 이기는 하나, **EPS** 파일을 만드는데는 제한과 문제가 많다.
 
-### SVG 파일 생성시 문제점 
+Even though the "Draw.io" is a brilliant SW which is extremely light comparing to MS 's VISIO, there is some limitation to extract an EPS file in a diagram made by the "Draw.io."
+
+
+
+### Problems of making SVG file in Draw.io
 
 해당 Solution에서 SVG 파일을 만들경우, Diagram에서 사용한 LaTeX 수식들이 제대로 Diagram에포함되지 못한다. 이것이 결정적이다.  따라서 많은 경우 Windows에서 제공하는 폰트를 사용하여 직접 수식을 만들어야 가장 근접한 SVG 파일을 Export하여 받을 수 있다.
 
+When you make an SVG file in the "Draw.io," it is not to include the Latex formula used in the diagram on the Draw.io. It is very crucial. Consequently, in many cases, you have to make the formula only with fonts provided by Windows, and it helps you to obtain an approximated SVG by exporting. 
+
 문제는 그렇게 하여도 만들어진 SVG 파일이  Chrome 등 최신의 HTML-5 지원 브라우저에서만 제대로 보이고, IE에서는 여전히 깨져서 보인다는 점이다. 
 
+However, the generated SVG which is made by the method above mentioned, it is correctly shown in the browser which supports HTML-5 such as Google's Chrome, but,  in the MS's IE, the SVG file is still shown broken.
+
 더 큰 문제는 대부분의 SVG 파일을 EPS로 전환시켜 주는 솔루션들이 대부분 IE 기준의 SVG 파일 출력으로 EPS 파일을 생성한다는 것이다.  (Adobe Distiller등은 사용해 보지 않아서 알 수 없다.)
+
+Worst of all, the solutions which convert SVG file to EPS file only generates EPS file as shown in IE.
+
+
 
 ### 대안은 고해상도 PNG에서 EPS변환
 

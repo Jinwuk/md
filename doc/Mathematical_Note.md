@@ -501,9 +501,38 @@ $$
 
 
 
+## Latex Large Vertical
+
+다음과 같이 오른쪽에 Large Vertical이 필요한 경우
+
+$$
+dg(t, y) = \frac{1}{b(t, x)} dx \biggr\vert_{x = y}
+$$
+
+다음과 같이 사용하면 된다. (\biggr\vert)
+~~~latex
+dg(t, y) = \frac{1}{b(t, x)} dx \biggr\vert_{x = y}
+~~~
+
+만일 더욱 크게 만들고 싶다면 \biggr 대신 \Biggr 을 쓰면 된다.
+~~~latex
+dg(t, y) = \frac{1}{b(t, x)} dx \Biggr\vert_{x = y}
+~~~
+
+결과는 다음과 같다.
+
+$$
+dg(t, y) = \frac{1}{b(t, x)} dx \Biggr\vert_{x = y}
+$$
 
 
 
+## Important Links
+### Optimization
+
+- Test Functions
+   - 함수의 설명과 Matlab 코드가 부연되어 있다.
+https://www.sfu.ca/~ssurjano/optimization.html
 
 
 
