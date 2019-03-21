@@ -139,6 +139,45 @@ https://drive.google.com/open?id=1_LyZFLDLUvBN6oZ__2PT-NEQNAoOp4rz
 https://drive.google.com/uc?id=1_LyZFLDLUvBN6oZ__2PT-NEQNAoOp4rz
 ~~~
 
+## Python에서의 if else
+~~~cpp
+if B 
+{
+    A = C
+}
+else
+{
+    A = D
+}
+~~~
+매우 유용한 tip
+~~~python
+A = (D, C)[B]
+~~~
 
+다음과 같은 경우
+~~~cpp
+if B==0 
+{
+    A = C;
+}
+else if B==1
+{
+    A = D;
+}
+else if B==2
+{
+    A = E;
+}
+else
+{
+    A = F;
+}
+~~~
+Dictionary를 사용하면 된다.
+~~~python
+mt = {0:C, 2:D, 2:E}
+A = mt.get(B, 'F')
+~~~
 
 
