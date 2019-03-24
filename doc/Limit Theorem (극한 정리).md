@@ -133,7 +133,7 @@ $$
 $$
 
 #### proof
-By **the chebyshev inequality**, For all $$\epsilon > 0$$,
+By **the chebyshev inequality**, For all $$\epsilon > 0​$$,
 
 $$
 \begin{aligned}
@@ -249,4 +249,93 @@ $$
 
 ### Theorem 3 : Kolmogorov
 
+확률변수 열 $\{X_n\}$ 이 모든 $k$에 대하여 $\mathbb{E} X_k = \mu_k < \infty$, $Var X_k = \sigma_k^2 < \infty$ 이고 또 서로 독립일 때 만약, $a_n \equiv \mathbb{E}S_n = \sum_{k=1}^n \mu_k$ 이고 또 $b_n$ 이 $\sum_{k=1}^{\infty} \frac{\sigma_k^2}{b_k^2} < \infty$를 만족하면
+
+$$
+\frac{S_n - a_n}{b_n} = \frac{S_n - \mathbb{E}S_n}{b_n} \overset{a.s.}{\rightarrow} 0
+$$
+
+### Lemma 1.
+확률변수 열 $\{X_n\}$ 이 모든 $k$에 대하여 $\mathbb{E} X_k = \mu_k < \infty$, $Var X_k = \sigma_k^2 < \infty$ 이고 또 서로 독립일 때 만약 $\sum_{k=1}^{\infty} \sigma_k < \infty$ 이면
+
+$$
+\sum_{k=1}^{\infty} (X_k - \mu_k) < \infty, \;\;\text{a.s.}
+$$
+
+### Lemma 2. Kronecker
+If $\{a_n \}$ is monotone increasing positive sequence such as $a_n \rightarrow \infty$, and $\{b_n\}$ is a sequence such as $\sum_{k=1}^{\infty} b_k = u (< \infty)$, then
+
+$$
+\frac{1}{a_n} \sum_{k=1}^{\infty} a_k b_k \rightarrow 0
+$$
+
+### proof of Theorem 3
+Since
+$$
+\sum_{k=1}^{\infty}\left[ \frac{X_k - \mathbb{E}X_k}{b_k}\right]^2 = \sum_{k=1}^{\infty} \frac{Var X_k}{b_k^2} = \sum_{k=1}^{\infty} \frac{\sigma_k^2}{b_k^2} < \infty,
+$$
+
+by the Lemma 1, 
+
+$$
+\sum_{k=1}^{\infty} \frac{X_k - \mu_k}{b_k} < \infty \;\;\text{a.s.}
+$$
+However,
+$$
+\frac{S_n - \mathbb{E}S_n}{b_n} = \frac{1}{b_n}\sum_{k=1}^{\infty} b_k \left( \frac{X_k - \mu_k}{b_n} \right)
+$$
+thus, by the Lemma 2, the above equation converges to 0.
+
+### Note.
+Strong Law of Large Numbers 는 결국, 평균이 유계 i.e. $\mathbb{E}X_i = \mu < \infty$ 이고 분산이 유계 $Var(X_i) = \sigma^2 < \infty$ 서로 독립인 확률 변수열이면
+
+$$
+\frac{S_n}{n} - \mu \overset{a.s.}{\rightarrow} 0
+$$
+
+### Corollary 1
+확률변수 열 $\{X_n\}$ 이 서로 독립이고, 4차 적률이 균등 유계이면 즉, 모든 $n$에 대하여 $\mathbb{E}(X_n - \mathbb{E}X_n))^4 < M$ 을 만족하는 실수 $M > 0$이 존재하면
+
+$$
+\frac{S_n - \mathbb{E}S_n}{n} \overset{a.s.}{\rightarrow} 0
+$$
+
+### proof of Corollary 1
+$a_n = \mathbb{E}S_n = n \mu, \; b_n = n$ 이면 Cauchy-Scahwartz 부등식에 의하여 
+
+$$
+Var X_n = \mathbb{E}\left[ (X_n - \mathbb{E}X_n)^2 \cdot 1 \right] \leq M^{\frac{1}{2}}
+$$
+
+그러므로
+
+$$
+\sum_{k=1}^{\infty} \frac{\sigma^2}{k^2} \leq \sum_{k=1}^{\infty} \frac{M^{\frac{1}{2}}}{k^2} = \sqrt{M }\sum_{k=1}^{\infty} \frac{1}{k^2} < \infty
+$$
+
+따라서 Theorem 3에 의해
+$$
+\frac{S_n - \mathbb{E}S_n}{n} \overset{a.s.}{\rightarrow} 0
+$$
+
+### Strong law of Large Numbers (For I.I.D )
+확률변수 열 $\{X_n\}​$ 이 서로 독립이고, 또 같은 분포를 따르는 확률변수열로서 $\mathbb{E}X_1 = \mu < \infty​$ 이면
+
+$$
+\frac{S_n}{n} \overset{a.s.}{\rightarrow} \mu
+$$
+
+### Note
+
+i.i.d 의 경우는 분산에 대한 제한이 없는 것이 지금까지와는 다른 점이다. 또한 굳이 $\mathbb{E}X_1 = \mu $ 가 유한일 필요가 없다, 무한의 경우에는 평균값이 무한이 되어 마찬가지로 무한의 평균을 가지게 된다. 
+
+
+
+## Central Limit Theorem
+
+Strong/Weak Law of Large numbers의 경우는 평균이나 분산의 유계 혹은 i.i.d의 경우에는 평균 유계 조건에 의해 확률변수들의 합의 평균을 유추하는 것이었다. 하지만, 이 경우에는, 확률변수들의 합의 분포를 근사화 하는데는 이르지 못했다.
+
+
+
+Central limit theorem은 확률변수들의 합의 극한 분포들을 설명하는 것이다. (결국 Weak Convergence 이론과 맞닿아 있다. )
 
