@@ -3,7 +3,7 @@ Limit Theorem (극한 정리)
 
 ## Law of large numbers
 
-Let a stochastic process $$\{ X_n\}$$ be defined on a probablity space $$(\Omega, \mathcal{F}, P )$$.
+Let a stochastic process $\{ X_n\}$ be defined on a probablity space $(\Omega, \mathcal{F}, P )$.
 
 Set a partial sum of $$\{ X_n\}$$ such that
 
