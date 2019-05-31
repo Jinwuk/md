@@ -136,6 +136,37 @@ m \leq \frac{\int \| \nabla v_j \|^2}{\int v_j^2} = \frac{\int -\Delta v_j (v_j)
 $$
 **Q.E.D**
 
+## Minimum Principle for the n-th Eigenvalue
+
+Suppose that  $\lambda_1 , \cdots \lambda_{n-1}$ are already known, with the **eigenfunctions** $v_1(x), \cdots v_{n-1}(x)$, respectively. Then
+
+$$
+\begin{aligned}
+\lambda_n = \min \left\{  \frac{\| \nabla w \|^2}{\| w \|^2} \right\} : w \not\equiv, w=0 \text{ on cdy } D, w \in C^2, \\
+0 = (w, v_1) = (w, v_2) = \cdots = (w, v_{n-1})
+\end{aligned}
+\tag{MPn}
+\label{MPn}
+$$
+
+
+
+### proof
+
+Let $u(x)$ denote the minimizing function for $\eqref{MPn}$ , 이는 가정에 의해 존재한다.
+
+Let $m^*$ denote this new minimum value, so that  $m^*$ is the value of the Rayleigh quotient at $u(x)$.
+
+따라서, $u=0$ on $\partial D$, and $u$ is orthogonal to $v_1, \cdots v_{n-1}$. 그리고 quotient $Q$는 $w$에 대하여 $u$ 보다 작다고 하자.
+
+
+
+Theorem 1 에서 $w = u + \epsilon v$로 놓자. 그럼, 앞에서와 마찬가지로
+
+
+
+
+
 
 
 
