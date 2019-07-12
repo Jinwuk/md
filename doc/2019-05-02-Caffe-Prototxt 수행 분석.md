@@ -233,13 +233,134 @@ layer {
 
 ## LeNet과 ProtoText 관계
 
+
+### Caffe Example 에서의 Network 
+
+Caffe의 MNIST Example의 Network Spec. 은 다음과 같다.
+~~~
+state {
+  phase: TEST
+}
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  transform_param {
+    scale: 0.0039215689
+  }
+  data_param {
+    source: ".\\mnist\\mnist_test_lmdb"
+    batch_size: 100
+    backend: LMDB
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  convolution_param {
+    num_output: 20
+    kernel_size: 5
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2"
+  convolution_param {
+    num_output: 50
+    kernel_size: 5
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "pool2"
+  top: "fc1"
+  inner_product_param {
+    num_output: 500
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "fc1"
+  top: "fc1"
+}
+layer {
+  name: "score"
+  type: "InnerProduct"
+  bottom: "fc1"
+  top: "score"
+  inner_product_param {
+    num_output: 10
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "score"
+  bottom: "label"
+  top: "loss"
+}
+~~~
+
+이를 그래프로 도시하면 다음과 같다.
+
+![](https://drive.google.com/uc?id=1RY0pBFqD6HmsZsn971AS2Pq3KHqT8c-e)
+
+ 살펴보면 먼저
+
+- 28x28 Data에 대하여 5x5  Kernel로 Convolution 하게 되면 24x24 의 convolution 결과가 나온다. ($28 - 25 + 1 = 24$) 
+- Pool1 에서  2x2 Pooling 이지만 Stride가 2인 관계로 크기는 절반으로 줄어든다. 
+- conv2 에서 5x5 Convolution이 수행되므로 $12 - 5 + 1 = 8$ 이 되어 8x8 로 결과가 나온다.
+- Pool2 에서  2x2 Pooling 이지만 Stride가 2인 관계로 크기는 절반으로 줄어 $4 \times 4$가 된다. 
+- 그 다음 부분은 Fully Connected 이므로 일반적인 Back Propagation이다. 
+
+### LeNet 분석
+
 다음과 같이 LeNet이 주어졌다고 가정하자. 
 
 ![](https://drive.google.com/uc?id=17b3GIalF1zQFjuTilMj6CDJwwTmKEMrh)
 
-
-
-
+### 
 
 ## Caffe의 Class
 
@@ -317,9 +438,26 @@ test_iter: 100
 test_interval: 500
 ~~~
 
-**test_iter**는 얼마나 정방향과정을 test단계에서 수행해야하는 명시한다.
-MNIST의 경우에서, 전체 실험용 10000개의 이미지에 대하여 실험 일회 처리량을 100으로, 100번의 실험 반복수를 가진다. 즉 test batch size 는 100이 되고 이를 100 Iteration 하게 되면 10000개의 이미지에 대하여 1 Epoch 에 대한 학습이 된다. 
-그리고 실험을 매 500번 훈련 반복마다 한번 실행한다. EPOCH가 500번 임을 표시한다.
+아래 구체적인 알고리즘과 관련된 부분을 제외한 Parameter는 다음과 같다. 
+
+- **test_iter**는 얼마나 정방향과정을 test단계에서 수행해야하는 명시한다.
+  MNIST의 경우에서, 전체 실험용 10000개의 이미지에 대하여 실험 일회 처리량을 100으로, 100번의 실험 반복수를 가진다. 즉 **test batch size** 는 100이 되고 이를 100 Iteration 하게 되면 10000개의 이미지에 대하여 1 Epoch 에 대한 학습이 된다.    즉 
+
+$$
+
+\text{test_iter} = \frac{\text{total number of data}}{\text{test batch size}}
+$$
+
+
+
+- **test_interval**: Test 를 실행하는 간격을 설정. 실험을 매 500번 훈련 반복마다 한번 실행한다. 즉, EPOCH가 500번 임을 표시한다. 
+- **base_lr**: [Learning Rate](https://www.quora.com/What-is-the-learning-rate-in-neural-networks) 의 초기값 
+- **display**: 학습 도중에 몇번의 Iteration 마다 중간 결과를 보여줄 것인지 설정
+- **max_iter**: 학습을 실행하는 최대 Iteration 을 설정
+- **snapshot**: 학습 도중에 특정 Iteration 마다 모델의 중간 결과를 저장. 이 설정은 몇번째 Iteration 마다 중간 결과를 저장할 것인지 설정한다.
+- **solver_mode**: 모델을 CPU, GPU 중에서 어떤 것으로 학습할지를 설정. 이처럼 Caffe 는 CPU, GPU 사이의 설정 변경이 매우 간단하다.
+
+
 
 ### Solver 분석
 
