@@ -159,6 +159,30 @@ $$
 
 ### K-Nearest neighbor graph versus $h$-neighborhood graph
 
+- K-NN을 사용하는 이유는 K-NN을 통해 얻어진 Graph가 h-Neighborhood 방법으로 얻어진 Graph 보다 좋은 3가지 특징이 있기 때문이다. 
+  - Graph가 더 좋은 Connectivity를 가지고 있다.
+    - Data의 Density 차이로 인해 h-Neighborhood 에서 끊어지거나 가깝게 붙을 수 있는 graph가 k-NN 그래프에서는 더 좋으 ㄴ결과를 보여준다.
+    - 매우 큰 Noise 환경에서 강인하다.
+    - 변수 $k$의 조절에 따라 Weight matrix $W$와  Laplacian $\Delta$의 sparsity를 조절하기 쉽다. 
+
+#### Stopping Criterion 
+
+- Diffusion이 너무 오랫동안 이루어져 데이터가 Disconnected 되거나 하나의 클러스터로 몰리는 경우
+- 또 하나의 경우는 Intrinsic Dimension에 대한 정보를 선험적으로 가지고 있어 sample의 Estimated dimension 이 Intrinsic Dimension과 같을 때.
+
+알고리즘을 Stop 시킨다.
+
+## Large sample limit and theoritical analysis
+
+### Theorem 1 
+
+Let $\{X_i\}_{i=1}^n$ be an i.i.d. samples of a probablity measure $P_M$ on a m-dimensional compact submanifold $M$ of $\mathbb{R}^d$ has a density $p_M \in C^3(M)$. Let $f \in C^3(M)$ and $x \in M \setminus \partial M$, then if $g \rightarrow 0$ and $nh^{m+2}/\log n  \rightarrow \infty$,
+
+$$
+\lim \frac{1}{h^2} (\Delta f)(x) \sim -(\Delta_M f)(x) - \frac{2}{p} \langle \nabla f, \nabla p \rangle_{T_x M}
+$$
+
+where $\Delta_M$  is the Laplace-Beltrami operator of $M$ and $\sim$ means upto  a constant which depends on the kernel function $k (\| x - y\| )$ used to define the weights $W(x, y) = k (\| x - y \|)$ of the graph.
 
 
 
