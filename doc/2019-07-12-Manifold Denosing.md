@@ -192,6 +192,126 @@ where $\Delta_M$  is the Laplace-Beltrami operator of $M$ and $\sim$ means upto 
 
 
 
+## Appendix 
+### Lapalce-Beltrami Operator
+surface parameter $x(q)$ 를 $x \in \mathbb{R}^n$, $q \in \mathbb{R}^d$  for $ n > d$ 라 정의하고 다음과 같은 metric tensor를 정의하자.
+
+$$
+g_{ij} = \frac{\partial x}{\partial q_i} \cdot \frac{\partial x}{\partial q_j}
+$$
+
+$G = [g_{ij}]$ 는 symmetruc matrix 로서 curve의 길이, surface내 patch의 면적등을 계산하기 위한 모든 Information을 가지게 된다. 
+
+이때 **The first fundamental form**을 다음과 같이 정의하자.
+
+$$
+\mathcal{F}^{(1)} (dq, dq) \doteq dq^T G(q) dq
+$$
+
+- 이를 이렇게 생각해보자. $t:\mathbb{R} \rightarrow q(t) \in \mathbb{R}^d \rightarrow x(q) \in \mathbb{R}^n$ 인 상태에서
+
+$$
+\frac{dx}{dt} = \left[ \frac{\partial x}{\partial q} \right] \frac{\partial q}{\partial t} \in \mathbb{R}^n
+$$
+
+이어야 한다. 그렇다면 $\frac{\partial q}{\partial t} \in  \mathbb{R}^d$ 일때, $\left[ \frac{\partial x}{\partial q} \right] \in \mathbb{R}^{n \times d}$ 이다. 
+
+따라서, $\left[ \frac{\partial x}{\partial q} \right]$는 일반적인  Matrix 이므로 다루기가 쉽지 않다. 여기에 Symmetry 성질을 부여한 $d \times d$ matrix를 생각하면, 다음과 같이 정의할 수 있다.
+
+$$
+G(q) = \left[ \frac{\partial x}{\partial q} \right]^T \left[ \frac{\partial x}{\partial q} \right] \in \mathbb{R}^{d \times d}
+$$
+
+
+한편 $q = q(s)$ 라고 할 때 parameterize surface의 Coordinate Change는 Chain-rule에 의해 다음과 같다.
+
+$$
+dq = J(s) ds, \;\;\;\; \text{where }J(v) = \left[ \frac{\partial q}{\partial s_i},  \frac{\partial q}{\partial s_j} \right]
+$$
+
+**좌표게 변환에 대하여 Fundamental form은 Invariance 이므로** $\mathcal{F}_q^{(1)} = \mathcal{F}_s^{(1)}$ i.e.
+$$
+ds^T G_s(s) ds = ds^T J^T(s) G_q(q(s)) J(s) ds
+$$
+
+다시말해, The metric Tensor Transform under coordinate change as 
+
+$$
+G_s(s) = J^T(s) G_q(q(s)) J(s)
+$$
+
+그러므로 만일 $G(s)$를 알 수 있다면 Differential form의 주요 정보를 알 수 있다. 예를 들어,  $\tilde{x}(t) = x(q(t)) \text{for } t \in [t_1, t_2]$ 로 정의되는 Curve의 Arc Length를 구하는 경우
+$$
+L(t_1, t_2) = \int_{t_1}^{t_2} \left( \frac{d \tilde{x}}{dt} \cdot \frac{d \tilde{x}}{dt}\right)^{\frac{1}{2}} dt = \int_{t_1}^{t_2} \left( \left[ \frac{d q}{dt}\right]^T G(q) \frac{d q}{dt} \right)^{\frac{1}{2}} dt
+$$
+
+**Notice**
+$$
+\left( \frac{d \tilde{x}}{dt} \right)^T \left( \frac{d \tilde{x}}{dt} \right) = \left( \left[ \frac{\partial x}{\partial q} \right] \frac{\partial q}{\partial t} \right)^T \left( \left[ \frac{\partial x}{\partial q} \right] \frac{\partial q}{\partial t} \right) = \left( \frac{\partial q}{\partial t} \right)^T \left[ \frac{\partial x}{\partial q} \right]^T \left[ \frac{\partial x}{\partial q} \right] \left( \frac{\partial q}{\partial t} \right) = \left( \frac{\partial q}{\partial t} \right)^T G(q) \left( \frac{\partial q}{\partial t} \right)
+$$
+
+
+또한 element of surface area는 다음과 같다.
+$$
+dS = |G(q)|^{\frac{1}{2}} dq_1 \wedge \cdots \wedge dq_n
+$$
+where $|G(q) |^{\frac{1}{2}} \doteq \sqrt{ \det G(q)}$ 
+
+$G = [g_{ij}]$ 로 정의되었는데, Metric Tensor의 Inverse를 다음과 같이 표시한다.
+$$
+G^{-1} = [G^{ij}]
+$$
+- For example, 
+
+**Gradient vector field** of a real-valued function on the surface cna be defined as 
+$$
+(\nabla f)_i \doteq \sum_j g^{ij} \frac{\partial f}{\partial q_j}
+$$
+
+**proof**
+$f(x(q))$ 에 대하여 생각하면 간단하다. 
+먼저 $x$에 대한 Orthogonal Frame을 $e_k^x \triangleq \frac{\partial }{\partial x_k}$ 라 정의하면 $q$에 대한 Frame vector는 
+$$
+e_i^q \triangleq \frac{\partial }{\partial q_i} = \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = e_k^x \frac{\partial x_k}{\partial q_i} \;\;\; \text{or }
+$$
+
+Gradient는 각 Frame에 대하여 다음과 같다.
+$$
+\nabla_x f(x) = \sum_k \frac{\partial f}{\partial x_k} e_k^x, \;\; \nabla_q f(x(q)) = \sum_i \frac{\partial f(x(q))}{\partial q_i} e_i^q
+$$
+
+위 Gradient 식은 좌항의 $e_k^x$ Frame상의 Gradient를 $e_i^q$ Frame에 대하여 표현하는 것이므로 
+
+$$
+\begin{aligned}
+\nabla_q f(x(q)) 
+&= \sum_i \frac{\partial f}{\partial q_i} e_i^q \\
+&= \sum_i \sum_k \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} e_i^q = \sum_j \sum_i \sum_k \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} e_j^q \\
+&= \sum_k \sum_{i, j} \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} \cdot \frac{\partial x_k}{\partial q_j} e_k^x = \sum_k \sum_{i, j} \frac{\partial x_k}{\partial q_i} \frac{\partial x_k}{\partial q_j} \frac{\partial f}{\partial x_k} e_k^x\\
+&= \sum_k \sum_{ij} g_{ij} \frac{\partial f}{\partial x_k} e_k^x
+\end{aligned}
+$$
+
+따라서 $g_{ij}$ 의 Inverse에 의해 
+$$
+(\nabla_x f)_i = \frac{\partial f}{\partial x_k} = \sum_j g^{ij} \frac{\partial f}{\partial q_j}
+$$
+$G$가 $d \times d$ matrix이므로 단순 Matrix 표현식으로는 $n \times 1$ 벡터인 $\nabla_x f$ 를 표현할 수 없으며, 내부 Component의 관계를 통해 얻어 낼 수 밖에 없다.  **Q.E.D**
+
+**Divergence of a vector field** on the surface 따라서 다음과 같이 정의될 수 있다.
+$$
+\nabla \cdot f \doteq | G |^{-\frac{1}{2}} \sum_i \frac{\partial }{\partial q_i} (|G|^{\frac{1}{2}}f_i)
+$$
+
+- **The Laplace (or Laplace Beltrami Operator)** of the smooth real-valued function os defined as **the divergence of the gradient**
+
+$$
+\nabla \cdot \nabla f \doteq |G|^{\frac{1}{2}} \sum_i \frac{\partial }{\partial q_i} \left( |G|^{\frac{1}{2}} \sum_j g^{ij} \frac{\partial f}{\partial q_j} \right)
+$$
+
+
+
+
 
 
 
