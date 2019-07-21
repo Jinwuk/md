@@ -294,7 +294,7 @@ $$
 위 식에서 $J_i(q)$는 Jacobian의 $i$ 번째 Column Vector를 가리키며 $J_i(q)$ 는 크기이다. 마찬가지로 $G_i(q)$ 가 결정된다. 그러므로 Orthogonal Frame $e^q = \sum_i e_i^q$ 에 대하여
 
 $$
-e_i = \sum_i \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J(q)|}\sum_i \sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_i\sum_k e_k^x \frac{\partial x_k}{\partial q_i}
+e^q = \sum_i \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J(q)|}\sum_i \sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_i\sum_k e_k^x \frac{\partial x_k}{\partial q_i}
 $$
 
 여기에서는 하나의 Component가 아니라 Orthogonal Frame으로 표시되는 Vector Space 전체에 대한 크기를 알아야 하므로 Determinent가 도입된다. 
@@ -406,8 +406,8 @@ $$
 
 #### Divergence of a vector field on the surface
 
-- Definition of Divergence $\nabla \cdot f : M  \rightarrow \mathbb{R}$  
-  - $\nabla \cdot f = \trace 
+- Definition of Divergence $\nabla \cdot f : M  \rightarrow \mathbb{R}$  for $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$
+  - $\nabla \cdot f = \text{trace} (df)$
 
 - Definiton of Divergence  for Frame $\{e_k^x\}$ and a vector field $f(x) \in \mathbb{R}^n$
 
@@ -417,18 +417,43 @@ $$
 
 For $e_k^x \triangleq \frac{\partial }{\partial x_k}$,  and $f(x) = \sum_i f_i e_i^x$ 
 $$
-\nabla \cdot f(x) = \sum_k \frac{\partial }{\partial x_k} \cdot \sum_i f_i e_i^x
+\begin{aligned}
+\nabla \cdot f(x) 
+&= \sum_k \frac{\partial }{\partial x_k} e_k^x \cdot \sum_i f_i e_i^x \\
+&= \sum_k \sum_i \frac{\partial f}{\partial x_k} e_k^x \cdot e_i^x = \sum_k \frac{\partial f}{\partial x_k}
+
+\end{aligned}
 $$
 
-
-
-
-**Divergence of a vector field** on the surface 따라서 다음과 같이 정의된다.
+**Divergence of a vector field** on the surface 는 따라서 다음과 같이 정의된다.
 $$
 \nabla \cdot f \doteq | G |^{-\frac{1}{2}} \sum_i \frac{\partial }{\partial q_i} (|G|^{\frac{1}{2}}f_i)
 $$
 
 **proof**
+먼저 Frame Vector는 다음의 관계를 가지고 있다.
+$$
+e^q = \sum_i \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J(q)|}\sum_i \sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_i\sum_k e_k^x \frac{\partial x_k}{\partial q_i}
+$$
+
+$\nabla \cdot$를 다음과 같이 $e^q$ Frame에 대하여 정의하면, 
+$$
+\nabla \cdot := \sum_i \frac{\partial }{\partial q_i} e_i^k
+$$
+그러므로
+
+$$
+\begin{aligned}
+\nabla \cdot f 
+&= \sum_k \frac{\partial}{\partial q_k} e_k^q \cdot \sum_i f_i e_i^x \\
+&= \sum_k \frac{\partial}{\partial q_k} \frac{1}{|G_k(q)|^{\frac{1}{2}}} \sum_l e_l^x \frac{\partial x_l}{\partial q_k} \cdot \sum_i f_i e_i^x \\
+&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_l e_l^x \frac{\partial x_l}{\partial q_k} \cdot \sum_i f_i e_i^x \\
+&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_i \frac{\partial x_i}{\partial q_k} f_i \\
+&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_i \frac{\partial x_i}{\partial q_k} f_i \\
+&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \cdot \sum_k \frac{\partial x_k}{\partial q_k} f_k \;\;\; \because  \text{the definition of Divergence with trace i.e.} i=k \\
+&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \cdot \sum_k \frac{\partial x_k}{\partial q_k} f_k
+\end{aligned}
+$$
 
 
 
