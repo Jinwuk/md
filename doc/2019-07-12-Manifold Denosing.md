@@ -182,7 +182,7 @@ $$
 \lim \frac{1}{h^2} (\Delta f)(x) \sim -(\Delta_M f)(x) - \frac{2}{p} \langle \nabla f, \nabla p \rangle_{T_x M}
 $$
 
-where $\Delta_M$  is the Laplace-Beltrami operator of $M$ and $\sim$ means upto  a constant which depends on the kernel function $k (\| x - y\| )$ used to define the weights $W(x, y) = k (\| x - y \|)$ of the graph.
+where $\Delta_M$  is the **Laplace-Beltrami** operator of $M$ and $\sim$ means upto  a constant which depends on the kernel function $k (\| x - y\| )$ used to define the weights $W(x, y) = k (\| x - y \|)$ of the graph.
 
 
 
@@ -193,7 +193,7 @@ where $\Delta_M$  is the Laplace-Beltrami operator of $M$ and $\sim$ means upto 
 
 
 ## Appendix 
-### Lapalce-Beltrami Operator
+### Introduction
 surface parameter $x(q)$ 를 $x \in \mathbb{R}^n$, $q \in \mathbb{R}^d$  for $ n > d$ 라 정의하고 다음과 같은 metric tensor를 정의하자.
 
 $$
@@ -291,28 +291,24 @@ $$
 e_i^q \triangleq \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J_i(q)|}\sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G_i(q)|^{\frac{1}{2}}} \sum_k e_k^x \frac{\partial x_k}{\partial q_i}
 $$
 
-위 식에서 $J_i(q)$는 Jacobian의 $i$ 번째 Column Vector를 가리키며 $J_i(q)$ 는 크기이다. 마찬가지로 $G_i(q)$ 가 결정된다. 그러므로 Orthogonal Frame $e^q = \sum_i e_i^q$ 에 대하여
-
-$$
-e^q = \sum_i \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J(q)|}\sum_i \sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_i\sum_k e_k^x \frac{\partial x_k}{\partial q_i}
-$$
-
-여기에서는 하나의 Component가 아니라 Orthogonal Frame으로 표시되는 Vector Space 전체에 대한 크기를 알아야 하므로 Determinent가 도입된다. 
+위 식에서 $J_i(q)$는 Jacobian의 $i$ 번째 Column Vector를 가리키며 $J_i(q)$는 크기이다. 마찬가지로 $G_i(q)$ 가 결정된다. 
 
 Gradient는 각 Frame에 대하여 다음과 같다.
 $$
 \nabla_x f(x) = \sum_k \frac{\partial f}{\partial x_k} e_k^x, \;\; \nabla_q f(x(q)) = \sum_i \frac{\partial f(x(q))}{\partial q_i} e_i^q
 $$
 
-위 Gradient 식은 좌항의 $e_k^x$ Frame상의 Gradient를 $e_i^q$ Frame에 대하여 표현하는 것이므로 
+논의를 간편하게 하기 위해 $|G_i(q)| = 1$인 경우만 생각하자.
 
+위 Gradient 식은 좌항의 $e_k^x$ Frame상의 Gradient를 $e_i^q$ Frame에 대하여 표현하는 것이므로 
 $$
 \begin{aligned}
 \nabla_q f(x(q)) 
 &= \sum_i \frac{\partial f}{\partial q_i} e_i^q \\
 &= \sum_i \sum_k \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} e_i^q \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \sum_{i, j} \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} \cdot \frac{\partial x_k}{\partial q_j} e_k^x = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \sum_{i, j} \frac{\partial x_k}{\partial q_i} \frac{\partial x_k}{\partial q_j} \frac{\partial f}{\partial x_k} e_k^x\\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \sum_{ij} g_{ij} \frac{\partial f}{\partial x_k} e_k^x
+&= \sum_k \sum_{i, j} \frac{\partial f}{\partial x_k} \frac{1}{|G_i(q)|^{\frac{1}{2}}} \frac{\partial x_k}{\partial q_i} \cdot \frac{\partial x_k}{\partial q_j} e_k^x 
+= \sum_k \sum_{i, j} \frac{\partial x_k}{\partial q_i} \frac{\partial x_k}{\partial q_j} \frac{\partial f}{\partial x_k} e_k^x\\
+&= \sum_k \sum_{ij} g_{ij} \frac{\partial f}{\partial x_k} e_k^x = G(q) \nabla f(x)
 \end{aligned}
 $$
 
@@ -378,17 +374,17 @@ $$
 $$
 \begin{aligned}
 \frac{\partial }{\partial \theta} &= \frac{\partial }{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial }{\partial y}\frac{\partial y}{\partial \theta} + \frac{\partial }{\partial z}\frac{\partial z}{\partial \theta} \\
-\frac{\partial }{\partial \theta} &= \frac{\partial }{\partial x} r\cos \phi \cos \theta + \frac{\partial }{\partial y} r \sin \phi \cos \theta + \frac{\partial }{\partial z} -r \sin \theta \\
-\Bigg|\frac{\partial }{\partial r} \Bigg| &= \sqrt{r^2 \cos^2 \phi \sin^2 \theta + \sin^2 \phi \sin^2 \theta + \cos^2 \theta} = r 
+\frac{\partial }{\partial \theta} &= \frac{\partial }{\partial x} r\cos \phi \cos \theta + \frac{\partial }{\partial y} r \sin \phi \cos \theta + \frac{\partial }{\partial z} (-r \sin \theta) \\
+\Bigg|\frac{\partial }{\partial r} \Bigg| &= \sqrt{r^2 \cos^2 \phi \sin^2 \theta + r^2 \sin^2 \phi \sin^2 \theta + r^2 \cos^2 \theta} = r 
 \end{aligned}
 $$
 
 그러므로 Spherical Coordinate에서의 Element Vector $e_k^{\phi}$는 다음과 같다.
 $$
 \begin{aligned}
-1 = |e_1^{\phi}| &= |\alpha_1 | |\frac{\partial }{\partial r}| \Rightarrow |\alpha_1 |=1 &\Rightarrow e_1^{\phi} &= \frac{\partial }{\partial r} \\
-|e_2^{\phi}| &= |\alpha_2 | |\frac{\partial }{\partial \phi}| \Rightarrow |\alpha_2 |=\frac{1}{r \sin \theta} &\Rightarrow e_2^{\phi} &= \frac{1}{r \sin \theta} \frac{\partial }{\partial \phi} \\
-|e_3^{\phi}| &= |\alpha_3 | |\frac{\partial }{\partial \theta}| \Rightarrow |\alpha_3 |=\frac{1}{r} &\Rightarrow e_3^{\phi} &= \frac{1}{r} \frac{\partial }{\partial \theta} 
+1 = |e_1^{\phi}| &= |\alpha_1 | \Bigg|\frac{\partial }{\partial r} \Bigg| \Rightarrow |\alpha_1 |=1 &\Rightarrow e_1^{\phi} &= \frac{\partial }{\partial r} \\
+|e_2^{\phi}| &= |\alpha_2 | \Bigg|\frac{\partial }{\partial \phi}\Bigg| \Rightarrow |\alpha_2 |=\frac{1}{r \sin \theta} &\Rightarrow e_2^{\phi} &= \frac{1}{r \sin \theta} \frac{\partial }{\partial \phi} \\
+|e_3^{\phi}| &= |\alpha_3 | \Bigg|\frac{\partial }{\partial \theta} \Bigg| \Rightarrow |\alpha_3 |=\frac{1}{r} &\Rightarrow e_3^{\phi} &= \frac{1}{r} \frac{\partial }{\partial \theta} 
 \end{aligned}
 $$
 따라서 
@@ -396,9 +392,8 @@ $$
 \begin{aligned}
 \nabla f(x) 
 &= \frac{\partial f}{\partial r} \frac{\partial}{\partial r} + \frac{1}{r^2 \sin^2 \theta}\frac{\partial f}{\partial \phi} \frac{\partial}{\partial \phi} + \frac{1}{r^2}\frac{\partial f}{\partial \theta} \frac{\partial}{\partial \theta} \\
-&= \frac{\partial f}{\partial r} e_1^{\phi} + \frac{1}{r \sin \theta}\frac{\partial f}{\partial \phi} e_2^{\phi} + \frac{1}{r}\frac{\partial f}{\partial \theta} e_3^{\phi}
-
-
+&= \frac{\partial f}{\partial r} e_1^{\phi} + \frac{1}{r \sin \theta}\frac{\partial f}{\partial \phi} e_2^{\phi} + \frac{1}{r}\frac{\partial f}{\partial \theta} e_3^{\phi} \\
+&= (\frac{\partial f}{\partial r}, \; \frac{1}{r \sin \theta}\frac{\partial f}{\partial \phi}, \; \frac{1}{r}\frac{\partial f}{\partial \theta})^T
 \end{aligned}
 $$
 
@@ -415,52 +410,84 @@ $$
 \nabla \cdot f(x) = \sum_k \frac{\partial f_k}{\partial x_k}
 $$
 
+그러므로 Divergence는 다음과 같이 정의될 수 있다.
+
 For $e_k^x \triangleq \frac{\partial }{\partial x_k}$,  and $f(x) = \sum_i f_i e_i^x$ 
 $$
 \begin{aligned}
 \nabla \cdot f(x) 
 &= \sum_k \frac{\partial }{\partial x_k} e_k^x \cdot \sum_i f_i e_i^x \\
-&= \sum_k \sum_i \frac{\partial f}{\partial x_k} e_k^x \cdot e_i^x = \sum_k \frac{\partial f}{\partial x_k}
+&= \sum_k \sum_i \frac{\partial f_i}{\partial x_k} e_k^x \cdot e_i^x = \sum_k \frac{\partial f_k}{\partial x_k} \;\;\;\because e_k^x \cdot e_i^x = 1 \;\; \text{if }k=i, \; \text{else }0
 
 \end{aligned}
 $$
+
+만일 위에서  $e_k^x \cdot e_i^x$  Euclidean Space가 아니라면 Metric Tensor에 의한 해석이 필요하다. 이때 Divergence는 다음과 같이 정의된다. 
+
+$$
+\nabla \cdot f = tr(Y \mapsto \nabla_Y f)
+$$
+이때 Vector field $f$ 는 
+$$
+f = f^i \frac{\partial }{\partial q_i} e_i^q\triangleq f^i \partial_i
+$$
+Divergence의 정의를 생각해보면 Trace이므로 Scalar 값이다.  이를 생각해보면 특정 Component의 값으로 만들어 줄 수 있다는 것이 된다. 일반적으로  Vector field  $V = \sum_j v^j X_j$ 를 정의하고 이것의 Covariant  Differential을 생각해보면 
+$$
+\frac{DV}{dt} = \sum_k \left[ \frac{dv^k}{dt} + \sum_{ij}\Gamma_{ij}^k \frac{dx^i}{dt} v_j  \right]X_k
+$$
+그런데 여기서 **출력을 $k$가 아닌 $i$ 성분으로 보내면 이는 Trace 중의 한 성분과 같은 의미**가 된다.  
+
+이떄,  Divergence는 다음과 같이 **Normal ([partial )성분의 미분** (그래서 **Tangent Space위로 Projection**)과 **Tangent 성분의 미분**  (Christoffel Symbolic part)으로 표현된다.
+$$
+\nabla \cdot f = \frac{\partial f^i}{\partial q_i} + \Gamma_{ij}^{i}f^j
+$$
+그러면 $k$ 대신 하나의 성분 $i$로만 보내는 것이므로 Christoffel 기호는 
+$$
+\Gamma_{ij}^{i} = \frac{1}{2} \left( \frac{\partial }{\partial q_i}g_{jk} + \frac{\partial }{\partial q_j}g_{ki} - \frac{\partial }{\partial q_k}g_{ij}   \right)g^{ki}
+$$
+이 경우 
+$$
+g^{ki} \frac{\partial }{\partial q_i} g_{jk} = g^{ki} \frac{\partial }{\partial q_k} g_{ij}
+$$
+즉, 아래 위 첨자를 지워보면 $g_j$ 만 양변에 똑같이 남게되어 같다. 
+
+이를 이용하여 다음을 증명한다.
+
+#### Divergence of a vector **field**
 
 **Divergence of a vector field** on the surface 는 따라서 다음과 같이 정의된다.
 $$
-\nabla \cdot f \doteq | G |^{-\frac{1}{2}} \sum_i \frac{\partial }{\partial q_i} (|G|^{\frac{1}{2}}f_i)
+\nabla \cdot f \doteq | G |^{-\frac{1}{2}} \sum_k \frac{\partial }{\partial q_k} (|G|^{\frac{1}{2}}f_k)
 $$
 
 **proof**
-먼저 Frame Vector는 다음의 관계를 가지고 있다.
-$$
-e^q = \sum_i \alpha_i \frac{\partial }{\partial q_i} = \frac{1}{|J(q)|}\sum_i \sum_k \frac{\partial }{\partial x_k}\frac{\partial x_k}{\partial q_i} = \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_i\sum_k e_k^x \frac{\partial x_k}{\partial q_i}
-$$
 
-$\nabla \cdot$를 다음과 같이 $e^q$ Frame에 대하여 정의하면, 
+위에서 Trace의 경우 Christoffel 기호는 
 $$
-\nabla \cdot := \sum_i \frac{\partial }{\partial q_i} e_i^k
+\Gamma_{ij}^i = \frac{1}{2}g^{ki}\frac{\partial }{\partial q_j} g_{ki}
 $$
-그러므로
-
+**Jacobi Formula**의 Corollary에서
+$$
+\frac{1}{2}g^{ki}\frac{\partial }{\partial q_j} g_{ki} = \frac{\partial}{\partial q_j} \log \sqrt{|G|}
+$$
+Label을 수정하고 Divergence 정의에서 
 $$
 \begin{aligned}
-\nabla \cdot f 
-&= \sum_k \frac{\partial}{\partial q_k} e_k^q \cdot \sum_i f_i e_i^x \\
-&= \sum_k \frac{\partial}{\partial q_k} \frac{1}{|G_k(q)|^{\frac{1}{2}}} \sum_l e_l^x \frac{\partial x_l}{\partial q_k} \cdot \sum_i f_i e_i^x \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_l e_l^x \frac{\partial x_l}{\partial q_k} \cdot \sum_i f_i e_i^x \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_i \frac{\partial x_i}{\partial q_k} f_i \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \sum_i \frac{\partial x_i}{\partial q_k} f_i \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \cdot \sum_k \frac{\partial x_k}{\partial q_k} f_k \;\;\; \because  \text{the definition of Divergence with trace i.e.} i=k \\
-&= \frac{1}{|G(q)|^{\frac{1}{2}}} \sum_k \frac{\partial}{\partial q_k} \cdot \sum_k \frac{\partial x_k}{\partial q_k} f_k
+(\nabla \cdot f)^i 
+&= \frac{\partial f^i}{\partial q_i} + \Gamma_{ij}^{i}f^j \\
+&= \frac{\partial f^i}{\partial q_i} + \frac{\partial}{\partial q_i} \log \sqrt{|G|}f^i \\
+&= \frac{\partial f^i}{\partial q_i} + \frac{1}{\sqrt{|G|}}\frac{\partial \sqrt{|G|}}{\partial q_i} f^i \\
+&= \frac{1}{\sqrt{|G|}}\frac{\partial \sqrt{|G|} f^i}{\partial q_i} 
 \end{aligned}
 $$
 
+그러므로 
+$$
+\nabla \cdot f = \frac{1}{\sqrt{|G|}} \sum_i \frac{\partial \sqrt{|G|} f^i}{\partial q_i} 
+$$
 
 
-
-
-
-
+### Laplace Beltrami Operator
 
 - **The Laplace (or Laplace Beltrami Operator)** of the smooth real-valued function os defined as **the divergence of the gradient**
 
@@ -468,12 +495,155 @@ $$
 \nabla \cdot \nabla f \doteq |G|^{\frac{1}{2}} \sum_i \frac{\partial }{\partial q_i} \left( |G|^{\frac{1}{2}} \sum_j g^{ij} \frac{\partial f}{\partial q_j} \right)
 $$
 
+위에서의 Gradient 정의와 Divergence 정의를 가져와서 Laplace -Beltrami 정의에 대입하면 증명 끝.
+
+
+### Jacobi Formula : Matrix Defferentiation for $\det A$
+
+$$
+\frac{d}{dt} \det A(t)  = \text{tr} \left(\text{adj} A \cdot \frac{dA(t)}{dt} \right)
+$$
+
+#### Lemma 1
+
+$$
+\frac{d \det I(s)}{ds} = \text{trace}
+$$
+
+그러므로 differential $\det'(I)$ 는 Linear operator로서 $\det'(I) : \mathbb{R}^{n \times n} \rightarrow \mathbb{R}$ 
+
+##### proof
+
+$$
+\frac{d}{dT} \det(I)(T) = \lim_{\varepsilon \rightarrow 0} \frac{\det(I + \varepsilon T) - \det I}{\varepsilon}
+$$
+
+논의를 간단하게 하기 위해여 $T$도 Diagonal $n \times n$ matrix라고 하면 (그냥 해도 결과는 같다.)
+$$
+\det (I + \varepsilon T) - \det I = 1 + {n \choose 1} \varepsilon T + \cdots + {n \choose n} \varepsilon^n T^{n} - 1
+$$
+에서  $\varepsilon$이 1차인 항은 $n \varepsilon T$ 뿐이다. 따라서 Trace. 
+
+##### Note
+
+그러므로 
+$$
+\frac{d I(T)}{dT} = \text{trace} \Rightarrow d I(T) = \text{trace T}
+$$
+
+#### Lemma 2
+
+For an invertible matrix $A$, we have : 
+$$
+\frac{d \det A(T)}{dT}  = \det A \cdot \text{tr}(A^{-1} T)
+$$
+
+##### proof
+
+임의의 정방형 matrix $X$에 대하여
+$$
+\det X = \det(A A^{-1} X ) = \det(A) \det (A^{-1} X)
+$$
+이므로 
 
 
 
+에 대하여 미분하고 이 결과를 $X=A$로 대입하면
+$$
+\begin{aligned}
+\frac{d \det X(T)}{dT} \Bigg\vert_{X = A}
+&= \frac{d}{dT} \det \left( A A^{-1} X \right) (T) \Bigg\vert_{X = A} \\
+&= \det (A) \frac{d}{dT} \det(A^{-1} A)(T) \\
+&= \det (A) \frac{d\det I}{d A^{-1} T} \frac{d A^{-1}T}{dT} T \\
+&= \det (A) \frac{d\det I}{d A^{-1} T} \left( A^{-1}T \right)\\
+&= \det (A) \text{tr} \left( A^{-1}T \right)  \;\;\; \because \text{by Lemma 1}
+\end{aligned}
+$$
+
+#### Theorem : Jacobi's Lemma 
+
+$$
+\frac{d}{dt} \det A(t)  = \text{tr} \left(\text{adj} A \cdot \frac{dA(t)}{dt} \right)
+$$
+
+where **adj** is the adjugateof A such that 
+$$
+A^{-1} = \frac{\text{adj} A}{\det A}, \;\;\; \text{ where } \text{adj}A \in \mathbb{R}^{n \times n}
+$$
+
+##### proof
+
+In Lemma 2, Let $T = \frac{dA(t)}{dt}$ , then
+$$
+\frac{d}{dt} \det A(t) = \det A \cdot \text{tr} \left( A^{-1} \frac{dA(t)}{dt}\right) = \det A \cdot \text{tr} \left( \frac{\text{adj} A}{\det A} \cdot \frac{dA}{dt} \right)
+= \text{tr} \left( \text{adj A} \cdot \frac{dA}{dt} \right)
+$$
+
+### Corollary 
+
+Let $U \subseteq \mathbb{R}^n$ be openm and let $g:U \rightarrow GL(n, \mathbb{C}) \subseteq M_n (\mathbb{C})$ be differentible.
+$g$의 component를 $g_{ij}$ 로 표현하고 그 Inverse를 $g^{ij}$ 라 할 때
+$$
+g^{ij} \frac{\partial g_{ij}}{\partial q_k} = \frac{\partial g_{ij}g^{ij}}{\partial q_k} =\frac{1}{\det g} \frac{\partial \det g}{\partial q_k} =\frac{\partial }{\partial q_k} \log (|\det g|)
+$$
+
+위 표현은 Manifold 의 Tangent space의 vector space를 $\frac{\partial }{\partial q_k}$로 보았을 때 이다. 이를 단순하게 $X_k$ 로 보고 이를 생략한 형태로 다시 쓰면 다음과 같다.
+$$
+g^{ij} \partial_k g_{ij} = \partial_k g_{ij}g^{ij} =\frac{\partial_k \det g}{\det g}  =\partial_k \log (|\det g|)
+$$
+
+##### proof 
+
+Fix $x \in U$ and consider the family $h(t) = g(x + tq_k)$ then, 
+$$
+\frac{\partial h(t)}{\partial t} \Bigg|_{t=0} = \frac{\partial g(x)}{\partial q_k}
+$$
+and 
+$$
+\frac{\partial \det h(t)}{\partial t} \Bigg|_{t=0} = \frac{\partial (\det g(x))}{\partial q_k}
+$$
+By Jacobi Formula
+$$
+\frac{\partial \det h(t)}{\partial t} \Bigg|_{t=0} = \text{tr} \left( \text{Adj}(h(0)) \frac{\partial h(t)}{\partial t} \Bigg|_{t=0}\right) = \det(g(x)) \text{tr} \left( g^{-1}(x) \frac{\partial g(x)}{\partial q_k} \right) = \det(g(x)) g^{ij} \frac{\partial g_{ij}}{\partial q_k}
+$$
+그러므로 
+$$
+\frac{1}{\det(g(x))}\frac{\partial (\det g(x))}{\partial q_k} = \frac{\partial }{\partial q_k} \log (|\det g(x)|)
+$$
+그리고 나머지는 모두 성립한다.
 
 
+
+### Levi-Civita Connection[3]
+
+Affine Connection $\nabla$ 에서 다음의 2가지 조건이 만족되면 이를 Levi-Civita Connection이라 한다.
+
+1. **it preserves the metric**, i.e., $\nabla g = 0$.
+2. **it is torsion-free**, i.e., for any vector fields $X$ and $Y$ we have $\nabla _X Y − \nabla_Y X = [X, Y]$, where $[X, Y]$ is the [Lie bracket](https://en.wikipedia.org/wiki/Lie_bracket_of_vector_fields) of the [vector fields](https://en.wikipedia.org/wiki/Vector_field) $X$ and $Y$.
+
+#### Christoffel synbol
+
+한편 Christoffel 기호는 다음과 같이 정의된다[3].
+$$
+\Gamma_{ij}^m = \frac{1}{2} \sum_k \left( \frac{\partial}{\partial q_i}g_{jk} + \frac{\partial}{\partial q_j}g_{ki} - \frac{\partial}{\partial q_k}g_{ij}\right) g^{km}
+$$
+
+- **$ijk \rightarrow jki \rightarrow -kij$  with $k$** and **out $m$** 으로 외우면 된다. 
+
+
+
+### Note
+
+1. Upper Index는 Scalar 의 index, Lower index는 vector의 index로 생각하면 된다. 
 
 ## Reference
+
 [1] Matthias Hein, Markus Maier, "Manifold Denosing", 
 [2] Hein, Matthias, Audibert, Jean-Yves von Luxburg, Ulrike, "From Graphs to Manifolds – Weak and Strong Pointwise Consistency of Graph Laplacians"
+
+[3] Do Carmo, "Riemannian Geometry", pp. 50-54
+
+[4] G.S. Chrikijian, 'Stochastic Models, Information theory, and Lie Groups', Vol 1, Birkhauser, 2000
+
+
+
