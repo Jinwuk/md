@@ -331,6 +331,8 @@ train_loss[it] = solver.net.blobs['loss'].data
 			solver.test_nets[0].forward()
             correct += sum(solver.test_nets[0].blobs['score'].data.argmax(1)
                            == solver.test_nets[0].blobs['label'].data)
+            
+        test_acc[it // test_interval] = correct / 1e4
 ~~~
 
 여기서 **solver.test_nets[0].blobs['score'].data** 는 $100 \times 10$ 이다 그래서 1번 axis (=10) 에 대하여 argmax를 구하면 해당 값이 Class 를 지칭하는 Index 이고 이 값이 Label 데이터와 맞은 갯수를 모두 더하면 1 Batch size (=100 개의 data)에 대하여 계산이 되고 batch size가 100이므로 총 10000만개의 경우에 대한 Correct 값이 최종적으로 test_acc에 저장된다.
