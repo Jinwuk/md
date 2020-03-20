@@ -1,3 +1,17 @@
+---
+layout: post
+title:  "Gradient and Divergence on a Riemannian Manifold"
+date:   2019-07-22 01:45:00 +0900
+categories: [Mathematics, Differential Geometry]
+tags:
+  - Riemannian Manifold
+  - Gradient and Divergence
+comments: true
+---
+
+* Table of Contents
+{:toc}
+
 Manifold Denosing
 ====
 
@@ -191,6 +205,9 @@ $$
 
 where $\Delta_M$  is the **Laplace-Beltrami** operator of $M$ and $\sim$ means upto  a constant which depends on the kernel function $k (\| x - y\| )$ used to define the weights $W(x, y) = k (\| x - y \|)$ of the graph.
 
+#### Note.
+위 방정식 자체는 논문 [2]에서 Definition으로 주어졌다 (pp.1334). 그러나. 실제 논문은 A. Grigoryan [5] 의 논문을 찾아서 유도해야 한다. [2]에서 일부 유도 방법을 해설하였으나, 실제로는 [5]에서 제대로 유도를 해야한다. 
+
 ### The noise-free case 
 
 Noise free case에서의 경우 식 (2)를 통해 다음과 같이 간단히 유도한다.
@@ -228,6 +245,52 @@ $$
 다시말해,  mean Curvature flow는 Manifold에서 Denosing Effect와 동등하다.  하지만,  Lemma의 결과식 (4), (5)에서 보듯이 $M$위에 Non-uniform Probability Measure가  존재하면 $\nabla p(x) \neq 0$ 이므로 Additional term이 존재하게 된다. 이것이 Noise Case 해석과 연관된다.
 
 
+
+### The noisy case
+The Large sample, 즉, $n \rightarrow \infty$의 경우 그 때의 graph Laplacian $\Delta$  at a sample point $X_i$ 는 다음과 같이 주어진다.
+
+$$
+\Delta X_i = X_i - \frac{\int_{\mathbb{R}^d}  k_h (\| X_i - y \|) y p_X (y)dy}{\int_{\mathbb{R}^d}  k_h (\| X_i - y \|) p_X (y)dy}
+\tag{6}
+$$
+
+where $k_h (\| x - y\|)$ is the weight function used in the construction of the graph.
+
+본 논문의 경우 
+$$
+k_h (\| x - y\|) = e^{-\frac{\| x - y \|^2}{2 h^2}} \mathbb{1}_{\| x - y \| \leq h}
+$$
+그런데 이것과 비슷한 kernel은 SOFM에서도 사용하고 있다.
+
+그리고 다음의 3가지를 가정한다.
+
+1. The noise level $\sigma$ is small compared to the neighborhood size $h$
+2. The curvature of $M$ is small compared to $h$ 
+3. The density $p_M$ varies slowly along $M$
+
+이 경우 $-\Delta X_i$는 $X_i$에서 $p_X$의 Gradient Direction이 된다. 
+
+이 효과를 Noise free 경우에서의 mean curvature part와 분리하여 생각해 본다면,  먼저,  방정식 (6)에서의 $p_X$가 Gaussian이라는 가정하에 살펴보면
+$$
+\begin{aligned}
+\int_{\mathbb{R}^d} k_h (\| X - y \|) y p_X (y) dy 
+&= \int_M \frac{1}{(2 \pi \sigma^2)^{d/2}} \int_{\mathbb{R}^d} k_h (\| X - y \|) y e^{-\frac{\| y - i(\theta) \|^2}{2 \sigma^2}} p(\theta ) dy dV(\theta) \\
+&= \int_M K_h (\| X - i(\theta) \|) i(\theta) p(\theta) dV(\theta) + O(\sigma^2)
+\end{aligned}
+$$
+이것을 사용하여 $X$ 에 가장 가까운 submanifold $M$ 상의 한 점에 가장 가까운 점을 
+$$
+X : i(\theta_{\min}) = \arg \min_{i (\theta) \in M} \| X - i (\theta) \|
+$$
+로 정의하면,  Curvature 조건에서 diffusion step $-\Delta X$ 는 다음과 같이 정의된다. 
+$$
+-\Delta X \approx i(\theta_{\min}) - X - \left( i(\theta_{\min}) - \frac{\int_M K_h (\| X - i(\theta) \|) i(\theta) p(\theta) dV(\theta)}{\int_M K_h (\| X - i(\theta) \|) p(\theta) dV(\theta)} \right)
+$$
+여기서 우측항의 괄호 안의 부분은 $-\Delta M i (\theta_{\min}) - \frac{2}{p} \langle \nabla p, \nabla i \rangle = -m H - \frac{2}{p} \langle \nabla p, \nabla i \rangle $의  approximation 이다. 반면,  그 앞의 부분은 Noise Reduction 부분이다. 
+
+
+
+## Experiments
 
 
 
@@ -689,4 +752,6 @@ $$
 [3] Do Carmo, "Riemannian Geometry", pp. 50-54
 
 [4] G.S. Chrikijian, 'Stochastic Models, Information theory, and Lie Groups', Vol 1, Birkhauser, 2000
+
+[5] A. Grigoryan, 'Heat kernels on weighted manifolds and applications', Cont. Math, 398:93-191, 2006
 

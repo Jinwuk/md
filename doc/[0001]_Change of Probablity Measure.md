@@ -5,7 +5,7 @@ Change of Probablity Measure
 
 ## Radon-Nykodym Theorem
 ### Prequal
-확률 측도 공간 $(\Omega, \mathcal{F}, \mathbb{P})​$ 위에서 주어진 $f \geq 0​$ 이 가측이고 적분 가능할 때, 임의의 $E \in \mathcal{F}​$ 에 대하여 
+확률 측도 공간 $(\Omega, \mathcal{F}, \mathbb{P})$ 위에서 주어진 $f \geq 0$ 이 가측이고 적분 가능할 때, 임의의 $E \in \mathcal{F}$ 에 대하여 
 
 $$
 \mathbb{Q}(E) = \int_{E} f d\mathbb{P} = \mathbb{E}[1_E f]
@@ -14,7 +14,7 @@ $$
 라고 정의하면 $\mathbb{Q}$는 $(\Omega, \mathcal{F})$ 위에서 정의된 측도이다. 특히 $\mathbb{E}[1_E f] = 1$이면 $\mathbb{Q}$는 확률 측도이다. 
 
 ### Absolutely Continuous Measure (절대 연속 측도)
-1. 가측공간 $(\Omega, \mathcal{F})$ 위에서 측도 $\mathbb{P}, \mathbb{Q}$ 가 주어졌을 때, 만일 $E \in \mathcal{F}$ 에 대하여 $\mathbb{P}(E) = 0$ 이면 언제나 $\mathbb{Q}(E) = 0$ 일때, $\mathbb{Q}$는 $\mathbb{P}$에 대하여 절대 연속이고 $Q \ll P​$ 이다 
+1. 가측공간 $(\Omega, \mathcal{F})$ 위에서 측도 $\mathbb{P}, \mathbb{Q}$ 가 주어졌을 때, 만일 $E \in \mathcal{F}$ 에 대하여 $\mathbb{P}(E) = 0$ 이면 언제나 $\mathbb{Q}(E) = 0$ 일때, $\mathbb{Q}$는 $\mathbb{P}$에 대하여 절대 연속이고 $Q \ll P$ 이다 
 
 2. 대표적으로 $\mathbb{Q}(E) = \mathbb{E}[1_E f]$ 이면 $\mathbb{E}[1_E f]$ 이 $\mathbb{P}$ 에 의해 구해졌으므로 당연히 $\mathbb{Q} \ll \mathbb{P}$ 이다.
 
