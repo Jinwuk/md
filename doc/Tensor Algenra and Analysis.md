@@ -233,15 +233,43 @@ b_1 & b_2 & b_3 \\
 \end{vmatrix} \\
 $$
 
+#### Matrix 연산
+
+$\mathcal{G} = \{ \mathbf{g}_1,  \mathbf{g}_2, \cdots  \mathbf{g}_n \}$ 으로 Basis가 주어지고 Dual Basis는 $\mathcal{G} = \{ \mathbf{g}^1,  \mathbf{g}^2, \cdots  \mathbf{g}^n \}$ 으로 주어진다고 가정하자.  그리고 $\mathbf{x}, \mathbf{y} \in \mathbb{E}^n$  에 대하여 $\mathbf{x} = g_i \mathbf{g}^i$, $\mathbf{y} = g_j \mathbf{g}^j$ 라 놓으면
+
+- **Right Mapping**  (of $\mathbf{x}$ ) : $ \mathbf{y} = \mathbf{A} \mathbf{x}$  $x$ 에서 $y$로 mapping 되므로 
+- **Left Mapping** (of $\mathbf{y}$) : $\mathbf{y} \mathbf{A} \cdot \mathbf{x} = \mathbf{y} \cdot (\mathbf{A} \mathbf{x})$  즉, 출력이 오른쪽으로 가능 Mapping 이기 때문에, 그리고 이를 조금만 변형 시키면 Right Mapping과 동일한 결과가 나오도록 해야한다. 
+
+먼저 Left Mapping을 생각해보면 
+$$
+\mathbf{y} \mathbf{A} = y_i\mathbf{g}^i \mathbf{A} = y_i[\mathbf{g}^i (\mathbf{A} \mathbf{g}^j)]\mathbf{g}_j
+\label{eq_mat01}
+$$
+일단, Matrix이므로 이렇게 쓴다.  즉, $\eqref{eq_mat01}$ 에서 Matrix는 $[\mathbf{g}^i (\mathbf{A} \mathbf{g}^j)]$ 이렇게 생각한다. 모두 Upper에 있는 것으로 생각한다.  그래서 원래 $\mathbf{g}^i \rightarrow \mathbf{g}_j $ 로 보내는 Transform이 된다 .(Left Transform) 
+
+그러므로
+$$
+\mathbf{y} \cdot (\mathbf{A} \mathbf{x}) 
+= \mathbf{y} \cdot (x_j \mathbf{A} \mathbf{g}^j) 
+= y_i x_j [\mathbf{g}^i \mathbf{A} \mathbf{g}^j]
+$$
+
 
 ## Tensor Product $\otimes$
 
 Tensor product는 두 개의 vetor에서 2nd order tensor를 만들때 유용하다.
+
+- Right Mapping
 
 For $\mathbf{a}, \mathbf{b} \in \mathbb{E}^n$ and an arbitrary vector $\mathbf{x} \in \mathbb{E}^n$ , 여기서, $\mathbf{x}$를 $\mathbf{b}$에 Projection된 값으로 $\mathbf{a}$로 나타낸다.
 $$
 (\mathbf{a} \otimes \mathbf{b}) \mathbf{x} = \mathbf{a}(\mathbf{b} \cdot \mathbf{x})
 $$
 
-즉, 출력이 $\mathbf{a}$ , 입력은 $\mathbf{x}$  시스템은 $\mathbf{b}$ 이다. 
+즉, 출력이 $\mathbf{a}$ , 입력은 $\mathbf{x}$  시스템은 $\mathbf{b}$ 이다.  즉 입력이 오른쪽에 있으면 오른쪽에 대한 Mapping이 Right Mapping이다. 그리고 당연히 출력 기준 Basis를 사용하게 된다.
 
+- Left Mapping
+
+$$
+\mathbf{y}(\mathbf{a} \otimes \mathbf{b}) = (\mathbf{y} \cdot \mathbf{a}) \mathbf{b}
+$$
