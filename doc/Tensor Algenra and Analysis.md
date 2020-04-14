@@ -273,3 +273,104 @@ $$
 $$
 \mathbf{y}(\mathbf{a} \otimes \mathbf{b}) = (\mathbf{y} \cdot \mathbf{a}) \mathbf{b}
 $$
+
+즉, 출력이 $\mathbf{b}$ , 입력은 $\mathbf{y}$  시스템은 $\mathbf{a}$ 이다.  즉 입력이 왼쪽에 있으면 왼쪽에 대한 Mapping이 Left Mapping이다. 그리고 당연히 출력 기준 Basis를 사용하게 된다.
+
+- Matrix는 Left Mapping이든 Right Mapping 이든 Dimension만 맞으면 같은 결과가 나오도록 해야한다.
+- Tensor Product를 통해 Matrix가 정의될 수 있음을 보인다.
+
+### Theorem 1.7
+
+Let $\mathcal{F} = \{ \mathbf{f}_1, \mathbf{f}_2, \cdots \mathbf{f}_n \}$  , $\mathcal{G} = \{ \mathbf{g}_1, \mathbf{g}_2, \cdots \mathbf{g}_n  \} $   be two arbitrary bases of $\mathbb{E}^n$ . Then , the tensors $\mathbf{f}_i \otimes \mathbf{g}_j$ represent a basis of $\mathbf{L}in^n$ . The dimension of the vector space $\mathbf{L}in^n$ is thus $n^2$ . 
+
+$\mathbf{L}in^n$ 의 element는 Second order Tensor를 의미한다. 즉, Matrix. 
+
+- 일반적인 Notation에서 $a \otimes b$ 는 $a b^T$ 로 생각하면 된다. 따라서 
+
+$$
+\begin{aligned}
+(\mathbf{a} \otimes \mathbf{b}) \mathbf{x} 
+&= \mathbf{a} \mathbf{b}^T \mathbf{x} = \mathbf{a}(\mathbf{b} \cdot \mathbf{x}) \\
+
+\mathbf{y} (\mathbf{a} \otimes \mathbf{b}) 
+&= \mathbf{y}^T (\mathbf{a} \mathbf{b}^T) = (\mathbf{y}^T \mathbf{a}) \mathbf{b}^T 
+= (\mathbf{y} \cdot \mathbf{a}) \mathbf{b}
+\end{aligned}
+$$
+
+#### proof
+
+Let $\mathbf{A}' = (\mathbf{f}^i \mathbf{A} \mathbf{g}^j) \mathbf{f}_i \otimes \mathbf{g}_j$
+
+The tensors $\mathbf{A}$ and $\mathbf{A}'$ coincide if and only if $\mathbf{A}'\mathbf(x) = \mathbf{A} \mathbf{x} \quad \forall x \in \mathbb{E}^n$   그러므로
+$$
+\mathbf{A}' \mathbf{x} 
+= (\mathbf{f}^i \mathbf{A} \mathbf{g}^j) \mathbf{f}_i\otimes \mathbf{g}_j (x_k \mathbf{g}^k) 
+= (\mathbf{f}^i \mathbf{A} \mathbf{g}^j) \mathbf{f}_i\otimes x_k \mathbf{g}_j \mathbf{g}^k 
+= (\mathbf{f}^i \mathbf{A} \mathbf{g}^j) \mathbf{f}_i x_k \delta_j^k
+= x_j (\mathbf{f}^i \mathbf{A} \mathbf{g}^i) \mathbf{f}_j
+\label{eq_th1.7_01}
+$$
+또한 
+
+$$
+\mathbf{A} \mathbf{x} = \mathbf{A} x_j \mathbf{g}^j = x_j  \mathbf{A} \mathbf{g}^j
+\label{eq_th1.7_02}
+$$
+
+그런데,  $\mathbf {x} = \mathbf{g}^i \mathbf{x} \mathbf{g}_i$  이므로  $\eqref{eq_th1.7_02}$ 는
+
+$$
+\mathbf{A} \mathbf{g}^j = \mathbf{f}^i (\mathbf{A} \mathbf{g}^j ) \mathbf{f}_i = (\mathbf{f}^i \mathbf{A} \mathbf{g}^j ) \mathbf{f}_i
+$$
+그러므로 
+$$
+\mathbf{A} \mathbf{x} = x_j (\mathbf{f}^i \mathbf{A} \mathbf{g}^j) \mathbf{f}_i=\mathbf{A}' \mathbf{x}
+$$
+따라서 $\eqref{eq_th1.7_01}$ 을 사용하여 1차독립을 증명할 수 있다. 구체적인 증명은 pp18을 본다.
+
+- Theorem 1.7 에 따라 Matrix or Second order tensor는 다음과 같이 쓸 수 있다. 
+
+$$
+\mathbf{A} 
+= A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j 
+= A_{ij} \mathbf{g}^i \otimes \mathbf{g}^j 
+= A_{\cdot j}^i \mathbf{g}_i \otimes \mathbf{g}^j 
+= A_{i \cdot}^{j} \mathbf{g}^i \otimes \mathbf{g}_j
+$$
+
+- $A_{\cdot j}^i$ 에서 $\cdot j$ 는 $j$가 뒷 편 Index라는 의미이다.  $\cdot$ 에 해당하는 부분은 위쪽 인덱스 이므로.
+- $A_{i \cdot}^j$ 에서 $i \cdot $ 는 $i$가 앞 편 Index라는 의미이다.  $\cdot$ 에 해당하는 부분은 위쪽 인덱스 이므로. 
+- 즉, $\cdot$ 는 아래에만 쓰인다.
+
+그러므로 
+$$
+\mathbf{A} \mathbf{g}^j
+= A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j \mathbf{g}^j = A^{ij} \mathbf{g}_i
+\implies
+\mathbf{g}^i \mathbf{A} \mathbf{g}^j = A^{ij} \mathbf{g}^i \mathbf{g}_i = A^{ij}
+$$
+**$i, j$ 위치가 그대로 $\mathbf{g}$ 의 index**가 된다. 그러므로 다음이 성립한다.  
+$$
+A^{ij} = \mathbf{g}^i \mathbf{A} \mathbf{g}^j \quad 
+A_{ij} = \mathbf{g}_i \mathbf{A} \mathbf{g}_j \quad 
+A_{i \cdot}^{j} = \mathbf{g}_i \mathbf{A} \mathbf{g}^j \quad 
+A_{\cdot j}^{i} = \mathbf{g}^i \mathbf{A} \mathbf{g}_j \quad
+$$
+
+
+## Change of Basis 
+
+기본적으로 Basis $\mathbf{g}_k, \bar{\mathbf{g}}_k$ 에 대하여 다음이 성립한다.
+$$
+\mathbf{g}_i = a_i^j \bar{\mathbf{g}}_j
+\label{eq_cb01}
+$$
+따라서, 임의의 벡터 $\mathbf{x}$ 에 대하여
+$$
+\mathbf{x} = x^i \mathbf{g}_i = x^i a_i^j \bar{\mathbf{g}}_j
+$$
+그러므로 Matrix $\mathbf{A}$ 에 대하여는 
+$$
+\mathbf{A} = A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j = A^{ij} (a_i^k \bar{\mathbf{g}}_k) \otimes (a_j^l \bar{\mathbf{g}}_l) = A^{ij} a_i^k a_j^l \bar{\mathbf{g}}_k \otimes \bar{\mathbf{g}}_l \implies \bar{A}^{kl} = A^{ij} a_i^k a_j^l
+$$
