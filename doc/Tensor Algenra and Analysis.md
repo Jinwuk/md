@@ -374,3 +374,34 @@ $$
 $$
 \mathbf{A} = A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j = A^{ij} (a_i^k \bar{\mathbf{g}}_k) \otimes (a_j^l \bar{\mathbf{g}}_l) = A^{ij} a_i^k a_j^l \bar{\mathbf{g}}_k \otimes \bar{\mathbf{g}}_l \implies \bar{A}^{kl} = A^{ij} a_i^k a_j^l
 $$
+
+
+
+## Matrix Tranposition
+
+Tranposition은 다음과 같이 정의된다.
+$$
+(\mathbf{a} \otimes \mathbf{b})^T = \mathbf{b} \otimes \mathbf{a}
+$$
+그러므로 $\mathbf{A} = A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j$ 에 대하여 
+$$
+\mathbf{A}^T = (A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j)^T = A^{ij} (\mathbf{g}_i \otimes \mathbf{g}_j)^T = A^{ij} \mathbf{g}_j \otimes \mathbf{g}_i 
+$$
+즉, index가 정상적인 경우에는 가까운 것이 가깝게 멀리있는 것이 멀리 이렇게 되었으나 Transpotion이 되면 가까이 index는 먼 Basis를 먼 index는 가까운 Basis를 선택하도록 되어있다.
+$$
+(\mathbf{A}^T)_{ij} = A_{ji}, \quad (\mathbf{A}^T)^{ij} = A^{ji} \\
+(\mathbf{A}^T)_{i \cdot}^j = A_{\cdot i}^j=g^{jk}A_{k \cdot}^{l}g_{li}, \quad 
+(\mathbf{A}^T)_{\cdot j}^i = A_{\cdot j}^i=g_{jk} A_{\cdot l}^{k} g^{li}
+$$
+위 식의 유도 예는 다음과 같다.
+$$
+(\mathbf{A}^T)_{\cdot j}^i = \mathbf{g}^i \mathbf{A}^T \mathbf{g}_j = \mathbf{g}_j \mathbf{A} \mathbf{g}^i = \mathbf{g}_j A_{\cdot l} ^k \mathbf{g}_k \otimes \mathbf{g}^l  \mathbf{g}^i = g_{jk} A_{\cdot l}^k g^{li}
+$$
+
+## Vector Identity 
+
+$$
+(\mathbf{a} \times \mathbf{b}) \times \mathbf{c} = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{b} \cdot \mathbf{c}) \mathbf{a}
+\label{eq_vi01}
+$$
+
