@@ -213,7 +213,7 @@ b^1 & b^2 & b^3 \\
 \mathbf{g}^1 & \mathbf{g}^2 & \mathbf{g}^3
 \end{vmatrix} \\
 
-\mathbf{a} \times \mathbf{b} = (a_i \mathbf{g}^i) \times (b_j \mathbf{g}^j) = a_i b_j \mathbf{g}^i \times \mathbf{g}^j = a_i b_j e^{ijk} g \mathbf{g}_k 
+\mathbf{a} \times \mathbf{b} = (a_i \mathbf{g}^i) \times (b_j \mathbf{g}^j) = a_i b_j \mathbf{g}^i \times \mathbf{g}^j = a_i b_j e^{ijk} g^{-1} \mathbf{g}_k 
 = \frac{1}{g} 
 \begin{vmatrix}
 a_1 & a_2 & a_3 \\
@@ -232,6 +232,16 @@ b_1 & b_2 & b_3 \\
 \mathbf{e}_1 & \mathbf{e}_2 & \mathbf{e}_3
 \end{vmatrix} \\
 $$
+
+#### Amendment
+
+Vector Product에서 특별히 다음과 같이 $\hat{\cdot}$ 를 정의한다.
+$$
+\mathbf{w} \times \mathbf{x} = \hat{\mathbf{w}} \mathbf{x}
+$$
+이는 일종의 Matrix로 볼 수 있으며 $\mathbf{x}$를 어떤 특정한 
+
+
 
 #### Matrix 연산
 
@@ -404,4 +414,122 @@ $$
 (\mathbf{a} \times \mathbf{b}) \times \mathbf{c} = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{b} \cdot \mathbf{c}) \mathbf{a}
 \label{eq_vi01}
 $$
+
+
+$$
+\hat{\mathbf{a} \times \mathbf{b}} = (\mathbf{b} \otimes \mathbf{a}) - (\mathbf{a} \otimes \mathbf{b})
+\label{eq_vi02}
+$$
+
+Vector Identity는 식 $\eqref{eq_vi01}$ 를 의미한다. 
+
+이를 증명하기 위해서는 연습문제 1.14에서 제시한 다음 4개의 명제를 증명해야 한다.
+
+For $n=3$ 
+
+- $\delta^{ij} e_{ijk} = 0$
+
+$$
+\delta^{ij} e_{ijk} = \delta^{ij} (e_{ij1} + e_{ij2} + e_{ij3}) = e_{iik} \vert_{k=1,2,3} = 0
+$$
+
+- $e^{ikm} e_{jkm} = 2 \delta_j^i $
+
+	- $k, m$ 이 fix 이면 총 9개의 $i, j$ index가 나온다. 그런데, $k, m$ fix에서 0이 아니려고 하면 $i, j $는 같아야 한다. 고로 $\delta_j^i$.  그리고 하나가 결정되면 Even 방향과 Odd 방향의 Permutation이 되므로 $ 1 \cdot 1 + (-1) \cdot (-1) = 2$ 가 된다. 따라서 $2 \delta_j^i$. 
+
+- $e^{ijk} e_{ijk} = 6$ 
+	
+- n= 3인 경우 Permutation 종류는 Even의 경우 $(1,2,3), (2,3,1), (3,1, 2)$ 고로 위의 결과에서 6
+	
+- $e^{ijm} e_{klm} = \delta_k^i \delta_l^j - \delta_l^i \delta_k^j$ 
+
+  - $m$만 같고 $i, j$ 가 다른 경우이므로 $(i, k), (j, l)$ 의 index가 같은 경우와 다른 경우 ($(i, k), (j, l)$) 를 생각하면 위와 같다. 
+
+  
+
+식 $\eqref{eq_vi01}$ 를 이 결과를 통해 증명하면 
+
+$\mathbf{a} = a^i \mathbf{g}_i, \; \mathbf{b} = b^j \mathbf{g}_j, \; \mathbf{c} = c_l \mathbf{g}^l$ 라 하자. 그러면 
+$$
+\mathbf{a} \times \mathbf{b} 
+= a^i b^j \mathbf{g}_i \times \mathbf{g}_j = a^i b^j e_{ijk} g \mathbf{g}^k \\
+
+(\mathbf{a} \times \mathbf{b}) \times \mathbf{c} 
+= c_l(a^i b^j e_{ijk} g \mathbf{g}^k) \times \mathbf{g}^l
+= c_l a^i b^j g e_{ijk} (\mathbf{g}^k \times \mathbf{g}{^l})
+= c_l a^i b^j g g^{-1} e_{ijk} e^{klm} \mathbf{g}_m
+\label{eq_pfvi01}
+$$
+
+따라서, 이 경우는 
+
+$$
+e_{ijk} e^{klm} = e_{ijk} e^{lmk} = \delta_i^l \delta_j^m - \delta_i^m \delta_j^l
+$$
+에 해당한다.  그러므로 식 $\eqref{eq_pfvi01}$ 은 다음과 같이 쓸 수 있다,. 
+$$
+c_l a^i b^j e_{ijk} e^{klm} \mathbf{g}_m = a^i b^j c_l e_{ijk} e^{klm} \mathbf{g}_m = a^i b^j c_l (\delta_i^l \delta_{j}^m - \delta_i^m \delta_j^l) \mathbf{g}_m
+\label{eq_pfvi02}
+$$
+따라서
+$$
+a^i b^j c_l (\delta_i^l \delta_{j}^m - \delta_i^m \delta_j^l) \mathbf{g}_m
+= a^i c_i b^j \mathbf{g}_j - b^j c_j a^i \mathbf{g}_i 
+= (\mathbf{a}\cdot \mathbf{c} ) \mathbf{b} - (\mathbf{b}\cdot \mathbf{c} ) \mathbf{a}
+\label{eq_pfvi03}
+$$
+그러므로  $\eqref{eq_vi01}$ 이 증명되었다. $\eqref{eq_vi02} $의 경우는 간단히 증명된다.
+
+
+
+## Scalar Product of Second-Order Tensors
+
+- Definition of Matrix Scalar Product
+
+$$
+(\mathbf{a} \otimes \mathbf{b}) : (\mathbf{c} \otimes \mathbf{d}) = (\mathbf{a} \cdot \mathbf{c})(\mathbf{b} \cdot \mathbf{d}), \quad \mathbf{a}, \mathbf{b}, \mathbf{c}, \mathbf{d} \in \mathbb{E}^n
+$$
+
+이는 다음을 유도한다.
+$$
+\mathbf{c} \otimes \mathbf{d} : \mathbf{A} = \mathbf{c} \mathbf{A} \mathbf{d} = \mathbf{d} \mathbf{A}^T \mathbf{c}
+\label{eq_sp01}
+$$
+간단히 $\mathbf{A} = \mathbf{a} \otimes \mathbf{b}$ 라 놓으면 정의에 의해 
+$$
+\mathbf{c} \otimes \mathbf{d} : \mathbf{A} 
+= (\mathbf{c} \cdot \mathbf{a})(\mathbf{d} \cdot \mathbf{b} )
+= (\mathbf{c} \cdot \mathbf{a})(\mathbf{b} \cdot \mathbf{d} )
+= \mathbf{c} (\mathbf{a} \otimes \mathbf{b}) \mathbf{d}  
+= \mathbf{c} \mathbf{A} \mathbf{d} 
+= (\mathbf{c} \mathbf{A} \mathbf{d})^T = \mathbf{d} \mathbf{A}^T \mathbf{c}
+$$
+그러므로 임의의 두 Tensor $\mathbf{A}, \mathbf{B}$ 의 scalar product는 
+$$
+\mathbf{A}:\mathbf{B} = A_{ij} B^{ij} = A^{ij}B_{ij} = A_{\cdot j}^i B_{i \cdot }^j = A_{i \cdot }^j B_{\cdot j}^i
+$$
+그리고 이는 Scalar 이기 떄문에 기존의  벡터 scalar product의 특성을 모두 가지고 있다.
+
+식 $\eqref{eq_sp01}$ 의 특성으로 인해 다음이 성립한다.
+$$
+\mathbf{A} : (\mathbf{B}\mathbf{C}) = (\mathbf{B}^T\mathbf{A}):\mathbf{C}= (\mathbf{A}\mathbf{C}^T):\mathbf{B}
+$$
+
+- Trace는 다음과 같이 Scalar Product가 된다. 
+
+$$
+tr \mathbf{A} = \mathbf{A} : \mathbf{I}
+$$
+
+따라서 다음의 특성을 가진다.
+$$
+\begin{aligned}
+tr(\mathbf{a} \otimes \mathbf{b}) &= \mathbf{a} \cdot \mathbf{b} \\
+tr(\mathbf{A} \mathbf{B}) &= \mathbf{A} : \mathbf{B}^T = \mathbf{A}^T : \mathbf{B} \\
+tr(\mathbf{A}\mathbf{B}) &= tr(\mathbf{B}\mathbf{A})
+\end{aligned}
+$$
+
+
+
 
