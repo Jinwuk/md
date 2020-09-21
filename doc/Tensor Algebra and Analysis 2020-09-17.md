@@ -184,6 +184,7 @@ $$
   \right]
   $$
   - 이에 의해
+  
   $$
   \begin{aligned}
   \mathbf{a}_{1,s} &=   &  \kappa \mathbf{a}_2 &   \\
@@ -192,10 +193,179 @@ $$
   \end{aligned}
   $$
   
+## Note $\otimes$ 
+$$
+\mathbf{A} = A^{ij} \mathbf{g}_i \otimes \mathbf{g}_j
+$$
+
+
+## Surface in Three-Dimensional Euclidean Space
+
+A surface in three dimensional Euclidean space
+$$
+\mathbf{r} = \mathbf{r}(t^1, t^2), \quad \mathbf{r} \in \mathbb{E}^3
+$$
+이떄, coordinate system은 다음과 같다고 하자.
+$$
+\theta^i = \theta^i (t^1, t^2), \quad i = 1, 2, 3
+$$
+마찬가지로 $\mathbf{r}$은 $t^i$ 에 대하여  over all definition domain에 대하여 다음과 같이 differentiable 하다고 가정하자.
+$$
+\frac{d \mathbf{r}}{dt^{\alpha}} \neq 0, \quad \alpha=1, 2
+$$
+
+#### Example 1 : plane
+3 Linearly independent vectors - 3 point ($\mathbf{x}_0, \mathbf{x}_1, \mathbf{x}_2$) 를 가진 Plane에 대하여 다음과 같이 $\mathbf(r)(t^1, t^2)$ 이 정의된다.
+
+$$
+\mathbf(r)(t^1, t^2) = \mathbf{x}_0 + t^1(\mathbf{x}_1 - \mathbf{x}_0) + t^2(\mathbf{x}_2 - \mathbf{x}_0)
+$$
+
+#### Example 2 : Cylinder
+반지름 $R$을 가지고 주축이 $e_3$ 을 따라 존재하는 Cylinder는 다음과 같다.
+
+$$
+\mathbf(r)(t^1, t^2) = R \cos t^1 \mathbf{e}_1 + R \sin t^1 \mathbf{e}_2 + t^2 \mathbf{e}_3
+$$
+
+여기서 $\mathbf{e}_i, \; i=1, 2,3$은 Orthonormal basis in $\mathbb{E}^3$.
+특히 극좌표계를 사용하면 다음과 같이 표시 가능하다.
+$$
+\varphi = t^1, \quad z = t^2, \quad r = R
+$$
+
+#### Example 3 : Sphere
+반지름 $R$ with the center at $\mathbf{r} = 0$ 를 가진 sphere는
+$$
+\mathbf{r}(t^1, t^2) = R \sin t^1 \sin t^2 \mathbf{e}_1 +
+$$
+
+구 좌표계에서는 
+
+$$
+\varphi = t^1, \quad \phi = t^2, \quad r=R
+$$
+
+### 일반이론 
+
+Parameter $t^1, t^2$가 다음과 같은 parametric representation을 가진다고 하면
+$$
+t^1 = t^1(t), \quad t^2 = t^2(t)
+\label{3.59}
+$$
+여기에 대하여 일반적인 평면은 다음 그림과 같다.
+
+<img src="http://jnwhome.iptime.org/img/research/2020/tensor_004.png" alt="center 80%" style="zoom: 67%;" />
+
+#### Tangent vector
+
+$\eqref{3.59}$ 와 같이 parametric representation이 되어 있다면.
+$$
+\mathbf{g}_t = \frac{d \mathbf{r}}{dt} = \frac{\partial \mathbf{r}}{\partial t^1} \frac{dt^1}{dt} + \frac{\partial \mathbf{r}}{\partial t^2} \frac{dt^2}{dt} = \mathbf{g}_1 \frac{d t^1}{dt} + \mathbf{g}_2 \frac{d t^2}{dt}
+$$
+where 
+$$
+\mathbf{g}_{\alpha} = \frac{\partial \mathbf{r}}{\partial t^{\alpha}} = \mathbf{r}_{, \alpha}, \quad \alpha=1, 2
+$$
+
+- **Length of infinitesimal elements of the curve**
+  $$
+  (ds)^2 
+  = d \mathbf{r} \cdot d \mathbf{r} 
+  = \mathbf{g}_t dt \cdot \mathbf{g}_t dt
+  = (\mathbf{g}_1 dt^1 + \mathbf{g}_2 dt^2) \cdot (\mathbf{g}_1 dt^1 + \mathbf{g}_2 dt^2)
+  \label{3.63}
+  $$
+  with the aid of the abbreviation 
+  $$
+  g_{\alpha \beta} = g_{\beta \alpha} = \mathbf{g}_{\alpha} \cdot \mathbf{g}_{\beta}
+  $$
+  그러면 $\eqref{3.63}$  은 
+  $$
+  (ds)^2 = g_{11} (dt^1)^2 + 2 g_{12}dt^1 dt^2 + g_{22} (dt^2)^2
+  \label{3.65}
+  $$
+  $\eqref{3.65}$를 **first fundamental form of the surface** 라 한다.  이를 다음과 같이 간단하게 표시할 수도 있다.
+  $$
+  (ds)^2 = g_{\alpha \beta} dt^{\alpha} dt^{\beta}
+  \label{3.66}
+  $$
+  이때, $\alpha, \beta = 1, 2 $가 된다. 
+
+  - n-Dimensional Euclidean space 에서 $g_{\alpha \beta}$ 는 평면에서의 **metric** 이다. 
+
+  - 식 $\eqref{3.66}$과 같이 differential quadratic form 으로 이루어진 metric을 **Riemannian metric** 이라 한다.
+
+    - 즉, Tangent vector의 Inner product가 Riemannian metric 이며, 이를 통해 metric Tensor가 이루어진다. 
+
+- **principal normal vector**
+  $$
+  \mathbf{g}_3 = \frac{\mathbf{g_1} \times \mathbf{g_2}}{\| \mathbf{g_1} \times \mathbf{g_2} \|}
+  \label{3.67}
+  $$
+앞에서 구한 tangent vector $\mathbf{g}_1,  \mathbf{g}_2$ 와 principal normal vector를 통해 $\mathbb{E}^3$ basis를 구성하게 된다.
+  
+  - **Normal Section** : normal space를 의미한다. 이를 통해 평면에서의 curvature를 생각해 본다
+
+### Curvature on surface 
+
+#### Gauss Formula 
+
+곡선에서의 curvature를 생각할 수 있겠으나, 그렇게 되면 너무나 많은 평면상의 곡선을 모두 생각해야 할 것이다. 그러므로 Tangent vector와 수직인 Normal section 상에서 curvature를 생각한다.
+- 곡선의 방정식에서 $\kappa(s) = \mathbf{a}_{1, s} \mathbf{a}_2$ 에서 $\mathbf{a}_2 \perp \mathbf{g}_1$ 이고 $\mathbf{a}_{1, s}$ 의 $\mathbf{a}_2$ 를 curvature로 정의된다는 점에서. (원래 curvature $\kappa(s) = \frac{1}{\| \mathbf{a}_{1, s} \|}$ 이지만 $\mathbf{a}_2$의 정의에서 유도됨)
+
+- Christoffel 기호를 사용하여 basis vector $\mathbf{g}_i$ 의 평면 좌표에 대하여 생각해 보면
+  $$
+  \mathbf{g}_{i, \alpha} 
+  = \frac{\partial \mathbf{g}_i}{\partial t^{\alpha}} 
+  = \Gamma_{i \alpha k} \mathbf{g}^k 
+  = \Gamma_{i \alpha}^k \mathbf{g}_k
+  \label{3.68}
+  $$
+  여기서 Christoffel 기호의 정의에 따라
+  $$
+  \Gamma_{i \alpha k} = \mathbf{g}_{i, \alpha} \mathbf{g}_k, \quad
+  \Gamma_{i \alpha}^k = \mathbf{g}_{i, \alpha} \mathbf{g}^k, \quad i=1,2,3, \; k = 1, 2
+  $$
+  이때, $\eqref{3.67}$ 에 의해 $\mathbf{g}_3 = \mathbf{g}^3$ 이므로 $\Gamma_{i \alpha 3} = \Gamma_{i \alpha}^3$  이다. 
+  
+  먼저 $\mathbf{g}_{\alpha} \perp \mathbf{g}_3$ 이고 $\|  \mathbf{g}_3 \| = 1$ 이므로 
+  $$
+  \mathbf{g}_{\alpha} \cdot \mathbf{g}_3 = 0 
+  \Rightarrow \; \mathbf{g}_{\alpha, \beta} \cdot \mathbf{g}_3 + \mathbf{g}_{\alpha} \cdot \mathbf{g}_{3, \beta} = 0 
+  \Rightarrow \; \mathbf{g}_{\alpha, \beta} \cdot \mathbf{g}_3 = -\mathbf{g}_{\alpha} \cdot \mathbf{g}_{3, \beta}
+  \label{3.72-a}
+  $$
+  그리고
+  $$
+  \mathbf{g}_{3, \alpha} \cdot \mathbf{g}_3 = 0, \quad \alpha, \beta =1, 2
+  \label{3.72-b}
+  $$
+  식 $\eqref{3.72-a}$ 에서 $\Gamma_{\alpha \beta}^3 = - \Gamma_{3 \beta \alpha}$, 식 $\eqref{3.72-b}$ 에서 $\Gamma_{3 \alpha}^3 = 0, \; \alpha. \beta = 0$  (뒤에 $\alpha$가 밑으로 간 이유는 $\mathbf{g}_\alpha \cdot \mathbf{g}_{3 \beta} = \mathbf{g}_{3 \beta} \cdot \mathbf{g}^{\alpha }$  에서  $\mathbf{g}_{3 \beta}$ 는 Matrix 이기 때문이다. ) 
+  
+  식 $\eqref{3.68}$ 에서 다음과 같은 축약형을 얻을 수 있다.
+  $$
+  b_{\alpha \beta} = b_{\alpha \beta} = \Gamma_{\alpha \beta}^3 = -\Gamma_{3 \alpha \beta} = \mathbf{g}_{\alpha \beta} \cdot \mathbf{g}_3, \quad \alpha, \beta = 1,2 
+  $$
+  
+  
+  이를 통해 다음과 같은 Gauss Formula를 얻을 수 있다.
+  $$
+  \mathbf{g}_{\alpha, \beta} = \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha \beta} \mathbf{g}_3, \quad \alpha, \beta, \rho = 1,2
+  \label{3.75}
+  $$
+  Gauss Formula $\eqref{3.75}$ 는 단순하게 생각하면 $\rho = 1,2,3$ 으로 생각하면 다음과 같이 볼 수 있다. 결국 index $3$ 만 다르게 빼 놓는 것.
+  $$
+  \begin{aligned}
+  \mathbf{g}_{\alpha, \beta} 
+  &= \Gamma_{\alpha \beta}^k \mathbf{g}_k, \quad &k=1,2,3,\; \alpha, \beta=1,2 \\
+  &= \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha, \beta} \mathbf{g}_3, \quad &\rho=1,2 \; \alpha, \beta=1,2 \\
+  \end{aligned}
+  $$
   
 
 
 
-<2020-09-18>
+<2020-09-21>
 
 ​	
