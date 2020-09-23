@@ -345,7 +345,8 @@ $$
   
   식 $\eqref{3.68}$ 에서 다음과 같은 축약형을 얻을 수 있다.
   $$
-  b_{\alpha \beta} = b_{\alpha \beta} = \Gamma_{\alpha \beta}^3 = -\Gamma_{3 \alpha \beta} = \mathbf{g}_{\alpha \beta} \cdot \mathbf{g}_3, \quad \alpha, \beta = 1,2 
+  b_{\alpha \beta} = b_{\alpha \beta} = \Gamma_{\alpha \beta}^3 = -\Gamma_{3 \alpha \beta} = \mathbf{g}_{\alpha \beta} \cdot \mathbf{g}_3, \quad \alpha, \beta = 1,2
+  \label{3.74}
   $$
   
   
@@ -359,10 +360,69 @@ $$
   \begin{aligned}
   \mathbf{g}_{\alpha, \beta} 
   &= \Gamma_{\alpha \beta}^k \mathbf{g}_k, \quad &k=1,2,3,\; \alpha, \beta=1,2 \\
-  &= \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha, \beta} \mathbf{g}_3, \quad &\rho=1,2 \; \alpha, \beta=1,2 \\
+  &= \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha, \beta} \mathbf{g}_3, \quad &\rho=1,2 \; \alpha, \beta=1,2 
   \end{aligned}
   $$
   
+
+#### Covarinat derivative on the surface
+
+Covariant Derivation의 일반 방정식 (2.83) 부터 살펴보면서  (2.85), (2.86) , (2.87) 를 보면 
+
+For vector field $\mathbf{x} = \mathbf{x}(\theta^1, \theta^2, \cdots \theta^n)$,  The Covarinat derivation is 
+$$
+\begin{aligned}
+\mathbf{x}_{, j} = (x^i \mathbf{g}_i)_j 
+&= x_{, j}^i \mathbf{g}_i + x^i \mathbf{g}_{i, j} \\
+&= x_{, j}^i \mathbf{g}_i + x^i \Gamma_{ij}^k \mathbf{g}_{k} = (x_{, j}^i + x^k \Gamma_{kj}^i )\mathbf{g}_{i},
+\end{aligned}
+$$
+
+
+and the contra variant is 
+$$
+\begin{aligned}
+\mathbf{x}_{, j} = (x^i \mathbf{g}_i)_j 
+&= x_{i, j} \mathbf{g}^i + x_i \mathbf{g}_{, j}^i \\
+&= x_{i, j} \mathbf{g}^i - x_i \Gamma_{kj}^i \mathbf{g}^{k} = (x_{i, j} - x_k \Gamma_{ij}^k )\mathbf{g}^{i}
+\end{aligned}
+$$
+따라서,  (Vector 성분인 $x^i|$ 에 대한 $j$  성분 미분이면 "+", Differential 성분인 $x_i | $ 성분에 대한 $j$ 성분 이분이면 contra 고로 "-")
+$$
+x^i|_{j} =x^i_{,j} + x^k \Gamma_{kj}^i, \quad x_i|_{j} =x_{i,j} - x_k \Gamma_{ij}^k
+$$
+이를 통해 다음과 같이 평면의 Covariant Derivation을 바로 유도할 수 있다.
+$$
+\begin{aligned}
+f^{\alpha}|_{\beta} &= f^{\alpha}_{, \beta} + f^{\rho}\Gamma_{\alpha, \beta}^{\rho}, \quad f_{\alpha}|_{\beta} = f_{\alpha, \beta} - f_{\rho}\Gamma_{\alpha, \beta}^{\rho} \\
+F^{\alpha \beta} |_{\gamma} &= F^{\alpha \beta}_{,\gamma} + F^{\rho \beta} \Gamma_{\rho \gamma}^{\alpha} + F^{\alpha \rho} \Gamma_{\rho \gamma}^{\beta} \\
+F_{\alpha \beta} |_{\gamma} &= F_{\alpha \beta,\gamma} - F_{\rho \beta} \Gamma_{\alpha \gamma}^{\rho} - F_{\alpha \rho} \Gamma_{\beta \gamma}^{\rho} \\
+F^{\alpha}_{. \beta} |_{\gamma} &= F^{\alpha}_{. \beta,\gamma} + F^{\rho}_{. \beta} \Gamma_{\rho \gamma}^{\alpha} - F^{\alpha}_{. \beta } \Gamma_{\beta \gamma}^{\rho }
+\end{aligned}
+\label{3.77}
+$$
+
+따라서 $\eqref{3.75}$ 에서 $\mathbf{g}_{\alpha} |_{\beta}$ 를 연산하면 $\eqref{3.77}$  첫번쨰 방정식의 두번째 항 $f_{\alpha}|_{\beta} = f_{\alpha, \beta} - f_{\rho}\Gamma_{\alpha, \beta}^{\rho}$ 에서 
+
+$$
+\mathbf{g}_{\alpha} |_{\beta} = \mathbf{g}_{\alpha, \beta} - \Gamma_{\alpha, \beta}^{\rho} \mathbf{g}_{\rho} = \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha \beta} \mathbf{g}_3 - \Gamma_{\alpha, \beta}^{\rho} \mathbf{g}_{\rho} = b_{\alpha \beta} \mathbf{g}_3, \quad \alpha, \beta=1, 2
+$$
+
+또한,  $\eqref{3.74}$에 의해 
+$$
+b_{\alpha}^{\beta} = b_{\alpha \rho} {g^{\rho}}^{\beta} = - \Gamma_{3 \alpha \rho} {g^{\rho}}^{\beta} = -\Gamma_{3 \alpha}^{\rho}, \quad \alpha, \beta = 1,2
+$$
+이를 $\eqref{3.68}$ 에 대입하면,  (오직 $i=3$ 인 경우, 1, 2인 경우는 해당 되지 않는다.) 
+$$
+\mathbf{g}_{3,\alpha} = \Gamma_{3 \alpha \rho} \mathbf{g}^{\rho} = \Gamma_{3 \alpha}^{\rho} \mathbf{g}_{\rho} = -b_{\alpha}^{\rho}\mathbf{g}_{\rho} = \mathbf{g}_{3}|_{\alpha} \quad \alpha=1, 2
+$$
+이를 **Weigngarten Formula** 라 한다.
+
+ #### Curvature of Normal Section
+
+
+
+
 
 
 
