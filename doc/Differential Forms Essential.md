@@ -4,7 +4,7 @@ Differential Forms Essential
 ## Diffential forms in $\mathbb{R}^n$
 
 ### Defintion 1.
-A field of linear forms (or exterior form of degree 1) in $\mathbb{R}^3$ is a map $w$ that associatesa to each $p \in \mathbb{R}^3$ an element $w(p) \in (\mathbb{R}_p^3)^*$ ; $w$ can be written as
+A field of linear forms (or exterior form of degree 1) in $\mathbb{R}^3$ is a map $w$ that associates  to each $p \in \mathbb{R}^3$ an element $w(p) \in (\mathbb{R}_p^3)^*$ ; $w$ can be written as
 $$
 w(p) = a_1(p)(dx_1)_p + a_2(p)(dx_2)_p + a_3(p)(dx_3)_p \\
 w = \sum_{i=1}^3 a_i(p)dx_i
@@ -74,7 +74,7 @@ $$
 
 ### Note
 $v(f)$는 표기이고 실제는 $df(v) = \langle \nabla f, v \rangle$ 인 것 처럼 Differential Map에 대한 Form 연산도 마찬가지이다.
-즉, $f^* w$는 표기이고 실제는 $w (df)$ 즉 Differential Form의 Inner Product 다시말해 Determinent를 의미한다. 
+즉, $f^* w$는 표기이고 실제는 $w (df)$ 즉 Differential Form의 Inner Product 다시말해 Determinant를 의미한다. 
 
 
 - 표기법
@@ -84,7 +84,7 @@ $$
 f^* (g) = g \circ f = g(f)
 $$
 
-- An exteriror k-form in $\mathbb{R}^n $ is a map $w$ that associates to each $p \in \mathbb{R}^n$  an element $w(p) \in \Lambda^k(\mathbb{R}_p^n)^*$ 는 다음과 같이 표시된다. **Differential k-form**
+- An exterior k-form in $\mathbb{R}^n $ is a map $w$ that associates to each $p \in \mathbb{R}^n$  an element $w(p) \in \Lambda^k(\mathbb{R}_p^n)^*$ 는 다음과 같이 표시된다. **Differential k-form**
 
 $$
 w(p) = \sum_{i_1 < \cdots i_k} a_{i_1 \cdots i_k} (p) (dx_{i_1} \wedge \cdots \wedge dx_{i_k})_p, \;\; i_j \in \{ 1, \cdots , n \}
@@ -141,7 +141,7 @@ Thus
 $$
 f^* w = \sum_i f^* a_i f^* dx_i = \sum_i (a_i \circ f) (dx_i (df ))
 $$
-$f$ 는 Corrdination Transform이므로 $a_i$의 $(x,y)$를 $(r, \theta)$로 변경시켜야 한다.
+$f$ 는 Coordination Transform이므로 $a_i$의 $(x,y)$를 $(r, \theta)$로 변경시켜야 한다.
 $$
 \begin{align}
 a_1 \circ f &= (- \frac{y}{x^2 + y^2}) \circ f(r, \theta) = -\frac{1}{r} \sin \theta \\
@@ -328,7 +328,7 @@ $$
 
 
 #### Problem- 8
-Let $f : \mathbb{R}^n \rightarrow \mathbb{R}^n$ be a differentiabkle map given by
+Let $f : \mathbb{R}^n \rightarrow \mathbb{R}^n$ be a differentiable map given by
 $$
 f(x_1, \cdots x_n) = (y_1, \cdots, y_n)
 $$

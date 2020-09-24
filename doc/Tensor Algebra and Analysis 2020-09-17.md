@@ -69,6 +69,7 @@ $$
 $\eqref{3.11}$ 의 의미는 $\frac{ds(t)}{dt} = \sqrt{g_{tt} (t)} \neq 0$  이 방정식을 그대로 이용하면 다음과 같이 $s$ 에 대한  시간의 방정식을 얻을 수 있다.
 $$
 t(s) = \int_{s(t_1)}^{s} \| g_t \|^{-1} ds = \int_{s(t_1)}^{s} \frac{ds}{\sqrt{g_{tt}(t)}}
+\label{3.13}
 $$
 
 - **Curvature**
@@ -100,7 +101,7 @@ $$
   - 식 $\eqref{3.18}$ 를 **curvature** 라고 한다. 
   - 결국 curvature는 curve의 2계 미분이며 2계 미분의 norm 이다.  (가속도의 크기)
     - $s$가 scalar 이기 때문에 2계 미분을 하더라도 Parametric curve vector가 그대로 유지된다. 
-    - 최적화론에서도 이 부분이 중요하다. (2계 미분이므로 )
+    - 최적화론에서/도 이 부분이 중요하다. (2계 미분이므로 )
   - Curvature의 Inverse value는 
   $$
   \rho (s) = \frac{1}{\kappa(s)}
@@ -164,7 +165,7 @@ $$
   
   - 따라서 $\mathbf{a}_{3, s} \perp \mathbf{a}_1, \mathbf{a}_3 \Rightarrow \mathbf{a}_{3, s} // \mathbf{a}_{2}$ 이므로 다음과 같이  놓을 수 있다, 
   $$
-  \mathbf{a}_{3, s} = \tau(s) \mathbf{a}_{2}, \quad \tau(s) = - \mathbf{a}_{3, s} \cdot \mathbf{a}_{2}, \quad \Gamma_{3s}^2 = -\tau(s)
+  \mathbf{a}_{3, s} = -\tau(s) \mathbf{a}_{2}, \quad \tau(s) = - \mathbf{a}_{3, s} \cdot \mathbf{a}_{2}, \quad \Gamma_{3s}^2 = -\tau(s)
   $$
   
 - **Frenet Formula**
@@ -345,7 +346,7 @@ $$
   
   식 $\eqref{3.68}$ 에서 다음과 같은 축약형을 얻을 수 있다.
   $$
-  b_{\alpha \beta} = b_{\alpha \beta} = \Gamma_{\alpha \beta}^3 = -\Gamma_{3 \alpha \beta} = \mathbf{g}_{\alpha \beta} \cdot \mathbf{g}_3, \quad \alpha, \beta = 1,2
+  b_{\alpha \beta} = b_{\beta \alpha } = \Gamma_{\alpha \beta}^3 = -\Gamma_{3 \alpha \beta} = \mathbf{g}_{\alpha \beta} \cdot \mathbf{g}_3, \quad \alpha, \beta = 1,2
   \label{3.74}
   $$
   
@@ -366,6 +367,11 @@ $$
   
 
 #### Covarinat derivative on the surface
+
+**Note** 
+
+-  $\mathbf{x}_{, j} = x^i|_j \mathbf{g}_i$  이며 $\mathbf{A}_{, k} = A^{ij}|_{k} \mathbf{g}_i \otimes \mathbf{g}_j$ 이다. 
+- Covariant Derivation 의 정의는 아래에 설명되어 있다. (2장에 설명)
 
 Covariant Derivation의 일반 방정식 (2.83) 부터 살펴보면서  (2.85), (2.86) , (2.87) 를 보면 
 
@@ -399,10 +405,9 @@ F^{\alpha \beta} |_{\gamma} &= F^{\alpha \beta}_{,\gamma} + F^{\rho \beta} \Gamm
 F_{\alpha \beta} |_{\gamma} &= F_{\alpha \beta,\gamma} - F_{\rho \beta} \Gamma_{\alpha \gamma}^{\rho} - F_{\alpha \rho} \Gamma_{\beta \gamma}^{\rho} \\
 F^{\alpha}_{. \beta} |_{\gamma} &= F^{\alpha}_{. \beta,\gamma} + F^{\rho}_{. \beta} \Gamma_{\rho \gamma}^{\alpha} - F^{\alpha}_{. \beta } \Gamma_{\beta \gamma}^{\rho }
 \end{aligned}
-\label{3.77}
 $$
 
-따라서 $\eqref{3.75}$ 에서 $\mathbf{g}_{\alpha} |_{\beta}$ 를 연산하면 $\eqref{3.77}$  첫번쨰 방정식의 두번째 항 $f_{\alpha}|_{\beta} = f_{\alpha, \beta} - f_{\rho}\Gamma_{\alpha, \beta}^{\rho}$ 에서 
+따라서 $\eqref{3.75}$ 에서 $\mathbf{g}_{\alpha} |_{\beta}$ 를 연산하면 에서 위 방정식들의 첫번쨰 방정식의 두번째 항 $f_{\alpha}|_{\beta} = f_{\alpha, \beta} - f_{\rho}\Gamma_{\alpha, \beta}^{\rho}$ 에서 
 
 $$
 \mathbf{g}_{\alpha} |_{\beta} = \mathbf{g}_{\alpha, \beta} - \Gamma_{\alpha, \beta}^{\rho} \mathbf{g}_{\rho} = \Gamma_{\alpha \beta}^{\rho} \mathbf{g}_{\rho} + b_{\alpha \beta} \mathbf{g}_3 - \Gamma_{\alpha, \beta}^{\rho} \mathbf{g}_{\rho} = b_{\alpha \beta} \mathbf{g}_3, \quad \alpha, \beta=1, 2
@@ -420,12 +425,74 @@ $$
 
  #### Curvature of Normal Section
 
+- Normal curvature $\kappa_n$ 으로 표시된다.
+
+- $\mathbf{a}_2 = \pm {g}_3$ 으로 놓는다. 일단, $\mathbf{a}_2 = \mathbf{g}_3$ 으로 가정한다.
+
+- 식  $\eqref{3.66}$ 에서 $(ds)^2 = (\mathbf{g}_t)^2 dt dt = g_{\alpha \beta} dt^{\alpha} dt^{\beta}$ 
+
+- $s$는 길이로서 $\eqref{3.13}$  에서 $dt(s) = \| g_t \|^{-1} ds$  그리고 $t$ 자체는 _1평면인 관계로 $t^1, t^2$ 에 대하여 생각해야 한다. 이를 종합하면
+  $$
+  \kappa_n = -\mathbf{a}_{2, s} \cdot \mathbf{a}_1 = -\mathbf{g}_{3, s} \cdot \frac{\mathbf{g}_t}{\|\mathbf{g}_t\|} = -\left( \mathbf{g}_{3,t} \frac{dt}{ds}\right) \cdot \frac{\mathbf{g}_t}{\|\mathbf{g}_t\|} = - \mathbf{g}_{3,t} \cdot \frac{\mathbf{g}_t}{\|\mathbf{g}_t\|^2} \\
+  = - \left( \mathbf{g}_{3, \alpha} \frac{dt^{\alpha}}{dt} \right) \cdot \left( \mathbf{g}_{\beta} \frac{dt^{\beta}}{dt} \right) \| g_t \|^2 = b_{\alpha \beta } \frac{dt^{\alpha}}{dt} \frac{dt^{\beta}}{dt}\| g_t \|^2
+  $$
+  그러므로
+  $$
+  \kappa_n = \frac{b_{\alpha \beta} dt^{\alpha} dt^{\beta}}{g_{\alpha \beta} dt^{\alpha} dt^{\beta}}
+  \label{3.81}
+  $$
+  where the quadratic form 
+  $$
+  b_{\alpha \beta} dt^{\alpha} dt^{\beta} = -d \mathbf{r} \cdot d \mathbf{g}_3
+  $$
+  식 $\eqref{3.81}$ 을 **the second fundamental form of the surface** 라고 한다. 
+
+  - 여기서 plus/minus 부호는 큰 의미가 없다. 
+
+#### Directions of maximal and minimal curvature
+- Extreme of the normal curvature condition
+$$
+\frac{\partial \kappa_n}{\partial t^{\alpha}} = 0, \quad \alpha=1,2
+$$
+
+- 식 $\eqref{3.81}$ 을 다시 쓰면 
+$$
+  (b_{\alpha \beta} - \kappa_n g_{\alpha \beta}) dt^{\alpha} dt^{\beta} = 0
+  \label{3.85}
+$$
+
+- 식 $\eqref{3.85}$ 를 $t^{\alpha}$ 에 대해 미분하면 간단히 다음과 같다.
+$$
+(b_{\alpha \beta} - \kappa_n g_{\alpha \beta})  dt^{\beta} = 0 , \quad \alpha=1,2
+\label{3.86}
+$$
+
+- 식 $\eqref{3.86}$ 에 $g^{\alpha \rho}$ 곱하고 더하면 위 $\eqref{3.86}$ 은 
+  $$
+  (b^{\rho}_{\beta} - \kappa_n \delta^{\rho}_{\beta}) dt^{\beta} = 0, \quad \rho = 1, 2
+  \label{3.87}
+  $$
+
+- 식 $\eqref{3.87}$ 은 대수 방정식의 형태를 띄고 있지만, Tensor Notation에 의해 Matrix 형태이다. 고로 다음과 같이 Determinent를 0 으로 만드는 해를 구해야 한다.
+$$
+\left| \begin{matrix}
+b_1^1 - \kappa_n & b_2^1 \\
+b_1^2         & b_2^2 - \kappa_n
+\end{matrix} \right| = 0
+$$
+
+- 이것의 해는
+$$
+(b_1^1 - \kappa_n)(b_2^2 - \kappa_n) - b_2^1 b_1^2 = b_1^1 b_2^2 - (b_1^1 + b_2^2) \kappa_n + \kappa_n^2 - b_2^1 b_1^2 = \kappa_n^2 - b_{\alpha}^{\alpha} \kappa_n + | b_{\alpha}^{\beta} | = 0
+\label{3.89}
+$$
 
 
 
+- 식 $\eqref{3.89}$ 에 의해 두개의 principal curvature의 Direction (maximal and minimal)이 나타나게 되고 이 Direction은 **Orthogonal** 하다. 
 
+#### Vieta Theorem : the product of principal curvature 
 
-
-<2020-09-21>
+<2020-09-24>
 
 ​	

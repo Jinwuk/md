@@ -206,7 +206,7 @@ $$
 |        | $ x_{i+1} = x_i - \lambda_i h_i$  |
 |        | $ g_{i+1} = Qx_{i+1} - b$ |
 |        | $ h_{i+1} = g_{i+1} + h_i r_i$ with $r_i = -\frac{\langle Qh_i, g_{i+1} \rangle}{\langle h_i, Q h_i \rangle}$|
-|        | so  that $\langle h_{i+1}, Qh_i \rangle = 0$ ... 이렇게 되어야 $\{g_k \}$ 가 Orthogonal | 
+|        | so  that $\langle h_{i+1}, Qh_i \rangle = 0$ ... 이렇게 되어야 $\{g_k \}$ 가 Orthogonal |
 | Step 3 | replace $i $ by $i+1$ and goto Step 1 |
 
 ### General Conjugate Gradient 
@@ -259,17 +259,9 @@ $$
 | Data | $x_o \in \mathbb{R}^n$, $B_0$ : a symmetric positive definite $n \times n$ Matrix , ex) $I \in \mathbb{R}^{n \times n}$|
 | Step 0 | Set $i=0$,  |
 | Step 1 | If $g_i = 0$ Stop else continue |
-<<<<<<< HEAD
 | Step size rule | $ \lambda_i = \arg \min f(x_i - \lambda B_i g_i)$ where $g_i = \nabla f(x_i)$|
 | Step 2 | $ x_{i+1} = x_i - \lambda_i B_i g_i$  |
 | Update | $ \Delta x_i = x_{i+1} - x_i $ |
-=======
-|        | Step size rule : |
-|        | $ \lambda_i = \arg \min f(x_i - \lambda B_i g_i)$ where $g_i = \nabla f(x_i)$|
-| Step 2 | Update  |
-|        | $ x_{i+1} = x_i - \lambda_i B_i g_i$  |
-|        | $ \Delta x_i = x_{i+1} - x_i $ |
->>>>>>> 0bf2dc419bed46060879033840f1bb761c66cb44
 |        | $ \Delta g_i = g_{i+1} - g_i $|
 |        | $B_{i+1} = B_{i+1}^{DFP}$ or  $B_{i+1} = B_{i+1}^{BFGS}$| 
 | Step 3 | replace $i $ by $i+1$ and goto Step 1 |

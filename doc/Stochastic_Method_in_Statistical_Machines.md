@@ -100,7 +100,7 @@ Consequently, the threshold makes the results to be independent on the summation
 Consider the following auto associative memory system
 $$
 W = \sum_{m \in \mathcal{T}} (2 x^{m} - 1) (2 x^{m} - 1)^T.
-$$ 
+$$
 
 Let $y^k = \frac{1}{\sqrt{n}}(2x^k - I^n)$. Assume that the input vectors are mutually orthonormal such that $\forall y^i \perp y^j \in \mathbb{R}^n, \;\; \forall i, j \in \mathcal{T}$.
 The result of the auto associative memory is evaluated as
@@ -263,12 +263,12 @@ $$
 ### Metropolis Algorithm (MCMC : Markov Chain Monte Carlo)
 
 #### Statistical Property
-Suppose that a r.v $X_n$ representing an arbitarary Markov chain, is in state $x_i$ at time $n$.
+Suppose that a r.v $X_n$ representing an arbitrary Markov chain, is in state $x_i$ at time $n$.
 In addition, a new r.v $Y_n$ is in state $x_j$ such that
 $$
 P(Y_n = x_j | X_n = x_i) = P(Y_n = x_i |X_n = x_j)
 $$
-It means that the transition probablity is a symmetry.
+It means that the transition probability is a symmetry.
 Let $\Delta E $ denote the energy difference resulting from 한 State $X_n = x_i$ 에서 $Y_n = x_j$ 로의 이동시 에너지의 차이.
 
 $E$를 최소화 시키는 관점에서
@@ -281,12 +281,12 @@ $$
 $$
    - 만족하지 못하면 $X_{n+1} = X_n$ 변화가 없다.
 
-####  Choice of Transition Probablity
+####  Choice of Transition Probability
 위 방법론을 도입하여 Transition Probability를 계산하게 되면 Metropolis Algorithm이 된다.
 해당 항목은 **Simon Hykin, 'Neural networks and Learning Machines', pp620-622** 를 참조한다.
 
-#### Simulated Annealing 과 Metropolice Algorithm
-Metropolice Algorithm은 Temperature가 고정되어 있다. 그래서 너무 낮으면 Deterministic 한 알고리즘이 되고 너무 높으면 수렴성에 문제가 생긴다. 따라서 시행때 마다 점차 낮아지는 Temperature를 도입해야 한다 such that $T \downarrow 0$. 그러면 어떠한 스케줄로 할 것인가?.
+#### Simulated Annealing 과 Metropolis Algorithm
+Metropolis Algorithm은 Temperature가 고정되어 있다. 그래서 너무 낮으면 Deterministic 한 알고리즘이 되고 너무 높으면 수렴성에 문제가 생긴다. 따라서 시행때 마다 점차 낮아지는 Temperature를 도입해야 한다 such that $T \downarrow 0$. 그러면 어떠한 스케줄로 할 것인가?.
 
 $$
 T_k = \alpha T_{k-1}, \;\; \forall k \in \mathbb{Z}^+
@@ -334,7 +334,7 @@ where $T(t) = \frac{T_0}{ln (2+t)}$
 이것의 해는 다음 Probability Density에 비례한다. (Gibbs' Distribution or Boltzmann Distribution)
 $$
 \frac{1}{Z} \exp\left(\frac{-\nabla E(x)}{T(t)} \right) 
-$$ 
+$$
 where $Z = \int_{-\infty}^{\infty} \exp (\frac{-\nabla E(x)}{T(t)}) dx $
 
 ### Discrete Version of Stochastic  Gradient Descent
@@ -385,7 +385,7 @@ $$
 $$
 여기서, $b_t$ 항은 Iterative Logarithm과 연결된다. 즉, $\lim_{t \rightarrow \infty} \frac{B_t}{\sqrt{t \ln \ln t}} = \pm 1$. 그러므로 적절히 $B$ 값을 선택하여 Simulated Annealing의 효과가 나타날 수 있도록 하여야 한다.
 
-### Stochatic Gradient Descent (SGD) in Machine Learning
+### Stochastic Gradient Descent (SGD) in Machine Learning
 The object or energy function is a sum of **Loss function** $E_i (x)$ for a feasible data set $A$ such that
 $$
 E(x) \triangleq \frac{1}{N} \sum_{i=1}^{N} E_i (x), \;\;\; E_i(x) \triangleq f(x^i) \;\;\; x = \{x^i | x^i \in A \}
@@ -429,7 +429,7 @@ However, the generalized Discrete Stochastic Gradients converges more strongly a
 
 ## Convergence
 수렴성 증명은 개발한 알고리즘의 Stability, Consistency, Well-defined, 특성을 보이기 위함이다. 수렴성 증명이 완벽하지 않으면 보통의 경우 최적화 알고리즘은 다운(!) 된다. 수렴성 증명을 통해 수렴 속도 분석도 가능하다. (Linear/exponential)
-### Asymtotically Convergence (For General Sequence)
+### Asymptotically Convergence (For General Sequence)
 $$
 \lim_{n \rightarrow \infty} x_n = c \;\;\textit{iff}\;\;\forall \epsilon > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow |x_n - c | <\epsilon 
 $$
@@ -437,7 +437,7 @@ $$
 $$
 P(\lim_{n \rightarrow \infty} x_n = X) = 1,\textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; P(\sup_{n \geq n_0} |x_n - X| \geq \epsilon) < \eta, \;\;(\therefore P(\sup_{n \geq n_0} |x_n - X| < \epsilon) > 1 - \eta)
 $$
-### Weak Convergenvce (Convergence in Probability)
+### Weak Convergence (Convergence in Probability)
 $$
 P(|x_n - X| > \epsilon) \rightarrow 0, \textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow P(|x_n - X | \geq \epsilon ) \leq  \eta, \;\; (\therefore P(|x_n - X | < \epsilon ) > 1 - \eta)
 $$
