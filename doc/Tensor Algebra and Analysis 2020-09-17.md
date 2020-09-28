@@ -174,7 +174,7 @@ $$
   $$
 \Gamma_{1s}^2 = \kappa(s), \;  \Gamma_{2s}^1 = -\kappa(s), \; \Gamma_{2s}^3 = \tau(s), \; \Gamma_{3s}^2 = -\tau(s)
   $$
-  - $\Gamma_{ij}^k$ 에서 입력은 $k$,  출력은 $i$ 그리고 $j$로 미분하는 것이므로 (미분에서 분모)
+  - $\Gamma_{ij}^k$ 에서 입력은 $k$,  출력은 $i$ 그리고 $j$로 미분하는 것이므로 (미분에서 분모) (s가 고정 이므로 2차원 matrix 형태가 된다)
   $$
   [\Gamma_{is}^j] = \left[  
   \begin{matrix}
@@ -269,7 +269,7 @@ $$
 \mathbf{g}_{\alpha} = \frac{\partial \mathbf{r}}{\partial t^{\alpha}} = \mathbf{r}_{, \alpha}, \quad \alpha=1, 2
 $$
 
-- **Length of infinitesimal elements of the curve**
+- **Length of infinitesimal elements of the curve** : **First Fundamental Form** 
   $$
   (ds)^2 
   = d \mathbf{r} \cdot d \mathbf{r} 
@@ -423,7 +423,7 @@ $$
 $$
 이를 **Weigngarten Formula** 라 한다.
 
- #### Curvature of Normal Section
+ #### Curvature of Normal Section : second fundamental form
 
 - Normal curvature $\kappa_n$ 으로 표시된다.
 
@@ -448,6 +448,15 @@ $$
   식 $\eqref{3.81}$ 을 **the second fundamental form of the surface** 라고 한다. 
 
   - 여기서 plus/minus 부호는 큰 의미가 없다. 
+
+  - 만일, Coordinate Line을 지나는 Normal section 의 경우 
+
+    - 다시말해, $t^1$ , 혹은 $t^2$ 중 하나가 constant, 그 경우 하나의 $dt^{\rho} = 0, \; \rho = 1,2$  따라서 $dt^1 dt^1$ 혹은 $dt^2 dt^2$ 만 유의미 하다.    
+      $$
+      \kappa_n \vert_{t^2 = const} = \frac{b_{11}}{g_{11}}, \quad \kappa_n \vert_{t^1 = const} = \frac{b_{22}}{g_{22}}
+      $$
+
+    -  이 개념이  훨씬 실제 계산에 유용하다. 
 
 #### Directions of maximal and minimal curvature
 - Extreme of the normal curvature condition
@@ -490,9 +499,126 @@ $$
 
 
 - 식 $\eqref{3.89}$ 에 의해 두개의 principal curvature의 Direction (maximal and minimal)이 나타나게 되고 이 Direction은 **Orthogonal** 하다. 
+  - 이때, $ | b_{\alpha}^{\beta} |$는 단순히 절대값이 아니라 $b_{\alpha}^{\beta} = \Gamma_{3 \alpha}^{\beta}$ 이므로 Matrix에 대한 Determinent가 된다.  
+  - 식 $\eqref{3.89}$ 에서 보면 $b_1^1 b_2^2 -  b_2^1 b_1^2 =| b_{\alpha}^{\beta} | $  에서 이는 명백
+
+- Normal Section을 생각해 보면 $t^1$ 방향으로 하나의 Section, $t^2$ 방향으로 또 하나의 Section이 존재하는 것이다. 그러므로 평면에서는 두개의 Curvature가 존재한다.
 
 #### Vieta Theorem : the product of principal curvature 
 
+- **Gaussian Curvature**
+
+식 $\eqref{3.89}$ 에서 두 Principal curvature의 곱은 간단히 
+$$
+K = \kappa_1, \kappa_2 = |b_{\beta}^{\alpha}| = \frac{b}{g^2}
+\label{3.90}
+$$
+이때
+$$
+b = |b_{\alpha \beta} | = \left|
+\begin{matrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{matrix}
+\right| = b_{11} b_{22} - (b_{12})^2, \quad
+g^2 = [\mathbf{g}_1 \mathbf{g}_2 \mathbf{g}_3] = \left|
+\begin{matrix}
+g_{11} & g_{12} & 0 \\
+g_{21} & g_{22} & 0 \\
+0      &    0   & 1 
+\end{matrix}
+\right| = g_{11} g_{22} - (g_{12})^2
+$$
+
+- **Mean Curvature**
+
+또한 principal curvature의 덧셈은 
+$$
+H = \frac{1}{2}(\kappa_1 + \kappa_2) = \frac{1}{2} b_{\alpha}^{\alpha}
+$$
+
+- Curvature 의 표현 
+
+  - 위에서 구한 Gaussian Curvature $K$와 Mean Curvature $H$ 에서 
+
+  $$
+  \kappa_1, \kappa_2 = H \pm \sqrt{H^2 - K}
+  $$
+
+  
+
+#### Sign of  Curvature 
+
+- **Elliptic** : $b > 0$ 
+  - 즉,  두 Curvature 의 Sign이 동일한 경우 이다.  
+  - $\mathbf{a}_2$ 가 $\mathbf{g}_3$ 가 같은 방향 ($\mathbf{a}_2 = \pm \mathbf{g}_3$ 에서)
+  - 다시말해 어쨌든 볼록한 형태이고 최적화론에서는 우리는 이러한 형태만 관심이 있다 (Hessian이 Positive Definite)
+- **Hyperbolic or Saddle** :  $b < 0$ 
+- **Parabolic point** : $b = 0$
+
+#### Note 
+
+$b_{\alpha \beta} = \mathbf{g}_{3, \alpha} \cdot \mathbf{g}_{\beta} = \Gamma_{3 \alpha \beta} = \Gamma_{3 \alpha}^{\beta}$  혹은 식 $\eqref{3.74}$ 이다. 식 $\eqref{3.74}$ 은 $\mathbf{g}_{\alpha, \beta} \cdot \mathbf{g}_3$ 으로 정의되는 방식이다.  어쨌든, 3번쨰 Normal section쪽의 벡터와 연관되는 2차 편미분이라는 것은 변함이 없다. 
+
+### Example : Torus
+
+<img src="http://jnwhome.iptime.org/img/research/2020/tensor_005.png" style="zoom: 67%;" />
+
+그림 3.4 와 같이 나타나는 것이 Torus 이다. 
+
+Torus 에서는 미분 기하학에서 나타나는 많은 현상들을 보여 주므로  Example로 많이 인용된다. 
+
+$R_0 > R$ 에서 Torus의 방정식은 다음과 같다.
+$$
+\mathbf{r}(t^1, t^2) = (R_0 + R \cos t^2) \cos t^1 \mathbf{e}_1 + (R_0 + R \cos t^2) \sin t^1 \mathbf{e}_2 + R \sin t^2 \mathbf{e}_3
+$$
+ $\mathbf{g}_1 = \frac{\partial \mathbf{r}}{\partial t^1}$  이고, ($\mathbf{g}_2$ 도 마찬가지, 그리고 $\mathbf{g}_3$ 는 $\mathbf{g}_1, \mathbf{g}_2$ 의 벡터 곱)
+$$
+\begin{aligned}
+\mathbf{g}_1 &= -(R_0 + R \cos t^2) \sin t^1 \mathbf{e}_1 + (R_0 + R \cos t^2) \cos t^1 \mathbf{e}_2 \\
+\mathbf{g}_2 &= -R \cos t^1 \sin t^2 \mathbf{e}_1 - R \sin t^1 \sin t^2  \mathbf{e}_2 + R \cos t^2 \mathbf{e}_3\\
+\mathbf{g}_3 &= \cos t^1 \cos t^2 \mathbf{e}_1 + \sin t^1 \cos t^2  \mathbf{e}_2 + \sin t^2 \mathbf{e}_3
+\end{aligned}
+$$
+
+- First Fundamental form 
+
+$g_{11} = \mathbf{g}_1 \cdot \mathbf{g}_1$ 에서  (Riemannian Metric)
+$$
+g_{11} = (R_0 + R \cos t^2)^2 , \quad g_{12} = 0, \quad g_{22} = R^2
+$$
+이로서 First Fundamental form $(ds)^2$ 을 구할 수 있게 된다. 
+
+- Second Fundamental form 
+  $$
+  \begin{aligned}
+  \mathbf{g}_{1,1} &= -(R_0 + R \cos t^2) \cos t^1 \mathbf{e}_1 - (R_0 + R \cos t^2) \sin t^1 \mathbf{e}_2 \\
+  \mathbf{g}_{1,2} &= \mathbf{g}_{2,1} = R \sin t^1 \sin t^2 \mathbf{e}_1 - R \cos t^1 \sin t^2 \mathbf{e}_2 \\
+  \mathbf{g}_{2,2} &= -R \cos t^1 \cos t^2 \mathbf{e}_1 - R \sin t^1 \cos t^2 \mathbf{e}_2 - R \sin t^2  \mathbf{e}_3 
+  \end{aligned}
+  $$
+
+  - To calculate $b_{\alpha \beta} = \mathbf{g}_{\alpha, \beta} \cdot \mathbf{g}_3$  
+    $$
+    b_{11} = \mathbf{g}_{1,1} \mathbf{g}_3 = -(R_0 + R \cos t^2) \cos t^2, \quad 
+    b_{12}=b_{21} = \mathbf{g}_{1,2} \cdot \mathbf{g}_3 = 0, \quad 
+    b_{22} = \mathbf{g}_{2,2} \cdot \mathbf{g}_3 = -R
+    $$
+    
+  - 이에 의해 Curvature를 구하면 
+  $$
+  \kappa_1 = b_1^1 = \frac{b_{11}}{g_{11}} = - \frac{\cos t^2}{R_0 + R \cos t^2}, \quad \kappa_2 = b_2^2 = \frac{b_{22}}{g_{22}} = -R^{-1}
+  $$
+
+  - Torus의 경우 위의 Normal cuvature가 Coordinate line에 존재하는 경우와 일치함을 알 수 있다.
+  - Gaussian Curvature는 다음 과 같다.
+  $$
+  K = \kappa_1 \kappa_2 = \frac{\cos t^2}{R(R_0 + R \cos t^2)}
+  $$
+  
+  - $b = b_{11} b_{22} - (b_{12})^2 \vert_{=0}$ 에서 $t^2$ 의 각도에 따라 , Elliptic, Hyperboilic, parabolic이 결정됨을 알 수 있다. 
+
+
+
 <2020-09-24>
 
-​	
