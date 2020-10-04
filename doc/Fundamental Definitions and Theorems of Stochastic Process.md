@@ -1,6 +1,6 @@
 Fundamental Definitions and Theorems of Stochastic Process
 ========================
-
+[TOC]
 ## Radon-Nykodym Theorem
 ### Prequal
 확률 측도 공간 $(\Omega, \mathcal{F}, \mathbb{P})$ 위에서 주어진 $f \geq 0$ 이 가측이고 적분 가능할 때, 임의의 $E \in \mathcal{F}$ 에 대하여 
@@ -19,7 +19,7 @@ $$
 3. **equivalent** : if $Q \ll P$ and $P \ll Q$ 이면 $P$와 $Q$는 동등하며 $P \approx Q$
 
 ### Radon-Nykodym Theorem
-가측 공간 $(\Omega, \mathcal{F})$ 위에서 두개의 측도   $\mathbb{P}, \mathbb{Q}$ 가 주어질떄, if  $Q \ll P$  (절대 연속 측도) 이면 0 이상의 값을 가지는 (Positive Semi Definite) 가측 함수 $f : \Omega \rightarrow \mathbb{R}$ 이 존재하여 임의의 $E \in \mathcal{F}$ 에 대하여 
+가측 공간 $(\Omega, \mathcal{F})$ 위에서 두개의 측도   $\mathbb{P}, \mathbb{Q}$ 가 주어질떄, if  $Q \ll P$  (절대 연속 측도) 이면 0 이상의 값을 가지는 (Positive Semi Definite) 가측 함수 $f : \Omega \rightarrow \mathbb{R}$ 이 존재하여 임의의 $E \in \,mathcal{F}$ 에 대하여 
 $$
 \mathbb{Q}(E) = \int_{E} f d\mathbb{P}
 $$
@@ -194,6 +194,7 @@ L_t(w) = \rho_t (W_t(w)) = \exp(-\theta W_t - \frac{1}{2} \theta^2 t)
 $$
 
 ##Research of Girsanov Theorem
+###1. Expecatation
 Girsanove Theorem은 결국 Radon-Nykodym Derivative가 다음과 같을 때
 $$
 L_t = \frac{d\mathbb{Q}}{d\mathbb{P}} =  \exp(-\theta W_t - \frac{1}{2} \theta^2 t)
@@ -209,4 +210,106 @@ $$
 \mathbb{E}^{\mathbb{Q}}(X_t) = \mathbb{E}^{\mathbb{P}}(L_t W_t)
 $$
 
+###2. Exponential Random Process
+앞에서 $X_t = W_t + \theta t $ 인데, 이를 다시 생각해 보면 $X_t$ 는 $W_t$ 를 $\theta t $ 만큼 이동 시킨 후 이를 다시 $W_t$의 Probablity 로 평균값을 구한다는 의미이다. 이것은  $L_t$라는 Normalized Exponrntial Stochastic Process에 $W_t$의 측도를 곱한 것이 된다는 의미이다. 결국 최종적으로 생각해 보면, $x = W_t$ 에서 $-\frac{x^2}{2t}$ 때문에 Normalized Exponential Process가 유도되는 원리이다.
+
+###3.Martingale Property
+$L_t = \exp(-\theta W_t - \frac{1}{2} \theta^2 t)$ 일때  확률측도 $\mathbb{Q}$를 다음과 같이 정의한다.
+$$
+\frac{d\mathbb{Q}}{d\mathbb{P}}|_{\mathcal{F}_t} = L_t
+$$
+
+#### Theorem 3.1
+$\phi_t$ 가 $\mathcal{F}_t$ 가측 함수 일때 다음이 성립한다.
+$$
+E^{\mathbb{Q}}[\phi_t | \mathcal{F}_s] = E^{\mathbb{P}}[\phi_t \frac{L_t}{L_s}|\mathcal{F}_s]
+$$ 
+
+#### Corollary 
+1. $s=0$ 이면 당연하지만 (그리고 1.Expectation에서 나온 결과와 동일하다.)
+$$
+E^{\mathbb{Q}}[\phi_t ] = E^{\mathbb{P}}[\phi_t L_t]
+$$
+2. $s=0$ 이고 $\phi_t$가 1이면 
+$$
+E^{\mathbb{Q}}[1] = E^{\mathbb{P}}[L_t]=1
+$$
+3. $\phi_t$가 1이면 
+$$
+\begin{align*}
+1 = E^{\mathbb{Q}}[1|\mathcal{F}_s] &= E^{\mathbb{P}}[\frac{L_t}{L_s}|\mathcal{F}_s]\\
+E^{\mathbb{P}}[L_t | \mathcal{F}_s] &= L_s
+\end{align*}
+$$
+
+#### Remarks 
+1. $E^{\mathbb{Q}}[X_t] = 0$
+$$
+\begin{align*}
+E^{\mathbb{Q}}[X_t] &= E^{\mathbb{P}}[(W_t + \theta t)L_t] \\
+&= E^{\mathbb{P}}[(W_t + \theta t)e^{-\frac{1}{2}\theta^2 t - \theta W_t}] \\
+&= e^{-\frac{1}{2}\theta^2 t} E^{\mathbb{P}}[(W_t + \theta t) e^{-\theta W_t}] \\
+&= e^{-\frac{1}{2}\theta^2 t} (E^{\mathbb{P}}[W_t e^{-\theta W_t}]  + E^{\mathbb{P}}[\theta t e^{-\theta W_t}]) \\
+&= e^{-\frac{1}{2}\theta^2 t} (-\theta t e^{-\frac{1}{2}\theta^2 t} + \theta te^{-\frac{1}{2}\theta^2 t}) \\
+&= 0 
+\end{align*}
+$$
+2. $E^{\mathbb{Q}}[X^2_t] = t$ ($\mathbb{P}$는 자명하므로 생략한다.)
+$$
+\begin{align*}
+E^{\mathbb{Q}}[X^2_t] &=  E[(W_t + \theta t)^2 e^{-\frac{1}{2} \theta^2 t - \theta W_t}] \\
+&=  E[W^2_t e^{-\frac{1}{2} \theta^2 t - \theta W_t}]+ 2 \theta t E[W_t e^{-\frac{1}{2} \theta^2 t - \theta W_t}] + (\theta t)^2 E[e^{-\frac{1}{2} \theta^2 t - \theta W_t}]  \\
+&= e^{-\frac{1}{2} \theta^2 t}\left(E[W^2_t e^{-\theta W_t}] + 2 \theta t E[W_t e^{-\theta W_t}] + (\theta t)^2 E[ e^{-\theta W_t}] \right) \\
+&= e^{-\frac{1}{2} \theta^2 t} \left((t+\theta^2 t^2) e^{-\frac{1}{2} \theta^2 t} - 2 (\theta t)^2 e^{-\frac{1}{2} \theta^2 t} + (\theta t)^2 e^{-\frac{1}{2} \theta^2 t} \right) \\
+&= t
+\end{align*}
+$$
+
+## Brownian Motion to new probability measure
+Assume that $X_t = W_t + \theta t$ 
+
+### Lemma 1.
+$X_t$는 $\mathbb{Q}$-Martingale 이다. 
+#### proof
+Let $L_t = \exp \left( -\frac{1}{2} \theta^2 t - \theta W_t \right)$ 
+$$
+E[W_t L_t | \mathcal{F}_s] = E[W_t e^{( -\frac{1}{2} \theta^2 t - \theta W_t) } | \mathcal{F}_s] = e^{-\frac{1}{2}\theta^2 t} E[W_t e^{-\theta W_s}|\mathcal{F}_s]=\left( W_s - \theta (t -s) \right) L_s
+$$
+Since $E^{\mathbb{Q}}[\Phi_t|\mathcal{F}_s]= E[\Phi_t L_t L_s^{-1} | \mathcal{F}_s]$
+$$
+\begin{align*}
+E^{\mathbb{Q}}[X_t|\mathcal{F}_s] &= E[X_t L_t L_s^{-1} | \mathcal{F}_s] \\
+&= L_s^{-1}E[(W_t + \theta t)L_t | \mathcal{F}_s] \\
+&= L_s^{-1}\left( E[W_t L_t | \mathcal{F}_s] + \theta t E[ L_t | \mathcal{F}_s] \right) \\
+&= L_s^{-1} L_s (W_s - \theta (t-s)) +  L_s^{-1} L_s \theta t \\
+&= W_s + \theta s =X_s
+\end{align*}
+$$
+
+### Lemma 2.
+$X_t^2 - t $는 $\mathbb{Q}$-Martingale 이다. 
+#### proof
+Let $L_t = \exp \left( -\frac{1}{2} \theta^2 t - \theta W_t \right)$ 
+$$
+E[W_t^2 L_t | \mathcal{F}_s]=e^{-\frac{1}{2}\theta^2 t}E[W_t^2 e^{-\theta W_t}|\mathcal{F}_s]=\left( (t-s)+(W_s - \theta(t-s)^2) \right)L_s
+$$
+Therefore,
+$$
+\begin{align*}
+E^{\mathbb{Q}}[X_t^2 - t | \mathcal{F}_s] &= E[X_t^2 L_t L_s^{-1}| \mathcal{F}_s] - t\\
+&=L_s^{-1}E[(W_t+\theta t)^2 L_t | \mathcal{F}_s] - t \\
+&=L_s^{-1}\left(E[W_t^2 L_t | \mathcal{F}_s] + 2 \theta t E[W_t L_t | \mathcal{F}_s] + \theta^2 t^2 E[L_t | \mathcal{F}_s]\right) - t \\
+&=L_s^{-1} L_s\left( (t-s)+(W_s - \theta(t-s)^2) \right) + 2L_s^{-1} L_s \theta t \left(W_s + \theta(t-s) \right) +L_s^{-1} L_s \theta^2 t^2 - t \\
+&= (W_s + \theta s)^2 -s = X_s^2 -s
+\end{align*}
+$$
+
+### Girsanov Theorem
+$\{W_t \}_{t \geq 0}$ 는 $\mathbb{P}$-Brownian Motion 이고 $\theta$는 임의의 실수이고 $X_t=W_t + \theta t$ 일떄 확률측도 $\mathbb{Q}$가 임의의 $0 \leq t \leq T$에 대하여 다음과 같은 성질을 지닌 측도라고 정의하면 
+$$
+L_t = \frac{d\mathbb{Q}}{d\mathbb{P}}|_{\mathcal{F}_t} = e^{-\frac{1}{2}\theta^2 t - \theta W_s}
+$$
+이때, 두 측도 $\mathbb{P}$, $\mathbb{Q}$ 는 서로 동등하며 $\{X_t \}_{t \geq 0}$ 는 $\mathbb{Q}$-Brownian Motion 이다.
+####  proof
+Levy's Theorem 1, 2 에서 특히 2항의 1, 2, 는 각각 Lemma 1,2 를 통해 증명되고 1 은 앞에서 증명되었으므로 위 Thorem은 증명된다.
 

@@ -12,11 +12,12 @@ $$
 의 경우 우리는 이렇게 생각할 수 있다. (Geometric Method 기반으로 생각해 보면..)
 $$
 0 = \nabla u \cdot (a , b)^T = \nabla u \cdot (dx , dy)^T
+\label{eq02}
 $$
-고로 
+고로 $\eqref{eq02}$에서 $dx : a$ 이고 $dy:b$ 에 각각 대응 되므로 
 $$
 \frac{dy}{dx} = \frac{b}{a}
-$$ 
+$$
 이므로
 $$
 dy = \frac{b}{a} dx \;\Rightarrow\; y=\frac{b}{a}x \; \Rightarrow\; bx - ay = c 
