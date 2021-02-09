@@ -103,7 +103,7 @@ $$
 
 \mathbf{X} : \mathcal{A} 
 = (X_{qp} \mathbf{g}^q \otimes \mathbf{g}^p) : (\mathcal{A}^{ijkl} \mathbf{g}_i \otimes \mathbf{g}_j \otimes \mathbf{g}_k \otimes \mathbf{g}_l) 
-= \mathcal{A}^{ijkl} X_{il} \mathbf{g}_i \otimes \mathbf{g}_l \\
+= \mathcal{A}^{ijkl} X_{il} \mathbf{g}_i \otimes \mathbf{g}_l \\
 $$
 
 - Fourth order tensor와 Second order tensor의 Composition 연산의 경우 
@@ -139,3 +139,63 @@ $$
 $$
 
 - $\mathbf{A} \mathcal{D} \mathbf{B} : \mathbf{X} =  (\mathbf{A} \otimes \mathbf{B}) : \mathcal{D} : \mathbf{X} = (\mathbf{A} \otimes \mathbf{B}) : (\mathcal{D} : \mathbf{X}) = \mathbf{A} (\mathcal{D} : \mathbf{X}) \mathbf{B}$ 
+
+
+
+#### Transpoitions
+
+- 단, Large/small Transposition $T, t$는 오직, Fourth order Tensor에만 적용된다. 
+  - 고로 Second order Tensor에서는 Large/small Transposition이 구별되지 않으며   동일한 Transposition이다.  이때는 Large $T$를 사용하여 표시한다.
+
+$$
+\mathcal{A}^T : \mathbf{X} = \mathbf{X} : \mathcal{A}, \quad \mathcal{A}^t : \mathbf{X} = \mathcal{A} : \mathbf{X}^T
+$$
+
+- Left Large Transposition은 Tensor Compliance의 순서를 바꾼다.
+- Left small Transposition은 Tensor Compliance의 순서는 그대로이고 Right Large Transposition이 된다. 
+- 즉,  Right Large Transposition은 Left small Transposition  이에 따라
+
+$$
+\mathbf{Y} : \mathcal{A}^t = (\mathbf{Y} : \mathcal{A})^T
+$$
+
+- proof 
+  $$
+  (\mathbf{Y} : \mathcal{A}^t) : \mathbf{X} = \mathbf{Y} : (\mathcal{A}^t : \mathbf{X}) = \mathbf{Y} : (\mathcal{A} : \mathbf{X}^T) = (\mathbf{Y} : \mathcal{A}) : \mathbf{X}^T = (\mathbf{Y} : \mathcal{A})^T : \mathbf{X}
+  $$
+  
+
+- 즉,  Fourth order tensor에서 Large Transposition은 연산의 순서를 바꾸어야 하지만,  small Transposition은 대응되는 Second order Tensor에 작용하여 이를 Transposition 시키는 것이다. 
+
+##### Symmetrization 
+
+$$
+\mathcal{F}^s = \frac{1}{2} (\mathcal{F} + \mathcal{F}^t)
+$$
+
+
+
+- 즉, Fourth order Tensor에서 Second order Tensor를 Transposition 시키기 위한  small Transposition을 작용시킨 것. 따라서
+
+$$
+\mathcal{F}^s : \mathbf{X} = \mathcal{F}: sym \mathbf{X}, \quad \mathbf{Y} : \mathcal{F}^s = sym(\mathbf{Y} : \mathbf{F})
+$$
+
+##### Transposotion and Tensor Product
+
+$$
+(\mathbf{A} \otimes \mathbf{B})^T = \mathbf{A}^T \otimes \mathbf{B}^T, \quad (\mathbf{A} \odot \mathbf{B})^T = \mathbf{B} \odot \mathbf{A}, \quad (\mathbf{A} \odot \mathbf{B})^t = \mathbf{A} \odot \mathbf{B}
+$$
+
+##### Order of Transposition 
+
+$$
+\begin{aligned}
+(\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{c} \otimes \mathbf{d})^T 
+&= \mathbf{b} \otimes \mathbf{a} \otimes \mathbf{d} \otimes \mathbf{c} \\
+
+(\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{c} \otimes \mathbf{d})^t 
+&= \mathbf{a} \otimes \mathbf{c} \otimes \mathbf{b} \otimes \mathbf{d}
+\end{aligned}
+$$
+
