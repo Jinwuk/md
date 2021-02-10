@@ -164,7 +164,6 @@ $$
   (\mathbf{Y} : \mathcal{A}^t) : \mathbf{X} = \mathbf{Y} : (\mathcal{A}^t : \mathbf{X}) = \mathbf{Y} : (\mathcal{A} : \mathbf{X}^T) = (\mathbf{Y} : \mathcal{A}) : \mathbf{X}^T = (\mathbf{Y} : \mathcal{A})^T : \mathbf{X}
   $$
   
-
 - 즉,  Fourth order tensor에서 Large Transposition은 연산의 순서를 바꾸어야 하지만,  small Transposition은 대응되는 Second order Tensor에 작용하여 이를 Transposition 시키는 것이다. 
 
 ##### Symmetrization 
@@ -197,5 +196,12 @@ $$
 (\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{c} \otimes \mathbf{d})^t 
 &= \mathbf{a} \otimes \mathbf{c} \otimes \mathbf{b} \otimes \mathbf{d}
 \end{aligned}
+$$
+
+- 즉 Large $T$는 Transposition의 정의에 충실한 방식이고, Small $t$는 Transpodition 연산 효과에 충실한 방식이다. 
+- 그 결과는 다음과 같다.
+
+$$
+(\mathcal{A} : \mathcal{B})^T = \mathcal{B}^T : \mathcal{A}^T, \quad ()
 $$
 
