@@ -16,6 +16,17 @@ $$
 \mathbf{Y} : \mathbf{A} \odot \mathbf{B}     = (\mathbf{Y} :\mathbf{A}) \mathbf{B}  
 $$
 
+- 그런데 식 (2)에서 다음의 Tensor dot가 Composition Mapping의 정의에 의해 가능하다.
+  $$
+  (\mathbf{A} \odot \mathbf{B}) : \mathbf{X}  = (\mathbf{B} : \mathbf{X}) \mathbf{A}
+  $$
+
+  - 즉, $(\mathbf{B} : \mathbf{X})$ 는 Mapping 이므로 좌우 어느 쪽에 놓여도 상관 없다.  
+  - Tensor outer product ($\otimes$ ) 는 Matrix 연산이므로 Left, Right 연산 결과가 다르다.
+  - 그러나, Tensor dot product는 dot product의 정의에 따라 Left, Right 연산 결과가 같아야 한다. 
+    - 다시말해 Composition Mapping은 차원을 축소한다. 그러므로 Second Order Tensor = Matrix의 Composition Mapping 결과는 Scalar가 된다.  
+      - 2-Order씩 줄어든다고 생각하면 된다. (4th order -> 2nd order: 2nd order -> 0 order)
+
 
 
 ## Special Operations with Fourth-Order Tensors 
@@ -202,6 +213,54 @@ $$
 - 그 결과는 다음과 같다.
 
 $$
-(\mathcal{A} : \mathcal{B})^T = \mathcal{B}^T : \mathcal{A}^T, \quad ()
+(\mathcal{A} : \mathcal{B})^T = \mathcal{B}^T : \mathcal{A}^T, \quad (\mathcal{A} : \mathcal{B})^t = \mathcal{A} : \mathcal{B}^t
 $$
 
+- 이를 사용하면 다음과 같은 Relation이 가능하다.
+  $$
+  (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \otimes \mathbf{D}) = \left[ (\mathbf{A} \mathbf{D}^T) \otimes (\mathbf{C}^T \mathbf{B})\right]^t \\
+  (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \odot \mathbf{D}) = (\mathbf{A} \mathbf{C}^T \mathbf{B}) \odot \mathbf{D}
+  $$
+
+  - proof
+    $$
+    \begin{aligned}
+    (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \otimes \mathbf{D}) : \mathbf{X} 
+    &= (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \mathbf{X} \mathbf{D}) \\
+    &= (\mathbf{A} \otimes \mathbf{B}) : (\mathbf{C} \mathbf{X} \mathbf{D})^T \\
+    &= (\mathbf{A} (\mathbf{C} \mathbf{X} \mathbf{D})^T \mathbf{B}) \\
+    &= \mathbf{A} \mathbf{D}^T \mathbf{X}^T \mathbf{C}^T \mathbf{B} \\
+    &= (\mathbf{A} \mathbf{D}^T \otimes \mathbf{C}^T \mathbf{B}) : \mathbf{X}^T \\
+    &= (\mathbf{A} \mathbf{D}^T \otimes \mathbf{C}^T \mathbf{B})^t : \mathbf{X}
+    \end{aligned}
+    $$
+
+    $$
+    \begin{aligned}
+    (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \odot \mathbf{D}) : \mathbf{X}
+    &= (\mathbf{A} \otimes \mathbf{B})^t : \mathbf{C} (\mathbf{D} : \mathbf{X})  \\
+    &= (\mathbf{A} \otimes \mathbf{B}) : [\mathbf{C} (\mathbf{D} : \mathbf{X})]^T \\
+    &= (\mathbf{A} \otimes \mathbf{B}) : [(\mathbf{D} : \mathbf{X}) \mathbf{C}^T ] \\
+    &= \mathbf{A} [(\mathbf{D} : \mathbf{X}) \mathbf{C}^T ] \mathbf{B}  \\
+    &= (\mathbf{D} : \mathbf{X})\mathbf{A} \mathbf{C}^T \mathbf{B}  \\
+    &= (\mathbf{A} \mathbf{C}^T \mathbf{B})(\mathbf{D} : \mathbf{X}) \\
+    &= (\mathbf{A} \mathbf{C}^T \mathbf{B}) \odot \mathbf{D} : \mathbf{X} \\
+    \end{aligned}
+    $$
+
+- 
+
+##### Scalar Product  
+
+Tensor product에서도 다음과 같이 Scalar Product를 정의할 수 있다. 
+$$
+(\mathbf{A} \odot \mathbf{B}) :: (\mathbf{C} \odot \mathbf{D}) = (\mathbf{A} : \mathbf{C})(\mathbf{B} : \mathbf{D})
+$$
+따라서 다음과 같다.
+$$
+(\mathbf{a} \otimes \mathbf{b} \otimes \mathbf{c} \otimes \mathbf{d}) :: (\mathbf{e} \otimes \mathbf{f} \otimes \mathbf{g} \otimes \mathbf{h}) = (\mathbf{a} \cdot \mathbf{e})(\mathbf{b} \cdot \mathbf{f})(\mathbf{c} \cdot \mathbf{g})(\mathbf{d} \cdot \mathbf{h})
+$$
+그러므로 Fourth order Tensor의 scalar product는 다음과 같이 간단히 정의된다.
+$$
+\mathcal{A} :: \mathcal{B} = (\mathcal{A}^{ijkl} \mathbf{g}_i \otimes \mathbf{g}_j \otimes \mathbf{g}_k \otimes \mathbf{g}_l \otimes) :: (\mathcal{B}_{pqrt} \mathbf{g}^p \otimes \mathbf{g}^q \otimes \mathbf{g}^r \otimes \mathbf{g}^t) = \mathcal{A}^{ijkl} \mathcal{B}_{ijkl}
+$$
