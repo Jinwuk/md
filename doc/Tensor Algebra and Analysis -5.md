@@ -216,6 +216,12 @@ $$
 (\mathcal{A} : \mathcal{B})^T = \mathcal{B}^T : \mathcal{A}^T, \quad (\mathcal{A} : \mathcal{B})^t = \mathcal{A} : \mathcal{B}^t
 $$
 
+- 또한 Transposition 이므로 다음과 같다. 
+  $$
+  \mathcal{A}^{TT} = \mathcal{A}, \quad \mathcal{A}^{tt} = \mathcal{A}, \quad \forall \mathcal{A}\in \mathcal{L}in
+  $$
+  
+
 - 이를 사용하면 다음과 같은 Relation이 가능하다.
   $$
   (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \otimes \mathbf{D}) = \left[ (\mathbf{A} \mathbf{D}^T) \otimes (\mathbf{C}^T \mathbf{B})\right]^t \\
@@ -248,7 +254,7 @@ $$
     \end{aligned}
     $$
 
-- 
+  
 
 ##### Scalar Product  
 
@@ -264,3 +270,28 @@ $$
 $$
 \mathcal{A} :: \mathcal{B} = (\mathcal{A}^{ijkl} \mathbf{g}_i \otimes \mathbf{g}_j \otimes \mathbf{g}_k \otimes \mathbf{g}_l \otimes) :: (\mathcal{B}_{pqrt} \mathbf{g}^p \otimes \mathbf{g}^q \otimes \mathbf{g}^r \otimes \mathbf{g}^t) = \mathcal{A}^{ijkl} \mathcal{B}_{ijkl}
 $$
+
+
+
+## Super Symmetric Fourth-order Tensors
+
+- Major Symmetry 
+  $$
+  \mathcal{E}^T = \mathcal{E}, \quad \forall \mathcal{E} \in \mathcal{L}in^n
+  $$
+
+- Minor Symmetry
+  $$
+  \mathcal{E}^t = \mathcal{E}
+  $$
+
+- Super Symmetry는 Major 및  Minor  Symmetry 모두 지원되는 경우이다. 
+
+- Super Symmetry  space는 일반적인 Tensor space $\mathcal{L}in^n$을 Super symmetry space $\mathcal{S}sym^n$ 로 표기한다. 
+
+### Super Symmetry Fourth-order tensor의 특성
+
+- Super symmetry Fourth-order tensor는 임의의 
+
+
+
