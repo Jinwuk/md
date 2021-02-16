@@ -221,7 +221,6 @@ $$
   \mathcal{A}^{TT} = \mathcal{A}, \quad \mathcal{A}^{tt} = \mathcal{A}, \quad \forall \mathcal{A}\in \mathcal{L}in
   $$
   
-
 - 이를 사용하면 다음과 같은 Relation이 가능하다.
   $$
   (\mathbf{A} \otimes \mathbf{B})^t : (\mathbf{C} \otimes \mathbf{D}) = \left[ (\mathbf{A} \mathbf{D}^T) \otimes (\mathbf{C}^T \mathbf{B})\right]^t \\
@@ -291,7 +290,128 @@ $$
 
 ### Super Symmetry Fourth-order tensor의 특성
 
-- Super symmetry Fourth-order tensor는 임의의 
+- Super symmetry Fourth-order tensor는 임의의 Matrix와의 Mapping 결과가 Transposition과 무관하게 나타나도록 한다. 즉,
+  $$
+  (\mathcal{E} : \mathbf{X})^T = \mathcal{E} : \mathbf{X}, \quad \forall \mathcal{E} \in \mathbf{S}sym^n, \; \mathbf{X} \in \mathbf{L}in^n
+  $$
+
+  - Proof
+    $$
+    \begin{aligned}
+    (\mathcal{E} : \mathbf{X})^T 
+    &= (\mathbf{X} : \mathcal{E}^T)^T 
+    \quad \because \mathcal{E} : \mathbf{X} = \mathcal{E}^{TT} : \mathbf{X} = \mathbf{X} : \mathcal{E}^T \\
+    &= (\mathbf{X} : \mathcal{E})^T \\
+    &= \mathbf{X} : \mathcal{E}^t \quad \because (\mathbf{X} : \mathcal{E})^T = \mathbf{X} : \mathcal{E}^t \\
+    &= \mathbf{X} : \mathcal{E} \\
+    &= \mathbf{X} : \mathcal{E}^T \\
+    &= \mathcal{E}: \mathbf{X}  \quad \because \mathcal{E}: \mathbf{X} = \mathbf{X} : \mathcal{E}^T
+    \end{aligned}
+    $$
+
+- Let $\mathcal{F} = \{ \mathbf{F}_1, \mathbf{F}_2, \cdots \mathbf{F}_n^2 \}$ 를 임의의 $\mathbf{L}in^n$ 의 Basis라 하고 $\mathcal{F}' = \{ \mathbf{F}^1, \mathbf{F}^2, \cdots \mathbf{F}^{n^2} \}$ 를 Dual Basis라고 하자. 그러면
+  $$
+  \mathbf{F}_p :\mathbf{F}^q = \delta_p^q, \quad p,q = 1,2, \cdots n^2
+  $$
+
+  그러므로  Theorem 5.1에 의하ㅣ여 다음과 같다. 
+  $$
+  \mathcal{E} = \mathcal{E}^{pq} \mathbf{F}_p \odot  \mathbf{F}_q
+  $$
+
+  - $\mathbf{F}_p \odot  \mathbf{F}_q$는 Fourth order Tensor이다.  $\mathbf{F}_p \odot  \mathbf{F}_q : \mathbf{X} = \mathbf{F}_p  (\mathbf{F}_q : \mathbf{X})$ 에 의해 $\mathbf{F}_p$의 방향과 $\mathbf{F}_q$의 고유 값이 들어 있는 형태라고 생각하면 된다.  
+
+  - 또한 Super symmetry 이므로 
+    $$
+    \mathcal{E}^{pq} = \mathcal{E}^{qp}
+    $$
+
+- Super symmetry fourth tensor의 Eigen Value 형식 
+  $$
+  \mathcal{E}: \mathbf{M} = \Lambda \mathbf{M}, \quad \mathcal{E} \in \mathbf{S}sym^n, \; \mathbf{M} \neq 0
+  $$
+  where $\Lambda, M \in \mathcal{S}sym^n, \mathbf{M} \neq 0$. 
+  
+    - Spectral Decomposition 
+      $$
+      \mathcal{E} = \sum_{p=1}^m \Lambda_p \mathbf{M}_p \odot \mathbf{M}_p, \;\; m = \frac{1}{2}n(n+1)
+      $$
+      and $\mathbf{M}_p : \mathbf{M}_q = \delta_{pq}, \;\; p,q = 1, 2, \cdots, m$. 
+  
+
+## Special Fourth-Order Tensors
+- Identity Tensor
+  $$
+  \mathcal{I} : \mathbf{X} = \mathbf{X}, \;\; \forall \mathbf{X} \in \mathbf{L}in^n
+  $$
+
+  - 다음의 특성을 가지게 된다.
+    $$
+    \begin{aligned}
+    \mathbf{X} : \mathcal{I} &= \mathbf{X}, \;\;\forall \mathbf{X} \in \mathbf{L}in^n \\
+    \mathcal{I} &= \mathbf{I} \otimes \mathbf{I} \\
+    \mathcal{I} &= \mathbf{g}_i \otimes \mathbf{g}^i \otimes \mathbf{g}_j \otimes \mathbf{g}^j \\
+    \mathcal{I} : \mathcal{A} &= \mathcal{A} : \mathcal{I}, \quad \forall \mathcal{A} \in \mathcal{L}in^n
+    \end{aligned}
+    $$
+
+    - Eigen PRojection $\mathbf{P}_i, \; i=1, 2, \cdots, s$ 가 존재하는 경우 다음과 같다. 
+      $$
+      \mathcal{I} = \sum_{i,j=1}^s \mathbf{P}_i \otimes \mathbf{P}_j
+      $$
+      
+
+- Transpotion Tensor
+
+  - Matrix의 Transposition은 Linear mapping으로 볼 수 있으며 이는 Fourth order tensor에 의한 변환으로 볼 수 있다.이 텐서를 $\mathcal{T}$ 라고 하면
+    $$
+    \begin{aligned}
+    \mathcal{T} : \mathbf{X} &= \mathbf{X}^T, \quad \forall \mathbf{X} = \mathbf{L}in^n \\
+    \mathbf{Y} : \mathcal{T} &= \mathbf{Y}^T, \quad \forall \mathbf{Y} = \mathbf{L}in^n
+    \end{aligned}
+    $$
+
+  - 정의에 의해 $\mathcal{T} = \mathcal{T}^T$ 그리고, $\mathcal{T} = \mathcal{I}^T$ 
+
+- Spherical, Deviation and Trace projection Tensors 
+  - Spherical, Deviation Tensors
+    $$
+    sph\mathbf{A} = \mathcal{P}_{sph}: \mathbf{A}, \quad dev\mathbf{A} = \mathcal{P}_{dev}: \mathbf{A}
+    $$
+    
+   - Trace Projection Tensors
+     $$
+     \mathbf{I} \odot \mathbf{I} : \mathbf{X} = \mathbf{I} tr \mathbf{X}, \quad \forall \mathbf{X} \in \mathbf{L}in^n
+     $$
+     
+   - Spherical, Deviation projection Tensors 
+     $$
+     \mathcal{P}_{sph} = \frac{1}{n} \mathbf{I} \cdot \mathbf{I} \quad
+     \mathcal{P}_{dev} = \mathcal{I} - \frac{1}{n} \mathbf{I} \cdot \mathbf{I}
+     $$
+     
+   - 연산특징
+     $$
+     \mathcal{P}_{sph} : \mathcal{P}_{sph} = \mathcal{P}_{sph}, \quad 
+     \mathcal{P}_{dev} : \mathcal{P}_{dev} = \mathcal{P}_{dev}, \quad
+     \mathcal{P}_{dev} : \mathcal{P}_{sph} = \mathcal{P}_{sph} : \mathcal{P}_{dev} = \mathcal{O}
+     $$
+     
+     
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
 
 
 
