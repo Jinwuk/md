@@ -35,7 +35,7 @@ $$
   \frac{\partial y^i}{\partial y^j} = \delta_{ij} = \frac{\partial y^i}{\partial x^k}\frac{\partial x^k}{\partial y^j}
   $$
   
-- 그러므로 $\| \delta_{ij} \|$ 를 생각해 보면 Jacobian $J = \[\frac{\partial y^i}{\partial x^k} \]$ 은 0이 아니어야 하며 그, inverse $K$가 존재해야 한다.
+- 그러므로 $\| \delta_{ij} \|$ 를 생각해 보면 Jacobian $J = [\frac{\partial y^i}{\partial x^k} ]$ 은 0이 아니어야 하며 그, inverse $K$가 존재해야 한다.
 
 - 여기에서 다음의 임의의 curvilinear coordinate system 을 생각해보면
   $$
