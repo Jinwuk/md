@@ -9,11 +9,11 @@ tags:
 comments: true
 ---
 
+Manifold Denosing
+====
 * Table of Contents
 {:toc}
 
-Manifold Denosing
-====
 
 본 문서는 [1] 논문을 간략히 요약한 것이다.
 
@@ -415,7 +415,7 @@ $$
 &= \sum_i \sum_k \frac{\partial f}{\partial x_k} \frac{\partial x_k}{\partial q_i} e_i^q \\
 &= \sum_k \sum_{i, j} \frac{\partial f}{\partial x_k} \frac{1}{|G_i(q)|^{\frac{1}{2}}} \frac{\partial x_k}{\partial q_i} \cdot \frac{\partial x_k}{\partial q_j} e_k^x
 = \sum_k \sum_{i, j} \frac{\partial x_k}{\partial q_i} \frac{\partial x_k}{\partial q_j} \frac{\partial f}{\partial x_k} e_k^x\\
-&= \sum_k \sum_{ij} g_{ij} \frac{\partial f}{\partial x_k} e_k^x = G(q) \nabla f(x)
+&= \sum_k \sum_{ij} g_{ij} \frac{\partial f}{\partial x_k} e_k^x = G(q) \nabla_x f(x)
 \end{aligned}
 $$
 
