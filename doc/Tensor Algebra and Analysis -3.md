@@ -172,7 +172,7 @@ $$
 
   - 이들을 모두 정리하면 다음과 같다.
   $$
-\Gamma_{1s}^2 = \kappa(s), \;  \Gamma_{2s}^1 = -\kappa(s), \; \Gamma_{2s}^3 = \tau(s), \; \Gamma_{3s}^2 = -\tau(s)
+  \Gamma_{1s}^2 = \kappa(s), \;  \Gamma_{2s}^1 = -\kappa(s), \; \Gamma_{2s}^3 = \tau(s), \; \Gamma_{3s}^2 = -\tau(s)
   $$
   - $\Gamma_{ij}^k$ 에서 입력은 $k$,  출력은 $i$ 그리고 $j$로 미분하는 것이므로 (미분에서 분모) (s가 고정 이므로 2차원 matrix 형태가 된다)
   $$
@@ -304,7 +304,7 @@ $$
   \mathbf{g}_3 = \frac{\mathbf{g_1} \times \mathbf{g_2}}{\| \mathbf{g_1} \times \mathbf{g_2} \|}
   \label{3.67}
   $$
-앞에서 구한 tangent vector $\mathbf{g}_1,  \mathbf{g}_2$ 와 principal normal vector를 통해 $\mathbb{E}^3$ basis를 구성하게 된다.
+  앞에서 구한 tangent vector $\mathbf{g}_1,  \mathbf{g}_2$ 와 principal normal vector를 통해 $\mathbb{E}^3$ basis를 구성하게 된다.
   
   - **Normal Section** : normal space를 의미한다. 이를 통해 평면에서의 curvature를 생각해 본다
 

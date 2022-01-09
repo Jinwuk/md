@@ -57,7 +57,6 @@ $$
   \label{sig-02}
   $$
   
-
 - 식 $\eqref{sig-02}$를 다시 정리하고 적분하면
   $$
   \begin{aligned}
