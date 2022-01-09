@@ -31,6 +31,5 @@ $$
 
  
 
-
 [1] Bennett, W. R. (1948), "Spectra of Quantized Signals". Bell System Technical Journal, 27: 446-472. doi:10.1002/j.1538-7305.1948.tb01340.x
 [2] Karlsson, Rickard, Gustafsson, Fredrik. "Filtering and estimation for quantized sensor information", 2018 
