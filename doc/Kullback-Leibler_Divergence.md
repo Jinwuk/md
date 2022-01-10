@@ -75,7 +75,6 @@ p(x) = \frac{1}{Z} \exp \left( -\frac{1}{2} (x - \mu)^T C^{-1} (x - \mu) \right)
 $$
 여기서, $p(x) \in \mathbb{R}^n, \;\; C \in \mathbb{R}^{n \times n}$ 그리고 $p_1(x), \; p_2(x)$ 라 놓고 구해보면 
 (마찬가지로 중간단계를 생략하고 전개한다.)
-
 $$
 \begin{align}
 \mathbb{KL}(p_1(x)||p_2(x)) &= \frac{1}{2}\int_{-\infty}^{\infty} p_1(x) \left( (x - \mu_1)^T C_1^{-1} (x - \mu_1) - (x - \mu_2)^T C_2^{-1} (x - \mu_2) + 2(\log Z_2 - \log Z_1)   \right) dx \\
@@ -147,7 +146,8 @@ $$
 KL Divergence는 결국 다음과 같이 정의할 수 있다.
 - 확률 분포 $p$의 Entropy - 정보량에 두 확률 분포의 결합 Entropy 를 뺀 값 (**정보량의 차이**)
 - 확률 분포를 특징짓는 **Moment Parameter간의 차이에 대한 단순 합** 
-###Symmetrised divergence
+
+### Symmetrised divergence
 Let a symmetric and nonnegative divergence such that
 $$
 \mathbb{KL}(P||Q) + \mathbb{KL}(Q||P)
