@@ -1,17 +1,17 @@
-#Wiener Process Properties
+Wiener Process Properties
+===
 다음의 Wiener Process 특성들을 정리한다.
 
 | Process  | Expectation     |
 |---|----|
 | $e^{W_t}$ | $Ee^{W_t} = e^{\frac{1}{2}t}$ |
-| $e^{\theta W_t}$ | $Ee^{\theta W_t} = e^{\frac{1}{2} \theta^2 t}$
-| $L_t = exp(-\frac{1}{2}\theta^2 t \pm \theta W_t)$ | $EL_t  = 1$
-| $S_t = S_0 \exp \left((\mu - \frac{1}{2} \sigma^2 ) t + \sigma W_t \right)$ | $ES_t = S_0 e^{\mu t}$
+| $e^{\theta W_t}$ | $Ee^{\theta W_t} = e^{\frac{1}{2} \theta^2 t}$|
+| $L_t = exp(-\frac{1}{2}\theta^2 t \pm \theta W_t)$ | $EL_t  = 1$|
+| $S_t = S_0 \exp \left((\mu - \frac{1}{2} \sigma^2 ) t + \sigma W_t \right)$ | $ES_t = S_0 e^{\mu t}$|
 | $W_t e^{\theta W_t}$ | $E(W_t e^{\theta W_t}) = \theta t e^{\frac{1}{2} \theta^2 t}$ |
 | $W^2_t e^{\theta W_t}$ | $ E(W^2_t e^{\theta W_t})= (t + \theta^2 t^2) e^{\frac{1}{2} \theta^2 t}$ |
 
 - $E(W_s|W_t) = \frac{s}{t} W_s$
-
 - $E(W_t | \mathcal{F}_s) = W_s$
 - $E(W_t - t| \mathcal{F}_s) = W_s - s$
 
@@ -229,7 +229,7 @@ $$
 E(W_t e^{\theta W_t}| \mathcal{F}_s) = (W_s + \theta(t-s))e^{\frac{1}{2}\theta^2 (t-s)} e^{\theta W_s}
 $$
 
-** Fast proof ** 
+**Fast proof ** 
 $$
 \begin{align*}
 E(W_t e^{\theta W_t}| \mathcal{F}_s) &= E(\frac{\partial}{\partial \theta} e^{\theta W_t} | \mathcal{F}_s) = \frac{\partial}{\partial \theta } E(e^{\theta W_t}|\mathcal{F}_s) = \frac{\partial}{\partial \theta} e^{\frac{1}{2} \theta^2(t-s)}e^{\theta W_s} \\
@@ -243,7 +243,7 @@ $$
 E(W^2_t e^{\theta W_t}| \mathcal{F}_s) = ((t-s) + (W_s + \theta (t-s))^2)e^{\frac{1}{2}\theta^2 (t-s)} e^{\theta W_s}
 $$
 
-** Fast proof ** 
+**Fast proof ** 
 $$
 \begin{align*}
 E(W^2_t e^{\theta W_t}| \mathcal{F}_s) &= E(\frac{\partial^2}{\partial \theta^2} e^{\theta W_t} | \mathcal{F}_s) = \frac{\partial^2}{\partial \theta^2} E(e^{\theta W_t}|\mathcal{F}_s) = \frac{\partial^2}{\partial \theta^2} e^{\frac{1}{2} \theta^2(t-s)}e^{\theta W_s} \\
@@ -251,6 +251,6 @@ E(W^2_t e^{\theta W_t}| \mathcal{F}_s) &= E(\frac{\partial^2}{\partial \theta^2}
 &= \left((t-s) + (W_s + \theta (t-s))^2 \right)e^{\frac{1}{2} \theta^2(t-s)}e^{\theta W_s}
 \end{align*}
 $$
-** Q.E.D ** 
+**Q.E.D ** 
 
 
