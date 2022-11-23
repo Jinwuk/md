@@ -384,6 +384,8 @@ $$
 
   -  여기서 comma가 $i$ 앞에 붙은 것은 $\theta^i$로 편미분 하였다는 의미이다. 
 
+  
+
 
 ## Christoffel Symbols, Representation of the Covariant Derivatives 
 
