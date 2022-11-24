@@ -63,6 +63,7 @@ $$
   $$
   \begin{equation}
   \mathbf{g}_k = \frac{\partial \mathbf{r}}{\partial \theta^k}, \quad k=1, 2, \cdots n
+  \label{eq-2.27}
   \end{equation}
   $$
   are called the **Tangent vectors to the cooresponding $\theta^k$ coordinate line** .
@@ -371,25 +372,275 @@ $$
   grad \; \mathbf{A}= \frac{\partial \mathbf{A}}{\partial \mathbf{\theta}^i} \otimes \mathbf{g}^i
   \end{equation}
   $$
+  - 즉,  $\frac{\partial \mathbf{x}}{\partial \mathbf{\theta}^i}$ 자체는 Vector 이다.  마찬가지로 $\frac{\partial \mathbf{A}}{\partial \mathbf{\theta}^i}$ 자체는 Tensor 이다. Vector or Tensor에 scalar $\theta^i$ 로 편미분을 하였으므로.
+  
   Henceforth, the derivarives of the functions $\Phi = \Phi(\theta^1, \theta^2, \cdots \theta^n), \; \mathbf{x} = \mathbf{x}(\theta^1, \theta^2, \cdots \theta^n), \; \mathbf{A} = \mathbf{A}(\theta^1, \theta^2, \cdots \theta^n)$  with respect to curilinear coordinates $\theta^i$ will be denoted shortly, by 
   $$
   \begin{equation}
-  \Phi_{, i}       = \frac{\partial \Phi}{\partial \theta^i}, \; 
-  \mathbf{x}_{, i} = \frac{\partial \mathbf{x}}{\partial \theta^i}, \;
-  \mathbf{A}_{, i} = \frac{\partial \mathbf{A}}{\partial \theta^i}
-  \label{eq-2.61}
-  \end{equation}
+    \Phi_{, i}       = \frac{\partial \Phi}{\partial \theta^i}, \; 
+    \mathbf{x}_{, i} = \frac{\partial \mathbf{x}}{\partial \theta^i}, \;
+    \mathbf{A}_{, i} = \frac{\partial \mathbf{A}}{\partial \theta^i}
+    \label{eq-2.61}
+    \end{equation}
   $$
   
 
-  -  여기서 comma가 $i$ 앞에 붙은 것은 $\theta^i$로 편미분 하였다는 의미이다. 
-
+  -  여기서 **comma가 $i$ 앞에 붙은 것은 $\theta^i$로 편미분** 하였다는 의미이다. 
   
+- **Gradient**는 **Covariant Transformation rule**을 따른다. 다음과 같이
+    $$
+    \begin{equation}
+    \frac{\partial \Phi}{\partial \theta^i} = \frac{\partial \Phi}{\partial \bar{\theta}^k} \frac{\partial \bar{\theta}^k}{\partial \theta^i}, \quad
+
+    \frac{\partial \mathbf{x}}{\partial \theta^i} = \frac{\partial \mathbf{x}}{\partial \bar{\theta}^k} \frac{\partial \bar{\theta}^k}{\partial \theta^i}, \quad
+
+    \frac{\partial \mathbf{A}}{\partial \theta^i} = \frac{\partial \mathbf{A}}{\partial \bar{\theta}^k} \frac{\partial \bar{\theta}^k}{\partial \theta^i}
+    \label{eq-2.62}
+    \end{equation}
+    $$
+
+### Differential Operator를 Index에 표기하는 경우, Representation 
+
+- $(\cdot) \vert_i$ denotes some differential operator on the components of the vector $\mathbf{x}$ or the tensor $\mathbf{A}$. 
+- differential operator $(\cdot) \vert_i$를 사용할 경우 위에서 vector나 Tensor에는 comma를 붙였다. 이를 사용하여 먼저 Vector의 Gradient를표현해보면
+	$$
+	\begin{equation}
+	\begin{aligned}
+	\mathbf{x}_{, i} = x^j\vert_i \mathbf{g}_j = x_j\vert_i \mathbf{g}^j
+	\end{aligned}
+	\end{equation}
+	$$
+
+- 이것은 이렇게 생각하면 된다.  식 $\eqref{eq-2.61}$ 에서, $\mathbf{x}= x^j \mathbf{g}_j$ 라 놓으면  
+    $$
+    \begin{equation}
+    \mathbf{x}_{, i} 
+    = \frac{\partial \mathbf{x}}{\partial \theta^i}
+    = \frac{\partial x^j}{\partial \theta^i} \mathbf{g}_j
+    \triangleq x^j \vert_{i} \mathbf{g}_j
+    \label{eq-my01}
+    \end{equation}
+    $$
+
+- 그러므로 Tensor $\mathbf{A}$ 의 경우 
+    $$
+    \begin{equation}
+    \mathbf{A}_{, i} 
+    = A^{kl}\vert_{i} \mathbf{g}_k \otimes \mathbf{g}_l 
+    = A_{kl}\vert_{i} \mathbf{g}^k \otimes \mathbf{g}^l
+    = A^{k}_{.l}\vert_{i} \mathbf{g}_k \otimes \mathbf{g}^l
+    \end{equation}
+    $$
+
+### Covariant Derivative 
+
+- Index $i$ 에 대한 covariant rule $\eqref{eq-2.62}$ 을 **Covariant Derivative** 라고 한다. 즉 $\eqref{eq-my01}$ 를 말한다.
+  $$
+  \mathbf{x}_{, i} 
+  = \frac{\partial \mathbf{x}}{\partial \theta^i}
+  = \frac{\partial x^j}{\partial \theta^i} \mathbf{g}_j
+  \triangleq x^j \vert_{i} \mathbf{g}_j
+  $$
+  
+- **Covariant derivative**는 위 식에서 보듯이 $(\cdot)\vert_{i}$ 에 대한 미분, 즉,  **coordinate system에서 아래쪽 index**에 대한 Derivetive이다.
+
+- Contravariant derivative는 반면에 위쪽 index 즉, $(\cdot) \vert^i$ 에 대한 미분이다. 즉, **Contravariant Transformation** $(\cdot) \vert^{i} = g^{ij} (\cdot) \vert_j$ 를 도입한 미분이다. 
+    $$
+    \begin{equation}
+    \begin{aligned}
+    &x^j \vert^i    = g^{ik} x^j \vert_k    &  x_j   \vert^i = g^{ik} x^j \vert_k    &    \\ 
+    &A^{kl} \vert^i = g^{im} A^{kl} \vert_m & A_{kl} \vert^i = g^{im} A_{kl} \vert_m &  A_{.l}^k \vert^i = g^{im} A_{.l}^k \vert_m 
+    \end{aligned}
+    \end{equation}
+    $$
+
+- Scalar Function의 경우 Covariant와 Contravariant 미분이 동일하다. (그래서 굳이 최적화 이론에서 이를 구별하지 않았던 것) 따라서,
+    $$
+    \begin{equation}
+    \Phi \vert_i = \Phi \vert^i = \Phi_{,i}
+    \end{equation}
+    $$
+
+- Scalar Component에 대한 미분 표시를 사용하여 Gradient를 표기하면 다음과 같다.
+	- 첫 표시가 기본형이라 생각하자.
+	- Scalar $\Phi$ 에 대한 것은 Scalar 이므로 Component index 없이 Covariant 미분 index $(\cdot) \vert_i$  혹은 contravariant 미분 index $(\cdot) \vert^i$ 만을 사용한다. 
+	-  Vector $\mathbf{x}$ 의 경우 Component index는 $x^j$ 를 기본으로 한다.
+	- Tensor $\mathbf{A}$의 경우 Component index는 $A^{kl}$ 를 기본으로 한다.
+	$$
+	\begin{equation}
+	\begin{aligned}
+	grad \; \Phi 
+	&= \Phi \vert_i \mathbf{g}^i = \Phi \vert^i \mathbf{g}_i \\
+	
+	grad \; \mathbf{x} 
+	&= x^j \vert_i \mathbf{g}_j \otimes \mathbf{g}^i 
+	 = x_j \vert_i \mathbf{g}^j \otimes \mathbf{g}^i 
+	 = x^j \vert^i \mathbf{g}_j \otimes \mathbf{g}_i 
+	 = x_j \vert^i \mathbf{g}^j \otimes \mathbf{g}_i \\
+	 
+	grad \; \mathbf{A} 
+	&= A^{kl} \vert_i   \mathbf{g}_k \otimes \mathbf{g}_l \otimes \mathbf{g}^i
+	 = A_{kl} \vert_i   \mathbf{g}^k \otimes \mathbf{g}^l \otimes \mathbf{g}^i
+	 = A_{.l}^k \vert_i \mathbf{g}_k \otimes \mathbf{g}^l \otimes \mathbf{g}^i \\
+	&= A^{kl} \vert^i 	\mathbf{g}_k \otimes \mathbf{g}_l \otimes \mathbf{g}_i
+	 = A_{kl} \vert^i   \mathbf{g}_k \otimes \mathbf{g}_l \otimes \mathbf{g}_i
+	 = A_{.l}^k \vert^i \mathbf{g}_k \otimes \mathbf{g}^l \otimes \mathbf{g}_i  
+	\end{aligned}
+	\end{equation}
+	$$
 
 
 ## Christoffel Symbols, Representation of the Covariant Derivatives 
 
+- Differential Operator for Covariant Derivatives를 만드는 것. 
 
+  - 다시말해, Tensor 표기법으로 covarinat derivatives를 표현하겠다는 것
+
+  - 임의의 **곡선 좌표계 (curvilinear sysytem)** $\theta^i = \theta^i (\mathbf{r})$ 에 대하여 ($\mathbf{r} \in \mathbb{E}^n$ 인 벡터, $\theta^i \in \mathbb{R}$ ) 
+
+  - 이떄, Tangent Vector $\mathbf{g}_i$를 식 $\eqref{eq-2.27}$ 과 같이 정의한다.
+    $$
+    \begin{equation}
+    \mathbf{g}_i = \frac{\partial \mathbf{r}}{\partial \theta^i}
+    \end{equation}
+    $$
+  - 한편 dual vector $\mathbf{g}^i$ 를 정의한다. 둘 다, $\mathbb{E}^n$ 의 Bases 이다. 
+
+### Christoffel Symbol $\Gamma_{ijk}, \; \Gamma_{ij}^k$ 
+
+- 위와 같이 Tangent vector 및 그 Dual vector로 $\mathbb{E}^n$의 bases를 놓을 때, Christoffel Symbol을 다음과 같이 정의한다. 
+	$$
+  \begin{equation}
+	\mathbf{g}_{i, j} = \Gamma_{ijk} \mathbf{g}^k = \Gamma_{ij}^k \mathbf{g}_k
+  \label{eq-2.67}
+  \end{equation}
+	$$
+	- 이것의 의미는 $\mathbf{g}_i$ 를 $\theta^j$ 에 대하여 편미분 한 것을 의미한다. 즉, Tangent Vector를 미분 했으니, Tensor가 나오고, 이를 $\mathbb{E}^n$의 Bases인 Tangent vector $\mathbf{g}_k$ 로 표시하겠다는 것이다.
+
+- Relation $\mathbf{g}^k = g^{kl} \mathbf{g}_l$ 에 의해, $\eqref{eq-2.67}$의 Christoffel 기호는 다음의 관계가 있다.
+  $$
+  \Gamma_{ij}^k = g^{kl} \Gamma_{ijl}, \quad i,j,l = 1,2, \cdots n 
+  $$
+  
+- Christoffel symbol의 특성을 살펴보기 위해 먼저 $\mathbf{g}_i$를 $\theta^j$ 로 편미분 하면 
+	$$
+	\begin{equation}
+	\mathbf{g}_{i, j} 
+	= \frac{\partial \mathbf{g}_i}{\mathbf \theta^j} 
+	= \frac{\partial}{\partial \theta^j} \frac{\partial \mathbf{r}}{\partial \theta^i} 
+	= \frac{\partial^2 {\mathbf{r}}}{\partial \theta^j \theta^i}
+	\end{equation}
+	$$
+	- 위 식만 보면 마치 3-order Tensor 같이 보이지만, 실제로는 vector $\mathbf{r}$ 에 대하여 스칼라 $\theta^i$에 대하여 미분하여 벡터가 그대로 유지되고 여기에 또 스칼라 $\theta^j$가 미분하였기 때문에 $\mathbf{g}_{i, j}$ 는 벡터다. 
+	- 그러므로
+	$$
+	\begin{equation}
+	\mathbf{g}_{i, j} = \mathbf{r}_{, ij} = \mathbf{r}_{, ji} = \mathbf{g}_{j, i}
+	\label{eq-2.69}
+	\end{equation}
+	$$
+- 이에 의해 Christoffel 기호는 다음과 같이 2차 미분과, Tangent Vector에 의해 정의되는 **order-3 Tensor index** 를 가진, **Scalar Operator**가 된다.
+	- 살펴보면, $i$번쨰 Tangent vector $\mathbf{g}_{i}$의 $\theta^j$ 에 대한 **편미분 $\mathbf{g}_{i, j}$은 벡터**이다. Component가 $\theta$ 전체가 아닌 $\theta^j$ 하나에 대해서이므로 Vector가 유지된다. ($\theta$ 전체라면 당연히 Matrix:Order-2 Tensor)
+	$$
+	\begin{equation}
+	\begin{aligned}
+	\Gamma_{ijk} = \Gamma_{jik} = \mathbf{g}_{i, j} \cdot \mathbf{g}_k = \mathbf{g}_{j, i} \cdot \mathbf{g}_k\\
+	\Gamma_{ij}^k =\Gamma_{ji}^k= \mathbf{g}_{i, j} \cdot \mathbf{g}^k = \mathbf{g}_{j, i} \cdot \mathbf{g}^k
+	\end{aligned}
+	\label{eq-2.70}
+	\end{equation}
+	$$
+	
+	- 식 $\eqref{eq-2.70}$ 에서, Christoffel 기호의 **맨 마지막 index**가 유지 되면 나머지는 바뀌어도 된다.  (2차 편미분의 분모항이므로)
+	
+- Dual basis $\mathbf{g}^i$ 에 대하여 살펴보면, 먼저 $\mathbf{g}^i \cdot \mathbf{g}_j = \delta_j^i$ 에서 이를 $\theta^k$ 에 대하여 미분하면 0 이므로
+	$$
+	\begin{equation}
+	0 
+	= (\delta_j^i)_{, k} 
+	= (\mathbf{g}^i \cdot \mathbf{g}_j)_{, k}
+	= \mathbf{g}_{, k}^i \cdot \mathbf{g}_j + \mathbf{g}^i \cdot \mathbf{g}_{j, k} 
+	= \mathbf{g}_{, k}^i \cdot \mathbf{g}_j + \mathbf{g}_i \cdot \Gamma_{jk}^l \mathbf{g}_l 
+	= \mathbf{g}_{, k}^i \cdot \mathbf{g}_j + \Gamma_{jk}^i
+	\end{equation}
+	$$
+	- **Notice !!** 그러므로 다음의 관계가 성립한다. 
+	$$
+	\begin{equation}
+	\Gamma_{jk}^i 
+	= - \mathbf{g}_{, k}^i \cdot \mathbf{g}_j 
+	= - \mathbf{g}_{, j}^i \cdot \mathbf{g}_k
+	= \Gamma_{kj}^i, \quad i, j, k= 1, 2,  \cdots , n
+	\label{eq-2.72}
+	\end{equation}
+	$$
+	- 그러므로 
+	$$
+	\begin{equation}
+	\Gamma_{jk}^i = - \mathbf{g}_{, k}^i \cdot \mathbf{g}_j 
+	\implies
+	\mathbf{g}_{, k}^i \cdot \mathbf{g}_j \cdot \mathbf{g}^j= - \Gamma_{jk}^i \mathbf{g}^j
+	\implies
+	\mathbf{g}_{, k}^i = - \Gamma_{jk}^i \mathbf{g}^j = - \Gamma_{kj}^i \mathbf{g}^j
+	\label{eq-2.73}
+	\end{equation}
+	$$
+- 또한 $g_{ij} \mathbb{R}$ 은 $g_{ij} = \mathbf{g}_i \cdot \mathbf{g}_j$ 에서
+    $$
+    \begin{equation}
+	{g_{ij}}_{, k}
+	= (\mathbf{g}_i \cdot \mathbf{g}_j)_{, k} 
+	= \mathbf{g}_{i, k} \cdot \mathbf{g}_j + \mathbf{g}_i \cdot \mathbf{g}_{j, k}
+	= \Gamma_{ikj} + \Gamma_{jki}
+    \label{eq-2.74}
+    \end{equation}
+    $$
+	- 또한 $\eqref{eq-2.74}$ 에서 보듯이 $g_{ij, k}$는 미분 index $k$를 사이에 두고 두개의 Christoffel 기호가 더해져서 구해진다. 이를 사용하여 $\Gamma_{ijk}$ 를 구해보면 
+	$$
+	\begin{equation}
+	\begin{aligned}
+	g_{ij, k} &= \Gamma_{ikj} + \Gamma_{jki}  = \Gamma_{ikj} + \Gamma_{kji}\\
+	g_{kj, i} &= \Gamma_{kij} + \Gamma_{jik}  = \Gamma_{ikj} + \Gamma_{ijk}\\	
+g_{ki, j} &= \Gamma_{kji} + \Gamma_{ijk}  \\	
+	\end{aligned}
+	\implies 
+	\begin{aligned}
+	(g_{ki, j} + g_{kj, i} - g_{ij, k}) 
+	&= \Gamma_{kji} + \Gamma_{ijk} + \Gamma_{ikj} + \Gamma_{ijk} -\Gamma_{ikj} - \Gamma_{kji} \\
+	&= 2 \Gamma_{ijk}  \end{aligned}
+	\end{equation}
+	$$
+	
+	- 그러므로
+	$$
+	\begin{equation}
+    \begin{aligned}
+	\Gamma_{ijk}  &= \frac{1}{2} (g_{ki, j} + g_{kj, i} - g_{ij, k}) \\
+	\Gamma_{ij}^k &= \frac{1}{2} g^{kl} (g_{li, j} + g_{lj, i} - g_{ij, l}) \\
+	\end{aligned}
+	\label{eq-2.75}
+	\end{equation}
+	$$
+	
+	- 식 $\eqref{eq-2.75}$ 에서 Cartesian coordinate 에서 Christoffel 기호는 Vanish 되어 버린다. 왜냐하면, Cartesian basis는
+	  $$
+	  \begin{equation}
+	  \mathbf{r} = x^i \mathbf{e}_i
+	  \end{equation}
+	  $$
+	  이므로  정의에 의해 Cartesian coordinate system에서 Tangent vector는 
+	  $$
+	  g_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j = \delta_{ij}
+	  $$
+	  따라서 $g_{ik} = \delta_{ik}$를 $\theta_j$  로 미분해야 얻을 수 있는 $g_{ik, j} = 0$ 이 되므로 
+	  $$
+	  \Gamma_{ijk} = \Gamma_{ij}^k = 0, \quad i,j,k=1, 2, \cdots n
+	  $$
+	  
+	
+	  
+	
+	   
 
 
 
