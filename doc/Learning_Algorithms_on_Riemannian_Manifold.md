@@ -199,7 +199,7 @@ $J_2$의 경우 $t=0$에서는 그 어떤 속도벡터도 존재하지 않으므
 
 이에따라 the gradient of the sum of squares energy 는 다음과 같다.
 
-** The gradient of the sum of squares energy **
+**The gradient of the sum of squares energy **
 
 $$
 \begin{align}
@@ -307,7 +307,7 @@ Unit 3-sphere manifold $S^2 \subset \mathbb{R}^3$ 을 생각한다.
 
 $$
 \text{Exp}_{p_0}(v) = \left( v_x \cdot \frac{\sin \| v \|}{\| v \|}, v_y \cdot \frac{\sin \|v\|}{\| v \|}, \cos \|v\| \right)^T
-$$ 
+$$
 
 - 여기에 대한 Log Map for $q = (q_x, q_y, q_z)^T \in S^2$ 은 다음과 같다. $\beta = \arccos(q_z)$ 이다,
 
@@ -407,7 +407,7 @@ $$
 
 $$
 w_i (t+1) = \text{Exp}_{w_i (t)} \left( \frac{\tau}{\sum_{j=1}^{K} w_{ji}} \sum_{j=1}^K w_{ji} \text{Log}_{w_i(t)}(\bar{x}_j) \right) 
-$$ 
+$$
 
 - **Initialization of Weight vector**
 	- 임의로 2개의 입력 벡터 $x, y$를 선택한다.
@@ -456,7 +456,7 @@ $$
 Euclidean Space상에서의 Covariance를 다음과 같이 간략하게 놓으면 
 $$
 \sigma^2 = \mathbb{E}(x - \mu)^2
-$$ 
+$$
 다양체 위에서는 다음과 같이 표현된다.
 $$
 \sigma^2 = \mathbb{E} d(\mu, x)^2
@@ -499,11 +499,12 @@ $$
 - Geodesic Submanifold에서의 Tangent Space는 Orthonormal basis $v_1, \cdots , v_d \in T_{\mu} M$으로 Span 된다.
 - Vector Space $V_k = \text{span}(\{ v_1, \cdots , v_d \}) \cap U$ 이다.
 - 이때, Geodesic Submanifold $H_k$는 $H_k = \text{Exp}_{\mu}(V_k)$ 로 정의된다.
-   
+  
+
 위 조건하에서 첫번쨰 Principoal Direction은 다음으로 정의한다.
 $$
 v_1 = \arg \max_{\| v \| = 1} \sum_{i=1}^N \| \text{Log}_{\mu}(\pi_H(x_i)) \|^2
-$$   
+$$
 where
 $$
 H = \text{Exp}_{\mu} (\text{span}(\{ v \}) \cap U).
@@ -662,9 +663,10 @@ $$
    - Python과 Tensorflow를 응용하여 실험 데이터 생성 중 
    - 현재 두 개의 서로 다른 $(x, y)$ 분산을 가지는 실험 데이터 생성, Plotting까지 진행
    
+
 ![Fig_Ai06](http://jnwhome.iptime.org/img/AI/Idea06.png)
-  
-   
+
+
    - 간단한 Classification 을 위한 Competitive Learning 알고리즘 구현 중
       - Simple Competitive Learning
       - Learning Vector Quantization 

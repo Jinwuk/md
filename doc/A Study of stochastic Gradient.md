@@ -298,7 +298,11 @@ $$
 만일 Manifold $M$의 Metric tensor가 $G = [g_{ij}]$ 로 주어질 경우 (Inverse는 $G^{-1} = [g^{ij}]$ )
 
 $$
-\frac{\partial p(x|y,t)}{\partial t} = - |G|^{-\frac{1}{2}}\sum_{i=1}^n \frac{\partial}{\partial x_i}(|G|^{\frac{1}{2}}h_i(x_t)p(x|y,t)) + \frac{1}{2} |G|^{-\frac{1}{2}}\sum_{i,j=1}^n \frac{\partial^2}{\partial x_i \partial x_j} |G|^{\frac{1}{2}}\left( \sum_{k=1}^m H_{ik}(x_t) H_{kj}^T(x_t) p(x|y,t)\right)
+\begin{aligned}
+\frac{\partial p(x|y,t)}{\partial t} 
+&= - |G|^{-\frac{1}{2}}\sum_{i=1}^n \frac{\partial}{\partial x_i}(|G|^{\frac{1}{2}}h_i(x_t)p(x|y,t)) \\
+&+ \frac{1}{2} |G|^{-\frac{1}{2}}\sum_{i,j=1}^n \frac{\partial^2}{\partial x_i \partial x_j} |G|^{\frac{1}{2}}\left( \sum_{k=1}^m H_{ik}(x_t) H_{kj}^T(x_t) p(x|y,t)\right)
+\end{aligned}
 $$
 
 그러나 일반적인 SDE의 경우 Manifold 위에서의 일반적인 Martingale항을 정의하는 것은 대단히 어렵다. 그 이유는 $dW_t$ 가 일반적인  Manifold 위에 어떻게 정의 되는가 자체가 어렵기 때문이다. 일단, Manifold 위의 Tangent Space상의 Wiener Process중, Orthogonal Component는 없다고 가정하고, Horizontal 성분만 있다고 가정해도 Wiener Process에 대한 정의를 내리기 위해서 Geodesic위에서 먼저 Horizontal Vector Field를 정의하여야 Local coordinates 자체를 정의할 수 있다. 즉, 
