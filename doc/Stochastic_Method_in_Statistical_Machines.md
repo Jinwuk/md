@@ -1,23 +1,30 @@
 Stochastic Method in Statistical Machines
 =========================================
 [TOC]
+
 ## Simple Associative Memory
 
 Assume that $x^i \in \mathbb{R}^n$ is Input or **Visible Vector** and $x^j \in \mathbb{R}^n$ is a **Hidden vector**.
 In addition, the Visible and Hidden vector, in which each component has a value $+1, -1$, is normal vector such that $\left\| x^k \right\| = 1$, for instance
 $$
+\begin{equation}
 x^k = \frac{1}{\sqrt{N}}(1, -1, 1, -1 \cdots , 1)^T. 
+\end{equation}
 $$
 
 Let Weight matrix  $W = [w_{kl}]$ such that
 
 $$
-W = x_j x_i^T \;\;\textit{where}\;\; w_{kl} = x_k^j x_l^i.
+\begin{equation}
+W = x_j x_i^T   \~  \textit{where}  \~   w_{kl} = x_k^j x_l^i.
+\end{equation}
 $$
 
 Then
 $$
-W x_i = (x^j {x^i}^T) x^i = x^j ({x^i}^T x^i) = x^j \;\; \because \left\| x^k \right\| = 1
+\begin{equation}
+W x_i = (x^j {x^i}^T) x^i = x^j ({x^i}^T x^i) = x^j, \~  \because \left\| x^k \right\| = 1
+\end{equation}
 $$
 
 ### Auto Associative Memory
@@ -31,7 +38,7 @@ $$
 
 The formation of associative memory for a non-normalized vector is 
 $$
-f(x) = Wx + \Theta \;\;\textit{where}\;\; f(x)\in \mathbb{R}^n
+f(x) = Wx + \Theta     \textit{where}     f(x)\in \mathbb{R}^n
 $$
 The other formulation is
 $$
@@ -52,7 +59,7 @@ $$
 It menas that each component of visible and hiddnen vector is +1 or 0 i.e. $x_k^i \in \{1, 0 \}$
 Under the condition, the weight matrix is evaluated as follows:
 $$
-W = (2x^j - I^n)(2x^i -I^n)^T \;\;\textit{where}\;\;W_{kl} = (2x_k^j - 1)(2x_l^i - 1)
+W = (2x^j - I^n)(2x^i -I^n)^T     \textit{where}    W_{kl} = (2x_k^j - 1)(2x_l^i - 1)
 $$
 where $I^n \in \mathbb{R}^n$ is defined as $I^n = (1, 1, \cdots 1)^T$.
 Since $x^i, x^j, I^n \in \mathbb{R}^n$, the law of associative is eatablished such that $x^i (x^z + I^n)^T = x_i {x^Z}^T + x_i + {I^n}^T$
@@ -62,12 +69,12 @@ W = 4x^j {x^i}^T - 2x^j {I^n}^T - 2I^n{x^i}^T + I^{n \times n}
 $$
 where $I^{n \times n}$ is a matrix of which components are all one.
 $$
-\begin{align}
+\begin{aligned}
 W x^i &= 4 x^j {x^i}^T x^i - 2 x^j {I^n}^T x^i - 2I^n{x^i}^T x^i + I^{n \times n} x^i\\
 &= 4 (\sum_{l=1}^n x_l^i) x^j  - 2 (\sum_{l=1}^n x_l^i)x^j - 2 (\sum_{l=1}^n x_l^i) I^n + (\sum_{l=1}^n x_l^i) I^n \\
 &= 2 (\sum_{l=1}^n x_l^i) x^j  - (\sum_{l=1}^n x_l^i) I^n \\
 &= (\sum_{l=1}^n x_l^i)\cdot(2 x^j - I^n)
-\end{align}
+\end{aligned}
 $$
 The above equation can be represented as follows
 $$
@@ -79,20 +86,20 @@ Threshold is not a key component which can decide the result of associative memo
 By Definition of threshold, we can obtain
 
 $$
-\begin{align}
+\begin{aligned}
 \theta_k &= -\frac{1}{2} \sum_{l=1}^n w_{kl} = -\frac{1}{2}  \sum_{l=1}^n (2x_k^j - 1)(2x_l^i - 1) \\
 &= -\frac{1}{2} (2x_k^j - 1)(\sum_{l=1}^n 2x_l^i - \sum_{l=1}^n 1) \\
 &= -\frac{1}{2} (2x_k^j - 1)(\sum_{l=1}^n 2x_l^i - n)\\
 &=  -(\sum_{l=1}^n x_l^i)(2x_k^j - 1) + \frac{n}{2}(2x_k^j - 1)\\
-\end{align}
+\end{aligned}
 $$
 Therefore, when the threshold is applied to the result of binary associative memory, it is represented as follows:
 $$
-\begin{align}
+\begin{aligned}
 f(x^i)_k &=  \sum_{l=1}^n w_{kl} x_l^i + \theta_k\\
 &= (\sum_{l=1}^n x_l^i)\cdot(2 x_k^j - 1) - (\sum_{l=1}^n x_l^i)(2x_k^j - 1) + \frac{n}{2}(2x_k^j - 1) \\
 &= \frac{n}{2}(2x_k^j - 1) \\
-\end{align}
+\end{aligned}
 $$
 Consequently, the threshold makes the results to be independent on the summation of the components in a visible vector.
 
@@ -102,16 +109,16 @@ $$
 W = \sum_{m \in \mathcal{T}} (2 x^{m} - 1) (2 x^{m} - 1)^T.
 $$
 
-Let $y^k = \frac{1}{\sqrt{n}}(2x^k - I^n)$. Assume that the input vectors are mutually orthonormal such that $\forall y^i \perp y^j \in \mathbb{R}^n, \;\; \forall i, j \in \mathcal{T}$.
+Let $y^k = \frac{1}{\sqrt{n}}(2x^k - I^n)$. Assume that the input vectors are mutually orthonormal such that $\forall y^i \perp y^j \in \mathbb{R}^n,      \forall i, j \in \mathcal{T}$.
 The result of the auto associative memory is evaluated as
 
 $$
-\begin{align}
+\begin{aligned}
 W x^n &= \sum_{m \in \mathcal{T}} (2 x^{m} - I^n) (2 x^{m} - I^n)^T x^n \\
 &= n \sum_{m \in \mathcal{T}} y^m {y^m}^T \frac{1}{2}(\sqrt{n}y^n + I^n) \\
 &= \frac{n}{2} \left(\sqrt{n} \sum_{m \in \mathcal{T}} y^m {y^m}^T y^n + \sum_{m \in \mathcal{T}} y^m {y^m}^T I^n \right)  \\
 &= \frac{n}{2} \left(\sqrt{n} y^n + \sum_{m \in \mathcal{T}} (\sum_{l=1}^n y_l^m) y^m \right) 
-\end{align}
+\end{aligned}
 $$
 where $n \neq m$, $\forall n \in \mathcal{T}$.
 The second part of the right term in the equation is **perturbation term** raised by multiple vectors, in spite of the assumption of which all the vectors are mutually othogonal. 
@@ -122,11 +129,11 @@ $$
 $$
 Thus
 $$
-\begin{align}
+\begin{aligned}
 f_k(x^n) &= \sum_{l=1}^n w_{kl} x_l^n + \theta_k \\
 &= \frac{n}{2} \left(\sqrt{n} y_k^n + \sum_{m \in \mathcal{T}} (\sum_{l=1}^n y_l^m) y_k^m \right) - \frac{n}{2} \sum_{m \in \mathcal{T}} (\sum_{l=1}^n y_l^m) y_k^m \\
 &=\frac{n \sqrt{n}}{2} y_k^n
-\end{align}
+\end{aligned}
 $$
 Threshold를 통해 Perturbation 항을 없애 버릴 수 있다. 그리고 출력은 $y_k^n \in \{-1, 1 \}$ 이므로 이를 $ \mathbb{R}[0,1]$ 에 매핑시키는 함수 $h(x) : \mathbb{R} \rightarrow \mathbb{R}[0,1]$ 로 Compactification 시키면 된다.
 한 예가 Sigmoid Function 혹은 Fermi-Dirac 분포함수이다.
@@ -176,10 +183,10 @@ ans =   1   0   1   0   1   0   1   0   1
 ### 기본 알고리즘
 For $x(t) \in \mathbb{R}^n (0, 1)$, $\forall t > 0$ 
 $$
-\begin{align}
+\begin{aligned}
 f_j(x(t)) &= \sum_i w_{ji} x_i(t) + \theta_j \\
 x(t+1) &= h(f(x(t)) = \frac{1}{1+ \exp (- \lambda f(x(t)))}
-\end{align}
+\end{aligned}
 $$
 where $h(x) : \mathbb{R}^n \rightarrow \mathbb{R}^n(0,1)$
 
@@ -199,10 +206,10 @@ $$
 따라서, 다음과 같이 Energy 함수를 정의하자.
 
 $$
-\begin{align}
+\begin{aligned}
 E(t) &= -\frac{1}{2} \langle f(x(t)), x(t) \rangle = -\frac{1}{2} \sum_j f_j (x(t)) x_j(t) = -\frac{1}{2} \sum_j (\sum_i w_{ji} x_i(t) + \theta_j) x_j(t) \\
 &= -\frac{1}{2} \sum_j \sum_i w_{ji} x_i(t) x_j(t) - \sum_j \theta_j x_j(t)
-\end{align}
+\end{aligned}
 $$
 
 - 이렇게 Energy 함수를 정의하고 Feedback이 들어갈 경우, 시간에 대한 Energy 함수의 변화를 분석하여 과연, 올바른 출력을 낼 수 있는지를 알아봐야 한다.
@@ -220,10 +227,10 @@ $$
 그리고,
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial E(t)}{\partial x_j}  = -f_j(x)  = -\sum_i w_{ji} x_i(t) - \theta_j \\
 \nabla E(x(t)) = f(x) = - W x - \theta
-\end{align}
+\end{aligned}
 $$
 이므로 
 
@@ -241,7 +248,7 @@ $$
 
 예제로 든 **Associative Mempory** 문제는 하나의 다음과 같이 치환해도 동일하다.
 $$
-\max_{x \in \mathbb{R}^n} h(x) \;\;\; \textit{subject to} \;\; x=0 \\
+\max_{x \in \mathbb{R}^n} h(x)        \textit{subject to}      x=0 \\
 \implies \max_{x \in \mathbb{R}^n} h(x) + \lambda x \implies \min_{x \in \mathbb{R}^n} - (x^T W x + \lambda x)
 $$
 where $h(x) = x^T W x$ and $\lambda = \theta$.
@@ -289,7 +296,7 @@ $$
 Metropolis Algorithm은 Temperature가 고정되어 있다. 그래서 너무 낮으면 Deterministic 한 알고리즘이 되고 너무 높으면 수렴성에 문제가 생긴다. 따라서 시행때 마다 점차 낮아지는 Temperature를 도입해야 한다 such that $T \downarrow 0$. 그러면 어떠한 스케줄로 할 것인가?.
 
 $$
-T_k = \alpha T_{k-1}, \;\; \forall k \in \mathbb{Z}^+
+T_k = \alpha T_{k-1},      \forall k \in \mathbb{Z}^+
 $$
 where $\alpha \in [0.8, 0.99]$ 충분히 큰 $T_0$ 에서 이러한 형식으로 $T_k$를 줄여 나가면 Simulated Annealing 이다. 
 
@@ -328,7 +335,7 @@ $$
 ### Stochastic  Gradient Descent
 Consider the following Langevine equation
 $$
-dX_t = - \nabla E(X_t) dt + \sqrt{2T(t)} dW_t, \;\;\;\forall t \geq 0    \tag{1}
+dX_t = - \nabla E(X_t) dt + \sqrt{2T(t)} dW_t,       \forall t \geq 0    \tag{1}
 $$
 where $T(t) = \frac{T_0}{ln (2+t)}$
 이것의 해는 다음 Probability Density에 비례한다. (Gibbs' Distribution or Boltzmann Distribution)
@@ -340,55 +347,55 @@ where $Z = \int_{-\infty}^{\infty} \exp (\frac{-\nabla E(x)}{T(t)}) dx $
 ### Discrete Version of Stochastic  Gradient Descent
 From the equation (1)
 $$
-\int_{X_t}^{X_{t+1}} dX_t = \int_{t}^{t+1} -\nabla E(X_t) dt + \int_{t}^{t+1} \sqrt{2T(t)}dW_t \;\; \forall t \geq 0
+\int_{X_t}^{X_{t+1}} dX_t = \int_{t}^{t+1} -\nabla E(X_t) dt + \int_{t}^{t+1} \sqrt{2T(t)}dW_t      \forall t \geq 0
 $$
 Assume that there exist a parametrized curve $\alpha(t) \in \mathbb{R}(0,1)$ such that 
 $$
-\begin{align}
+\begin{aligned}
 E(x(t+1)) - E (x(t)) &= \langle -\nabla E(x(t)), x(t) \rangle \\ 
 & + \int_0^1 (1-s) \langle \alpha(t) \nabla E(x(t)), \nabla^2 E(x(t) - s \alpha(t) \nabla E(x(t))) \cdot \alpha(t) \nabla E(x(t)) \rangle ds \\
 &= -\langle \nabla E(x(t)), x(t) \rangle\\
 &+ \alpha^2(t) \int_0^1 (1-s) \langle \nabla E(x(t)), \nabla^2 E(x(t) - s \alpha(t) \nabla E(x(t))) \cdot \nabla E(x(t)) \rangle ds < 0
-\end{align}
+\end{aligned}
 $$
 이러한 조건 하에서 for large $t > 0$ such that $\sqrt{2T(t+1)} \approx \sqrt{2T(t)}$
 $$
-X_{t+1} - X_t =  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}(W_{t+1} - W_t) \;\; \forall t \geq 0
+X_{t+1} - X_t =  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}(W_{t+1} - W_t)      \forall t \geq 0
 $$
 따라서
 $$
-X_{t+1} = X_t  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}N_{t} \;\; \forall t \geq 0 \;\;\; \tag{2}
+X_{t+1} = X_t  - \alpha(t) \nabla E(X_t) + \sqrt{2T(t)}N_{t}      \forall t \geq 0        \tag{2}
 $$
 여기서 $N_t$는 평균 0, 분산 $t$ 인 Gaussion 분포를 따르는 Random Variable 이다. 
 
 #### Note
 에너지 함수 $E(x) \in \mathbb{R}$ 가 만일 Quadratic 한 형태라면 이것의 Lapalacian은 Hessian 이 되고 이 Hessian이 Positive defienite 이고 이것의 Supremum 이 $M \in \mathbb{R}$ 이라 한다면 $\langle x, \nabla^2 E(y)x \rangle < \|x\|^2 \cdot M$ 이므로 
 $$
-E(x(t+1)) - E (x(t)) < -\langle \nabla E(x(t)), x(t) \rangle + \alpha^2(t) \frac{1}{2} \|\nabla E(x(t))\|^2 \cdot M < 0,  \;\; \forall t > 0
+E(x(t+1)) - E (x(t)) < -\langle \nabla E(x(t)), x(t) \rangle + \alpha^2(t) \frac{1}{2} \|\nabla E(x(t))\|^2 \cdot M < 0,       \forall t > 0
 $$
 이를 만족할 수 있는 $\alpha(t)$를 잘 찾아야 한다.
 
 ### Generalized Discrete Stochastic Gradient
 ##### Including random sequence version
 $$
-X_{t+1} = X_t - \alpha(t) \left( \nabla E(X(t)) + \xi_t \right) + b(t) N_t \;\;\; \tag{3}
+X_{t+1} = X_t - \alpha(t) \left( \nabla E(X(t)) + \xi_t \right) + b(t) N_t        \tag{3}
 $$
 where $\{\xi_t \in \mathbb{R}^n\}$ is a sequence of random vectors due to noisy or imprecise measurement of the gradient measurement
 
 ##### excluding random sequence version
 $$
-X_{t+1} = X_t - \alpha(t) \nabla E(X(t)) + b(t) N_t \;\;\; \tag{4}
+X_{t+1} = X_t - \alpha(t) \nabla E(X(t)) + b(t) N_t        \tag{4}
 $$
 Typically, for large $t$
 $$
-\alpha(t) = \frac{A}{t+1},\;\;\;b_t^2 = \frac{B}{t \ln \ln t} 
+\alpha(t) = \frac{A}{t+1},      b_t^2 = \frac{B}{t \ln \ln t} 
 $$
 여기서, $b_t$ 항은 Iterative Logarithm과 연결된다. 즉, $\lim_{t \rightarrow \infty} \frac{B_t}{\sqrt{t \ln \ln t}} = \pm 1$. 그러므로 적절히 $B$ 값을 선택하여 Simulated Annealing의 효과가 나타날 수 있도록 하여야 한다.
 
 ### Stochastic Gradient Descent (SGD) in Machine Learning
 The object or energy function is a sum of **Loss function** $E_i (x)$ for a feasible data set $A$ such that
 $$
-E(x) \triangleq \frac{1}{N} \sum_{i=1}^{N} E_i (x), \;\;\; E_i(x) \triangleq f(x^i) \;\;\; x = \{x^i | x^i \in A \}
+E(x) \triangleq \frac{1}{N} \sum_{i=1}^{N} E_i (x),        E_i(x) \triangleq f(x^i)        x = \{x^i | x^i \in A \}
 $$
 ##### Standard (or Batch) SGD
 $$
@@ -401,11 +408,11 @@ E_i (x) = \mathbb{E}_A E_i(x) + \xi_i
 $$
 Assume that the random vector $\xi_i \in \mathbb{R}$ is a random process then,
 $$
-\begin{align}
+\begin{aligned}
 X_{t+1} &= X_t - \eta \frac{1}{N} \sum_{i=1}^{N} \nabla E_i(X_t) = X_t - \eta \frac{1}{N} \sum_{i=1}^{N} \nabla (\mathbb{E}_A E_i(X_t) + \xi_i) \\
 &= X_t - \eta \frac{1}{N} \sum_{i=1}^{N} (\mathbb{E}_A \nabla E_i(X_t) + \bar{\xi}_i )= X_t - \eta \frac{1}{N} N \cdot \mathbb{E}_A \nabla E_i(X_t) + \eta \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i \\
 &= X_t - \eta \cdot \mathbb{E}_A \nabla E_i(X_t) + \eta \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i 
-\end{align}
+\end{aligned}
 $$
 For sufficiently large $N$, suppose that the random variable $B_t = \frac{1}{N} \sum_{i=1}^N \bar{\xi}_i \in \mathbb{R}^n$ has a zero mean and a variance $\sigma \in \mathbb{R}^{n \times n}$ by the **Strong Law of Large Numbers**, it can be rewritted as 
 $$
@@ -431,15 +438,15 @@ However, the generalized Discrete Stochastic Gradients converges more strongly a
 수렴성 증명은 개발한 알고리즘의 Stability, Consistency, Well-defined, 특성을 보이기 위함이다. 수렴성 증명이 완벽하지 않으면 보통의 경우 최적화 알고리즘은 다운(!) 된다. 수렴성 증명을 통해 수렴 속도 분석도 가능하다. (Linear/exponential)
 ### Asymptotically Convergence (For General Sequence)
 $$
-\lim_{n \rightarrow \infty} x_n = c \;\;\textit{iff}\;\;\forall \epsilon > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow |x_n - c | <\epsilon 
+\lim_{n \rightarrow \infty} x_n = c     \textit{iff}    \forall \epsilon > 0, \exists n_0 \in N, \textit{such that}     n > n_0 \Rightarrow |x_n - c | <\epsilon 
 $$
 ### Strong Convergence (Convergence almost surely)
 $$
-P(\lim_{n \rightarrow \infty} x_n = X) = 1,\textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; P(\sup_{n \geq n_0} |x_n - X| \geq \epsilon) < \eta, \;\;(\therefore P(\sup_{n \geq n_0} |x_n - X| < \epsilon) > 1 - \eta)
+P(\lim_{n \rightarrow \infty} x_n = X) = 1,\textit{iff}     \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}     P(\sup_{n \geq n_0} |x_n - X| \geq \epsilon) < \eta,     (\therefore P(\sup_{n \geq n_0} |x_n - X| < \epsilon) > 1 - \eta)
 $$
 ### Weak Convergence (Convergence in Probability)
 $$
-P(|x_n - X| > \epsilon) \rightarrow 0, \textit{iff}\;\; \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}\;\; n > n_0 \Rightarrow P(|x_n - X | \geq \epsilon ) \leq  \eta, \;\; (\therefore P(|x_n - X | < \epsilon ) > 1 - \eta)
+P(|x_n - X| > \epsilon) \rightarrow 0, \textit{iff}     \forall \epsilon, \eta > 0, \exists n_0 \in N, \textit{such that}     n > n_0 \Rightarrow P(|x_n - X | \geq \epsilon ) \leq  \eta,      (\therefore P(|x_n - X | < \epsilon ) > 1 - \eta)
 $$
 ### Convergence in Distribution (가장 약한 수렴)
 분포함수열 $F_n(x) \rightarrow F(x)$. 만일, $X_n$이 대응하는 분포함수 $F_n$을 가지고 이것이 $F_n(x) \rightarrow F(x)$를 만족하면 $X_n$ 은 $X$로 분포수렴한다고 한다.
@@ -450,7 +457,7 @@ $$
 ### Example 
 Proof of Convergence for Simple LMS Algorithm such that
 $$
-W_{k+1} = W_k + \frac{1}{k}(X_k -W_k), \;\;\;W_0 = 0
+W_{k+1} = W_k + \frac{1}{k}(X_k -W_k),       W_0 = 0
 $$
 for the i.i.d. process $\{X_k\}$ with the **zero mean** and the variance $\sigma$, such as $\mathbb{E}(X_i, X_j) = 0$ for $i \neq j$. Rewrite the above equation 
 $$
@@ -462,10 +469,10 @@ W_k = \frac{1}{k} \sum_{i=1}^{k-1} X_i
 $$
 For the Chebyshev inequality, it is necessry to ecaluate the mean and variance of $W_k$ such that
 $$
-\begin{align}
+\begin{aligned}
 \mathbb{E}(W_k) &= \mathbb{E}(\frac{1}{k} \sum_{i=1}^{k-1} X_i) = \frac{1}{k} \sum_{i=1}^{k-1} \mathbb{E}(X_i) = 0 \\
 \mathbb{E}(W_k - \mathbb{E}(W_k))^2 &= \frac{1}{(k-1)^2} \mathbb{E}(\sum_{i=1}^{k-1} X_i \sum_{i=j}^{k-1} X_j ) = \frac{(k-1)\sigma^2}{(k-1)^2}
-\end{align}
+\end{aligned}
 $$
 For arbitrary $\varepsilon > 0$, by the Chevyshev inequality,
 $$
