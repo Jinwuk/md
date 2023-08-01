@@ -1,43 +1,24 @@
-Riemannian Geometry (Geodesic)
-=====================
-
+Riemannian Geometry (Geodesic)=====================[toc]
 ## Geodesic Flow
-$M$ will be a Riemannian manifold, together with its Riemannian connection.
-
+$M$ will be a Riemannian manifold, together with its Riemannian connection.
 ### Definition : Geodesic
 A parameterized curve $\gamma:I \rightarrow M$ is a geodesic at $t_0 \in I$, if
-$$
-\frac{D}{dt}\left( \frac{d \gamma}{dt}\right) = 0 \;\;\;\text{at the point } t_0
-$$
-즉, 시간에 따른 Parametrized curve의 변화량이 일정할때 such that $\gamma(t, \cdot) = t \cdot h(\cdot)$ 이것의 시간의 Covariant Derivation 이 0 이면 Geodesic
-
+$$\frac{D}{dt}\left( \frac{d \gamma}{dt}\right) = 0 \;\;\;\text{at the point } t_0$$
+즉, 시간에 따른 Parametrized curve의 변화량이 일정할때 such that $\gamma(t, \cdot) = t \cdot h(\cdot)$ 이것의 시간의 Covariant Derivation 이 0 이면 Geodesic
 - If $\gamma:I \rightarrow M$ is a **geodesic**, then
-$$
-\frac{D}{dt} \langle \frac{d \gamma}{dt}, \frac{d \gamma}{dt} \rangle = 2 \langle \frac{D}{dt} \frac{d \gamma}{dt}, \frac{d \gamma}{dt}\rangle = 0
-$$
+$$\frac{D}{dt} \langle \frac{d \gamma}{dt}, \frac{d \gamma}{dt} \rangle = 2 \langle \frac{D}{dt} \frac{d \gamma}{dt}, \frac{d \gamma}{dt}\rangle = 0$$
 
 간단히 생각하면 $\frac{d \gamma}{dt} = c \neq 0 $ 이어서 거리가
-$$
-s(t) = \int_{t_0}^t \left| \frac{d \gamma}{ds} \right| ds = c(t - t_0)
-$$
+$$s(t) = \int_{t_0}^t \left| \frac{d \gamma}{ds} \right| ds = c(t - t_0)$$
 그런데, 이것은 Differential 1-form 으로도 계산 가능하다.
-
 A parameterized curve $\gamma$ 가 Coordinate system $(U, x)$ about $\gamma(t_0)$ 근방에 다음과 같이 정의되었다고 가정하자.
-$$
-\gamma(t) = (x_1(t), \cdots x_n(t))
-$$
+$$\gamma(t) = (x_1(t), \cdots x_n(t))$$
 Geodesic이 되려면 $V = \sum_i v^i X_i$ 에서 
-$$
-\frac{DV}{dt} = \sum_k \left( \frac{dv^k}{dt} + \sum_{i,j} v^j \frac{dx_i}{dt} \Gamma_{ij}^k \right)X_k
-$$
+$$\frac{DV}{dt} = \sum_k \left( \frac{dv^k}{dt} + \sum_{i,j} v^j \frac{dx_i}{dt} \Gamma_{ij}^k \right)X_k$$
 이므로 $\frac{d\gamma}{dt} = \sum_i \frac{dx_i}{dt} X_i$, where $X_i = \frac{\partial}{\partial x_i}$ 에서
-$$
-0 = \frac{D}{dt} \frac{d\gamma}{dt} = \sum_k \left( \frac{d^2 x_k}{dt} + \sum_{i,j} \frac{dx_i}{dt} \frac{dx_j}{dt} \Gamma_{ij}^k \right) X_k
-$$
+$$0 = \frac{D}{dt} \frac{d\gamma}{dt} = \sum_k \left( \frac{d^2 x_k}{dt} + \sum_{i,j} \frac{dx_i}{dt} \frac{dx_j}{dt} \Gamma_{ij}^k \right) X_k$$
 따라서 Geodesic 조건은 
-$$
-\frac{d^2 x_k}{dt} + \sum_{i,j} \Gamma_{ij}^k \frac{dx_i}{dt} \frac{dx_j}{dt} = 0
-$$
+$$\frac{d^2 x_k}{dt} + \sum_{i,j} \Gamma_{ij}^k \frac{dx_i}{dt} \frac{dx_j}{dt} = 0$$
 
 ### Tangent Bundle $TM$
 Tangent Bundle $TM$ 은 $(q, v), q \in M, v \in T_q M$ 을 의미. 즉, 각 점 $q$에 해당하는 Tangent vector $v$로 정의되는 **Tangent Vector들의 모임**이다.
@@ -46,46 +27,29 @@ Tangent Bundle이 도입되면 Geodesic위의 임의의 Tangent space에서 세�
 
 - Tangent Space $T_q M$ 은 $t \rightarrow \gamma(t)$ 로 결정
 - Tangent Bundle $TM$ 은 $t \rightarrow (\gamma(t), \frac{d\gamma}{dt}(t))$ 로 결정. 따라서 Geodesic에서 
-$$
-\begin{cases}
-\frac{dx_k}{dt} &= y_k \\
-\frac{dy_k}{dt} &= -\sum_{i,j} \Gamma_{i,j}^k y_i y_j
-\end{cases}
-$$
+$$\begin{cases}\frac{dx_k}{dt} &= y_k \\\frac{dy_k}{dt} &= -\sum_{i,j} \Gamma_{i,j}^k y_i y_j\end{cases}$$
 
 ### Definition : flow
-The mapping $\varphi_t:V_0 \rightarrow V$ given by $\varphi_t(q) = \varphi(t,q)$ 를 ** the flow of $X$ on $V$ ** 라고 한다.
-- There exist a **unique vector field $G$ on $TM$** whose trajectories are of the form **$t \rightarrow (\gamma(t), \gamma(t)')$**, where $\gamma$ is a geodesic on $M$ 
-- 위와 같은 Vector Field를 **Geodesic Vector field** 그리고 그것의 flow를 **Geodesic flow on $TM$** 이라고 한다.
-- **Homogeneity of Geodesic** 
-$$
-\gamma(t, q, av) = \gamma(at, q, v)
-$$
+The mapping $\varphi_t:V_0 \rightarrow V$ given by $\varphi_t(q) = \varphi(t,q)$ 를 ** the flow of $X$ on $V$ ** 라고 한다.- There exist a **unique vector field $G$ on $TM$** whose trajectories are of the form **$t \rightarrow (\gamma(t), \gamma(t)')$**, where $\gamma$ is a geodesic on $M$ - 위와 같은 Vector Field를 **Geodesic Vector field** 그리고 그것의 flow를 **Geodesic flow on $TM$** 이라고 한다.- **Homogeneity of Geodesic** 
+$$\gamma(t, q, av) = \gamma(at, q, v)$$
 
 ### Exponential map (on $\mathcal{U}$)
 Let $p \in M$ and let $\mathcal{U} \subset TM$  be an open set given by Proposition 2.7 (p 64). Then the map $\exp: \mathcal{U} \rightarrow M$ given by 
-$$
-\exp (q,v) = \gamma(1, q, v) = \gamma(|v|, q, \frac{v}{|v|}) , \;\; (q,v) \in \mathcal{U}
-$$
+$$\exp (q,v) = \gamma(1, q, v) = \gamma(|v|, q, \frac{v}{|v|}) , \;\; (q,v) \in \mathcal{U}$$
 - 특징
-$$
-\exp_q : B_{\varepsilon}(0) \subset T_qM \rightarrow M
-$$
+$$\exp_q : B_{\varepsilon}(0) \subset T_qM \rightarrow M$$
 by $\exp_q(v) = \exp(q,v)$
-
 ### Proposition 
 Given $q \in M$, there exists an $\varepsilon > 0$ such that $\exp_q : B_{\varepsilon} (0) \subset T_q M \rightarrow M$ is a diffeomorphism of $B_{\varepsilon}(0)$ onto an open subset of $M$ 
-$$
-\begin{align}
+$$\begin{aligned}
 d(\exp_q)_o(v) &= \frac{d}{dt}(\exp_q (tv))|_{t=0} = \frac{d}{dt}(\gamma(1, q, tv))|_{t=0} &\;\;\; \text{by definition of exponential map} \\
 &= \frac{d}{dt}(\gamma(t, q, v))|_{t=0} = v &\;\;\;\text{by definition of exponential map}  
-\end{align}
+\end{aligned}
 $$
 Exponential Map의 시간에 대한 미분이 $v$ 이므로 이것은 $T_q M$을 만들기 위한 Parametrized Curve와 같다. 그러므로 Local Diffeomorphism.
 #### Note
 사실, 정의에 의해 어떤 점에서건 속도 벡터가 $\alpha$ 로 주어진 $\exp_q(\alpha)$의 Diffeomorphism $d\exp_q(\alpha) = \alpha$ 이다. 
-꼭 $t=0$ 가 아니어도 위, Proposition에 의해 모든 점에서 $B_{\varepsilon}(x) \subset T_q M$ 에서 성립한다. 
-
+꼭 $t=0$ 가 아니어도 위, Proposition에 의해 모든 점에서 $B_{\varepsilon}(x) \subset T_q M$ 에서 성립한다. 
 ## Minimizing Properties of Geodesics
 ### Definition : piecewise differentiable curve
 piecewise differentiable curve is continuous mapping $c:[a,b] \rightarrow M$ of a closed interval $[a,b] \subset \mathbb{R}$ into $M$ satisfying thefollowing conditrion: there exists a partition $a = t_0< t_1 < \cdots < t_{k-1} < t_k = b$ of $[a, b]$ such that the restrictions $\left. c \right|_{[t_i, t_{i+1}]}, \; i=0, \cdots , k-1$ are differentiable.
@@ -130,51 +94,29 @@ $$
 $$
 
 #### Note
-$$
-d(exp_q)_o(v) = v
-$$
+$$d(exp_q)_o(v) = v$$
 에서, 
-$$
-\langle (d \exp_p)_o (v), (d\exp_p)_o(w) \rangle = \langle v, w \rangle
-$$
+$$\langle (d \exp_p)_o (v), (d\exp_p)_o(w) \rangle = \langle v, w \rangle$$
 Set $\exp_p u$ is defined for 
-$$
-u = t v(s), \;\; 0 \leq t \leq 1, \;\; -\varepsilon < s < \varepsilon
-$$
+$$u = t v(s), \;\; 0 \leq t \leq 1, \;\; -\varepsilon < s < \varepsilon$$
 where $v(s)$ is a curve in $T_pM$ with $v(0) = v, v'(0)=w_N$ and Let $f(t,s)= \exp_p tv(s)$ then
-$$
-\begin{align}
-\frac{\partial f}{\partial s} &= \frac{\partial }{\partial s} \exp_p tv(s) = (d\exp_p)_v (tv'(s))\\
-\frac{\partial f}{\partial t} &= \frac{\partial }{\partial t} \exp_p tv(s) = (d\exp_p)_v (v(s)) 
-\end{align}
-$$
-
+$$\begin{aligned}\frac{\partial f}{\partial s} &= \frac{\partial }{\partial s} \exp_p tv(s) = (d\exp_p)_v (tv'(s))\\\frac{\partial f}{\partial t} &= \frac{\partial }{\partial t} \exp_p tv(s) = (d\exp_p)_v (v(s)) \end{aligned}$$
 ![Fig05](http://jnwhome.iptime.org/img/DG/RMGM_005.png)
 
 #### Sketch of Proof
 먼저 $w = w_T + w_N$ 으로 놓으면 $w_T$는 Tangent Space 위에 있고 $v$에 평행이다. 그러므로 
-$$
-\langle (d \exp_p)_v (v), (d\exp_p)_v(w_T) \rangle = \langle v, w_T \rangle
-$$
+$$\langle (d \exp_p)_v (v), (d\exp_p)_v(w_T) \rangle = \langle v, w_T \rangle$$
 
 For $w = w_N$, 에서 Riemannian 계량이 0이면 증명 성립
-$$
-\langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle (1,0) = \langle (d\exp_p)_v(w_N), (d\exp_p)_v(v) \rangle 
-$$
+$$\langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle (1,0) = \langle (d\exp_p)_v(w_N), (d\exp_p)_v(v) \rangle $$
 For all $(t,s)$,
-$$
-\frac{\partial}{\partial t} \langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle = \langle \frac{D}{\partial t}  \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle + \langle \frac{\partial f}{\partial s}, \frac{D}{\partial t} \frac{\partial f}{\partial t} \rangle
-$$
+$$\frac{\partial}{\partial t} \langle \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle = \langle \frac{D}{\partial t}  \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle + \langle \frac{\partial f}{\partial s}, \frac{D}{\partial t} \frac{\partial f}{\partial t} \rangle$$
 여기서 $\frac{\partial f}{\partial t}$이 **Geodesesic의 Tangent vector이기 때문**에 이것의 Covariant Differential 은 0. 
 따라서,
-$$
-\langle \frac{\partial f}{\partial s}, \frac{D}{\partial t} \frac{\partial f}{\partial t} \rangle = 0
-$$
+$$\langle \frac{\partial f}{\partial s}, \frac{D}{\partial t} \frac{\partial f}{\partial t} \rangle = 0$$
 
 Symmetry에 의해 첫번째 항은 
-$$
-\langle \frac{D}{\partial t}  \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle = \langle \frac{D}{\partial s}  \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = \frac{1}{2} \frac{\partial }{\partial s} \langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = 0 \;\;\; \because \langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = \text{constant}
-$$
+$$\langle \frac{D}{\partial t}  \frac{\partial f}{\partial s}, \frac{\partial f}{\partial t} \rangle = \langle \frac{D}{\partial s}  \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = \frac{1}{2} \frac{\partial }{\partial s} \langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = 0 \;\;\; \because \langle \frac{\partial f}{\partial t}, \frac{\partial f}{\partial t} \rangle = \text{constant}$$
 그러므로
 
 $$
@@ -270,10 +212,10 @@ $$
 그리고 $u(t,q,v)$ 자체는 하나의 위치를 가리키고 있으며 $u(t, q, v) = tv$ 이다.
 여기서 $F$를 미분하면 
 $$
-\begin{align}
+\begin{aligned}
 \frac{\partial F}{\partial t} &= 2 \langle \frac{\partial u}{\partial t}, u \rangle \\
 \frac{\partial^2 F}{\partial t^2} &= 2 \langle \frac{\partial^2 u}{\partial t^2}, u \rangle + 2 \left| \frac{\partial u}{\partial t} \right|^2
-\end{align}
+\end{aligned}
 $$
 
 마지막으로 let $r > 0$ be chsoen so that
@@ -313,15 +255,7 @@ $q_1$을 중심으로 하는 Open Ball을 생각해보면 $2\delta < c$ 이므�
 만일, $B_{\beta}(p)$ 외부에 그림의 붉은선 처럼 Geodesic이 존재한다고 하면 위에서 보듯이 $W = B_c(p)$ 내부에 여전히 Geodesic이 존재하기 때문에 Lemma 4.1을 위배한다. 고로 증명 끝.
 
 ![Fig10](http://jnwhome.iptime.org/img/DG/RMGM_009.png)
-
-
-
-
-
-
-
-
-
+
 ## Exponential Maps and Log Maps
 - Let $v \in T_p M$ be a vector on the tangent plane to $M$ at $p \in M$ and $v \neq 0$. 
 - $\gamma_p^v$ be the geodesic that pass through point $p$ (a.k.a. the base point) in the direction of $v$. 

@@ -1,13 +1,15 @@
 RiemannGeometry : Complete Manifold
 ============
 
+[toc]
+
 Manifold의 국소적 특성 뿐 아니라 전역적 특성을 알아보는 내용
 
-- ** A Complete Riemannian Manifold ** $M$ 
+- **A Complete Riemannian Manifold ** $M$ 
 	- Geodesic이 Manifold의 모든 파라미터에서 정의될 수 있을 것
 	- i.e. $\forall p \in M$, $\exp_p$ 가 모든 $T_p M$에서 정의될 것
 	- 다시말해 Manifold에 어떤 Hole이나 Boundary가 없을 것
-- ** Hadamard Theorem **
+- **Hadamard Theorem **
 	- $n$ 차원의 **Sectional Curvature $K \leq 0$ ** 인 Complete simply connected manifold 의 $mathbb{R}^n$ 으로의 **Homorphism**이 존재한다는 것
 
 ## Complete Manifold : Hopf-Rinow Theorem

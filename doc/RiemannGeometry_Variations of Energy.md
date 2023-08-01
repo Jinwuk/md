@@ -1,6 +1,10 @@
 RiemannGeometry : Variations of Energy
 ============
 
+[toc]
+
+
+
 Geodesic을 Solution of variational problem 으로 보는 것
 
 - Theorem of Bonnet-Myers 
@@ -104,7 +108,7 @@ $$
 $$
 
 
-## The THeorems of Bonnet-Myers and of SyngeWeinstein
+## The Theorems of Bonnet-Myers and of SyngeWeinstein
 
 ### Theorem 3.1 (Bonnet-Myers)
 Let $M^n$ be acomplete RTiemannian manifold.

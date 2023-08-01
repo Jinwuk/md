@@ -1,7 +1,10 @@
 RiemannGeometry : Isometric Immersion
 ============
 
+[toc]
+
 Riemannian Geometry 상에서의 알고리즘 개발에서는 Isometric Immersion과 Complete Manifold가 더 중요할 것으로 판단된다.
+
 - Isometric Immersion 은 Riemannian Metric이 보존되는 조건을 가지는 Manifold (의 Construction)
 - Complete Manifold 는 알고리즘이 Convcerge 할 수 있는 Manifold의 조건이라는 측면에서 중요하다.
 - Variations of Energy 는 Geodesic이 최소 Enegy를 따라간다는 것에 대한 증명일 뿐이다. 

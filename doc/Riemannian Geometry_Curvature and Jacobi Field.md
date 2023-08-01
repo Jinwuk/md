@@ -1,6 +1,8 @@
 Riemannian Geometry (Curvature)
 =============
 
+[toc]
+
 **The sectional curvature** of $M$ at $p$ with respect to $\sigma$
 $$
 K(p,\sigma)
@@ -235,7 +237,7 @@ $$
 
 - $Q$ is symmetric and 
 
-$$ 
+$$
 Q(x,x) = \sum_{i} \langle R(x, z_i)x, z_i \rangle = (n-1)\frac{1}{n-1} \sum_{i} \langle R(x, z_i)x, z_i \rangle = (n-1) \text{Ric}_p(x)
 $$
 
@@ -262,7 +264,7 @@ $$
 
 $$
 \frac{1}{n-1}R_{ik} = \frac{1}{n-1} \sum_j R_{ijk}^j = \frac{1}{n-1} \sum_j R_{ijks} g^{sj}
-$$ 
+$$
 
 - The scalar curvature in the coordinate system $(x_i)$ is given by
 

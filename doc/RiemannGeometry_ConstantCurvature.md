@@ -1,6 +1,8 @@
 RiemannGeometry : Space of constant curvature
 =========
 
+[toc]
+
 - Euclidean space $\mathbb{R}^n$ with $K \equiv 0$
 - The Unit Sphere $S^n \subset \mathbb{R}^{n+1}$ with $K \equiv 1$ 
 - The Hyperbolic space $H^n$ which has sectional curvature $K \equiv 01$
@@ -22,7 +24,7 @@ Define $\phi_t : T_q M \rightarrow T_{f(q)} M$ by
 
 $$
 \phi_t(v) = \tilde{P}_t \circ i \circ P_t^{-1}(v), \;\;\; v \in T_q(M)
-$$ 
+$$
 
 위 관계는 다음 그림과 같이 도시된다. 
 ![Fig01](http://jnwhome.iptime.org/img/DG/LARG_14.png)
